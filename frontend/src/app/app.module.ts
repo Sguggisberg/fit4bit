@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SuperiorModule } from './superior/superior.module';
-import { TrainerModule } from './trainer/trainer.module';
+
 
 @NgModule({
   declarations: [
@@ -13,8 +12,6 @@ import { TrainerModule } from './trainer/trainer.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SuperiorModule,
-    TrainerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

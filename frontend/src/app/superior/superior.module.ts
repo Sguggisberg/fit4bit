@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewUserComponent } from './new-user/new-user.component';
+import { SuperiorRoutingModule } from './superior-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { NewUserComponent } from './new-user/new-user.component';
     NewUserComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SuperiorRoutingModule
   ],
   exports: [
     NewUserComponent
