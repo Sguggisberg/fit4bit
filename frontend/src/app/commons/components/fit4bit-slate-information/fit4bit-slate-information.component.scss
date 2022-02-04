@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  border: solid 1px black;
+}
+
+.close {
+  float: right;
+  position: sticky;
+  right: 0px;
+  top: 0px;
+}
+
+.content {
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.tick {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}

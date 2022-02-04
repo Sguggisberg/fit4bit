@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BlankSlateInformationComponent } from './blank-slate-information/blank-slate-information.component';
 import { MaterialModule } from '../material/material.module';
 import { Fit4bitCloseButtonComponent } from './components/fit4bit-close-button/fit4bit-close-button.component';
+import { Fit4bitSlateInformationComponent } from './components/fit4bit-slate-information/fit4bit-slate-information.component';
 
 
 
 @NgModule({
   declarations: [
-    BlankSlateInformationComponent,
-    Fit4bitCloseButtonComponent
+    Fit4bitCloseButtonComponent,
+    Fit4bitSlateInformationComponent
   ],
   imports: [
     CommonModule,
     MaterialModule
   ],
   exports: [
-    BlankSlateInformationComponent
+    Fit4bitSlateInformationComponent
   ]
 })
 export class CommonsModule { }

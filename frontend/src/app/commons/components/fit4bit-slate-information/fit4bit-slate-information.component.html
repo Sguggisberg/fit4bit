@@ -1,0 +1,15 @@
+<div class="container" *ngIf="isVisible">
+  <app-fit4bit-close-button class="close"
+  (closeEvent)="closeMe($event)"
+
+
+  ></app-fit4bit-close-button>
+  <section class="content">
+    {{ content }}
+  </section>
+  <section class="disappear">
+    <mat-checkbox class="tick" (click)="rememberMe()"
+      >Nicht mehr anzeigen</mat-checkbox
+    >
+  </section>
+</div>
