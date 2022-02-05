@@ -1,4 +1,4 @@
-<form [formGroup]="profileForm">
+<form [formGroup]="profileForm" (ngSubmit)="create()">
 
   <mat-form-field appearance="fill">
     <mat-label for="firstName">Vorname</mat-label>

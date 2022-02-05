@@ -4,20 +4,17 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { SuperiorRoutingModule } from './superior-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    NewUserComponent
-  ],
+  declarations: [NewUserComponent],
   imports: [
     CommonModule,
     SuperiorRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  exports: [
-    NewUserComponent
-  ]
+  exports: [NewUserComponent],
 })
-export class SuperiorModule { }
+export class SuperiorModule {}

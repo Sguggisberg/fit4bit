@@ -1,5 +1,7 @@
+import { UserDto } from './../../commons/dto/user-dto.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserServiceService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-new-user',
@@ -13,8 +15,14 @@ export class NewUserComponent {
     email: new FormControl('', [Validators.required, Validators.email])
   });
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
+constructor(private userServiceService: UserServiceService){
+
+}
+
+  create() {
+    let user:UserDto = {
+      name: 'abc'
+    }
+    this.userServiceService.$create(user).subscribe();
   }
 }

@@ -1,4 +1,4 @@
-package configuration;
+package ch.fit4bit.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

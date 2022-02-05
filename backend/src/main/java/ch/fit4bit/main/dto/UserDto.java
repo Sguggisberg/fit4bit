@@ -1,4 +1,4 @@
-package dto;
+package ch.fit4bit.main.dto;
 
 import java.util.Date;
 import javax.persistence.Entity;
@@ -8,7 +8,6 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-@Entity
 public class UserDto  {
 
 	private static final long serialVersionUID = 6925823811738245033L;
@@ -17,7 +16,6 @@ public class UserDto  {
 
 	}
 
-
 	public UserDto(String username, String vorname, String name, String passwort) {
 		this.name = name;
 		this.username = username;
@@ -25,22 +23,13 @@ public class UserDto  {
 		this.vorname = vorname;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
+	private Long id;
 	private String name;
 	private String vorname;
 	private String passwort;
 	private String username;
 
-
-
-	@CreationTimestamp
-	private Date dateCreated;
-
-	@CreationTimestamp
-	private Date lastUpdate;
 
 	public Long getId() {
 		return id;
@@ -91,27 +80,6 @@ public class UserDto  {
 		this.username = username;
 	}
 
-
-	public Date getDateCreated() {
-		return dateCreated;
-	}
-
-
-	public void setDateCreated(Date dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-
-	public Date getLastUpdate() {
-		return lastUpdate;
-	}
-
-
-	public void setLastUpdate(Date lastUpdate) {
-		this.lastUpdate = lastUpdate;
-	}
-	
-	
 	
 
 }

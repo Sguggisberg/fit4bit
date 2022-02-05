@@ -1,5 +1,7 @@
-package ch.fit4bit.main.controller;
+package ch.fit4bit.controller;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,17 +10,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.UserDto;
-
-
+import ch.fit4bit.main.dto.UserDto;
+import ch.fit4bit.main.entity.User;
+import ch.fit4bit.service.UserService;
 
 @RestController
 @RequestMapping(path = "/api/user")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
+	private UserService userService;
+	private ModelMapper modelMapper;
+
+	@Autowired
+	public UserController(UserService userService, ModelMapper modelMapper) {
+		this.modelMapper = modelMapper;
+		this.userService = userService;
+	}
+
 	@PostMapping
 	public ResponseEntity<?> create(@RequestBody UserDto userDTO) {
-				 return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		userService.create(modelMapper.map(userDTO, User.class));
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 }
