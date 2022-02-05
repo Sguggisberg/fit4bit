@@ -6,8 +6,7 @@ import { Fit4bitCloseButtonComponent } from './components/fit4bit-close-button/f
 import { HeaderComponent } from './navigation/header/header.component';
 import { SideComponent } from './navigation/side/side.component';
 import { MainComponent } from './navigation/main/main.component';
-
-
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -16,15 +15,9 @@ import { MainComponent } from './navigation/main/main.component';
     HeaderComponent,
     SideComponent,
     MainComponent,
-
+    LoaderComponent,
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-
-  ],
-  exports: [
-    BlankSlateInformationComponent,HeaderComponent
-  ]
+  imports: [CommonModule, MaterialModule],
+  exports: [BlankSlateInformationComponent, HeaderComponent, LoaderComponent],
 })
-export class CommonsModule { }
+export class CommonsModule {}
