@@ -7,6 +7,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SideComponent } from './navigation/side/side.component';
 import { MainComponent } from './navigation/main/main.component';
 import { LoaderComponent } from './loader/loader.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,10 @@ import { LoaderComponent } from './loader/loader.component';
     HeaderComponent,
     SideComponent,
     MainComponent,
-    LoaderComponent,
+    LoaderComponent
+
   ],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, AppRoutingModule],
   exports: [BlankSlateInformationComponent, HeaderComponent, LoaderComponent],
 })
 export class CommonsModule {}

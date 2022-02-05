@@ -7,8 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { CommonsModule } from './commons/commons.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { TestComponent } from './test/test.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TestComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -16,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MaterialModule,
     CommonsModule,
     MatToolbarModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
