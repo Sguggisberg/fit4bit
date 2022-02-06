@@ -15,10 +15,9 @@ export class UserServiceService {
 
   $create(userDto: UserDto): Observable<any> {
     const body = JSON.stringify(userDto);
-    console.log('data: ' + body);
-    console.log('url:' + environment.BACKEND_URL);
     const headers = new HttpHeaders(HEADER);
     const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
+    console.log('data:' + body);
     return this.httpClient.post(backendEndpoint, body, {
       headers,
     });

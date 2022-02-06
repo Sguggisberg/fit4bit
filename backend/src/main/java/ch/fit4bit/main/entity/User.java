@@ -18,19 +18,13 @@ public class User  {
 	}
 
 
-	public User(String username, String vorname, String name, String passwort) {
-		this.name = name;
-		this.username = username;
-		this.passwort = passwort;
-		this.vorname = vorname;
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
-	private String vorname;
+	private String lastName;
+	private String firstName;
+	private String email;
 	private String passwort;
 	private String username;
 
@@ -46,72 +40,65 @@ public class User  {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-	public String getName() {
-		return name;
+	public String getLastName() {
+		return lastName;
 	}
 
-
-	public void setName(String name) {
-		this.name = name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-
-	public String getVorname() {
-		return vorname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-
-	public void setVorname(String vorname) {
-		this.vorname = vorname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getPasswort() {
 		return passwort;
 	}
 
-
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
 	}
-
 
 	public String getUsername() {
 		return username;
 	}
 
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 
 	public Date getDateCreated() {
 		return dateCreated;
 	}
 
-
 	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-
 
 	public Date getLastUpdate() {
 		return lastUpdate;
 	}
 
-
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-	
-	
-	
 
+	
 }

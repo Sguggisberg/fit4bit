@@ -1,4 +1,4 @@
-import { UserDto } from './../../commons/dto/user-dto.model';
+import { UserDto } from 'src/app/commons/dto/user-dto.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../service/user-service.service';
@@ -6,23 +6,24 @@ import { UserServiceService } from '../service/user-service.service';
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.scss']
+  styleUrls: ['./new-user.component.scss'],
 })
-export class NewUserComponent {
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    email: new FormControl('', [Validators.required, Validators.email])
-  });
+export class NewUserComponent implements OnInit {
+  profileForm: FormGroup;
 
-constructor(private userServiceService: UserServiceService){
 
-}
+
+  constructor(private userServiceService: UserServiceService) {}
+  ngOnInit(): void {
+    this.profileForm = new FormGroup({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+    });
+  }
 
   create() {
-    let user:UserDto = {
-      name: 'abc'
-    }
-    this.userServiceService.$create(user).subscribe();
+    const newUser = this.profileForm.value;
+    this.userServiceService.$create(newUser).subscribe();
   }
 }
