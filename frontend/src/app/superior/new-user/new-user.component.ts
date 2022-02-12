@@ -10,8 +10,12 @@ import { UserServiceService } from '../service/user-service.service';
 })
 export class NewUserComponent implements OnInit {
   profileForm: FormGroup;
+  selectedFile: File;
 
 
+  onUpload() {
+    // upload code goes here
+  }
 
   constructor(private userServiceService: UserServiceService) {}
   ngOnInit(): void {
@@ -26,4 +30,9 @@ export class NewUserComponent implements OnInit {
     const newUser = this.profileForm.value;
     this.userServiceService.$create(newUser).subscribe();
   }
+
+  onFileChanged(event:any) {
+    const file = event.target.files[0]
+  }
+
 }
