@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TrainingTypService } from '../../service/training-typ.service';
 import { UserServiceService } from '../../service/user-service.service';
 
 
@@ -9,20 +10,18 @@ import { UserServiceService } from '../../service/user-service.service';
   styleUrls: ['./new-trainin-typ.component.scss']
 })
 export class NewTraininTypComponent  {
-  profileForm2: FormGroup;
+  profileForm: FormGroup;
 
-  constructor(private userServiceService: UserServiceService) {}
+  constructor(private trainingTypService: TrainingTypService) {}
   ngOnInit(): void {
-    this.profileForm2 = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+    this.profileForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
     });
   }
 
   create() {
-    const newUser = this.profileForm2.value;
-    this.userServiceService.$create(newUser).subscribe();
+    const newTrainingTyp = this.profileForm.value;
+    this.trainingTypService.$create(newTrainingTyp).subscribe();
   }
 
 }
