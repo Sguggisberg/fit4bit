@@ -1,13 +1,5 @@
 package ch.fit4bit.main.dto;
 
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import org.hibernate.annotations.CreationTimestamp;
-
 public class UserDto  {
 
 	private static final long serialVersionUID = 6925823811738245033L;
