@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TrainingTypService } from '../../service/training-typ.service';
-import { UserServiceService } from '../../service/user-service.service';
 
 
 @Component({
