@@ -17,7 +17,12 @@ public class User  {
 
 	}
 
-
+	public User(String username, String vorname, String lastName, String passwort) {
+		this.lastName = lastName;
+		this.username = username;
+		this.passwort = passwort;
+		this.firstName = firstName;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
