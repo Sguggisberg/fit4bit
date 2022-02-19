@@ -2,6 +2,7 @@ package ch.fit4bit.main.dto;
 
 import java.io.Serializable;
 
+import javax.persistence.Lob;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
@@ -17,6 +18,7 @@ public class RoomDto  implements Serializable {
 	@NotEmpty(message = ValidatorHelper.NAME_ERROR_MESSAGE)
 	@Pattern(regexp=ValidatorHelper.NAME_REGEX, message = ValidatorHelper.NAME_ERROR_MESSAGE)
 	private String name;
+	
 	
 	public RoomDto() {
 		
@@ -35,6 +37,6 @@ public class RoomDto  implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	
 }

@@ -2,6 +2,7 @@ package ch.fit4bit.main.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,14 @@ public class Room  implements Serializable  {
 	private Long id;
 
 	private String name;
-
+	
+	private String imageName;
+	
+	private String imageType;
+	
+	@Column(length = 1000000)
+	private byte[] imageByte;
+	
 	public Room() {
 
 	}
@@ -41,6 +49,32 @@ public class Room  implements Serializable  {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
+	public String getImageType() {
+		return imageType;
+	}
+
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
+
+	public byte[] getImageByte() {
+		return imageByte;
+	}
+
+	public void setImageByte(byte[] imageByte) {
+		this.imageByte = imageByte;
+	}
+
+
 
 
 }

@@ -1,3 +1,4 @@
+import { RoomComponent } from './pages/room/room.component';
 import { NewTrainingComponent } from './pages/new-training/new-training.component';
 import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';
 import { NewUserComponent } from './pages/new-user/new-user.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'training',
     component: NewTrainingComponent
+  },
+  {
+    path: 'room',
+    component: RoomComponent
   }
 ];
 
