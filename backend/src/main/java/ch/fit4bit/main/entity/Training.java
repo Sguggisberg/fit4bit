@@ -20,15 +20,14 @@ public class Training implements Serializable {
 		this.isDeleted = false;
 	}
 
-	public Training(TrainingTyp trainingTyp, LocalDateTime runningDate, int amountOfCustomer, Boolean isDeleted, User user) {
+	public Training(TrainingTyp trainingTyp, LocalDateTime runningDate,  User user, Room room, int durationInMin) {
 		super();
 		this.trainingTyp = trainingTyp;
 		this.runningDate = runningDate;
-		this.amountOfCustomer = amountOfCustomer;
-		this.isDeleted = isDeleted;
 		this.user = user;
-	
 		this.isDeleted = false;
+		this.room = room;
+		this.duration = durationInMin;
 	}
 
 	@Id
@@ -41,6 +40,8 @@ public class Training implements Serializable {
 	@ManyToOne
 	private TrainingTyp trainingTyp;
 
+	@ManyToOne
+	private Room room;
 
 	@CreationTimestamp
 	private LocalDateTime dateCreated;
@@ -129,5 +130,14 @@ public class Training implements Serializable {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+	
 
 }
