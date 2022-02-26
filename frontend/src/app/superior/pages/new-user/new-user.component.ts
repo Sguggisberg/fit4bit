@@ -11,6 +11,7 @@ export class NewUserComponent implements OnInit {
   profileForm: FormGroup;
 
   constructor(private userServiceService: UserServiceService) {}
+
   ngOnInit(): void {
     this.profileForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
@@ -19,9 +20,8 @@ export class NewUserComponent implements OnInit {
     });
   }
 
-  create() {
+  create(): void {
     const newUser = this.profileForm.value;
     this.userServiceService.$create(newUser).subscribe();
   }
-
 }

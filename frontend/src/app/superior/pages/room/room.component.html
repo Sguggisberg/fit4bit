@@ -1,17 +1,24 @@
-<input type="file" class="file-input"
-(change)="onFileSelected($event)"  #fileUpload>
 
-<div class="file-upload">
+<section  >
+  <form fxLayout="column" fxLayoutAlign="center center"
+    [formGroup]="profileForm"
+    (ngSubmit)="create()"
+    >
+    <mat-form-field>
+      <mat-label for="name">Raumname</mat-label>
+      <input id="name" matInput type="text" formControlName="name" />
+    </mat-form-field>
 
-
-
-    <button mat-mini-fab color="primary" class="upload-btn"
-      (click)="fileUpload.click()">
-        <mat-icon>attach_file</mat-icon>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!profileForm.valid"
+    >
+      Speichern
     </button>
-</div>
+  </form>
+</section>
 
-<div>
-  <img [src]="file" *ngIf="file" style="height: 300px; width:500px">
 
-</div>
+

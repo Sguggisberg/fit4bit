@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { RoomDto } from './../../../commons/dto/room-dto.model';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RoomService } from '../../service/room.service';
 
 @Component({
@@ -7,28 +8,25 @@ import { RoomService } from '../../service/room.service';
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss'],
 })
-export class RoomComponent {
-  fileName = '';
+export class RoomComponent implements OnInit {
+  profileForm: FormGroup;
   file: File;
 
-  constructor(private http: HttpClient) {}
+  constructor(private roomService: RoomService) {}
+
+  ngOnInit(): void {
+    this.profileForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+    })
+  }
 
   onFileSelected(event: any) {
     this.file = event.target.files[0];
-
-    if (this.file) {
-      this.fileName = this.file.name;
-
-      const formData = new FormData();
-
-      formData.append('image', this.file);
-
-      const upload$ = this.http.post(
-        'http://localhost:8080/api/room',
-        formData
-      );
-
-      upload$.subscribe();
-    }
   }
+
+  create():void {
+    const newRoom: RoomDto = this.profileForm.value;
+    this.roomService.$create(newRoom).subscribe();
+  }
+
 }

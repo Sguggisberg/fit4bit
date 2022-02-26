@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-
 import ch.fit4bit.main.dto.RoomDto;
 import ch.fit4bit.main.entity.Room;
 import ch.fit4bit.service.RoomService;
@@ -32,27 +29,11 @@ public class RoomController {
 		this.modelMapper = modelMapper;
 	}
 
-	//@PostMapping
+	@PostMapping
 	public ResponseEntity<?> create(@RequestBody RoomDto newRoom) {
 		roomService.create(modelMapper.map(newRoom, Room.class));
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
-
-
-	@PostMapping
-	public ResponseEntity<?> create2(@RequestParam("image") MultipartFile file) throws IOException {
-		Room r = new Room();
-		r.setName("bla123");
-		r.setImageName(file.getOriginalFilename());
-		r.setImageByte(compressBytes(file.getBytes()));
-		r.setImageType(file.getContentType());
-
-		roomService.create(r);
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-
-	}
-
-
 
 
 	// compress the image bytes before storing it in the database
