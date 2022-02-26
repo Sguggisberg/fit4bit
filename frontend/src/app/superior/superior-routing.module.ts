@@ -16,13 +16,13 @@ const routes: Routes = [
     component: NewTraininTypComponent
   },
   {
-    path: 'training',
+    path: 'newtraining',
     component: NewTrainingComponent
   },
   {
     path: 'room',
     component: RoomComponent
-  }
+  },
 ];
 
 @NgModule({
