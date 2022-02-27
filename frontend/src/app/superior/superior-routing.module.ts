@@ -1,5 +1,5 @@
 import { RoomComponent } from './pages/room/room.component';
-import { NewTrainingComponent } from './pages/new-training/new-training.component';
+import { TrainingComponent } from '../commons/pages/training/training.component';
 import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';
 import { NewUserComponent } from './pages/new-user/new-user.component';
 import { NgModule } from '@angular/core';
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'newtraining',
-    component: NewTrainingComponent
+    component: TrainingComponent
   },
   {
     path: 'room',

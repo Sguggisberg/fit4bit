@@ -5,12 +5,12 @@ import { SuperiorRoutingModule } from './superior-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NewTrainingComponent } from './pages/new-training/new-training.component';
+import { TrainingComponent } from '../commons/pages/training/training.component';
 import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';
 import { RoomComponent } from './pages/room/room.component';
 
 @NgModule({
-  declarations: [NewUserComponent, NewTrainingComponent, NewTraininTypComponent, RoomComponent],
+  declarations: [NewUserComponent, TrainingComponent, NewTraininTypComponent, RoomComponent],
   imports: [
     CommonModule,
     SuperiorRoutingModule,
@@ -18,6 +18,6 @@ import { RoomComponent } from './pages/room/room.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  exports: [NewUserComponent, NewTrainingComponent, NewTraininTypComponent],
+  exports: [NewUserComponent, TrainingComponent, NewTraininTypComponent],
 })
 export class SuperiorModule {}

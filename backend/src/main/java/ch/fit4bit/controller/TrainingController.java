@@ -28,8 +28,11 @@ public class TrainingController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> create(@RequestBody Training tarining) {
-		trainingService.create(modelMapper.map(tarining, Training.class));
+	public ResponseEntity<?> create(@RequestBody Training training) {
+		System.out.println("data: "+ training.getRoom().getId());
+
+		System.out.println("************" + training.getRoom());
+		trainingService.create(modelMapper.map(training, Training.class));
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 	

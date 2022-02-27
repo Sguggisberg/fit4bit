@@ -57,8 +57,6 @@ public class Training implements Serializable {
 
 	private Boolean isDeleted;
 
-	
-	
 	public Long getId() {
 		return id;
 	}

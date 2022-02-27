@@ -1,5 +1,7 @@
 package ch.fit4bit.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,11 @@ public class TrainingTypService {
 		this.trainingTypRepository = trainingTypRepository;
 	}
 
-	public  TrainingTyp create(TrainingTyp trainingTyp) {
+	public TrainingTyp create(TrainingTyp trainingTyp) {
 		return trainingTypRepository.save(trainingTyp);
+	}
+	
+	public List<TrainingTyp> getAllTrainingTyps(){
+		return trainingTypRepository.findAll();
 	}
 }

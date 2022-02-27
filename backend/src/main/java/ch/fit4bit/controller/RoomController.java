@@ -2,12 +2,15 @@ package ch.fit4bit.controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.Deflater;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,23 +38,14 @@ public class RoomController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
-
-	// compress the image bytes before storing it in the database
-	public static byte[] compressBytes(byte[] data) {
-		Deflater deflater = new Deflater();
-		deflater.setInput(data);
-		deflater.finish();
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
-		byte[] buffer = new byte[1024];
-		while (!deflater.finished()) {
-			int count = deflater.deflate(buffer);
-			outputStream.write(buffer, 0, count);
+	@GetMapping
+	public List<RoomDto> getAllRooms() {
+		List<Room> allRooms = roomService.getAllRooms();
+		List<RoomDto> allRoomsDto = new ArrayList<>();
+		for (Room room : allRooms) {
+			allRoomsDto.add(modelMapper.map(room, RoomDto.class));
 		}
-		try {
-			outputStream.close();
-		} catch (IOException e) {
-		}
-		System.out.println("Compressed Image Byte Size - " + outputStream.toByteArray().length);
-		return outputStream.toByteArray();
+		return allRoomsDto;
 	}
+
 }

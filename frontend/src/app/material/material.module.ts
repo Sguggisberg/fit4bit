@@ -8,6 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatToolbarModule,
     FlexLayoutModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -32,6 +34,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatToolbarModule,
     FlexLayoutModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
   ],
 })
 export class MaterialModule {}

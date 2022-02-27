@@ -1,7 +1,7 @@
 import { RoomDto } from './../../../commons/dto/room-dto.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RoomService } from '../../service/room.service';
+import { RoomService } from 'src/app/commons/service/room.service';
 
 @Component({
   selector: 'app-room',
@@ -9,13 +9,13 @@ import { RoomService } from '../../service/room.service';
   styleUrls: ['./room.component.scss'],
 })
 export class RoomComponent implements OnInit {
-  profileForm: FormGroup;
+  formGroup: FormGroup;
   file: File;
 
   constructor(private roomService: RoomService) {}
 
   ngOnInit(): void {
-    this.profileForm = new FormGroup({
+    this.formGroup = new FormGroup({
       name: new FormControl('', [Validators.required]),
     })
   }
@@ -25,8 +25,8 @@ export class RoomComponent implements OnInit {
   }
 
   create():void {
-    const newRoom: RoomDto = this.profileForm.value;
-    this.roomService.$create(newRoom).subscribe();
+    const newRoom: RoomDto = this.formGroup.value;
+    this.roomService.create$(newRoom).subscribe();
   }
 
 }

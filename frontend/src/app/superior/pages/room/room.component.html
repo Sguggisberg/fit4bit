@@ -1,7 +1,7 @@
 
 <section  >
   <form fxLayout="column" fxLayoutAlign="center center"
-    [formGroup]="profileForm"
+    [formGroup]="formGroup"
     (ngSubmit)="create()"
     >
     <mat-form-field>
@@ -13,7 +13,7 @@
       mat-raised-button
       color="primary"
       type="submit"
-      [disabled]="!profileForm.valid"
+      [disabled]="!formGroup.valid"
     >
       Speichern
     </button>
