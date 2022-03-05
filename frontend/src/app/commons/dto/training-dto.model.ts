@@ -6,4 +6,5 @@ export interface TrainingDto{
   trainingTyp?: TrainingTypDto,
   room?: RoomDto,
   user?: UserDto
+  duration?: number
 }

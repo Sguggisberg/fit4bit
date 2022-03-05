@@ -33,7 +33,8 @@ export class TrainingComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       roomId: new FormControl(''),
       trainingTypId: new FormControl(''),
-      userId: new FormControl('')
+      userId: new FormControl(''),
+      duration: new FormControl('')
     });
 
     this.roomService
@@ -64,7 +65,9 @@ export class TrainingComponent implements OnInit {
     const newTraining: TrainingDto = {
       room: roomDto,
       trainingTyp: trainingTypDto,
-      user: userDto
+      user: userDto,
+      duration: this.formGroup.value.duration
+
     };
     this.trainingService.create$(newTraining).subscribe();
   }
