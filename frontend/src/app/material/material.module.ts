@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -23,6 +25,8 @@ import { MatSelectModule } from '@angular/material/select';
     FlexLayoutModule,
     MatProgressSpinnerModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -35,6 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
     FlexLayoutModule,
     MatProgressSpinnerModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 export class MaterialModule {}
