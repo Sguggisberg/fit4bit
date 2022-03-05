@@ -17,12 +17,13 @@ public class User  {
 
 	}
 
-	public User(String username, String vorname, String lastName, String passwort) {
+	public User(String username, String firstName, String lastName, String passwort) {
 		this.lastName = lastName;
 		this.username = username;
 		this.passwort = passwort;
 		this.firstName = firstName;
 	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -32,8 +33,6 @@ public class User  {
 	private String email;
 	private String passwort;
 	private String username;
-
-
 
 	@CreationTimestamp
 	private Date dateCreated;

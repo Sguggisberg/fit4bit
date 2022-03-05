@@ -19,6 +19,15 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field appearance="fill">
+    <mat-label>Trainer</mat-label>
+    <mat-select formControlName="userId">
+      <mat-option *ngFor="let user of userList" [value]="user.id">
+        {{ user.firstName }} {{ user.email }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <button
     mat-raised-button
     color="primary"

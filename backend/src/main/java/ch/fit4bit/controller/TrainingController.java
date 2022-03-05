@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ch.fit4bit.main.dto.TrainingDTO;
 import ch.fit4bit.main.entity.Training;
 import ch.fit4bit.service.TrainingService;
 
@@ -28,11 +29,9 @@ public class TrainingController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> create(@RequestBody Training training) {
-		System.out.println("data: "+ training.getRoom().getId());
+	public ResponseEntity<?> create(@RequestBody TrainingDTO trainingDto) {
 
-		System.out.println("************" + training.getRoom());
-		trainingService.create(modelMapper.map(training, Training.class));
+		trainingService.create(modelMapper.map(trainingDto, Training.class));
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 	

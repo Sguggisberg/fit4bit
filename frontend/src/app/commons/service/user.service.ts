@@ -1,4 +1,4 @@
-import { HEADER } from './../../commons/service/service.constants';
+import { HEADER } from './service.constants';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root',
 })
-export class UserServiceService {
+export class UserService {
   private path: string = 'user';
 
   constructor(private httpClient: HttpClient) {}
@@ -21,5 +21,10 @@ export class UserServiceService {
     return this.httpClient.post(backendEndpoint, body, {
       headers,
     });
+  }
+
+  getAllUsers$(): Observable<UserDto[]> {
+    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
+    return this.httpClient.get<any>(backendEndpoint);
   }
 }

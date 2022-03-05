@@ -1,3 +1,4 @@
+import { UserDto } from 'src/app/commons/dto/user-dto.model';
 import { TrainingTypDto } from './../../dto/training-typ-dto.model';
 import { TrainingTypService } from './../../../superior/service/training-typ.service';
 import { TrainingDto } from './../../dto/training-dto.model';
@@ -7,6 +8,7 @@ import { RoomService } from './../../service/room.service';
 import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-training',
@@ -16,29 +18,35 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 export class TrainingComponent implements OnInit {
   roomsDtoList: RoomDto[] = [];
   trainingTypList: TrainingTypDto[] = [];
+  userList: UserDto[] = [];
   formGroup: FormGroup;
 
   constructor(
     private roomService: RoomService,
     private formBuilder: FormBuilder,
     private trainingService: TrainingService,
-    private trainingTypService: TrainingTypService
+    private trainingTypService: TrainingTypService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
       roomId: new FormControl(''),
       trainingTypId: new FormControl(''),
+      userId: new FormControl('')
     });
 
     this.roomService
       .getAllRooms$()
-      .pipe(tap(console.log))
       .subscribe(data => this.roomsDtoList = data);
 
-      this.trainingTypService.getAllTraininngTyps$()
-    .pipe(tap(console.log))
-    .subscribe(data => this.trainingTypList = data);
+    this.trainingTypService
+      .getAllTraininngTyps$()
+      .subscribe(data => this.trainingTypList = data);
+
+    this.userService
+      .getAllUsers$()
+      .subscribe(users => this.userList = users);
   }
 
   create(): void {
@@ -47,11 +55,16 @@ export class TrainingComponent implements OnInit {
     };
 
     const trainingTypDto: TrainingTypDto = {
-      id: this.formGroup.value.trainingTypId
-    }
+      id: this.formGroup.value.trainingTypId,
+    };
+
+    const userDto: UserDto = {
+      id: this.formGroup.value.userId
+    };
     const newTraining: TrainingDto = {
       room: roomDto,
-      trainingTyp: trainingTypDto
+      trainingTyp: trainingTypDto,
+      user: userDto
     };
     this.trainingService.create$(newTraining).subscribe();
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserServiceService } from 'src/app/commons/service/user-service.service';
+import { UserService } from 'src/app/commons/service/user.service';
 
 @Component({
   selector: 'app-new-user',
@@ -10,7 +10,7 @@ import { UserServiceService } from 'src/app/commons/service/user-service.service
 export class NewUserComponent implements OnInit {
   profileForm: FormGroup;
 
-  constructor(private userServiceService: UserServiceService) {}
+  constructor(private userServiceService: UserService) {}
 
   ngOnInit(): void {
     this.profileForm = new FormGroup({

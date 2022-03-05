@@ -17,6 +17,12 @@ public class TrainingDTO implements Serializable {
 	@JsonProperty("user")
 	private UserDto userDTO;
 	
+	@JsonProperty("trainingTyp")
+	private TrainingTypDTO trainingTypDTO;
+	
+	@JsonProperty("room")
+	private RoomDto roomDto;
+	
 	private LocalDateTime runningDate;
 	
 	private int duration;
@@ -26,9 +32,6 @@ public class TrainingDTO implements Serializable {
 	private Boolean isDeleted;
 
 	
-	@JsonProperty("trainingTyp")
-	private TrainingTypDTO trainingTypDTO;
-	
 	public Long getId() {
 		return id;
 	}
@@ -36,7 +39,6 @@ public class TrainingDTO implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public LocalDateTime getRunningDate() {
 		return runningDate;
@@ -85,5 +87,15 @@ public class TrainingDTO implements Serializable {
 	public void setUserDTO(UserDto userDTO) {
 		this.userDTO = userDTO;
 	}
+
+	public RoomDto getRoomDto() {
+		return roomDto;
+	}
+
+	public void setRoomDto(RoomDto roomDto) {
+		this.roomDto = roomDto;
+	}
+	
+	
 		
 }
