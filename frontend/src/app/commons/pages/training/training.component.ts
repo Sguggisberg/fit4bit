@@ -34,23 +34,26 @@ export class TrainingComponent implements OnInit {
       roomId: new FormControl(''),
       trainingTypId: new FormControl(''),
       userId: new FormControl(''),
-      duration: new FormControl('')
+      duration: new FormControl(''),
+      startTime: new FormControl(''),
+      startDate: new FormControl(''),
     });
 
     this.roomService
       .getAllRooms$()
-      .subscribe(data => this.roomsDtoList = data);
+      .subscribe((data) => (this.roomsDtoList = data));
 
     this.trainingTypService
       .getAllTraininngTyps$()
-      .subscribe(data => this.trainingTypList = data);
+      .subscribe((data) => (this.trainingTypList = data));
 
     this.userService
       .getAllUsers$()
-      .subscribe(users => this.userList = users);
+      .subscribe((users) => (this.userList = users));
   }
 
   create(): void {
+
     const roomDto: RoomDto = {
       id: this.formGroup.value.roomId,
     };
@@ -60,15 +63,23 @@ export class TrainingComponent implements OnInit {
     };
 
     const userDto: UserDto = {
-      id: this.formGroup.value.userId
+      id: this.formGroup.value.userId,
     };
     const newTraining: TrainingDto = {
       room: roomDto,
       trainingTyp: trainingTypDto,
       user: userDto,
-      duration: this.formGroup.value.duration
-
+      duration: this.formGroup.value.duration,
+      runningDate: this.dateTimeConverter(),
     };
     this.trainingService.create$(newTraining).subscribe();
+  }
+
+  private dateTimeConverter(): Date {
+    let date: Date = this.formGroup.value.startDate;
+    let time: String = this.formGroup.value.startTime;
+    date.setHours(parseInt(time.split(':')[0]));
+    date.setMinutes(parseInt(time.split(':')[1]));
+    return date;
   }
 }
