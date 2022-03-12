@@ -26,4 +26,9 @@ public class TrainingService {
 		return this.trainingRepository.findAll();
 	}
 	
+	public Training findTrainingById (Long id) {
+		return trainingRepository.findById(id).get(); // Todo: Throw if not found
+		
+	}
+	
 }

@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
-  styleUrls: ['./overlay.component.scss']
+  styleUrls: ['./overlay.component.scss'],
 })
-export class OverlayComponent implements OnInit {
+export class OverlayComponent {
 
-  constructor() { }
+  @Output() resetOverlayEmitter : EventEmitter<null> = new EventEmitter();
 
-  ngOnInit(): void {
+  @Input()
+  public show: boolean;
+
+  public closeMe(): void {
+    this.show = false;
+    this.resetOverlayEmitter.emit();
   }
-
 }

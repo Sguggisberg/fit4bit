@@ -1,9 +1,7 @@
-<p>training-overview works!</p>
-<app-overlay></app-overlay>
+<app-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()"></app-overlay>
 <div *ngFor="let t of trainings">
-
-  {{t.id}}
-  {{t.trainingTyp?.name}}
+  <div (click)="loadItem()">
+    {{ t.id }}
+    {{ t.trainingTyp?.name }}
+  </div>
 </div>
-
-

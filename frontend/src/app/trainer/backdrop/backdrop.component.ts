@@ -1,17 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-backdrop',
   templateUrl: './backdrop.component.html',
-  styleUrls: ['./backdrop.component.scss']
+  styleUrls: ['./backdrop.component.scss'],
 })
-export class BackdropComponent implements OnInit {
+export class BackdropComponent {
 
+  @Output()
+  closeEmitter: EventEmitter<null> = new EventEmitter();
 
-
-  constructor() { }
-
-  ngOnInit(): void {
+  public close(): void {
+    this.closeEmitter.emit();
   }
-
 }
