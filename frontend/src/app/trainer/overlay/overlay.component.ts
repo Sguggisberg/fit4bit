@@ -13,9 +13,6 @@ export class OverlayComponent {
   @Input()
   public show: boolean;
 
-  @Input()
-  public receivedTraining: TrainingDto;
-
   public closeMe(): void {
     this.show = false;
     this.resetOverlayEmitter.emit();

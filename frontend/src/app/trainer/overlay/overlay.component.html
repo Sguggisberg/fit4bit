@@ -1,5 +1,5 @@
-<app-backdrop (closeEmitter)="closeMe()"  *ngIf="show"></app-backdrop>
+<app-backdrop (closeEmitter)="closeMe()" *ngIf="show"></app-backdrop>
 <div id="overlay" *ngIf="show">
-  {{receivedTraining.trainingTyp?.name}}
+  <ng-content></ng-content>
 </div>
 

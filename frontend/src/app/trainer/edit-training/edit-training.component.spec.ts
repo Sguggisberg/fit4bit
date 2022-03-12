@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewTraininTypComponent } from './new-trainin-typ.component';
+import { EditTrainingComponent } from './edit-training.component';
 
-describe('NewTraininTypComponent', () => {
-  let component: NewTraininTypComponent;
-  let fixture: ComponentFixture<NewTraininTypComponent>;
+describe('EditTrainingComponent', () => {
+  let component: EditTrainingComponent;
+  let fixture: ComponentFixture<EditTrainingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewTraininTypComponent ]
+      declarations: [ EditTrainingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewTraininTypComponent);
+    fixture = TestBed.createComponent(EditTrainingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -31,4 +31,8 @@ public class TrainingService {
 		
 	}
 	
+	public Training patch(Training training) { 
+		return trainingRepository.save(training);
+	}
+	
 }

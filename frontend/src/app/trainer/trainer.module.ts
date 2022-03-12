@@ -5,17 +5,25 @@ import { TrainingOverviewComponent } from './training-overview/training-overview
 import { PayrollListComponent } from './payroll-list/payroll-list.component';
 import { BackdropComponent } from './backdrop/backdrop.component';
 import { OverlayComponent } from './overlay/overlay.component';
+import { EditTrainingComponent } from './edit-training/edit-training.component';
+import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     TrainingOverviewComponent,
     PayrollListComponent,
     BackdropComponent,
-    OverlayComponent
+    OverlayComponent,
+    EditTrainingComponent,
+
   ],
   imports: [
     CommonModule,
     TrainerRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule
+
   ],
   exports: [
   ]

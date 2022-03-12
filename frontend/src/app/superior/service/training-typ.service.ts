@@ -15,12 +15,9 @@ export class TrainingTypService {
   constructor(private httpClient: HttpClient) {}
 
   $create(trainingTypDto: TrainingTypDto): Observable<any> {
-
-    console.log('Type:' +  trainingTypDto.constructor.name);
     const body = JSON.stringify(trainingTypDto);
     const headers = new HttpHeaders(HEADER);
     const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
-    console.log('data:' + body);
     return this.httpClient.post(backendEndpoint, body, {
       headers,
     });

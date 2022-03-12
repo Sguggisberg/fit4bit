@@ -10,8 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,6 +59,16 @@ public class TrainingController {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		Training t = trainingService.findTrainingById(id);
 		return modelMapper.map(t, TrainingDTO.class);
+	}
+	
+	@PutMapping
+	public ResponseEntity<?> patch(@RequestBody TrainingDTO trainingDto){
+		System.out.println("Info: " + trainingDto.getAmountOfCustomer() + "   " + trainingDto.getId());
+		Training t = trainingService.findTrainingById(trainingDto.getId());
+		t.setAmountOfCustomer(trainingDto.getAmountOfCustomer());
+		trainingService.patch(t);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+
 	}
 
 }

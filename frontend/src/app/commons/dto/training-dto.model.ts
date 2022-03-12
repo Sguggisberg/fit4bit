@@ -8,5 +8,5 @@ export interface TrainingDto{
   user?: UserDto
   duration?: number,
   runningDate?: Date,
-  amountCustomer?: number
+  amountOfCustomer?: number
 }

@@ -1,9 +1,10 @@
-<app-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()" [receivedTraining]="training"></app-overlay>
+<app-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()">
+  <app-edit-training [receivedTraining]="training" *ngIf="training"></app-edit-training>
+
+</app-overlay>
 <div *ngFor="let t of trainings">
   <div (click)="loadItem(t)">
     {{ t.id }}
     {{ t.trainingTyp?.name }}
   </div>
 </div>
-
-<p>Hallo</p>

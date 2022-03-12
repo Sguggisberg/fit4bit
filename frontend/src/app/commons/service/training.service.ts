@@ -5,9 +5,6 @@ import { Observable } from 'rxjs';
 import { HEADER } from './service.constants';
 import { environment } from 'src/environments/environment';
 
-
-
-
 @Injectable({
   providedIn: 'root',
 })
@@ -20,14 +17,22 @@ export class TrainingService {
     const body = JSON.stringify(trainingDto);
     const headers = new HttpHeaders(HEADER);
     const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
-    console.log('data:' + body);
-
     return this.httpClient.post(backendEndpoint, body, {
       headers,
     });
   }
+
   getAll$(): Observable<TrainingDto[]> {
     const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
     return this.httpClient.get<any>(backendEndpoint);
+  }
+
+  patch$(trainingDto: TrainingDto): Observable<any> {
+    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
+    const body = JSON.stringify(trainingDto);
+    const headers = new HttpHeaders(HEADER);
+    return this.httpClient.put(backendEndpoint, body, {
+      headers,
+    });
   }
 }
