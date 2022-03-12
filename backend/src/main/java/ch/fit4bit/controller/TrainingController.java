@@ -1,10 +1,15 @@
 package ch.fit4bit.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,18 +26,29 @@ public class TrainingController {
 
 	private TrainingService trainingService;
 	private ModelMapper modelMapper;
-	
+
 	@Autowired
 	public TrainingController(TrainingService trainingService, ModelMapper modelMapper) {
 		this.trainingService = trainingService;
 		this.modelMapper = modelMapper;
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<?> create(@RequestBody TrainingDTO trainingDto) {
-
 		trainingService.create(modelMapper.map(trainingDto, Training.class));
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
-	
+
+	@GetMapping
+	public List<TrainingDTO> getAll() {
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+
+		List<Training> allTrainings = trainingService.getAllTraining();
+		List<TrainingDTO> allTrainingsDto = new ArrayList<>();
+		for (Training training : allTrainings) {
+			allTrainingsDto.add(modelMapper.map(training, TrainingDTO.class));
+		}
+		return allTrainingsDto;
+	}
+
 }

@@ -1,5 +1,7 @@
 package ch.fit4bit.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class TrainingService {
 
 	public Training create (Training training) {
 		return trainingRepository.save(training);
+	}
+	
+	public List<Training> getAllTraining() {
+		return this.trainingRepository.findAll();
 	}
 	
 }

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { CommonsModule } from './commons/commons.module';
+import { Fit4BitCommonsModule } from './commons/commons.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    CommonsModule,
+    Fit4BitCommonsModule,
     MatToolbarModule,
     HttpClientModule
 

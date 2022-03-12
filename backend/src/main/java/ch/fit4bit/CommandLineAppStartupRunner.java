@@ -67,8 +67,29 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		r1 = roomService.create(r1);
 		r2 = roomService.create(r2);
 
-		Training t1 = new Training(tt1, LocalDateTime.of(2022, 6, 14, 20, 0), user1, r1, 10);	
+		Training t1 = new Training(tt1, LocalDateTime.of(2022, 6, 14, 20, 0), user1, r1, 55);	
 		trainingService.create(t1);
+		
+		Training t2 = new Training(tt1, LocalDateTime.of(2022, 6, 15, 20, 0), user1, r1, 55);	
+		trainingService.create(t2);
+		
+		Training t3 = new Training(tt1, LocalDateTime.of(2022, 6, 16, 20, 0), user1, r1, 55);	
+		trainingService.create(t3);
+		
+		Training t4 = new Training(tt2, LocalDateTime.of(2022, 6, 16, 19, 0), user1, r1, 55);	
+		trainingService.create(t4);
+		
+		Training t11 = new Training(tt3, LocalDateTime.of(2022, 6, 14, 20, 0), user2, r2, 45);	
+		trainingService.create(t11);
+		
+		Training t22 = new Training(tt1, LocalDateTime.of(2022, 6, 15, 17, 0), user2, r1, 55);	
+		trainingService.create(t22);
+		
+		Training t33 = new Training(tt4, LocalDateTime.of(2022, 6, 14, 20, 0), user2, r1, 55);	
+		trainingService.create(t33);
+		
+		Training t44 = new Training(tt2, LocalDateTime.of(2022, 6, 16, 14, 0), user3, r2, 55);	
+		trainingService.create(t44);
 	}
 }
 

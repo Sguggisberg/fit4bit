@@ -8,6 +8,8 @@ import { SideComponent } from './navigation/side/side.component';
 import { MainComponent } from './navigation/main/main.component';
 import { LoaderComponent } from './loader/loader.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { BackdropComponent } from './components/backdrop/backdrop.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,12 @@ import { AppRoutingModule } from '../app-routing.module';
     HeaderComponent,
     SideComponent,
     MainComponent,
-    LoaderComponent
+    LoaderComponent,
+    BackdropComponent,
+    TestComponent
 
   ],
   imports: [CommonModule, MaterialModule, AppRoutingModule],
-  exports: [BlankSlateInformationComponent, HeaderComponent, LoaderComponent],
+  exports: [BlankSlateInformationComponent, HeaderComponent, LoaderComponent, BackdropComponent],
 })
-export class CommonsModule {}
+export class Fit4BitCommonsModule{}

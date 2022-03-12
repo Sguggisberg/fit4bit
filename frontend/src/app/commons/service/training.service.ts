@@ -26,4 +26,8 @@ export class TrainingService {
       headers,
     });
   }
+  getAll$(): Observable<TrainingDto[]> {
+    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
+    return this.httpClient.get<any>(backendEndpoint);
+  }
 }

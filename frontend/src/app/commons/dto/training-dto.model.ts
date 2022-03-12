@@ -7,5 +7,6 @@ export interface TrainingDto{
   room?: RoomDto,
   user?: UserDto
   duration?: number,
-  runningDate: Date
+  runningDate?: Date,
+  amountCustomer?: number
 }
