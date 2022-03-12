@@ -1,6 +1,6 @@
-<app-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()"></app-overlay>
+<app-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()" [receivedTraining]="training"></app-overlay>
 <div *ngFor="let t of trainings">
-  <div (click)="loadItem()">
+  <div (click)="loadItem(t)">
     {{ t.id }}
     {{ t.trainingTyp?.name }}
   </div>

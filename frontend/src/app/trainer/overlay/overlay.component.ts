@@ -1,3 +1,4 @@
+import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -11,6 +12,9 @@ export class OverlayComponent {
 
   @Input()
   public show: boolean;
+
+  @Input()
+  public receivedTraining: TrainingDto;
 
   public closeMe(): void {
     this.show = false;

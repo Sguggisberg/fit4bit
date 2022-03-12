@@ -9,6 +9,7 @@ import { TrainingService } from 'src/app/commons/service/training.service';
 })
 export class TrainingOverviewComponent implements OnInit {
   public showOverlay: boolean;
+  public training: TrainingDto;
   public trainings: TrainingDto[];
 
   constructor(private trainingService: TrainingService) {}
@@ -19,8 +20,9 @@ export class TrainingOverviewComponent implements OnInit {
       .subscribe((trainings) => (this.trainings = trainings));
   }
 
-  public loadItem(): void {
-    this.showOverlay = true;
+  public loadItem(training: TrainingDto): void {
+    this.training = training;
+       this.showOverlay = true;
   }
 
   public resetOverlay():void {
