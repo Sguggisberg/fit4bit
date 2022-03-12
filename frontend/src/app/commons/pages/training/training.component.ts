@@ -6,7 +6,6 @@ import { TrainingService } from './../../service/training.service';
 import { RoomDto } from './../../dto/room-dto.model';
 import { RoomService } from './../../service/room.service';
 import { Component, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 

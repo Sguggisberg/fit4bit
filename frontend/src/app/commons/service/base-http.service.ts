@@ -1,23 +1,24 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
-import { TrainingTypDto } from 'src/app/commons/dto/training-typ-dto.model';
-import { HEADER } from 'src/app/commons/service/service.constants';
 import { environment } from 'src/environments/environment';
+import { Dto } from '../dto/dto.model';
+import { RoomDto } from '../dto/room-dto.model';
+import { HEADER } from './service.constants';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class TrainingTypService {
-  private path: string = 'trainingtyp';
+export class BaseHttpService {
+  path: any;
 
-  constructor(private httpClient: HttpClient) {}
+   constructor(private httpClient: HttpClient) {}
 
-  $create(trainingTypDto: TrainingTypDto): Observable<any> {
 
-    console.log('Type:' +  trainingTypDto.constructor.name);
-    const body = JSON.stringify(trainingTypDto);
+   create$(dto: Dto): Observable<any> {
+    const body = JSON.stringify(dto);
     const headers = new HttpHeaders(HEADER);
     const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
     console.log('data:' + body);
@@ -26,8 +27,9 @@ export class TrainingTypService {
     });
   }
 
-  getAllTraininngTyps$(): Observable<TrainingTypDto[]> {
+  getAllRooms$(): Observable<RoomDto[]> {
     const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
     return this.httpClient.get<any>(backendEndpoint);
   }
+
 }
