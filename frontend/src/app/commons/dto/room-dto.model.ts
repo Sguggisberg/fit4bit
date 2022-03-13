@@ -1,6 +1,5 @@
-import { Dto } from "./dto.model";
 
-export interface RoomDto extends Dto  {
+export interface RoomDto   {
   id?: number,
   name?: string,
   image?: string

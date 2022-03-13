@@ -20,7 +20,7 @@ export class NewTraininTypComponent  {
 
   create() {
     const newTrainingTyp = this.profileForm.value;
-    this.trainingTypService.$create(newTrainingTyp).subscribe();
+    this.trainingTypService.create$(newTrainingTyp).subscribe();
   }
 
 }

@@ -4,27 +4,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HEADER } from './service.constants';
 import { environment } from 'src/environments/environment';
+import { BaseHttpService } from './base-http.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TrainingService {
-  private path: string = 'training';
+export class TrainingService extends BaseHttpService<TrainingDto>{
+  protected path: string = 'training';
 
-  constructor(private httpClient: HttpClient) {}
-
-  create$(trainingDto: TrainingDto): Observable<any> {
-    const body = JSON.stringify(trainingDto);
-    const headers = new HttpHeaders(HEADER);
-    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
-    return this.httpClient.post(backendEndpoint, body, {
-      headers,
-    });
-  }
-
-  getAll$(): Observable<TrainingDto[]> {
-    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
-    return this.httpClient.get<any>(backendEndpoint);
+  constructor(httpClient: HttpClient) {
+    super(httpClient);
   }
 
   patch$(trainingDto: TrainingDto): Observable<any> {

@@ -39,15 +39,15 @@ export class TrainingComponent implements OnInit {
     });
 
     this.roomService
-      .getAllRooms$()
+      .getAll$()
       .subscribe((data) => (this.roomsDtoList = data));
 
     this.trainingTypService
-      .getAllTraininngTyps$()
+      .getAll$()
       .subscribe((data) => (this.trainingTypList = data));
 
     this.userService
-      .getAllUsers$()
+      .getAll$()
       .subscribe((users) => (this.userList = users));
   }
 

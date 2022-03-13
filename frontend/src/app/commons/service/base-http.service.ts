@@ -3,33 +3,32 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Dto } from '../dto/dto.model';
-import { RoomDto } from '../dto/room-dto.model';
 import { HEADER } from './service.constants';
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class BaseHttpService {
-  path: any;
+export abstract class BaseHttpService<T> {
+  protected path: string;
+  protected httpClient: HttpClient;
 
-   constructor(private httpClient: HttpClient) {}
+  constructor(httpClient: HttpClient) {
+    this.httpClient = httpClient;
+  }
 
-
-   create$(dto: Dto): Observable<any> {
+  create$(dto: Dto): Observable<any> {
     const body = JSON.stringify(dto);
     const headers = new HttpHeaders(HEADER);
-    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
-    console.log('data:' + body);
-    return this.httpClient.post(backendEndpoint, body, {
+    return this.httpClient.post(this.createBackendEndpoint(), body, {
       headers,
     });
   }
 
-  getAllRooms$(): Observable<RoomDto[]> {
-    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
-    return this.httpClient.get<any>(backendEndpoint);
+  getAll$(): Observable<T[]> {
+    return this.httpClient.get<any>(this.createBackendEndpoint());
   }
 
+  private createBackendEndpoint(): string {
+    return `${environment.BACKEND_URL}${this.path}`;
+  }
 }

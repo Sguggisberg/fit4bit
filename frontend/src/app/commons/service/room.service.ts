@@ -1,30 +1,16 @@
+import { RoomDto } from 'src/app/commons/dto/room-dto.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { RoomDto } from 'src/app/commons/dto/room-dto.model';
-import { HEADER } from 'src/app/commons/service/service.constants';
-import { environment } from 'src/environments/environment';
+import { BaseHttpService } from './base-http.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RoomService {
-  private path: string = 'room';
+export class RoomService extends BaseHttpService<RoomDto> {
+  protected path: string = 'room';
 
-  constructor(private httpClient: HttpClient) {}
-
-  create$(roomDto: RoomDto): Observable<any> {
-    const body = JSON.stringify(roomDto);
-    const headers = new HttpHeaders(HEADER);
-    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
-    console.log('data:' + body);
-    return this.httpClient.post(backendEndpoint, body, {
-      headers,
-    });
+  constructor(httpClient: HttpClient) {
+    super(httpClient)
   }
 
-  getAllRooms$(): Observable<RoomDto[]> {
-    const backendEndpoint = `${environment.BACKEND_URL}${this.path}`;
-    return this.httpClient.get<any>(backendEndpoint);
-  }
 }

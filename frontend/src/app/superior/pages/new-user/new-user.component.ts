@@ -22,6 +22,6 @@ export class NewUserComponent implements OnInit {
 
   create(): void {
     const newUser = this.profileForm.value;
-    this.userServiceService.$create(newUser).subscribe();
+    this.userServiceService.create$(newUser).subscribe();
   }
 }
