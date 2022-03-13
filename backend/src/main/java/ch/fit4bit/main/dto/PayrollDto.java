@@ -1,39 +1,28 @@
-package ch.fit4bit.main.entity;
+package ch.fit4bit.main.dto;
 
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
 import ch.fit4bit.model.BillState;
 import utils.Month;
 
-@Entity
+public class PayrollDto implements Serializable {
+	private static final long serialVersionUID = -8431435193022299051L;
 
-public class Payroll implements Serializable {
-
-	private static final long serialVersionUID = 7036544018331437122L;
-
-	public Payroll() {
+	public PayrollDto() {
 
 	}
 
-	public Payroll(Month month, int year, BillState billState) {
+	public PayrollDto(Month month, int year, BillState billState) {
 		this.month = month;
 		this.year = year;
 		this.billState = billState;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
-	@OneToMany
-	private List<Training> trainings;
+	private Long id;
+	
+	private List<TrainingDTO> trainings;
 
 	private Month month;
 
@@ -49,11 +38,11 @@ public class Payroll implements Serializable {
 		this.id = id;
 	}
 
-	public List<Training> getTrainings() {
+	public List<TrainingDTO> getTrainings() {
 		return trainings;
 	}
 
-	public void setTrainings(List<Training> trainings) {
+	public void setTrainings(List<TrainingDTO> trainings) {
 		this.trainings = trainings;
 	}
 
@@ -80,6 +69,4 @@ public class Payroll implements Serializable {
 	public void setBillState(BillState billState) {
 		this.billState = billState;
 	}
-	
-
 }

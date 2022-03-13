@@ -63,7 +63,6 @@ public class TrainingController {
 	
 	@PutMapping
 	public ResponseEntity<?> patch(@RequestBody TrainingDTO trainingDto){
-		System.out.println("Info: " + trainingDto.getAmountOfCustomer() + "   " + trainingDto.getId());
 		Training t = trainingService.findTrainingById(trainingDto.getId());
 		t.setAmountOfCustomer(trainingDto.getAmountOfCustomer());
 		trainingService.patch(t);

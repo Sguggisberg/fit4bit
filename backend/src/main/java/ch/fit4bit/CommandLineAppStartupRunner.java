@@ -5,14 +5,18 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import ch.fit4bit.main.entity.Payroll;
 import ch.fit4bit.main.entity.Room;
 import ch.fit4bit.main.entity.Training;
 import ch.fit4bit.main.entity.TrainingTyp;
 import ch.fit4bit.main.entity.User;
+import ch.fit4bit.model.BillState;
+import ch.fit4bit.service.PayrollService;
 import ch.fit4bit.service.RoomService;
 import ch.fit4bit.service.TrainingService;
 import ch.fit4bit.service.TrainingTypService;
 import ch.fit4bit.service.UserService;
+import utils.Month;
 
 import java.time.LocalDateTime;
 
@@ -24,15 +28,17 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	private RoomService roomService;
 	private TrainingService trainingService;
+	private PayrollService payrollService;
 
 	@Autowired
-	public CommandLineAppStartupRunner(UserService userService,TrainingTypService trainingTypService, RoomService roomService, BCryptPasswordEncoder bCryptPasswordEncoder
+	public CommandLineAppStartupRunner(UserService userService,TrainingTypService trainingTypService, RoomService roomService, BCryptPasswordEncoder bCryptPasswordEncoder, PayrollService payrollService
 , TrainingService trainingService) {
 		this.userService = userService;
 		this.trainingTypService = trainingTypService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.roomService = roomService;
 		this.trainingService = trainingService;
+		this.payrollService = payrollService;
 	}
 
 	@Override
@@ -90,6 +96,12 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		
 		Training t44 = new Training(tt2, LocalDateTime.of(2022, 6, 16, 14, 0), user3, r2, 55);	
 		trainingService.create(t44);
+		
+		Payroll p11 = new Payroll(Month.Juni, 2022, BillState.OFFEN);
+	
+		payrollService.creat(p11);
+		
+		
 	}
 }
 

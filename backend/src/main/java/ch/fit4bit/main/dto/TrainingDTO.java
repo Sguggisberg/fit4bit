@@ -8,11 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TrainingDTO implements Serializable {
 
-
 	private static final long serialVersionUID = 5758383809044398398L;
 
-	
-	private Long id;
+		private Long id;
 	
 	@JsonProperty("user")
 	private UserDto userDTO;
