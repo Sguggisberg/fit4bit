@@ -8,8 +8,9 @@ import { MaterialModule } from './material/material.module';
 import { Fit4BitCommonsModule } from './commons/commons.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
+import { TopNavigationComponent } from './navigation/top-navigation/top-navigation.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TopNavigationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

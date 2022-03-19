@@ -8,6 +8,7 @@ import { OverlayComponent } from './overlay/overlay.component';
 import { EditTrainingComponent } from './edit-training/edit-training.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Fit4BitCommonsModule } from '../commons/commons.module';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     OverlayComponent,
     EditTrainingComponent,
 
+
   ],
   imports: [
     CommonModule,
     TrainerRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Fit4BitCommonsModule
+
 
   ],
   exports: [
