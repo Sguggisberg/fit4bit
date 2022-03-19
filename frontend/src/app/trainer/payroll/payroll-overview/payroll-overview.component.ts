@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
 
 @Component({
-  selector: 'fit4bit-payroll-list',
-  templateUrl: './payroll-list.component.html',
-  styleUrls: ['./payroll-list.component.scss'],
+  selector: 'fit4bit-payroll-overview',
+  templateUrl: './payroll-overview.component.html',
+  styleUrls: ['./payroll-overview.component.scss'],
 })
-export class PayrollListComponent implements OnInit {
+export class PayrollOverviewComponent implements OnInit {
   payrollList: PayrollDto[] = [];
 
   constructor(private payrollService: PayrollService) {}

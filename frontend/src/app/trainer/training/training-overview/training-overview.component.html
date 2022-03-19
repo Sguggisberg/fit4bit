@@ -1,6 +1,5 @@
 <fit4bit-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()">
   <fit4bit-edit-training [receivedTraining]="training" *ngIf="training"></fit4bit-edit-training>
-
 </fit4bit-overlay>
 <div *ngFor="let t of trainings">
   <div (click)="loadItem(t)">

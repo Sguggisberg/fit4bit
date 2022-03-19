@@ -1,0 +1,27 @@
+<section>
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    [formGroup]="profileForm"
+    (ngSubmit)="create()"
+  >
+    <mat-form-field>
+      <mat-label for="month">Monat</mat-label>
+      <input id="month" matInput type="number" formControlName="month" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="year">Jahr</mat-label>
+      <input id="year" matInput type="number" formControlName="year" />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!profileForm.valid"
+    >
+      Speichern
+    </button>
+  </form>
+</section>

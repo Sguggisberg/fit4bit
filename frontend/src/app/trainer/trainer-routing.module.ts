@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PayrollListComponent } from './payroll/payroll-list/payroll-list.component';
-import { TrainingOverviewComponent } from './training-overview/training-overview.component';
+import { PayrollOverviewComponent } from './payroll/payroll-overview/payroll-overview.component';
+import { TrainingOverviewComponent } from './training/training-overview/training-overview.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'payroll',
-    component: PayrollListComponent,
+    component: PayrollOverviewComponent,
   },
 ];
 
