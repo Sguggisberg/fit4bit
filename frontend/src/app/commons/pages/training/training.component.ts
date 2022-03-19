@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 
 @Component({
-  selector: 'app-training',
+  selector: 'fit4bit-training',
   templateUrl: './training.component.html',
   styleUrls: ['./training.component.scss'],
 })

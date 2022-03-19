@@ -4,7 +4,7 @@ import { TrainingTypService } from '../../service/training-typ.service';
 
 
 @Component({
-  selector: 'app-new-trainin-typ',
+  selector: 'fit4bit-new-trainin-typ',
   templateUrl: './new-trainin-typ.component.html',
   styleUrls: ['./new-trainin-typ.component.scss']
 })

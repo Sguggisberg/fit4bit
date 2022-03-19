@@ -1,5 +1,5 @@
 import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
-interface payroll {
+export interface PayrollDto {
   id?: number,
   month: number,
   year: number,

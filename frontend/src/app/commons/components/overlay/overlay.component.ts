@@ -2,7 +2,7 @@ import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-overlay',
+  selector: 'fit4bit-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.scss'],
 })

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrainingService } from 'src/app/commons/service/training.service';
 
 @Component({
-  selector: 'app-training-overview',
+  selector: 'fit4bit-training-overview',
   templateUrl: './training-overview.component.html',
   styleUrls: ['./training-overview.component.scss'],
 })

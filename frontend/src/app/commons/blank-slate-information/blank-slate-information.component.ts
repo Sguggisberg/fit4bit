@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-blank-slate-information',
+  selector: 'fit4bit-blank-slate-information',
   templateUrl: './blank-slate-information.component.html',
   styleUrls: ['./blank-slate-information.component.scss']
 })

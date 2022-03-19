@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/commons/service/user.service';
 
 @Component({
-  selector: 'app-new-user',
+  selector: 'fit4bit-new-user',
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.scss'],
 })

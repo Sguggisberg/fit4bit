@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RoomService } from 'src/app/commons/service/room.service';
 
 @Component({
-  selector: 'app-room',
+  selector: 'fit4bit-room',
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss'],
 })

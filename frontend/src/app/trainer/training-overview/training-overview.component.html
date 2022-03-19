@@ -1,7 +1,7 @@
-<app-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()">
-  <app-edit-training [receivedTraining]="training" *ngIf="training"></app-edit-training>
+<fit4bit-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()">
+  <fit4bit-edit-training [receivedTraining]="training" *ngIf="training"></fit4bit-edit-training>
 
-</app-overlay>
+</fit4bit-overlay>
 <div *ngFor="let t of trainings">
   <div (click)="loadItem(t)">
     {{ t.id }}

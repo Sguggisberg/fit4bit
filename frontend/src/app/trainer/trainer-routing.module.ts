@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PayrollListComponent } from './payroll-list/payroll-list.component';
+import { PayrollListComponent } from './payroll/payroll-list/payroll-list.component';
 import { TrainingOverviewComponent } from './training-overview/training-overview.component';
 
 const routes: Routes = [

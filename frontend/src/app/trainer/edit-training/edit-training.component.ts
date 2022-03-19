@@ -4,7 +4,7 @@ import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { TrainingService } from 'src/app/commons/service/training.service';
 
 @Component({
-  selector: 'app-edit-training',
+  selector: 'fit4bit-edit-training',
   templateUrl: './edit-training.component.html',
   styleUrls: ['./edit-training.component.scss'],
 })
