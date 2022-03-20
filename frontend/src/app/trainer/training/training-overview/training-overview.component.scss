@@ -1,13 +1,9 @@
-@import 'breakpoints';
-
-
-
-
+@import "breakpoints";
 
 p {
-
   font-size: 10px;
-@include mobile {
- font-size: 30px;
-}
+
+  @include mobile {
+    font-size: 30px;
+  }
 }

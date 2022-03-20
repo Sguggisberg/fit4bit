@@ -1,4 +1,5 @@
 @import 'spaces.scss';
+@import 'colors.scss';
 
 .container {
   margin-top: 40px;
@@ -8,18 +9,13 @@
 }
 
 .head {
-  width: 600px;
-  background-color: grey;
+  display: flex;
+  padding-left: $space_10;
+  width: 100%;
+  background-color: $background-color-head;
+  align-items: center
 }
 
-.left-column {
-  background-color: #575050;
-}
-
-.middle-column {
-  background-color: #080808;
-}
-
-.right-column {
-  background-color: #575050;
+fit4bit-button {
+  margin: 15px;
 }

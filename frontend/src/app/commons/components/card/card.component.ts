@@ -1,5 +1,6 @@
 import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { Component, Input, OnInit } from '@angular/core';
+import { CardItemService } from '../../service/card-item.service';
 
 @Component({
   selector: 'fit4bit-card',
@@ -13,11 +14,21 @@ export class CardComponent implements OnInit {
   @Input()
   public trainingDto: TrainingDto;
 
+  constructor(private cardItemService: CardItemService) {}
+
   ngOnInit(): void {}
 
   public toggle(): void {
-    console.log('click');
     this.active = !this.active;
+    if(this.active){
+      this.cardItemService.addItem(this.trainingDto);
+    }
+    else {
+      this.cardItemService.removeItem(this.trainingDto);
+    }
+
+    console.log('click');
+
     console.log(this.active);
   }
 }

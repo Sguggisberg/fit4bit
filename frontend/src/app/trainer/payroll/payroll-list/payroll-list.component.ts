@@ -1,6 +1,7 @@
 import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { TrainingService } from 'src/app/commons/service/training.service';
+import { CardItemService } from 'src/app/commons/service/card-item.service';
 
 @Component({
   selector: 'fit4bit-payroll-list',
@@ -16,10 +17,14 @@ export class PayrollListComponent implements OnInit {
   @Input()
   public year: number;
 
-  constructor(private trainingService: TrainingService) {}
+  constructor(private trainingService: TrainingService, private cardItemService: CardItemService) {}
 
   ngOnInit(): void {
-    this.trainingService.getAll$().subscribe((x) => (this.ownTrainings = x));
+    this.trainingService.getAll$().subscribe((x) => {
+      this.ownTrainings = x;
+      this.cardItemService.trainings = x;
+    });
+
   }
 
 }

@@ -7,6 +7,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { OverlayComponent } from './components/overlay/overlay.component';
 import { BackdropComponent } from './components/backdrop/backdrop.component';
 import { CardComponent } from './components/card/card.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +16,11 @@ import { CardComponent } from './components/card/card.component';
     LoaderComponent,
     OverlayComponent,
     BackdropComponent,
-    CardComponent
+    CardComponent,
+    ButtonComponent
 
   ],
   imports: [CommonModule, MaterialModule],
-  exports: [BlankSlateInformationComponent,  LoaderComponent, OverlayComponent, BackdropComponent, CardComponent],
+  exports: [BlankSlateInformationComponent,  LoaderComponent, OverlayComponent, BackdropComponent, CardComponent, ButtonComponent],
 })
 export class Fit4BitCommonsModule{}
