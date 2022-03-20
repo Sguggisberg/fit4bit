@@ -19,7 +19,6 @@ public class PayrollDto implements Serializable {
 		this.billState = billState;
 	}
 
-
 	private Long id;
 	
 	private List<TrainingDTO> trainings;

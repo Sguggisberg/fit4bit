@@ -13,7 +13,6 @@ import ch.fit4bit.model.BillState;
 import utils.Month;
 
 @Entity
-
 public class Payroll implements Serializable {
 
 	private static final long serialVersionUID = 7036544018331437122L;

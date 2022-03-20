@@ -9,6 +9,7 @@ import { PayrollService } from 'src/app/commons/service/payroll.service';
 })
 export class PayrollOverviewComponent implements OnInit {
   payrollList: PayrollDto[] = [];
+  public showOverlay: boolean;
 
   constructor(private payrollService: PayrollService) {}
 
@@ -16,5 +17,9 @@ export class PayrollOverviewComponent implements OnInit {
     this.payrollService
       .getAll$()
       .subscribe((payrollList) => (this.payrollList = payrollList));
+      this.showOverlay = true;
+  }
+  public resetOverlay():void {
+    this.showOverlay = false;
   }
 }

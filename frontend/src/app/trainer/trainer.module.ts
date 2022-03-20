@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Fit4BitCommonsModule } from '../commons/commons.module';
 import { PayrollOverviewComponent } from './payroll/payroll-overview/payroll-overview.component';
 import { NewpayrollComponent } from './payroll/create-payroll/newpayroll.component';
+import { PayrollListComponent } from './payroll/payroll-list/payroll-list.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NewpayrollComponent } from './payroll/create-payroll/newpayroll.compone
     PayrollOverviewComponent,
     EditTrainingComponent,
     NewpayrollComponent,
+    PayrollListComponent,
 
 
   ],

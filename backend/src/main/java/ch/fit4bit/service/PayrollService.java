@@ -22,7 +22,7 @@ public class PayrollService {
 		return payrollRepository.findAll();
 	}
 
-	public Payroll creat(Payroll p11) {
-		return payrollRepository.save(p11);
+	public Payroll creat(Payroll payroll) {
+		return payrollRepository.save(payroll);
 	}
 }

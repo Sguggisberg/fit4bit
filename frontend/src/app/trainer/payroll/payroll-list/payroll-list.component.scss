@@ -1,0 +1,25 @@
+@import 'spaces.scss';
+
+.container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+}
+
+.head {
+  width: 600px;
+  background-color: grey;
+}
+
+.left-column {
+  background-color: #575050;
+}
+
+.middle-column {
+  background-color: #080808;
+}
+
+.right-column {
+  background-color: #575050;
+}

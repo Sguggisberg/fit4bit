@@ -1,5 +1,4 @@
-import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'fit4bit-overlay',
@@ -8,13 +7,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class OverlayComponent {
 
-  @Output() resetOverlayEmitter : EventEmitter<null> = new EventEmitter();
-
-  @Input()
-  public show: boolean;
+  @Output() public resetOverlayEmitter: EventEmitter<null> = new EventEmitter();
+  @Input() public show: boolean;
 
   public closeMe(): void {
     this.show = false;
     this.resetOverlayEmitter.emit();
   }
+
+
 }
