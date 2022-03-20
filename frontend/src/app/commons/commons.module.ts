@@ -6,6 +6,7 @@ import { Fit4bitCloseButtonComponent } from './components/fit4bit-close-button/f
 import { LoaderComponent } from './loader/loader.component';
 import { OverlayComponent } from './components/overlay/overlay.component';
 import { BackdropComponent } from './components/backdrop/backdrop.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,11 @@ import { BackdropComponent } from './components/backdrop/backdrop.component';
     Fit4bitCloseButtonComponent,
     LoaderComponent,
     OverlayComponent,
-    BackdropComponent
+    BackdropComponent,
+    CardComponent
 
   ],
   imports: [CommonModule, MaterialModule],
-  exports: [BlankSlateInformationComponent,  LoaderComponent, OverlayComponent, BackdropComponent],
+  exports: [BlankSlateInformationComponent,  LoaderComponent, OverlayComponent, BackdropComponent, CardComponent],
 })
 export class Fit4BitCommonsModule{}

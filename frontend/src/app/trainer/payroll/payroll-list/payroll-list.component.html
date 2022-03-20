@@ -1,9 +1,5 @@
 <div class="head">Head</div>
 
-<div class="container">
-  <div class="left-column">A</div>
-
-  <div class="middle-column">B</div>
-
-  <div class="right-column">C</div>
+<div class="container" *ngFor="let training of ownTrainings">
+<fit4bit-card [trainingDto]="training"></fit4bit-card>
 </div>
