@@ -3,9 +3,9 @@
 #overlay {
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 600px;
   height: 100%;
-  left: 400px;
+  right: 0;
   z-index: 3;
   background-color: white;
   animation-name: moveInFromSide;
@@ -21,7 +21,7 @@
  }
 
  @keyframes moveInFromSide {
-  0%   { left: 1600px;}
+  0%   { right: -100%;}
 }
 
 @keyframes moveInFromBottomToTop {
