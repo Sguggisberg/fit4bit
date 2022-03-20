@@ -1,11 +1,12 @@
 <fit4bit-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()">
-<fit4bit-payroll-list></fit4bit-payroll-list>
+  <fit4bit-payroll-list [month]="month" [year]="year"></fit4bit-payroll-list>
 </fit4bit-overlay>
 
 <fit4bit-newpayroll></fit4bit-newpayroll>
 
 <div *ngFor="let item of payrollList">
-
- {{ item.month }}
-
+  <div (click)="loadItem(item)">
+    {{ item.id }}
+    {{ item.month }}
+  </div>
 </div>

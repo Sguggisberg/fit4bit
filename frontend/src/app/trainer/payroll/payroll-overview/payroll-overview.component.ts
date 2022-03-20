@@ -8,18 +8,29 @@ import { PayrollService } from 'src/app/commons/service/payroll.service';
   styleUrls: ['./payroll-overview.component.scss'],
 })
 export class PayrollOverviewComponent implements OnInit {
-  payrollList: PayrollDto[] = [];
+  public payrollList: PayrollDto[] = [];
+  public payroll: PayrollDto;
   public showOverlay: boolean;
-
+  public month: number;
+  public year: number;
   constructor(private payrollService: PayrollService) {}
 
   ngOnInit(): void {
     this.payrollService
       .getAll$()
       .subscribe((payrollList) => (this.payrollList = payrollList));
-      this.showOverlay = true;
   }
-  public resetOverlay():void {
+  public resetOverlay(): void {
     this.showOverlay = false;
+  }
+
+  public loadItem(payroll: PayrollDto): void {
+    console.log(
+      'loadItem: ' + payroll.id + ' ' + payroll.month + ' ' + payroll.year
+    );
+    this.payroll = payroll;
+    this.month = payroll.month;
+    this.year = payroll.year;
+    this.showOverlay = true;
   }
 }

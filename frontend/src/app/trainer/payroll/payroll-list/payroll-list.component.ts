@@ -1,5 +1,5 @@
 import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TrainingService } from 'src/app/commons/service/training.service';
 
 @Component({
@@ -9,6 +9,12 @@ import { TrainingService } from 'src/app/commons/service/training.service';
 })
 export class PayrollListComponent implements OnInit {
   public ownTrainings: TrainingDto[];
+
+  @Input()
+  public month: number;
+
+  @Input()
+  public year: number;
 
   constructor(private trainingService: TrainingService) {}
 

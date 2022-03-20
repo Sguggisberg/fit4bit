@@ -21,9 +21,9 @@ export class TrainingOverviewComponent implements OnInit {
   }
 
   public loadItem(training: TrainingDto): void {
-    console.log('loadItem: ' + training.id + " " + training.amountOfCustomer);
+    console.log('training: ' + training.id);
     this.training = training;
-
+    this.showOverlay = true;
   }
 
   public resetOverlay():void {
