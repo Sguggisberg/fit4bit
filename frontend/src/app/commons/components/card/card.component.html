@@ -2,11 +2,10 @@
   <div class="image"></div>
   <div class="training">
     <div>Name: {{trainingDto.trainingTyp?.name}}</div>
-
-
+    <div>Datum: {{trainingDto.runningDate | date: 'dd.MM.yyyy HH.mm' }}</div>
   </div>
 
-  <div>
+  <div [class.is-hidden]="!active" class="image">
     <img src="../../../../assets/icon/ok_25.svg" alt="ok" />
   </div>
 </div>
