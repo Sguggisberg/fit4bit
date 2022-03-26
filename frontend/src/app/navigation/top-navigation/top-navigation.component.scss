@@ -1,3 +1,5 @@
+@import 'colors.scss';
+
 a {
   text-decoration: none;
   color: white;
@@ -12,4 +14,14 @@ a:active {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.head {
+  background-color: $background-color-head-primary;
+}
+
+.head p, .head h1 {
+  color: $text-head-color;
+  margin-top: 0;
+  margin-bottom: 0;
 }

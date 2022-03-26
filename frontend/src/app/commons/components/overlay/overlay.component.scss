@@ -1,4 +1,5 @@
 @import 'breakpoints';
+@import 'colors.scss';
 
 #overlay {
   position: absolute;
@@ -26,4 +27,14 @@
 
 @keyframes moveInFromBottomToTop {
   0%   { top: 800px;}
+}
+
+.head-overlay {
+  background-color: $background-color-head-secondary;
+}
+
+.head-overlay p, .head-overlay h1 {
+  color: $text-head-color;
+  margin-top: 0;
+  margin-bottom: 0;
 }
