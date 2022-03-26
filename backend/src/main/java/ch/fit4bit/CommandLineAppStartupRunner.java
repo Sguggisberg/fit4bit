@@ -16,7 +16,7 @@ import ch.fit4bit.service.RoomService;
 import ch.fit4bit.service.TrainingService;
 import ch.fit4bit.service.TrainingTypService;
 import ch.fit4bit.service.UserService;
-import utils.Month;
+import ch.fit4bit.utils.Month;
 
 import java.time.LocalDateTime;
 

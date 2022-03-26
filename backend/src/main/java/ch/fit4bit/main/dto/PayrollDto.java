@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import ch.fit4bit.model.BillState;
-import utils.Month;
+import ch.fit4bit.utils.Month;
 
 public class PayrollDto implements Serializable {
 	private static final long serialVersionUID = -8431435193022299051L;

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
-import utils.ValidatorHelper;
+import ch.fit4bit.utils.ValidatorHelper;
 
 
 public class RoomDto  implements Serializable {

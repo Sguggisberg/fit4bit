@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import ch.fit4bit.model.BillState;
-import utils.Month;
+import ch.fit4bit.utils.Month;
 
 @Entity
 public class Payroll implements Serializable {

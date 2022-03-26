@@ -1,4 +1,4 @@
-package utils;
+package ch.fit4bit.utils;
 
 public class ValidatorHelper {
 	
