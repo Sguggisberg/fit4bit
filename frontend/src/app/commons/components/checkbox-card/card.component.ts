@@ -3,11 +3,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CardItemService } from '../../service/card-item.service';
 
 @Component({
-  selector: 'fit4bit-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  selector: 'fit4bit-checkbox-card',
+  templateUrl: './checkbox-card.component.html',
+  styleUrls: ['./checkbox-card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CheckboxCardComponent implements OnInit {
   @Input()
   public active: boolean;
 
