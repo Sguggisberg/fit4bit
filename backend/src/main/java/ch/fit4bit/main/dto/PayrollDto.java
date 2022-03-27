@@ -2,6 +2,7 @@ package ch.fit4bit.main.dto;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import ch.fit4bit.model.BillState;
 import ch.fit4bit.utils.Month;
@@ -21,7 +22,7 @@ public class PayrollDto implements Serializable {
 
 	private Long id;
 	
-	private List<TrainingDTO> trainings;
+	private Set<TrainingDTO> trainings;
 
 	private Month month;
 
@@ -37,12 +38,17 @@ public class PayrollDto implements Serializable {
 		this.id = id;
 	}
 
-	public List<TrainingDTO> getTrainings() {
+
+	public Set<TrainingDTO> getTrainings() {
 		return trainings;
 	}
 
-	public void setTrainings(List<TrainingDTO> trainings) {
+	public void setTrainings(Set<TrainingDTO> trainings) {
 		this.trainings = trainings;
+	}
+	
+	public void addTraining(TrainingDTO trainingDTO) {
+		this.trainings.add(trainingDTO);
 	}
 
 	public Month getMonth() {

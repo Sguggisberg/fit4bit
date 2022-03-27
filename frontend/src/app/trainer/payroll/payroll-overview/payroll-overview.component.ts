@@ -1,6 +1,9 @@
 import { PayrollDto } from '../../../commons/dto/payroll-dto.model';
 import { Component, OnInit } from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
+import { MatMonthView } from '@angular/material/datepicker';
+import { CardItemService } from 'src/app/commons/service/card-item.service';
+import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';
 
 @Component({
   selector: 'fit4bit-payroll-overview',
@@ -13,7 +16,12 @@ export class PayrollOverviewComponent implements OnInit {
   public showOverlay: boolean;
   public month: number;
   public year: number;
-  constructor(private payrollService: PayrollService) {}
+  public title: string;
+
+  constructor(
+    private payrollService: PayrollService,
+    private cardItemService: CardItemService
+  ) {}
 
   ngOnInit(): void {
     this.payrollService
@@ -25,12 +33,24 @@ export class PayrollOverviewComponent implements OnInit {
   }
 
   public loadItem(payroll: PayrollDto): void {
-    console.log(
-      'loadItem: ' + payroll.id + ' ' + payroll.month + ' ' + payroll.year
-    );
     this.payroll = payroll;
     this.month = payroll.month;
     this.year = payroll.year;
     this.showOverlay = true;
+    this.title = `${this.month}  ${this.year}`;
+  }
+
+  public addTrainingsToPayroll(): void {
+    let listOfId: number[]=[];
+    this.cardItemService.clickedElements.forEach(training=>
+      listOfId.push(training.id!)
+      );
+
+    let payrollToAddTrainings:  PayrollAddTrainingDto = {
+      id:  this.payroll.id!,
+      trainingIds: listOfId
+    }
+    this.payrollService.addTrainings$(payrollToAddTrainings).subscribe();
+    this.showOverlay=false;
   }
 }

@@ -1,11 +1,5 @@
-<div class="head-overlay">
-  <h1>{{ month }} {{ year }}</h1>
-
-  <div>
-    <fit4bit-button></fit4bit-button>
-  </div>
-</div>
-
-<div class="container" *ngFor="let training of ownTrainings">
+<div *ngFor="let training of ownTrainings">
   <fit4bit-card [trainingDto]="training"></fit4bit-card>
 </div>
+
+

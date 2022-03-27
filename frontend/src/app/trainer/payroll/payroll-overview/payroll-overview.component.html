@@ -1,5 +1,14 @@
-<fit4bit-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()">
-  <fit4bit-payroll-list [month]="month" [year]="year"></fit4bit-payroll-list>
+<fit4bit-overlay [show]="showOverlay" [title]="title" (resetOverlayEmitter)="resetOverlay()">
+  <fit4bit-payroll-list [month]="month" [year]="year">
+
+
+
+  </fit4bit-payroll-list>
+  <div action>
+<fit4bit-button (click)="addTrainingsToPayroll()"></fit4bit-button>
+
+
+  </div>
 </fit4bit-overlay>
 
 <fit4bit-newpayroll></fit4bit-newpayroll>

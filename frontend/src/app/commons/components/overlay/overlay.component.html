@@ -1,5 +1,11 @@
 <fit4bit-backdrop (closeEmitter)="closeMe()" *ngIf="show"></fit4bit-backdrop>
 <div id="overlay" *ngIf="show">
+  <div class="head-overlay">
+    <h1>{{ title }}</h1>
+<ng-content select="[action]"></ng-content>
+
+</div>
+<div>
   <ng-content></ng-content>
 </div>
 

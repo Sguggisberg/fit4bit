@@ -2,6 +2,7 @@ package ch.fit4bit.main.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Payroll implements Serializable {
 	private Long id;
 
 	@OneToMany
-	private List<Training> trainings;
+	private Set<Training> trainings;
 
 	private Month month;
 
@@ -48,11 +49,11 @@ public class Payroll implements Serializable {
 		this.id = id;
 	}
 
-	public List<Training> getTrainings() {
+	public Set<Training> getTrainings() {
 		return trainings;
 	}
 
-	public void setTrainings(List<Training> trainings) {
+	public void setTrainings(Set<Training> trainings) {
 		this.trainings = trainings;
 	}
 

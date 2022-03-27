@@ -9,6 +9,7 @@ import { Fit4BitCommonsModule } from './commons/commons.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { TopNavigationComponent } from './navigation/top-navigation/top-navigation.component';
+import { AuthService } from './commons/service/auth.service';
 @NgModule({
   declarations: [AppComponent, TopNavigationComponent],
   imports: [
@@ -21,7 +22,7 @@ import { TopNavigationComponent } from './navigation/top-navigation/top-navigati
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

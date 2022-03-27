@@ -9,6 +9,7 @@ export class OverlayComponent {
 
   @Output() public resetOverlayEmitter: EventEmitter<null> = new EventEmitter();
   @Input() public show: boolean;
+  @Input() public title: string;
 
   public closeMe(): void {
     this.show = false;

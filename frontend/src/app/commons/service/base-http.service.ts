@@ -28,7 +28,7 @@ export abstract class BaseHttpService<T> {
     return this.httpClient.get<any>(this.createBackendEndpoint());
   }
 
-  private createBackendEndpoint(): string {
+  protected createBackendEndpoint(): string {
     return `${environment.BACKEND_URL}${this.path}`;
   }
 }

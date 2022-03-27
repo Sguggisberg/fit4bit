@@ -20,15 +20,10 @@ export class CardComponent implements OnInit {
 
   public toggle(): void {
     this.active = !this.active;
-    if(this.active){
+    if (this.active) {
       this.cardItemService.addItem(this.trainingDto);
-    }
-    else {
+    } else {
       this.cardItemService.removeItem(this.trainingDto);
     }
-
-    console.log('click');
-
-    console.log(this.active);
   }
 }
