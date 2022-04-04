@@ -10,6 +10,13 @@
       <input id="name" matInput type="text" formControlName="name" />
     </mat-form-field>
 
+   <button mat-mini-fab color="primary" class="upload-btn"
+   (click)="fileUpload.click()">
+     <mat-icon>attach_file</mat-icon>
+ </button>
+
+
+
     <button
       mat-raised-button
       color="primary"
@@ -20,3 +27,17 @@
     </button>
   </form>
 </section>
+
+
+<input type="file" class="file-input"
+       (change)="onUpload($event)" #fileUpload>
+
+<div class="file-upload">
+
+   {{fileName || "No file uploaded yet."}}
+
+    <button mat-mini-fab color="primary" class="upload-btn"
+      (click)="fileUpload.click()">
+        <mat-icon>attach_file</mat-icon>
+    </button>
+</div>

@@ -8,6 +8,7 @@ import { OverlayComponent } from './components/overlay/overlay.component';
 import { BackdropComponent } from './components/backdrop/backdrop.component';
 import { CheckboxCardComponent } from './components/checkbox-card/card.component';
 import { ButtonComponent } from './components/button/button.component';
+import { ImageUploaderComponent } from './pages/image-uploader/image-uploader.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ButtonComponent } from './components/button/button.component';
     OverlayComponent,
     BackdropComponent,
     CheckboxCardComponent,
-    ButtonComponent
+    ButtonComponent,
+    ImageUploaderComponent
 
   ],
   imports: [CommonModule, MaterialModule],

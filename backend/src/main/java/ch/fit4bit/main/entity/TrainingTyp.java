@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -27,6 +28,12 @@ public class TrainingTyp implements Serializable {
 	
 	private String name;
 	
+	@Lob
+	private byte[] image;
+	
+	private String imageType;
+	
+		
 	public TrainingTyp() {
 	}
 	
@@ -66,8 +73,20 @@ public class TrainingTyp implements Serializable {
 		this.name = name;
 	}
 
+	public byte[] getImage() {
+		return image;
+	}
 
-	
-	
-	
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public String getImageType() {
+		return imageType;
+	}
+
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
+		
 }

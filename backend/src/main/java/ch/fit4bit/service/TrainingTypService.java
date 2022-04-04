@@ -26,4 +26,13 @@ public class TrainingTypService {
 	public List<TrainingTyp> getAllTrainingTyps(){
 		return trainingTypRepository.findAll();
 	}
+
+	public TrainingTyp getTrainingTypById(Long id) {
+		return trainingTypRepository.findById(id).get();
+	}
+	
+	public TrainingTyp save(TrainingTyp t) {
+		return trainingTypRepository.save(t);
+	}
+	
 }

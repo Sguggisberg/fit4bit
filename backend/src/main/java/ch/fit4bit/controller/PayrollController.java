@@ -56,7 +56,6 @@ public class PayrollController {
 	
 	@PutMapping
 	public ResponseEntity<?> addTrainings(@RequestBody PayrollAddTrainingDto addTrainingDto) {
-		System.out.print("ok");
 		payrollService.addTrainings(addTrainingDto);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}

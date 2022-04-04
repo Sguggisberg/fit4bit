@@ -12,6 +12,8 @@ public class TrainingTypDTO implements Serializable {
 
 	private String name;
 
+	private byte[] image;
+	
 	public TrainingTypDTO() {
 
 	}
@@ -35,11 +37,17 @@ public class TrainingTypDTO implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 
 	@Override
 	public String toString() {
 		return "TrainingTypDTO [id=" + id + ", name=" + name + "]";
 	}
-	
-
-}
+	}
