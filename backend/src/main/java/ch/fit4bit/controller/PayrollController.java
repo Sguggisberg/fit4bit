@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ch.fit4bit.main.dto.PayrollAddTrainingDto;
 import ch.fit4bit.main.dto.PayrollDto;
-import ch.fit4bit.main.dto.RoomDto;
 import ch.fit4bit.main.entity.Payroll;
-import ch.fit4bit.main.entity.Room;
 import ch.fit4bit.service.PayrollService;
 
 @RestController
