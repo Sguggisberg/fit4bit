@@ -20,9 +20,9 @@ export class PayrollListComponent implements OnInit {
   constructor(private trainingService: TrainingService, private cardItemService: CardItemService) {}
 
   ngOnInit(): void {
-    this.trainingService.getAll$().subscribe((x) => {
-      this.ownTrainings = x;
-      this.cardItemService.trainings = x;
+    this.trainingService.getAll$().subscribe((trainingTyp) => {
+      this.ownTrainings = trainingTyp;
+      this.cardItemService.trainings = trainingTyp;
     });
 
   }

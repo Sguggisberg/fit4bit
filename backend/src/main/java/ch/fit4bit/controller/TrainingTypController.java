@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ch.fit4bit.main.dto.TrainingTypDTO;
 import ch.fit4bit.main.entity.TrainingTyp;
 import ch.fit4bit.service.TrainingTypService;
+import ch.fit4bit.utils.FileUploadUtil;
 import ch.fit4bit.utils.ImageUtils;
 
 @RestController
@@ -56,12 +58,26 @@ public class TrainingTypController {
 	public ResponseEntity<?> uoloadFile(@RequestParam("file") MultipartFile file, @RequestParam("id") Long id) {
 		TrainingTyp t = trainingTypService.getTrainingTypById(id);
 		try {
-			t.setImage(ImageUtils.compressBytes(file.getBytes()));
+			t.setImage(file.getBytes());
 		} catch (IOException e) {
 			new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		trainingTypService.save(t);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
+	
+	@PostMapping("/image2")
+	public ResponseEntity<?> uoloadFile2(@RequestParam("file") MultipartFile multipartFile, @RequestParam("id") Long id) throws IOException {
+
+		 String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+	     
+
+	        String uploadDir = "user-photos/";
+	 
+	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+		
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
+
 
 }

@@ -70,6 +70,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>fit4bit</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

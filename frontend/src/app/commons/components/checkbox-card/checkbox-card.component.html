@@ -3,6 +3,7 @@
   <div class="training">
     <div>Name: {{trainingDto.trainingTyp?.name}}</div>
     <div>Datum: {{trainingDto.runningDate | date: 'dd.MM.yyyy HH.mm' }}</div>
+    <div *ngIf="trainingDto.trainingTyp?.image"><img [src]="trainingDto.trainingTyp?.image"></div>
   </div>
 
   <div [class.is-hidden]="!active" class="image">
