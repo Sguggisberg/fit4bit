@@ -38,3 +38,7 @@
         <mat-icon>attach_file</mat-icon>
     </button>
 </div>
+
+<div *ngIf=retrievedImage>
+  <img [src]="retrievedImage">
+</div>

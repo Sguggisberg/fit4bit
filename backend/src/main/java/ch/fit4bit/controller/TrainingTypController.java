@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import ch.fit4bit.main.dto.TrainingTypDTO;
+import ch.fit4bit.main.dto.TrainingTypImageDto;
 import ch.fit4bit.main.entity.TrainingTyp;
 import ch.fit4bit.service.TrainingTypService;
 import ch.fit4bit.utils.FileUploadUtil;
@@ -64,6 +66,16 @@ public class TrainingTypController {
 		}
 		trainingTypService.save(t);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
+	
+	@GetMapping("/image/{id}")
+	public TrainingTypImageDto loadImage(@PathVariable Long id) {
+		TrainingTyp t = trainingTypService.getTrainingTypById(id);
+		TrainingTypImageDto trainingTypImageDto = new TrainingTypImageDto();
+		trainingTypImageDto.setId(t.getId());
+		trainingTypImageDto.setImage(t.getImage());
+		return trainingTypImageDto;
+		
 	}
 	
 	@PostMapping("/image2")

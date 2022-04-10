@@ -10,6 +10,14 @@ import { TrainingTypService } from '../../service/training-typ.service';
 export class NewTraininTypComponent {
   profileForm: FormGroup;
 
+
+  selectedFile: File;
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResonse: any;
+  message: string;
+  imageName: any;
+
   constructor(
     private trainingTypService: TrainingTypService
   ) {}
@@ -18,6 +26,8 @@ export class NewTraininTypComponent {
     this.profileForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
     });
+
+    this. image();
   }
 
   create() {
@@ -30,5 +40,17 @@ export class NewTraininTypComponent {
     if (file) {
       this.trainingTypService.uploadImage$(file).subscribe();
     }
+  }
+
+  image() {
+    this.trainingTypService.getImage$().subscribe(
+      res => {
+        this.retrieveResonse = res;
+        this.base64Data = this.retrieveResonse.image;
+        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+      }
+
+
+    );
   }
 }
