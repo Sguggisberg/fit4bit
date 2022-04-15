@@ -35,7 +35,6 @@ export abstract class BaseHttpService<T> {
     return `${environment.BACKEND_URL}${this.path}`;
   }
 
-  // https://medium.com/@rameez.s.shaikh/upload-and-retrieve-images-using-spring-boot-angular-8-mysql-18c166f7bc98
   uploadImage$(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file, file.name);
