@@ -1,7 +1,27 @@
+@import 'breakpoints';
+@import 'spaces.scss';
+@import 'colors.scss';
+
 mat-form-field {
   width: 300px;
 }
 
 .file-input {
   display: none;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  background-color: $background-color-head-secondary;
+  color: white;
+  padding: 3px 10px 3px 10px ;
+}
+
+.upload-btn {
+  margin-right: 5px;
+}
+
+.submit-btn {
+  margin: 10px;
 }

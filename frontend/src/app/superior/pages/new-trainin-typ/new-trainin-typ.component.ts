@@ -10,13 +10,9 @@ import { TrainingTypService } from '../../service/training-typ.service';
 })
 export class NewTraininTypComponent {
   profileForm: FormGroup;
-
-  selectedFile: File;
-  retrievedImage: any;
+  retrievedImage: string;
   base64Data: string;
   retrieveResonse: any;
-  message: string;
-  imageName: any;
   file: File;
 
   constructor(private trainingTypService: TrainingTypService) {}
@@ -27,11 +23,6 @@ export class NewTraininTypComponent {
     });
 
     this.image();
-  }
-
-  create() {
-    const newTrainingTyp = this.profileForm.value;
-    this.trainingTypService.create$(newTrainingTyp).subscribe();
   }
 
   create2() {
@@ -47,12 +38,9 @@ export class NewTraininTypComponent {
 
   onUpload(event: any) {
     this.file = event.target.files[0];
-    /* if (file) {
-      this.trainingTypService.uploadImage$(file).subscribe();
-    }
-    */
   }
 
+  // Bild lesen
   image() {
     this.trainingTypService.getImage$().subscribe((res) => {
       this.retrieveResonse = res;
