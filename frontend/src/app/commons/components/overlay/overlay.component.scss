@@ -33,10 +33,15 @@
 .head-overlay {
   background-color: $background-color-head-secondary;
   margin-bottom: $space_10;
+
 }
 
 .head-overlay p, .head-overlay h1 {
   color: $text-head-color;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.wrapper {
+  padding: 8px 0 0 8px;
 }

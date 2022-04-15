@@ -6,7 +6,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./overlay.component.scss'],
 })
 export class OverlayComponent {
-
   @Output() public resetOverlayEmitter: EventEmitter<null> = new EventEmitter();
   @Input() public show: boolean;
   @Input() public title: string;
@@ -15,6 +14,4 @@ export class OverlayComponent {
     this.show = false;
     this.resetOverlayEmitter.emit();
   }
-
-
 }

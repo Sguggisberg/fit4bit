@@ -1,5 +1,9 @@
 <fit4bit-main-content-container [title]="'Meine Trainings Übersicht'">
-  <fit4bit-overlay [show]="showOverlay" (resetOverlayEmitter)="resetOverlay()">
+  <fit4bit-overlay
+    [show]="showOverlay"
+    [title]="'Anzahl Kunden erfassen'"
+    (resetOverlayEmitter)="resetOverlay()"
+  >
     <fit4bit-edit-training
       [receivedTraining]="training"
       *ngIf="training"
