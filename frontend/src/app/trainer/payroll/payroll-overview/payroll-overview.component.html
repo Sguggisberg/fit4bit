@@ -1,21 +1,21 @@
-<fit4bit-overlay [show]="showOverlay" [title]="title" (resetOverlayEmitter)="resetOverlay()">
-  <fit4bit-payroll-list [month]="month" [year]="year">
+<fit4bit-main-content-container [title]="'Lohnabrechnungs Übersicht'">
+  <fit4bit-overlay
+    [show]="showOverlay"
+    [title]="title"
+    (resetOverlayEmitter)="resetOverlay()"
+  >
+    <fit4bit-payroll-list [month]="month" [year]="year"> </fit4bit-payroll-list>
+    <div action>
+      <fit4bit-button (click)="addTrainingsToPayroll()"></fit4bit-button>
+    </div>
+  </fit4bit-overlay>
 
+  <fit4bit-newpayroll></fit4bit-newpayroll>
 
-
-  </fit4bit-payroll-list>
-  <div action>
-<fit4bit-button (click)="addTrainingsToPayroll()"></fit4bit-button>
-
-
+  <div *ngFor="let item of payrollList">
+    <div (click)="loadItem(item)">
+      {{ item.id }}
+      {{ item.month }}
+    </div>
   </div>
-</fit4bit-overlay>
-
-<fit4bit-newpayroll></fit4bit-newpayroll>
-
-<div *ngFor="let item of payrollList">
-  <div (click)="loadItem(item)">
-    {{ item.id }}
-    {{ item.month }}
-  </div>
-</div>
+</fit4bit-main-content-container>

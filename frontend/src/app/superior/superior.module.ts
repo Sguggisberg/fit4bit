@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TrainingComponent } from '../commons/pages/training/training.component';
 import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';
 import { RoomComponent } from './pages/room/room.component';
+import { Fit4BitCommonsModule } from '../commons/commons.module';
 
 @NgModule({
   declarations: [NewUserComponent, TrainingComponent, NewTraininTypComponent, RoomComponent],
@@ -17,6 +18,7 @@ import { RoomComponent } from './pages/room/room.component';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+    Fit4BitCommonsModule
   ],
   exports: [NewUserComponent, TrainingComponent, NewTraininTypComponent],
 })

@@ -2,7 +2,6 @@ package ch.fit4bit.main.dto;
 
 import java.io.Serializable;
 
-
 public class TrainingTypDTO implements Serializable {
 
 	private static final long serialVersionUID = 6304213182877781103L;
@@ -11,8 +10,6 @@ public class TrainingTypDTO implements Serializable {
 
 	private String name;
 
-
-	
 	public TrainingTypDTO() {
 
 	}
@@ -20,7 +17,7 @@ public class TrainingTypDTO implements Serializable {
 	public TrainingTypDTO(String name) {
 		this.name = name;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -36,10 +33,9 @@ public class TrainingTypDTO implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 
 	@Override
 	public String toString() {
 		return "TrainingTypDTO [id=" + id + ", name=" + name + "]";
 	}
-	}
+}

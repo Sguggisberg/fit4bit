@@ -17,7 +17,7 @@ export class TrainingTypService extends BaseHttpService<TrainingTypDto> {
   }
 
   public getImage$() {
-    return this.httpClient.get('http://localhost:8080/api/trainingtyp/image/1')
+    return this.httpClient.get('http://localhost:8080/api/trainingtyp/image/9')
   }
 
 }

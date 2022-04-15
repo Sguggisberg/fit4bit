@@ -9,6 +9,7 @@ import { BackdropComponent } from './components/backdrop/backdrop.component';
 import { CheckboxCardComponent } from './components/checkbox-card/card.component';
 import { ButtonComponent } from './components/button/button.component';
 import { ImageUploaderComponent } from './pages/image-uploader/image-uploader.component';
+import { MainContentContainerComponent } from './shared/main-content-container/main-content-container.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,19 @@ import { ImageUploaderComponent } from './pages/image-uploader/image-uploader.co
     BackdropComponent,
     CheckboxCardComponent,
     ButtonComponent,
-    ImageUploaderComponent
-
+    ImageUploaderComponent,
+    MainContentContainerComponent,
   ],
   imports: [CommonModule, MaterialModule],
-  exports: [BlankSlateInformationComponent,  LoaderComponent, OverlayComponent, BackdropComponent, CheckboxCardComponent, ButtonComponent],
+
+  exports: [
+    BlankSlateInformationComponent,
+    LoaderComponent,
+    OverlayComponent,
+    BackdropComponent,
+    CheckboxCardComponent,
+    ButtonComponent,
+    MainContentContainerComponent,
+  ],
 })
-export class Fit4BitCommonsModule{}
+export class Fit4BitCommonsModule {}

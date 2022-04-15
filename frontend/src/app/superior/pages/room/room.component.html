@@ -1,24 +1,27 @@
+<fit4bit-main-content-container [title]="'Neuer Raum erstellen'">
+  <section  >
+    <form fxLayout="column" fxLayoutAlign="center center"
+      [formGroup]="formGroup"
+      (ngSubmit)="create()"
+      >
+      <mat-form-field>
+        <mat-label for="name">Raumname</mat-label>
+        <input id="name" matInput type="text" formControlName="name" />
+      </mat-form-field>
 
-<section  >
-  <form fxLayout="column" fxLayoutAlign="center center"
-    [formGroup]="formGroup"
-    (ngSubmit)="create()"
-    >
-    <mat-form-field>
-      <mat-label for="name">Raumname</mat-label>
-      <input id="name" matInput type="text" formControlName="name" />
-    </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!formGroup.valid"
+      >
+        Speichern
+      </button>
+    </form>
+  </section>
 
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="!formGroup.valid"
-    >
-      Speichern
-    </button>
-  </form>
-</section>
+</fit4bit-main-content-container>
+
 
 
 

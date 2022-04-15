@@ -1,22 +1,29 @@
-<section>
-  <form
-    fxLayout="column"
-    fxLayoutAlign="center center"
-    [formGroup]="profileForm"
-    (ngSubmit)="setAmountOfCustomer()"
-  >
-    <mat-form-field>
-      <mat-label for="amountCustomer">Anzahl Teilnehmer</mat-label>
-      <input id="amountCustomer" matInput type="number" formControlName="amountCustomer" />
-    </mat-form-field>
-
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="!profileForm.valid"
+<fit4bit-main-content-container [title]="'Anzahl Teilnehmer erfassen'">
+  <section>
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      [formGroup]="profileForm"
+      (ngSubmit)="setAmountOfCustomer()"
     >
-      Speichern
-    </button>
-  </form>
-</section>
+      <mat-form-field>
+        <mat-label for="amountCustomer">Anzahl Teilnehmer</mat-label>
+        <input
+          id="amountCustomer"
+          matInput
+          type="number"
+          formControlName="amountCustomer"
+        />
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!profileForm.valid"
+      >
+        Speichern
+      </button>
+    </form>
+  </section>
+</fit4bit-main-content-container>

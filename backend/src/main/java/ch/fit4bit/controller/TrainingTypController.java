@@ -41,8 +41,17 @@ public class TrainingTypController {
 	}
 
 	@PostMapping
-	public ResponseEntity<?> create(@RequestBody TrainingTypDTO trainingTypDTO) {
-		trainingTypService.create(modelMapper.map(trainingTypDTO, TrainingTyp.class));
+	public ResponseEntity<?> create(@RequestParam(required = false, name = "file") MultipartFile file,
+			@RequestParam(name = "name") String name) {
+		TrainingTyp trainingTyp = new TrainingTyp();
+		trainingTyp.setName(name);
+		try {
+			if (file != null)
+				trainingTyp.setImage(file.getBytes());
+		} catch (IOException e) {
+			new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		trainingTypService.create(trainingTyp);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
@@ -56,18 +65,6 @@ public class TrainingTypController {
 		return allRoomsDto;
 	}
 
-	@PostMapping("/image")
-	public ResponseEntity<?> uoloadFile(@RequestParam("file") MultipartFile file, @RequestParam("id") Long id) {
-		TrainingTyp t = trainingTypService.getTrainingTypById(id);
-		try {
-			t.setImage(file.getBytes());
-		} catch (IOException e) {
-			new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		trainingTypService.save(t);
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}
-	
 	@GetMapping("/image/{id}")
 	public TrainingTypImageDto loadImage(@PathVariable Long id) {
 		TrainingTyp t = trainingTypService.getTrainingTypById(id);
@@ -75,21 +72,7 @@ public class TrainingTypController {
 		trainingTypImageDto.setId(t.getId());
 		trainingTypImageDto.setImage(t.getImage());
 		return trainingTypImageDto;
-		
+
 	}
-	
-	@PostMapping("/image2")
-	public ResponseEntity<?> uoloadFile2(@RequestParam("file") MultipartFile multipartFile, @RequestParam("id") Long id) throws IOException {
-
-		 String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-	     
-
-	        String uploadDir = "user-photos/";
-	 
-	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-		
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}
-
 
 }

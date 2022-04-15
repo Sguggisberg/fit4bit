@@ -1,57 +1,75 @@
-<form fxLayout="column" fxLayoutAlign="center center"
-  [formGroup]="formGroup" (ngSubmit)="create()" fxLayoutAlign="center center">
-
-  <mat-form-field appearance="fill">
-    <mat-label>Raum</mat-label>
-    <mat-select formControlName="roomId">
-      <mat-option *ngFor="let room of roomsDtoList" [value]="room.id">
-        {{ room.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Typ</mat-label>
-    <mat-select formControlName="trainingTypId">
-      <mat-option *ngFor="let trainingTyp of trainingTypList" [value]="trainingTyp.id">
-        {{ trainingTyp.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Trainer</mat-label>
-    <mat-select formControlName="userId">
-      <mat-option *ngFor="let user of userList" [value]="user.id">
-        {{ user.firstName }} {{ user.email }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Dauer [min]</mat-label>
-    <input matInput placeholder="Minuten" type="number" formControlName="duration">
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Datum</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="startDate">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Startzeit</mat-label>
-    <input matInput placeholder="Start Zeit" type="string" formControlName="startTime">
-  </mat-form-field>
-
-
-  <button
-    mat-raised-button
-    color="primary"
-    type="submit"
-    [disabled]="!formGroup.valid"
+<fit4bit-main-content-container [title]="'Neues Training erfassen'">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    [formGroup]="formGroup"
+    (ngSubmit)="create()"
+    fxLayoutAlign="center center"
   >
-    Speichern
-  </button>
-</form>
+    <mat-form-field appearance="fill">
+      <mat-label>Raum</mat-label>
+      <mat-select formControlName="roomId">
+        <mat-option *ngFor="let room of roomsDtoList" [value]="room.id">
+          {{ room.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Typ</mat-label>
+      <mat-select formControlName="trainingTypId">
+        <mat-option
+          *ngFor="let trainingTyp of trainingTypList"
+          [value]="trainingTyp.id"
+        >
+          {{ trainingTyp.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Trainer</mat-label>
+      <mat-select formControlName="userId">
+        <mat-option *ngFor="let user of userList" [value]="user.id">
+          {{ user.firstName }} {{ user.email }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Dauer [min]</mat-label>
+      <input
+        matInput
+        placeholder="Minuten"
+        type="number"
+        formControlName="duration"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Datum</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="startDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Startzeit</mat-label>
+      <input
+        matInput
+        placeholder="Start Zeit"
+        type="string"
+        formControlName="startTime"
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!formGroup.valid"
+    >
+      Speichern
+    </button>
+  </form>
+</fit4bit-main-content-container>

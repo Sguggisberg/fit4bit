@@ -1,44 +1,44 @@
-<section>
-  <form
-    fxLayout="column"
-    fxLayoutAlign="center center"
-    [formGroup]="profileForm"
-    (ngSubmit)="create()"
-  >
-    <mat-form-field>
-      <mat-label for="name">Name</mat-label>
-      <input id="name" matInput type="text" formControlName="name" />
-    </mat-form-field>
-
-   <button mat-mini-fab color="primary" class="upload-btn"
-   (click)="fileUpload.click()">
-     <mat-icon>attach_file</mat-icon>
- </button>
-
-
-
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="!profileForm.valid"
+<fit4bit-main-content-container [title]="'Neuer Trainings Typ'">
+  <section>
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      [formGroup]="profileForm"
+      (ngSubmit)="create2()"
     >
-      Speichern
-    </button>
-  </form>
-</section>
+      <mat-form-field>
+        <mat-label for="name">Name</mat-label>
+        <input id="name" matInput type="text" formControlName="name" />
+      </mat-form-field>
 
-
-<input type="file" class="file-input"
-       (change)="onUpload($event)" #fileUpload>
-
-<div class="file-upload">
-    <button mat-mini-fab color="primary" class="upload-btn"
-      (click)="fileUpload.click()">
+      <button
+        mat-mini-fab
+        color="primary"
+        class="upload-btn"
+        (click)="fileUpload.click()"
+      >
         <mat-icon>attach_file</mat-icon>
-    </button>
-</div>
+      </button>
 
-<div *ngIf=retrievedImage>
-  <img [src]="retrievedImage">
-</div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!profileForm.valid"
+      >
+        Speichern
+      </button>
+    </form>
+  </section>
+
+  <input
+    type="file"
+    class="file-input"
+    (change)="onUpload($event)"
+    #fileUpload
+  />
+
+  <div *ngIf="retrievedImage">
+    <img [src]="retrievedImage" />
+  </div>
+</fit4bit-main-content-container>
