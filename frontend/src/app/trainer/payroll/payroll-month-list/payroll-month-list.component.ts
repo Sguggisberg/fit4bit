@@ -40,4 +40,8 @@ public payrollList: PayrollDto[] = [];
   ngOnInit(): void {
   }
 
+public rowClick(): void {
+  console.log('clicked!');
+}
+
 }
