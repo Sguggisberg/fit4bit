@@ -32,10 +32,10 @@ export class PayrollMonthListComponent implements OnInit {
 public payrollList: PayrollDto[] = [];
 
   constructor() { }
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['month', 'year', 'state'];
   dataSource = ELEMENT_DATA;
 
-  clickedRows = new Set<PeriodicElement>();
+  clickedRows = new Set<PeriodicElement>()
 
   ngOnInit(): void {
   }
