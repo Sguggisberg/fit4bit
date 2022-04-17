@@ -10,6 +10,8 @@ import { CheckboxCardComponent } from './components/checkbox-card/card.component
 import { ButtonComponent } from './components/button/button.component';
 import { ImageUploaderComponent } from './pages/image-uploader/image-uploader.component';
 import { MainContentContainerComponent } from './shared/main-content-container/main-content-container.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,10 @@ import { MainContentContainerComponent } from './shared/main-content-container/m
     ButtonComponent,
     ImageUploaderComponent,
     MainContentContainerComponent,
+    LoginComponent,
+
   ],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, ReactiveFormsModule],
 
   exports: [
     BlankSlateInformationComponent,

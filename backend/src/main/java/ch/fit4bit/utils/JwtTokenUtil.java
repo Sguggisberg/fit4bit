@@ -24,7 +24,6 @@ public class JwtTokenUtil implements Serializable {
 	@Value("${app.jwt.secret}")
 	private String secret;
 
-	//retrieve username from jwt token
 	public String getUsernameFromToken(String token) {
 		return getClaimFromToken(token, Claims::getSubject);
 	}
@@ -43,7 +42,6 @@ public class JwtTokenUtil implements Serializable {
 		return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 	}
 
-	//check if the token has expired
 	private Boolean isTokenExpired(String token) {
 		final Date expiration = getExpirationDateFromToken(token);
 		return expiration.before(new Date());
@@ -52,6 +50,7 @@ public class JwtTokenUtil implements Serializable {
 	//generate token for user
 	public String generateToken(UserDetails userDetails) {
 		Map<String, Object> claims = new HashMap<>();
+		claims.put("Roles", userDetails.getAuthorities());
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
 

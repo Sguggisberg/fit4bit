@@ -8,7 +8,7 @@ import { UserService } from 'src/app/commons/service/user.service';
   styleUrls: ['./new-user.component.scss'],
 })
 export class NewUserComponent implements OnInit {
-  profileForm: FormGroup;
+  public profileForm: FormGroup;
 
   constructor(private userServiceService: UserService) {}
 

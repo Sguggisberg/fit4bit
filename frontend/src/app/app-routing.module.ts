@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './commons/pages/login/login.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
     path: 'superior',
     loadChildren: () =>
       import('./superior/superior.module').then((m) => m.SuperiorModule),
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 
 ];

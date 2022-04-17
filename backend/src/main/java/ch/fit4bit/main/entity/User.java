@@ -28,11 +28,12 @@ public class User implements UserDetails {
 
 	}
 
-	public User(String username, String firstName, String lastName, String passwort) {
+	public User(String username, String firstName, String lastName, String passwort, List<Role> roles) {
 		this.lastName = lastName;
 		this.username = username;
 		this.passwort = passwort;
 		this.firstName = firstName;
+		this.roles = roles;
 	}
 	
 	@Id

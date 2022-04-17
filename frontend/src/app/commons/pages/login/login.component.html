@@ -1,0 +1,28 @@
+<fit4bit-main-content-container [title]="'Hier kannst du einloggen'">
+  <section  >
+    <form fxLayout="column" fxLayoutAlign="center center"
+      [formGroup]="profileForm"
+      (ngSubmit)="login()"
+    >
+      <mat-form-field>
+        <mat-label for="username">Email</mat-label>
+        <input id="username" matInput type="text" formControlName="username" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="password">Passwort</mat-label>
+        <input id="password" matInput type="text" formControlName="password" />
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!profileForm.valid"
+      >
+        Speichern
+      </button>
+    </form>
+  </section>
+
+</fit4bit-main-content-container>
