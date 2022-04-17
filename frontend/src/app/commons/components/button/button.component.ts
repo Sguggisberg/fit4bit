@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fit4bit-button',
@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class ButtonComponent implements OnInit {
 
   constructor() { }
+
+  @Input()
+  public name: string;
 
   ngOnInit(): void {
   }

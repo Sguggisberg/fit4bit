@@ -1,6 +1,6 @@
-@import 'breakpoints';
-@import 'spaces.scss';
-@import 'colors.scss';
+@import "breakpoints";
+@import "spaces.scss";
+@import "colors.scss";
 
 #overlay {
   position: absolute;
@@ -20,28 +20,36 @@
     border-radius: 25px;
     left: 0;
   }
- }
+}
 
- @keyframes moveInFromSide {
-  0%   { right: -100%;}
+@keyframes moveInFromSide {
+  0% {
+    right: -100%;
+  }
 }
 
 @keyframes moveInFromBottomToTop {
-  0%   { top: 800px;}
+  0% {
+    top: 800px;
+  }
 }
 
 .head-overlay {
   background-color: $background-color-head-secondary;
   margin-bottom: $space_10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
 }
 
-.head-overlay p, .head-overlay h1 {
+.head-overlay p,
+.head-overlay h1 {
   color: $text-head-color;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .wrapper {
-  padding: 8px 0 0 8px;
+  padding: 8px 5px 5px 8px;
 }

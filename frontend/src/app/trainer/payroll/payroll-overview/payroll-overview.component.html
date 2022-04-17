@@ -6,7 +6,7 @@
   >
     <fit4bit-payroll-list [title]="title"> </fit4bit-payroll-list>
     <div action>
-      <fit4bit-button (click)="addTrainingsToPayroll()"></fit4bit-button>
+      <fit4bit-button (click)="addTrainingsToPayroll()" [name]="'Hinzufügen'"></fit4bit-button>
     </div>
   </fit4bit-overlay>
 
@@ -18,17 +18,17 @@
     <th mat-header-cell *matHeaderCellDef>Monat</th>
     <td
       mat-cell
-      *matCellDef="let element"
-      (click)="loadItem(element)"
+      *matCellDef="let month"
+      (click)="loadItem(month)"
       class="cursor"
     >
-      {{ element.month }}
+      {{ month.month }}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="year">
     <th mat-header-cell *matHeaderCellDef>Jahr</th>
-    <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+    <td mat-cell *matCellDef="let month">{{ month.year }}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
