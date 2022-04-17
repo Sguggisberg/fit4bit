@@ -17,7 +17,7 @@ export class PayrollOverviewComponent implements OnInit {
   public month: number;
   public year: number;
   public title: string;
-
+  public displayedColumns: string[] = ['month', 'year'];
   constructor(
     private payrollService: PayrollService,
     private cardItemService: CardItemService

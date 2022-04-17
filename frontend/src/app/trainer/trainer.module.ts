@@ -9,7 +9,6 @@ import { Fit4BitCommonsModule } from '../commons/commons.module';
 import { PayrollOverviewComponent } from './payroll/payroll-overview/payroll-overview.component';
 import { NewpayrollComponent } from './payroll/create-payroll/newpayroll.component';
 import { PayrollListComponent } from './payroll/payroll-list/payroll-list.component';
-import { PayrollMonthListComponent } from './payroll/payroll-month-list/payroll-month-list.component';
 
 @NgModule({
   declarations: [
@@ -18,20 +17,14 @@ import { PayrollMonthListComponent } from './payroll/payroll-month-list/payroll-
     EditTrainingComponent,
     NewpayrollComponent,
     PayrollListComponent,
-    PayrollMonthListComponent,
-
-
   ],
   imports: [
     CommonModule,
     TrainerRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    Fit4BitCommonsModule
-
-
+    Fit4BitCommonsModule,
   ],
-  exports: [
-  ]
+  exports: [],
 })
-export class TrainerModule { }
+export class TrainerModule {}

@@ -4,24 +4,33 @@
     [title]="'title'"
     (resetOverlayEmitter)="resetOverlay()"
   >
-    <fit4bit-payroll-list [month]="month" [year]="year"> </fit4bit-payroll-list>
+    <fit4bit-payroll-list [title]="title"> </fit4bit-payroll-list>
     <div action>
       <fit4bit-button (click)="addTrainingsToPayroll()"></fit4bit-button>
     </div>
   </fit4bit-overlay>
 
   <fit4bit-newpayroll></fit4bit-newpayroll>
-
-  <div *ngFor="let item of payrollList">
-    <div (click)="loadItem(item)">
-      {{ item.id }}
-      {{ item.month }}
-    </div>
-  </div>
 </fit4bit-main-content-container>
 
-<fit4bit-payroll-month-list [payrollList]="payrollList">
+<table mat-table [dataSource]="payrollList" class="mat-elevation-z8">
+  <ng-container matColumnDef="month">
+    <th mat-header-cell *matHeaderCellDef>Monat</th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      (click)="loadItem(element)"
+      class="cursor"
+    >
+      {{ element.month }}
+    </td>
+  </ng-container>
 
+  <ng-container matColumnDef="year">
+    <th mat-header-cell *matHeaderCellDef>Jahr</th>
+    <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+  </ng-container>
 
-
-</fit4bit-payroll-month-list>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
