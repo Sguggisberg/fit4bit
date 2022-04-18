@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
-import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'fit4bit-login',
@@ -21,14 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    console.log('data: ', this.profileForm.value);
-    this.authService
-      .login$(this.profileForm.value)
-      .subscribe((response) => {
-        // You can access status:
-        console.log('Status:' + response.status);
-
-
-      });
+    this.authService.login$(this.profileForm.value).subscribe();
   }
 }

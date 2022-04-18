@@ -12,5 +12,6 @@
     <a routerLink="superior/newtraining"> Neues Training </a>
     <a routerLink="trainer/overview"> T Overview</a>
     <a routerLink="trainer/payroll"> Payroll Overview</a>
+    <a routerLink="/"> {{(userName$ | async) || 'Gast' }} </a>
   </div>
 </mat-toolbar>

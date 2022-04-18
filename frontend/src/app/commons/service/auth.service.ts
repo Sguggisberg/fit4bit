@@ -1,36 +1,43 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { tap, map, catchError } from 'rxjs/operators';
 import { UserLoginDto } from '../dto/userlogin-dto.model';
 import { BaseHttpService } from './base-http.service';
-import { JwtService, JwtToken } from './jwt.service';
+import { LocalStoreService, JwtToken } from './jwt.service';
 import { HEADER } from './service.constants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService extends BaseHttpService<UserLoginDto> {
-
   protected path: string = 'authenticate';
 
-  constructor(httpClient: HttpClient, private jwtService:JwtService) {
-    super(httpClient)
+  constructor(httpClient: HttpClient, private jwtService: LocalStoreService) {
+    super(httpClient);
   }
 
-  public login$(userLoginDto:UserLoginDto): Observable<any> {
+  public login$(userLoginDto: UserLoginDto): Observable<any> {
     const body = JSON.stringify(userLoginDto);
     const headers = new HttpHeaders(HEADER);
-    return this.httpClient.post<JwtToken>(
-      this.createBackendEndpoint(), body, {
-      headers,
-    }).pipe(tap(resposne => {this.jwtService.storeJwt(resposne)
-    console.log('store: ' ,this.jwtService.getJwt())
-    }
 
-    ))
-    ;
+    const post$ = this.httpClient.post<JwtToken>(
+      this.createBackendEndpoint(),
+      body,
+      {
+        headers,
+      }
+    );
+
+    return post$.pipe(
+      catchError((err) => {
+        console.log('Logn failed', err);
+        this.jwtService.clear();
+        return throwError(err);
+      }),
+      tap((resposne) => {
+        this.jwtService.storeJwt(resposne);
+      })
+    );
   }
 }
-
-

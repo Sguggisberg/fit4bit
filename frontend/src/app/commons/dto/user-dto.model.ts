@@ -1,4 +1,3 @@
-import { Dto } from './dto.model';
 export interface UserDto {
   id?: number,
   lastName?: string,

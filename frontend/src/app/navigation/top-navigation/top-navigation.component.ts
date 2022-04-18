@@ -1,4 +1,6 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { LocalStoreService } from 'src/app/commons/service/jwt.service';
 
 @Component({
   selector: 'app-top-navigation',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavigationComponent implements OnInit {
 
-  constructor() { }
+  public userName$: Observable<string>;
+
+  constructor(private localStoreService:LocalStoreService) { }
 
   ngOnInit(): void {
+    this.userName$ = this.localStoreService.getUseName$();
   }
 
 }
