@@ -1,13 +1,14 @@
+import { UserDto } from 'src/app/commons/dto/user-dto.model';
 import { Roles } from './../dto/role-dto.model';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
-import { Observable, of } from 'rxjs';
+import { Subject } from 'rxjs';
 
 export interface JwtToken {
   token: string;
 }
 
-export interface DecodedJwtTokenData {
+ interface DecodedJwtTokenData {
   sub: string;
   roles: Roles[];
   exp: number;
@@ -17,14 +18,18 @@ export interface DecodedJwtTokenData {
   providedIn: 'root',
 })
 export class LocalStoreService {
+  public user$ = new Subject<UserDto>();
+
   public storeJwt(jwt: JwtToken): void {
     localStorage.setItem('token', jwt.token);
-   }
+    this.user$.next(this.getUser());
+  }
 
   public getJwt(): JwtToken {
     let jwtToken: JwtToken;
     let obj = localStorage!.getItem('token');
     if (obj == null || obj == undefined) {
+      this.user$.next(undefined);
       return (jwtToken = {
         token: '',
       });
@@ -38,11 +43,16 @@ export class LocalStoreService {
   }
 
   public clear(): void {
-    localStorage.clear();
+     localStorage.clear();
+    this.user$.next(undefined);
   }
 
-  public getUseName$(): Observable<string> {
+  private getUser(): UserDto {
     let decodedToken: DecodedJwtTokenData = jwt_decode(this.getJwt().token);
-    return of(decodedToken.sub);
+    let user:  UserDto = {
+      email: decodedToken.sub,
+      roles: decodedToken.roles
+    }
+    return user;
   }
 }

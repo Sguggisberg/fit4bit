@@ -12,6 +12,7 @@ import { ImageUploaderComponent } from './pages/image-uploader/image-uploader.co
 import { MainContentContainerComponent } from './shared/main-content-container/main-content-container.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ImageUploaderComponent,
     MainContentContainerComponent,
     LoginComponent,
+    WelcomePageComponent,
 
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule],

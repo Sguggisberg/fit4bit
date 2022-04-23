@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
 import { UserLoginDto } from '../dto/userlogin-dto.model';
@@ -13,7 +14,7 @@ import { HEADER } from './service.constants';
 export class AuthService extends BaseHttpService<UserLoginDto> {
   protected path: string = 'authenticate';
 
-  constructor(httpClient: HttpClient, private jwtService: LocalStoreService) {
+  constructor(httpClient: HttpClient, private jwtService: LocalStoreService, private router: Router) {
     super(httpClient);
   }
 
@@ -37,6 +38,7 @@ export class AuthService extends BaseHttpService<UserLoginDto> {
       }),
       tap((resposne) => {
         this.jwtService.storeJwt(resposne);
+        this.router.navigateByUrl('/welcome');
       })
     );
   }
