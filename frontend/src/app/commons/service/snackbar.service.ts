@@ -9,7 +9,6 @@ export class SnackbarService {
   infoSubject = new BehaviorSubject<string | undefined>(undefined);
 
   public info(msg: string): void {
-
     this.infoSubject.next(msg);
     this.delay();
   }

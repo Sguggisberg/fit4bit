@@ -1,8 +1,9 @@
+import { SnackbarService } from 'src/app/commons/service/snackbar.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of, throwError } from 'rxjs';
-import { tap, map, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { tap,  catchError } from 'rxjs/operators';
 import { UserLoginDto } from '../dto/userlogin-dto.model';
 import { BaseHttpService } from './base-http.service';
 import { LocalStoreService, JwtToken } from './jwt.service';
@@ -14,7 +15,7 @@ import { HEADER } from './service.constants';
 export class AuthService extends BaseHttpService<UserLoginDto> {
   protected path: string = 'authenticate';
 
-  constructor(httpClient: HttpClient, private jwtService: LocalStoreService, private router: Router) {
+  constructor(httpClient: HttpClient, private jwtService: LocalStoreService, private router: Router, private snackbar: SnackbarService) {
     super(httpClient);
   }
 
@@ -38,6 +39,7 @@ export class AuthService extends BaseHttpService<UserLoginDto> {
       }),
       tap((resposne) => {
         this.jwtService.storeJwt(resposne);
+        this.snackbar.info('Du hast dich erfogreich eingeloggt!');
         this.router.navigateByUrl('/welcome');
       })
     );

@@ -1,4 +1,8 @@
+@import "breakpoints";
 div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   left: -200px;
   width: 200px;
   height: 50px;
@@ -6,8 +10,22 @@ div {
   top: 100px;
   transition: left 1s ease;
   background: green;
+  border-radius: 0 3px 3px;
+  color: white;
+  @include mobile {
+    transition: bottom 1s ease;
+    top: unset;
+    left: 0;
+    width: 100%;
+    bottom: -50px;
+    border-radius: 3px 3px;
+  }
 }
 
 .open {
   left: 0;
+  @include mobile {
+    bottom: 0;
+
+  }
 }
