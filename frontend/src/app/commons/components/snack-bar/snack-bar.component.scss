@@ -9,7 +9,7 @@ div {
   position: absolute;
   top: 100px;
   transition: left 1s ease;
-  background: green;
+
   border-radius: 0 3px 3px;
   color: white;
   @include mobile {
@@ -28,4 +28,11 @@ div {
     bottom: 0;
 
   }
+
+}
+.info {
+  background: green;
+}
+.error {
+  background: red;
 }

@@ -33,13 +33,13 @@ export class AuthService extends BaseHttpService<UserLoginDto> {
 
     return post$.pipe(
       catchError((err) => {
-        console.log('Logn failed', err);
+        this.snackbar.info({text:'Einloggen fehlgeschlagen!', typ: 'error'});
         this.jwtService.clear();
         return throwError(err);
       }),
       tap((resposne) => {
         this.jwtService.storeJwt(resposne);
-        this.snackbar.info('Du hast dich erfogreich eingeloggt!');
+        this.snackbar.info({text:'Du bist eingeloggt', typ: 'info'});
         this.router.navigateByUrl('/welcome');
       })
     );

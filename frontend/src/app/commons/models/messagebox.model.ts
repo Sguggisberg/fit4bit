@@ -1,5 +1,5 @@
 export type Message = {
-  errorMsg?: string,
-  infoMsg?: string
+  text: string,
+  typ: 'error' | 'info'
 };
 

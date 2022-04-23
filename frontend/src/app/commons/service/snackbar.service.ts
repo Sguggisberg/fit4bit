@@ -6,9 +6,9 @@ import { Message } from '../models/messagebox.model';
   providedIn: 'root',
 })
 export class SnackbarService {
-  infoSubject = new BehaviorSubject<string | undefined>(undefined);
+  infoSubject = new BehaviorSubject<Message | undefined>(undefined);
 
-  public info(msg: string): void {
+  public info(msg: Message): void {
     this.infoSubject.next(msg);
     this.delay();
   }
@@ -16,6 +16,6 @@ export class SnackbarService {
   private delay(): void {
     setTimeout(() => {
       this.infoSubject.next(undefined);
-    }, 2000);
+    }, 3000);
   }
 }
