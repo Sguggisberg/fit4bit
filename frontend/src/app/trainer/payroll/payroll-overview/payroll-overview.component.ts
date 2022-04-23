@@ -4,6 +4,7 @@ import { PayrollService } from 'src/app/commons/service/payroll.service';
 import { MatMonthView } from '@angular/material/datepicker';
 import { CardItemService } from 'src/app/commons/service/card-item.service';
 import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';
+import { SnackbarService } from 'src/app/commons/service/snackbar.service';
 
 @Component({
   selector: 'fit4bit-payroll-overview',
@@ -20,7 +21,8 @@ export class PayrollOverviewComponent implements OnInit {
   public displayedColumns: string[] = ['month', 'year'];
   constructor(
     private payrollService: PayrollService,
-    private cardItemService: CardItemService
+    private cardItemService: CardItemService,
+    private snackbarService:SnackbarService
   ) {}
 
   ngOnInit(): void {

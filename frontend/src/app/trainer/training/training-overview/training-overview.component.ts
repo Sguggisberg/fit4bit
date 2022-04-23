@@ -1,3 +1,4 @@
+import { SnackbarService } from './../../../commons/service/snackbar.service';
 import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { Component, OnInit } from '@angular/core';
 import { TrainingService } from 'src/app/commons/service/training.service';
@@ -12,7 +13,10 @@ export class TrainingOverviewComponent implements OnInit {
   public training: TrainingDto;
   public trainings: TrainingDto[];
 
-  constructor(private trainingService: TrainingService) {}
+  constructor(
+    private trainingService: TrainingService,
+    private snackbarService: SnackbarService
+  ) {}
 
   ngOnInit(): void {
     this.trainingService
@@ -26,7 +30,11 @@ export class TrainingOverviewComponent implements OnInit {
     this.showOverlay = true;
   }
 
-  public resetOverlay():void {
+  public resetOverlay(): void {
     this.showOverlay = false;
+  }
+
+  public test(): void {
+    this.snackbarService.info('ok');
   }
 }
