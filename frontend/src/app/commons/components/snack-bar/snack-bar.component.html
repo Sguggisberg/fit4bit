@@ -1,3 +1,9 @@
-<div [class.open]="(infoSubject | async) !== undefined" [ngClass]="{'info': (infoSubject | async)!.typ === 'info', 'error': (infoSubject | async)!.typ === 'error'}">
-  {{ (infoSubject | async)!.text}}
+<div
+  [class.open]="(infoSubject | async) !== undefined"
+  [ngClass]="{
+    info: (infoSubject | async)?.typ === 'info',
+    error: (infoSubject | async)?.typ === 'error'
+  }"
+>
+  {{ (infoSubject | async)?.text }}
 </div>

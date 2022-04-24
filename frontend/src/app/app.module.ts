@@ -7,9 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { Fit4BitCommonsModule } from './commons/commons.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TopNavigationComponent } from './navigation/top-navigation/top-navigation.component';
 import { AuthService } from './commons/service/auth.service';
+import { JwtIntercepterService } from './commons/intercepters/jwt-intercepter.service';
 @NgModule({
   declarations: [AppComponent, TopNavigationComponent],
   imports: [
@@ -22,7 +23,7 @@ import { AuthService } from './commons/service/auth.service';
     HttpClientModule
 
   ],
-  providers: [AuthService],
+  providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: JwtIntercepterService, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

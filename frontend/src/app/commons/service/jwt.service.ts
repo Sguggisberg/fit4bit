@@ -3,10 +3,8 @@ import { Roles } from './../dto/role-dto.model';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { Subject } from 'rxjs';
+import { JwtToken } from '../models/jwt-token.model';
 
-export interface JwtToken {
-  token: string;
-}
 
  interface DecodedJwtTokenData {
   sub: string;
