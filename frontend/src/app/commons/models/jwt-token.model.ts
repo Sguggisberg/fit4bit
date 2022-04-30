@@ -6,7 +6,7 @@ export interface JwtToken {
 
 export interface DecodedJwtTokenData {
   sub: string;
-  roles: Roles[];
+  Roles: Roles[];
   exp: number;
   iat: number;
 }

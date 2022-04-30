@@ -1,6 +1,6 @@
-import { Roles } from "./role-dto.model";
+import { Roles } from "./role.model";
 
-export interface UserDto {
+export interface User {
   id?: number,
   lastName?: string,
   firstName?: string,
