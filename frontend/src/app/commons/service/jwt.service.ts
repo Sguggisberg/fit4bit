@@ -1,17 +1,11 @@
 import { UserDto } from 'src/app/commons/dto/user-dto.model';
-import { Roles } from './../dto/role-dto.model';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { Subject } from 'rxjs';
-import { JwtToken } from '../models/jwt-token.model';
+import { JwtToken, DecodedJwtTokenData } from '../models/jwt-token.model';
 
 
- interface DecodedJwtTokenData {
-  sub: string;
-  roles: Roles[];
-  exp: number;
-  iat: number;
-}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -26,7 +20,7 @@ export class LocalStoreService {
   public getJwt(): JwtToken {
     let jwtToken: JwtToken;
     let obj = localStorage!.getItem('token');
-    if (obj == null || obj == undefined) {
+    if (obj == null ) {
       this.user$.next(undefined);
       return (jwtToken = {
         token: '',

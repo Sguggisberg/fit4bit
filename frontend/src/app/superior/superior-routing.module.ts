@@ -4,6 +4,7 @@ import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.
 import { NewUserComponent } from './pages/new-user/new-user.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {AuthGuardSuperior} from "../commons/guards/superior-guard";
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'room',
-    component: RoomComponent
+    component: RoomComponent, canActivate: [AuthGuardSuperior]
   },
 ];
 

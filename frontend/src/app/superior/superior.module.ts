@@ -9,6 +9,7 @@ import { TrainingComponent } from '../commons/pages/training/training.component'
 import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';
 import { RoomComponent } from './pages/room/room.component';
 import { Fit4BitCommonsModule } from '../commons/commons.module';
+import {AuthGuardSuperior} from "../commons/guards/superior-guard";
 
 @NgModule({
   declarations: [NewUserComponent, TrainingComponent, NewTraininTypComponent, RoomComponent],
@@ -21,5 +22,6 @@ import { Fit4BitCommonsModule } from '../commons/commons.module';
     Fit4BitCommonsModule
   ],
   exports: [NewUserComponent, TrainingComponent, NewTraininTypComponent],
+  providers: [AuthGuardSuperior]
 })
 export class SuperiorModule {}
