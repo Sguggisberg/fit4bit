@@ -1,5 +1,9 @@
 <fit4bit-main-content-container [title]="'Hier kannst du einloggen'">
   <section  >
+
+
+
+    <div *ifRoles="true">gerendert</div>
     <form fxLayout="column" fxLayoutAlign="center center"
       [formGroup]="profileForm"
       (ngSubmit)="login()"

@@ -14,6 +14,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import {IfRolesDirective} from "./utils/IfRoles.directive";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     LoginComponent,
     WelcomePageComponent,
     SnackBarComponent,
+    IfRolesDirective
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule],
 
@@ -41,6 +43,7 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     ButtonComponent,
     MainContentContainerComponent,
     SnackBarComponent,
+    IfRolesDirective
   ],
 })
 export class Fit4BitCommonsModule {}
