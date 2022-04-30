@@ -2,6 +2,8 @@ import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from "@angular
 import {Observable} from "rxjs";
 import {LocalStoreService} from "../service/jwt.service";
 import {Injectable} from "@angular/core";
+import {Roles} from "../models/role.model";
+import {Authority} from "../dto/role-dto.model";
 
 @Injectable({
   providedIn: 'root',
@@ -14,15 +16,17 @@ export class AuthGuardSuperior implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> |  boolean  {
 
-    // Check Token is valid
 
+const neededRoles: Authority[] =["ROLE_SUPERIOR"];
+        const role: Roles = {
+      authority: neededRoles
+    }
 
     // Check Role
-    this.localStoreService.hasRole(
-      null
+    return this.localStoreService.hasAtLeastOneRole(role
+
     )
 
-    return confirm('Sicher?');
   }
 }
 
