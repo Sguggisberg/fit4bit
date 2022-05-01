@@ -1,31 +1,20 @@
 <mat-toolbar class="head">
   <div fxHide.gt-xs>
-    <button mat-icon-button >
+    <button mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
   </div>
   <div><a routerLink="/">Go4Fit</a></div>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-
-<ng-container *ngIf="user$ | async as user">
- abc --> {{user?.roles}} abc
-
-</ng-container>
-
     <span *ngIf="user$ | async as user">
-      <a routerLink="superior/newuser">Person erstellen</a>
-      <a routerLink="superior/room"> Raum </a>
-      <a routerLink="superior/newtrainingtyp"> Neuer Trainings Typ </a>
-     <a routerLink="superior/newtraining"> Neues Training </a>
+      <a routerLink="superior/newuser" *fit4bitHasRole="['ROLE_SUPERIOR']">Person erstellen</a>
+      <a routerLink="superior/room" *fit4bitHasRole="['ROLE_SUPERIOR']"> Raum </a><a routerLink="superior/newtrainingtyp" *fit4bitHasRole="['ROLE_SUPERIOR']"> Neuer Trainings Typ </a>
+      <a routerLink="superior/newtraining" *fit4bitHasRole="['ROLE_SUPERIOR']"> Neues Training </a>
+      <a routerLink="trainer/overview" *fit4bitHasRole="['ROLE_TRAINER']"> T Overview</a>
+      <a routerLink="trainer/payroll" *fit4bitHasRole="['ROLE_TRAINER']"> Payroll Overview</a>
     </span>
-
-
-
-
-    <a routerLink="trainer/overview"> T Overview</a>
-    <a routerLink="trainer/payroll"> Payroll Overview</a>
     <a routerLink="/" *ngIf="user$ | async as user; else toLogin"> {{ user.email }} </a>
-
-    <ng-template #toLogin><a routerLink="login" >Einloggen</a></ng-template>
+    <a *ngIf="user$ | async" routerLink="/" (click)="logout()">Ausloggen</a>
+    <ng-template #toLogin><a routerLink="login">Einloggen</a></ng-template>
   </div>
 </mat-toolbar>

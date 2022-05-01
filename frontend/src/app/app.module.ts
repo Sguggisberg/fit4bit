@@ -11,18 +11,21 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TopNavigationComponent } from './navigation/top-navigation/top-navigation.component';
 import { AuthService } from './commons/service/auth.service';
 import { JwtIntercepterService } from './commons/intercepters/jwt-intercepter.service';
+import { HasRoleDirective } from './utils/has-role.directive';
 @NgModule({
-  declarations: [AppComponent, TopNavigationComponent],
+  declarations: [AppComponent, TopNavigationComponent, HasRoleDirective],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     Fit4BitCommonsModule,
     MatToolbarModule,
-    HttpClientModule
+
 
   ],
+  exports: [HasRoleDirective],
   providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: JwtIntercepterService, multi: true }],
   bootstrap: [AppComponent],
 })
