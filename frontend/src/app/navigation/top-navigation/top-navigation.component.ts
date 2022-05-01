@@ -11,7 +11,7 @@ import {SnackbarService} from "../../commons/service/snackbar.service";
 })
 export class TopNavigationComponent implements OnInit {
   public user$: Observable<UserDto>;
-
+  public sideBarIsOpen = false;
   constructor(private localStoreService:LocalStoreService,  private snackbar: SnackbarService) { }
 
   ngOnInit(): void {

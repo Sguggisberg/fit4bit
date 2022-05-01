@@ -12,8 +12,9 @@ import { TopNavigationComponent } from './navigation/top-navigation/top-navigati
 import { AuthService } from './commons/service/auth.service';
 import { JwtIntercepterService } from './commons/intercepters/jwt-intercepter.service';
 import { HasRoleDirective } from './utils/has-role.directive';
+import { SideNavigationComponent } from './navigation/side-navigation/side-navigation.component';
 @NgModule({
-  declarations: [AppComponent, TopNavigationComponent, HasRoleDirective],
+  declarations: [AppComponent, TopNavigationComponent, HasRoleDirective, SideNavigationComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -22,8 +23,6 @@ import { HasRoleDirective } from './utils/has-role.directive';
     MaterialModule,
     Fit4BitCommonsModule,
     MatToolbarModule,
-
-
   ],
   exports: [HasRoleDirective],
   providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: JwtIntercepterService, multi: true }],
