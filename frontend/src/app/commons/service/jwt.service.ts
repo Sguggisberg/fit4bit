@@ -57,7 +57,7 @@ export class LocalStoreService {
     return false;
   }
 
-  private getUser(): User {
+  public getUser(): User {
     let decodedToken: DecodedJwtTokenData = jwt_decode(this.getJwt().token);
     return {
       email: decodedToken.sub,

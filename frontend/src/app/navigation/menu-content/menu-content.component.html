@@ -1,0 +1,38 @@
+<div *ngIf="user$ | async as user; else toLogin" class="items">
+  <div>
+    <a routerLink="superior/newuser" *fit4bitHasRole="['ROLE_SUPERIOR']"
+      >Person erstellen</a
+    >
+  </div>
+
+  <div>
+    <a routerLink="superior/room" *fit4bitHasRole="['ROLE_SUPERIOR']"> Raum </a>
+  </div>
+  <div>
+    <a routerLink="superior/newtrainingtyp" *fit4bitHasRole="['ROLE_SUPERIOR']">
+      Neuer Trainings Typ
+    </a>
+  </div>
+  <div>
+    <a routerLink="superior/newtraining" *fit4bitHasRole="['ROLE_SUPERIOR']">
+      Neues Training
+    </a>
+  </div>
+  <div>
+    <a routerLink="trainer/overview" *fit4bitHasRole="['ROLE_TRAINER']">
+      T Overview</a
+    >
+  </div>
+  <a routerLink="trainer/payroll" *fit4bitHasRole="['ROLE_TRAINER']">
+    Payroll Overview</a
+  >
+  <div>
+    <a routerLink="/" *ngIf="user$ | async as user">
+      {{ user.email }}
+    </a>
+  </div>
+
+  <div><a routerLink="/" (click)="logout()">Ausloggen</a></div>
+</div>
+
+<ng-template #toLogin><a routerLink="login">Einloggen</a></ng-template>

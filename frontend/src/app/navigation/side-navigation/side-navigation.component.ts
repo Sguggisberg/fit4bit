@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'fit4bit-side-navigation',
   templateUrl: './side-navigation.component.html',
   styleUrls: ['./side-navigation.component.scss'],
 })
-export class SideNavigationComponent implements OnInit {
+export class SideNavigationComponent {
   @Output() public resetOverlayEmitter: EventEmitter<void> = new EventEmitter();
   @Input() public show: boolean;
 
@@ -13,7 +13,4 @@ export class SideNavigationComponent implements OnInit {
     this.show = false;
     this.resetOverlayEmitter.emit();
   }
-  constructor() {}
-
-  ngOnInit(): void {}
 }

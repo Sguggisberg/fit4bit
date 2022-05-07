@@ -13,12 +13,14 @@ import { AuthService } from './commons/service/auth.service';
 import { JwtIntercepterService } from './commons/intercepters/jwt-intercepter.service';
 import { HasRoleDirective } from './utils/has-role.directive';
 import { SideNavigationComponent } from './navigation/side-navigation/side-navigation.component';
+import { MenuContentComponent } from './navigation/menu-content/menu-content.component';
 @NgModule({
   declarations: [
     AppComponent,
     TopNavigationComponent,
     HasRoleDirective,
     SideNavigationComponent,
+    MenuContentComponent,
   ],
   imports: [
     HttpClientModule,

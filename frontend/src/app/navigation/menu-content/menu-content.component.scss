@@ -1,8 +1,12 @@
 @import "colors.scss";
 @import "breakpoints";
+
 a {
   text-decoration: none;
   color: white;
+  @include mobile {
+    color: $background-color-head-primary;
+  }
 }
 
 a:hover,
@@ -27,6 +31,10 @@ a:active {
   margin-bottom: 0;
 }
 
-mat-icon {
-  color: white;
+.items {
+  display: flex;
+  flex-direction: row;
+  @include mobile {
+    flex-direction: column;
+  }
 }
