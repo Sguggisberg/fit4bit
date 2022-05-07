@@ -1,9 +1,10 @@
+<fit4bit-side-navigation *ngIf="sideBarIsOpen" [show]="sideBarIsOpen" (resetOverlayEmitter)="sideBarIsOpen=false"></fit4bit-side-navigation>
 <mat-toolbar class="head">
-  <div fxHide.gt-xs>
+<!--  <div fxHide.gt-xs>-->
+  <div>
     <button mat-icon-button>
       <mat-icon (click)="sideBarIsOpen=true">menu</mat-icon>
     </button>
-    <fit4bit-side-navigation *ngIf="sideBarIsOpen" [show]="sideBarIsOpen" (resetOverlayEmitter)="sideBarIsOpen=false"></fit4bit-side-navigation>
   </div>
   <div><a routerLink="/">Go4Fit</a></div>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>

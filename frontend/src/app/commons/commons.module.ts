@@ -41,6 +41,7 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     ButtonComponent,
     MainContentContainerComponent,
     SnackBarComponent,
+    Fit4bitCloseButtonComponent
   ],
 })
 export class Fit4BitCommonsModule {}

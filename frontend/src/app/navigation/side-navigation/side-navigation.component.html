@@ -1,3 +1,11 @@
+<fit4bit-backdrop (closeEmitter)="closeMe()"></fit4bit-backdrop>
 
-<fit4bit-backdrop (closeEmitter)="closeMe()" *ngIf="show"></fit4bit-backdrop>
+<div class="overlay" [class.open]="show">
+  <div class="head-overlay">
+    <fit4bit-close-button (click)="closeMe()"></fit4bit-close-button>
+  </div>
 
+  <div class="left-overlay">
+abc
+  </div>
+</div>

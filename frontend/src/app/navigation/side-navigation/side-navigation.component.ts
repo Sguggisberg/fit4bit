@@ -6,7 +6,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./side-navigation.component.scss']
 })
 export class SideNavigationComponent implements OnInit {
-  @Output() public resetOverlayEmitter: EventEmitter<null> = new EventEmitter();
+  @Output() public resetOverlayEmitter: EventEmitter<void> = new EventEmitter();
   @Input() public show: boolean;
 
   public closeMe(): void {

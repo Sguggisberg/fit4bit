@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'fit4bit-backdrop',
@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class BackdropComponent {
 
   @Output()
-  closeEmitter: EventEmitter<null> = new EventEmitter();
+  closeEmitter: EventEmitter<void> = new EventEmitter();
 
   public close(): void {
     this.closeEmitter.emit();
