@@ -1,6 +1,5 @@
-
-export interface RoomDto   {
-  id?: number,
-  name?: string,
-  image?: string
+export interface RoomDto {
+  id?: number;
+  name?: string;
+  image?: string;
 }

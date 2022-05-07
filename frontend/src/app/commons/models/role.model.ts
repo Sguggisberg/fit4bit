@@ -1,7 +1,9 @@
 export interface Roles {
-  authority:Authority[]
+  authority: Authority[];
 }
 
 export type Authority =
-   'ROLE_ADMIN' | 'ROLE_TRAINER' | 'ROLE_SUPERIOR' | 'ROLE_FINANCE';
-
+  | 'ROLE_ADMIN'
+  | 'ROLE_TRAINER'
+  | 'ROLE_SUPERIOR'
+  | 'ROLE_FINANCE';

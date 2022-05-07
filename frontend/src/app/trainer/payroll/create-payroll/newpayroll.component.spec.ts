@@ -8,9 +8,8 @@ describe('NewpayrollComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewpayrollComponent ]
-    })
-    .compileComponents();
+      declarations: [NewpayrollComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

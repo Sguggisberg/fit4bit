@@ -6,14 +6,15 @@
   >
     <fit4bit-payroll-list [title]="title"> </fit4bit-payroll-list>
     <div action>
-      <fit4bit-button (click)="addTrainingsToPayroll()" [name]="'Hinzufügen'"></fit4bit-button>
+      <fit4bit-button
+        (click)="addTrainingsToPayroll()"
+        [name]="'Hinzufügen'"
+      ></fit4bit-button>
     </div>
   </fit4bit-overlay>
 
   <fit4bit-newpayroll></fit4bit-newpayroll>
 </fit4bit-main-content-container>
-
-
 
 <table mat-table [dataSource]="payrollList" class="mat-elevation-z8">
   <ng-container matColumnDef="month">

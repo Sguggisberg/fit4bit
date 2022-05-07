@@ -1,7 +1,8 @@
 <fit4bit-main-content-container [title]="'Hier kannst du einloggen'">
-  <section  >
-
-    <form fxLayout="column" fxLayoutAlign="center center"
+  <section>
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
       [formGroup]="profileForm"
       (ngSubmit)="login()"
     >
@@ -25,5 +26,4 @@
       </button>
     </form>
   </section>
-
 </fit4bit-main-content-container>

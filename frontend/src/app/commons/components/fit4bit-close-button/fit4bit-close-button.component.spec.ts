@@ -8,9 +8,8 @@ describe('Fit4bitCloseButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Fit4bitCloseButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [Fit4bitCloseButtonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

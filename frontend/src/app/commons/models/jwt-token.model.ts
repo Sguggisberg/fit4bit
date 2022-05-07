@@ -1,4 +1,4 @@
-import { Roles } from "../dto/role-dto.model";
+import { Roles } from '../dto/role-dto.model';
 
 export interface JwtToken {
   token: string;

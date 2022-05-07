@@ -1,4 +1,4 @@
 export interface PayrollAddTrainingDto {
-  id: number,
-  trainingIds?: number[],
+  id: number;
+  trainingIds?: number[];
 }

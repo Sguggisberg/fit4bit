@@ -7,13 +7,13 @@ import { BaseHttpService } from './base-http.service';
 import { HEADER } from './service.constants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class PayrollService extends BaseHttpService<PayrollDto>{
+export class PayrollService extends BaseHttpService<PayrollDto> {
   protected path: string = 'payroll';
 
   constructor(httpClient: HttpClient) {
-    super(httpClient)
+    super(httpClient);
   }
 
   public addTrainings$(payroll: PayrollAddTrainingDto): Observable<any> {
@@ -23,5 +23,4 @@ export class PayrollService extends BaseHttpService<PayrollDto>{
       headers,
     });
   }
-
 }

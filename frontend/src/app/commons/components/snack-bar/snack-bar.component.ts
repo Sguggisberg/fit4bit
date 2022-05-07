@@ -9,10 +9,9 @@ import { Message } from '../../models/messagebox.model';
   styleUrls: ['./snack-bar.component.scss'],
 })
 export class SnackBarComponent {
+  public infoSubject: BehaviorSubject<Message | undefined> =
+    this.snackbarService.infoSubject;
 
-public infoSubject: BehaviorSubject<Message | undefined> =
-  this.snackbarService.infoSubject;
-
-public goOpen:boolean=this.snackbarService.infoSubject!==undefined;
+  public goOpen: boolean = this.snackbarService.infoSubject !== undefined;
   constructor(private snackbarService: SnackbarService) {}
 }

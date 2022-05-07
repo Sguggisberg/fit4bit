@@ -35,6 +35,6 @@ export class TrainingOverviewComponent implements OnInit {
   }
 
   public test(): void {
-    this.snackbarService.info({text: 'Yes!', typ: 'error'});
+    this.snackbarService.info({ text: 'Yes!', typ: 'error' });
   }
 }

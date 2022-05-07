@@ -4,13 +4,12 @@ import { Injectable } from '@angular/core';
 import { BaseHttpService } from './base-http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RoomService extends BaseHttpService<RoomDto> {
   protected path: string = 'room';
 
   constructor(httpClient: HttpClient) {
-    super(httpClient)
+    super(httpClient);
   }
-
 }

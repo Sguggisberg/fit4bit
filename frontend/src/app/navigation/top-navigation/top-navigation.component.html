@@ -1,21 +1,42 @@
-<fit4bit-side-navigation *ngIf="sideBarIsOpen" [show]="sideBarIsOpen" (resetOverlayEmitter)="sideBarIsOpen=false"></fit4bit-side-navigation>
+<fit4bit-side-navigation
+  *ngIf="sideBarIsOpen"
+  [show]="sideBarIsOpen"
+  (resetOverlayEmitter)="sideBarIsOpen = false"
+></fit4bit-side-navigation>
 <mat-toolbar class="head">
-<!--  <div fxHide.gt-xs>-->
+  <!--  <div fxHide.gt-xs>-->
   <div>
     <button mat-icon-button>
-      <mat-icon (click)="sideBarIsOpen=true">menu</mat-icon>
+      <mat-icon (click)="sideBarIsOpen = true">menu</mat-icon>
     </button>
   </div>
   <div><a routerLink="/">Go4Fit</a></div>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
     <span *ngIf="user$ | async as user">
-      <a routerLink="superior/newuser" *fit4bitHasRole="['ROLE_SUPERIOR']">Person erstellen</a>
-      <a routerLink="superior/room" *fit4bitHasRole="['ROLE_SUPERIOR']"> Raum </a><a routerLink="superior/newtrainingtyp" *fit4bitHasRole="['ROLE_SUPERIOR']"> Neuer Trainings Typ </a>
-      <a routerLink="superior/newtraining" *fit4bitHasRole="['ROLE_SUPERIOR']"> Neues Training </a>
-      <a routerLink="trainer/overview" *fit4bitHasRole="['ROLE_TRAINER']"> T Overview</a>
-      <a routerLink="trainer/payroll" *fit4bitHasRole="['ROLE_TRAINER']"> Payroll Overview</a>
+      <a routerLink="superior/newuser" *fit4bitHasRole="['ROLE_SUPERIOR']"
+        >Person erstellen</a
+      >
+      <a routerLink="superior/room" *fit4bitHasRole="['ROLE_SUPERIOR']">
+        Raum </a
+      ><a
+        routerLink="superior/newtrainingtyp"
+        *fit4bitHasRole="['ROLE_SUPERIOR']"
+      >
+        Neuer Trainings Typ
+      </a>
+      <a routerLink="superior/newtraining" *fit4bitHasRole="['ROLE_SUPERIOR']">
+        Neues Training
+      </a>
+      <a routerLink="trainer/overview" *fit4bitHasRole="['ROLE_TRAINER']">
+        T Overview</a
+      >
+      <a routerLink="trainer/payroll" *fit4bitHasRole="['ROLE_TRAINER']">
+        Payroll Overview</a
+      >
     </span>
-    <a routerLink="/" *ngIf="user$ | async as user; else toLogin"> {{ user.email }} </a>
+    <a routerLink="/" *ngIf="user$ | async as user; else toLogin">
+      {{ user.email }}
+    </a>
     <a *ngIf="user$ | async" routerLink="/" (click)="logout()">Ausloggen</a>
     <ng-template #toLogin><a routerLink="login">Einloggen</a></ng-template>
   </div>

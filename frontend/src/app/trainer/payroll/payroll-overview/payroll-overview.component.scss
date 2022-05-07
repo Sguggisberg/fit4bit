@@ -1,17 +1,16 @@
-@import 'colors.scss';
+@import "colors.scss";
 
 table {
   width: 100%;
 }
 
 table {
-  background-color:$primary-color-table-background;
-
+  background-color: $primary-color-table-background;
 }
 .mat-header-cell {
   color: $primary-color-table-font;
 }
-.mat-cell{
+.mat-cell {
   color: $primary-color-table-font;
 }
 

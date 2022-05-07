@@ -1,16 +1,22 @@
-
 <fit4bit-main-content-container [title]="'Neue Person erstellen'">
-  <section  >
-    <form fxLayout="column" fxLayoutAlign="center center"
+  <section>
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
       [formGroup]="profileForm"
       (ngSubmit)="create()"
     >
       <mat-form-field>
         <mat-label for="firstName">Vorname</mat-label>
-        <input id="firstName" matInput type="text" formControlName="firstName" />
+        <input
+          id="firstName"
+          matInput
+          type="text"
+          formControlName="firstName"
+        />
       </mat-form-field>
 
-      <mat-form-field >
+      <mat-form-field>
         <mat-label for="lastName">Nachname</mat-label>
         <input id="lastName" matInput type="text" formControlName="lastName" />
       </mat-form-field>
@@ -30,6 +36,4 @@
       </button>
     </form>
   </section>
-
 </fit4bit-main-content-container>
-

@@ -17,14 +17,15 @@ export class PayrollListComponent implements OnInit {
   @Input()
   public year: number;
 
-  constructor(private trainingService: TrainingService, private cardItemService: CardItemService) {}
+  constructor(
+    private trainingService: TrainingService,
+    private cardItemService: CardItemService
+  ) {}
 
   ngOnInit(): void {
     this.trainingService.getAll$().subscribe((trainingTyp) => {
       this.ownTrainings = trainingTyp;
       this.cardItemService.trainings = trainingTyp;
     });
-
   }
-
 }

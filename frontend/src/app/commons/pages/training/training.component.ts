@@ -38,21 +38,16 @@ export class TrainingComponent implements OnInit {
       startDate: new FormControl(''),
     });
 
-    this.roomService
-      .getAll$()
-      .subscribe((data) => (this.roomsDtoList = data));
+    this.roomService.getAll$().subscribe((data) => (this.roomsDtoList = data));
 
     this.trainingTypService
       .getAll$()
       .subscribe((data) => (this.trainingTypList = data));
 
-    this.userService
-      .getAll$()
-      .subscribe((users) => (this.userList = users));
+    this.userService.getAll$().subscribe((users) => (this.userList = users));
   }
 
   create(): void {
-
     const roomDto: RoomDto = {
       id: this.formGroup.value.roomId,
     };

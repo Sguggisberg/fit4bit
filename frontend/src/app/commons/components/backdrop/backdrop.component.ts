@@ -6,7 +6,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./backdrop.component.scss'],
 })
 export class BackdropComponent {
-
   @Output()
   closeEmitter: EventEmitter<void> = new EventEmitter();
 

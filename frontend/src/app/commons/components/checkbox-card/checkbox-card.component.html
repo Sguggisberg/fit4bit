@@ -1,9 +1,11 @@
 <div class="container" (click)="toggle()" [class.is-selected]="active">
   <div class="image"></div>
   <div class="training">
-    <div>Name: {{trainingDto.trainingTyp?.name}}</div>
-    <div>Datum: {{trainingDto.runningDate | date: 'dd.MM.yyyy HH.mm' }}</div>
-    <div *ngIf="trainingDto.trainingTyp?.image"><img [src]="trainingDto.trainingTyp?.image"></div>
+    <div>Name: {{ trainingDto.trainingTyp?.name }}</div>
+    <div>Datum: {{ trainingDto.runningDate | date: "dd.MM.yyyy HH.mm" }}</div>
+    <div *ngIf="trainingDto.trainingTyp?.image">
+      <img [src]="trainingDto.trainingTyp?.image" />
+    </div>
   </div>
 
   <div [class.is-hidden]="!active" class="image">

@@ -8,9 +8,8 @@ describe('BlankSlateInformationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BlankSlateInformationComponent ]
-    })
-    .compileComponents();
+      declarations: [BlankSlateInformationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

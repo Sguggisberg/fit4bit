@@ -9,7 +9,7 @@ import { BaseHttpService } from './base-http.service';
 @Injectable({
   providedIn: 'root',
 })
-export class TrainingService extends BaseHttpService<TrainingDto>{
+export class TrainingService extends BaseHttpService<TrainingDto> {
   protected path: string = 'training';
 
   constructor(httpClient: HttpClient) {

@@ -1,4 +1,4 @@
-import { RoomDto } from './../../../commons/dto/room-dto.model';
+import { RoomDto } from '../../../commons/dto/room-dto.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RoomService } from 'src/app/commons/service/room.service';
@@ -17,16 +17,15 @@ export class RoomComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       name: new FormControl('', [Validators.required]),
-    })
+    });
   }
 
   onFileSelected(event: any) {
     this.file = event.target.files[0];
   }
 
-  create():void {
+  create(): void {
     const newRoom: RoomDto = this.formGroup.value;
     this.roomService.create$(newRoom).subscribe();
   }
-
 }

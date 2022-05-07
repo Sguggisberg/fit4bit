@@ -22,7 +22,7 @@ export class PayrollOverviewComponent implements OnInit {
   constructor(
     private payrollService: PayrollService,
     private cardItemService: CardItemService,
-    private snackbarService:SnackbarService
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -43,16 +43,16 @@ export class PayrollOverviewComponent implements OnInit {
   }
 
   public addTrainingsToPayroll(): void {
-    let listOfId: number[]=[];
-    this.cardItemService.clickedElements.forEach(training=>
+    let listOfId: number[] = [];
+    this.cardItemService.clickedElements.forEach((training) =>
       listOfId.push(training.id!)
-      );
+    );
 
-    let payrollToAddTrainings:  PayrollAddTrainingDto = {
-      id:  this.payroll.id!,
-      trainingIds: listOfId
-    }
+    let payrollToAddTrainings: PayrollAddTrainingDto = {
+      id: this.payroll.id!,
+      trainingIds: listOfId,
+    };
     this.payrollService.addTrainings$(payrollToAddTrainings).subscribe();
-    this.showOverlay=false;
+    this.showOverlay = false;
   }
 }

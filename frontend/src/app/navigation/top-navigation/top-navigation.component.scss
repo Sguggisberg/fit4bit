@@ -1,4 +1,4 @@
-@import 'colors.scss';
+@import "colors.scss";
 
 a {
   text-decoration: none;
@@ -20,7 +20,8 @@ a:active {
   background-color: $background-color-head-primary;
 }
 
-.head p, .head h1 {
+.head p,
+.head h1 {
   color: $text-head-color;
   margin-top: 0;
   margin-bottom: 0;

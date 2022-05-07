@@ -22,7 +22,6 @@ const routes: Routes = [
     path: 'welcome',
     component: WelcomePageComponent,
   },
-
 ];
 
 @NgModule({

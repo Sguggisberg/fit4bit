@@ -1,3 +1,1 @@
-export interface Dto {
-
-}
+export interface Dto {}

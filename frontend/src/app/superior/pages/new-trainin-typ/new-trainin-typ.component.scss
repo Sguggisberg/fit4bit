@@ -1,6 +1,6 @@
-@import 'breakpoints';
-@import 'spaces.scss';
-@import 'colors.scss';
+@import "breakpoints";
+@import "spaces.scss";
+@import "colors.scss";
 
 mat-form-field {
   width: 300px;
@@ -15,7 +15,7 @@ mat-form-field {
   align-items: center;
   background-color: $background-color-head-secondary;
   color: white;
-  padding: 3px 10px 3px 10px ;
+  padding: 3px 10px 3px 10px;
   box-shadow: 10px 10px 5px silver;
 }
 

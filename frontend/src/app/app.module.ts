@@ -14,7 +14,12 @@ import { JwtIntercepterService } from './commons/intercepters/jwt-intercepter.se
 import { HasRoleDirective } from './utils/has-role.directive';
 import { SideNavigationComponent } from './navigation/side-navigation/side-navigation.component';
 @NgModule({
-  declarations: [AppComponent, TopNavigationComponent, HasRoleDirective, SideNavigationComponent],
+  declarations: [
+    AppComponent,
+    TopNavigationComponent,
+    HasRoleDirective,
+    SideNavigationComponent,
+  ],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -25,7 +30,14 @@ import { SideNavigationComponent } from './navigation/side-navigation/side-navig
     MatToolbarModule,
   ],
   exports: [HasRoleDirective],
-  providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: JwtIntercepterService, multi: true }],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtIntercepterService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
