@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ch.fit4bit.dao.UserRepository;
-import ch.fit4bit.main.entity.User;
+import ch.fit4bit.entity.User;
 
 @Service
 @Transactional

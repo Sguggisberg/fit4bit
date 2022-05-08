@@ -19,55 +19,57 @@ import ch.fit4bit.filter.JwtRequestFilter;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    @Autowired
+    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-	@Autowired
-	private UserDetailsService jwtUserDetailsService;
+    @Autowired
+    private UserDetailsService jwtUserDetailsService;
 
-	@Autowired
-	private JwtRequestFilter jwtRequestFilter;
-	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-	// configure AuthenticationManager so that it knows from where to load
-	// user for matching credentials
-	// Use BCryptPasswordEncoder
-	auth.userDetailsService(jwtUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
-	}
-	
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
-	
-	 @Override
-	    protected void configure(HttpSecurity httpSecurity) throws Exception {
-	        httpSecurity.authorizeRequests().antMatchers("/").permitAll().and()
-	                .authorizeRequests().antMatchers("/console/**").permitAll();
-	        
-	        httpSecurity.csrf().disable();
-	        
-	        httpSecurity.headers().frameOptions().disable();
-	        
-	     // dont authenticate this particular request
-	        //    httpSecurity.authorizeRequests().antMatchers("/api//authenticate").permitAll().
-	   //     httpSecurity.authorizeRequests().antMatchers("/**").permitAll().
-	        // all other requests need to be authenticated
-	       // anyRequest().authenticated().and().
-	        // make sure we use stateless session; session won't be used to
-	        // store user's state.
-	    //    exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-	  //      .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-	
-	     // Add a filter to validate the tokens with every request
-	   //     httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-	        
-	    }
+    @Autowired
+    private JwtRequestFilter jwtRequestFilter;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        // configure AuthenticationManager so that it knows from where to load
+        // user for matching credentials
+        // Use BCryptPasswordEncoder
+        auth.userDetailsService(jwtUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
+    }
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests().antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/console/**").permitAll();
+        httpSecurity.csrf().disable();
+        httpSecurity.headers().frameOptions().disable();
+
+        // We don't need CSRF for this example
+        httpSecurity.csrf().disable()
+// dont authenticate this particular request
+                .authorizeRequests().antMatchers("/api/authenticate").permitAll()
+                .and().authorizeRequests().antMatchers("/h2-console**", "/h2-console/**").permitAll()
+                .and().authorizeRequests().antMatchers("/").permitAll().
+// all other requests need to be authenticated
+        anyRequest().authenticated().and().
+// make sure we use stateless session; session won't be used to
+// store user's state.
+        exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        httpSecurity.headers().frameOptions().disable();
+        httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
+
+
+    }
 }

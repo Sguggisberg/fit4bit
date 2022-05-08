@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import ch.fit4bit.dao.UserRepository;
-import ch.fit4bit.main.entity.User;
+import ch.fit4bit.entity.User;
 
 @Service
 public class JwtUserDetailsService implements UserDetailsService {

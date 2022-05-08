@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ch.fit4bit.dao.TrainingTypRepository;
-import ch.fit4bit.main.entity.TrainingTyp;
+import ch.fit4bit.entity.TrainingTyp;
 
 @Service
 public class TrainingTypService {

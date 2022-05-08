@@ -5,12 +5,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import ch.fit4bit.main.entity.Payroll;
-import ch.fit4bit.main.entity.Role;
-import ch.fit4bit.main.entity.Room;
-import ch.fit4bit.main.entity.Training;
-import ch.fit4bit.main.entity.TrainingTyp;
-import ch.fit4bit.main.entity.User;
+import ch.fit4bit.entity.Payroll;
+import ch.fit4bit.entity.Role;
+import ch.fit4bit.entity.Room;
+import ch.fit4bit.entity.Training;
+import ch.fit4bit.entity.TrainingTyp;
+import ch.fit4bit.entity.User;
 import ch.fit4bit.model.BillState;
 import ch.fit4bit.service.PayrollService;
 import ch.fit4bit.service.RoomService;

@@ -8,23 +8,19 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import ch.fit4bit.main.dto.TrainingTypDTO;
-import ch.fit4bit.main.dto.TrainingTypImageDto;
-import ch.fit4bit.main.entity.TrainingTyp;
+import ch.fit4bit.dto.TrainingTypDTO;
+import ch.fit4bit.dto.TrainingTypImageDto;
+import ch.fit4bit.entity.TrainingTyp;
 import ch.fit4bit.service.TrainingTypService;
-import ch.fit4bit.utils.FileUploadUtil;
-import ch.fit4bit.utils.ImageUtils;
 
 @RestController
 @RequestMapping(path = "/api/trainingtyp")

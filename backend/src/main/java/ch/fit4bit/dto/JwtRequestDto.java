@@ -1,4 +1,4 @@
-package ch.fit4bit.main.dto;
+package ch.fit4bit.dto;
 
 import java.io.Serializable;
 

@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.fit4bit.main.dto.PayrollAddTrainingDto;
-import ch.fit4bit.main.dto.PayrollDto;
-import ch.fit4bit.main.entity.Payroll;
+import ch.fit4bit.dto.PayrollAddTrainingDto;
+import ch.fit4bit.dto.PayrollDto;
+import ch.fit4bit.entity.Payroll;
 import ch.fit4bit.service.PayrollService;
 
 @RestController

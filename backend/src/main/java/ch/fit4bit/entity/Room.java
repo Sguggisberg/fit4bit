@@ -1,4 +1,4 @@
-package ch.fit4bit.main.entity;
+package ch.fit4bit.entity;
 
 import java.io.Serializable;
 

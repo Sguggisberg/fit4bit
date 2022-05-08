@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import ch.fit4bit.main.entity.Room;
+import ch.fit4bit.entity.Room;
 
 
 @Repository

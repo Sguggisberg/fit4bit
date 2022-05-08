@@ -1,7 +1,6 @@
-package ch.fit4bit.main.entity;
+package ch.fit4bit.entity;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 

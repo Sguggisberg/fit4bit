@@ -1,7 +1,6 @@
-package ch.fit4bit.main.dto;
+package ch.fit4bit.dto;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 import ch.fit4bit.model.BillState;

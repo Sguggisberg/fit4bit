@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 import ch.fit4bit.dao.PayrollRepository;
 import ch.fit4bit.dao.TrainingRepository;
-import ch.fit4bit.main.dto.PayrollAddTrainingDto;
-import ch.fit4bit.main.entity.Payroll;
-import ch.fit4bit.main.entity.Training;
+import ch.fit4bit.dto.PayrollAddTrainingDto;
+import ch.fit4bit.entity.Payroll;
+import ch.fit4bit.entity.Training;
 
 @Service
 public class PayrollService {

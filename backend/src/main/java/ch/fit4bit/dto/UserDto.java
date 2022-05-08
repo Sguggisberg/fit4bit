@@ -1,4 +1,4 @@
-package ch.fit4bit.main.dto;
+package ch.fit4bit.dto;
 
 public class UserDto  {
 

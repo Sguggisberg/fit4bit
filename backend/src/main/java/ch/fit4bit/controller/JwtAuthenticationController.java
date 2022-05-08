@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.fit4bit.main.dto.JwtRequestDto;
-import ch.fit4bit.main.dto.JwtResponseDto;
+import ch.fit4bit.dto.JwtRequestDto;
+import ch.fit4bit.dto.JwtResponseDto;
 import ch.fit4bit.service.JwtUserDetailsService;
 import ch.fit4bit.utils.JwtTokenUtil;
 

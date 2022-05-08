@@ -6,14 +6,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ch.fit4bit.main.dto.RoomDto;
-import ch.fit4bit.main.entity.Room;
+import ch.fit4bit.dto.RoomDto;
+import ch.fit4bit.entity.Room;
 import ch.fit4bit.service.RoomService;
 
 @RestController
@@ -30,11 +31,13 @@ public class RoomController {
 		this.modelMapper = modelMapper;
 	}
 
+	@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
 	@PostMapping
-	public ResponseEntity<?> create(@RequestBody RoomDto newRoom) {
+		public ResponseEntity<?> create(@RequestBody RoomDto newRoom) {
 		roomService.create(modelMapper.map(newRoom, Room.class));
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
+
 
 	@GetMapping
 	public List<RoomDto> getAllRooms() {
@@ -45,5 +48,4 @@ public class RoomController {
 		}
 		return allRoomsDto;
 	}
-
 }

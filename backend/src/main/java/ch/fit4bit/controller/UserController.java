@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.fit4bit.main.dto.UserDto;
-import ch.fit4bit.main.entity.User;
+import ch.fit4bit.dto.UserDto;
+import ch.fit4bit.entity.User;
 import ch.fit4bit.service.UserService;
 
 @RestController

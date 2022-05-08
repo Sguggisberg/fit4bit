@@ -8,9 +8,9 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.fit4bit.main.dto.TrainingDTO;
-import ch.fit4bit.main.entity.Training;
+import ch.fit4bit.dto.TrainingDTO;
+import ch.fit4bit.entity.Training;
 import ch.fit4bit.service.TrainingService;
 
 @RestController
@@ -42,10 +42,10 @@ public class TrainingController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
-	@GetMapping
+	@GetMapping("")
+	@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
 	public List<TrainingDTO> getAll() {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-
 		List<Training> allTrainings = trainingService.getAllTraining();
 		List<TrainingDTO> allTrainingsDto = new ArrayList<>();
 		for (Training training : allTrainings) {
@@ -53,8 +53,21 @@ public class TrainingController {
 		}
 		return allTrainingsDto;
 	}
-	
+
+	@GetMapping("/trainer")
+	public List<TrainingDTO> getAllByTrainer() {
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+		List<Training> allTrainings = trainingService.getAllTrainingByUser();
+		List<TrainingDTO> allTrainingsDto = new ArrayList<>();
+		for (Training training : allTrainings) {
+			allTrainingsDto.add(modelMapper.map(training, TrainingDTO.class));
+		}
+		return allTrainingsDto;
+	}
+
+
 	@GetMapping("/{id}")
+	@PreAuthorize("@trainerSecurity.isOwner() || hasAnyAuthority('ROLE_SUPERIOR')")
 	public TrainingDTO findById(@PathVariable Long id) {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		Training t = trainingService.findTrainingById(id);
