@@ -36,6 +36,7 @@ public class TrainingService {
     public List<Training> getAllTrainingByUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Optional<User> userOpt = userRepository.findByUsername(authentication.getName());
+        System.out.println("userOpt.get " +  userOpt.get());
         if (userOpt.isPresent()) {
             return this.trainingRepository.findByUser(userOpt.get());
         }

@@ -24,4 +24,8 @@ export class TrainingService extends BaseHttpService<TrainingDto> {
       headers,
     });
   }
+
+  public getAllOwnTraining$() {
+    return this.httpClient.get<any>(this.createBackendEndpoint() + '/trainer');
+  }
 }

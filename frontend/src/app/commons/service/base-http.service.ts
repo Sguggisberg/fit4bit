@@ -11,7 +11,7 @@ export abstract class BaseHttpService<T> {
   protected path: string;
   protected httpClient: HttpClient;
 
-  constructor(httpClient: HttpClient) {
+  protected constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
   }
 

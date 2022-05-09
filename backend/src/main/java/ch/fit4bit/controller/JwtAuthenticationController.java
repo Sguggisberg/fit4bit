@@ -21,7 +21,7 @@ import ch.fit4bit.utils.JwtTokenUtil;
 
 @RestController
 @RequestMapping(path = "/api/authenticate")
-@CrossOrigin(origins = "http://localhost:4200")
+
 public class JwtAuthenticationController {
 
 	@Autowired

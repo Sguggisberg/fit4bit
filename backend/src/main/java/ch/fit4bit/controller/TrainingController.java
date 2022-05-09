@@ -42,8 +42,8 @@ public class TrainingController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
-	@GetMapping("")
-	@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
+	@GetMapping
+	//@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
 	public List<TrainingDTO> getAll() {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		List<Training> allTrainings = trainingService.getAllTraining();
