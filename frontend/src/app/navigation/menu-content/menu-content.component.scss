@@ -31,10 +31,15 @@ a:active {
   margin-bottom: 0;
 }
 
-.items {
+.items-container {
   display: flex;
   flex-direction: row;
+  padding-right: 5px;
   @include mobile {
     flex-direction: column;
   }
+}
+
+.items-container > div {
+  padding-right: 15px;
 }

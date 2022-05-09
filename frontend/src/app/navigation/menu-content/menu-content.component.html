@@ -1,4 +1,4 @@
-<div *ngIf="user$ | async as user; else toLogin" class="items">
+<div *ngIf="user$ | async as user; else toLogin" class="items-container">
   <div>
     <a routerLink="superior/newuser" *fit4bitHasRole="['ROLE_SUPERIOR']"
       >Person erstellen</a
@@ -23,15 +23,16 @@
       T Overview</a
     >
   </div>
+  <div>
   <a routerLink="trainer/payroll" *fit4bitHasRole="['ROLE_TRAINER']">
     Payroll Overview</a
   >
+  </div>
   <div>
-    <a routerLink="/" *ngIf="user$ | async as user">
+    <a routerLink="/" >
       {{ user.email }}
     </a>
   </div>
-
   <div><a routerLink="/" (click)="logout()">Ausloggen</a></div>
 </div>
 
