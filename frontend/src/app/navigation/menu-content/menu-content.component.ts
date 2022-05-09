@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LocalStoreService } from '../../commons/service/jwt.service';
 import { SnackbarService } from '../../commons/service/snackbar.service';
-import {User} from "../../commons/models/user.model";
-import {startWith} from "rxjs/operators";
+import { User } from '../../commons/models/user.model';
 
 @Component({
   selector: 'fit4bit-menu-content',
