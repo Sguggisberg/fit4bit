@@ -9,6 +9,7 @@ import { Fit4BitCommonsModule } from '../commons/commons.module';
 import { PayrollOverviewComponent } from './payroll/payroll-overview/payroll-overview.component';
 import { NewpayrollComponent } from './payroll/create-payroll/newpayroll.component';
 import { PayrollListComponent } from './payroll/payroll-list/payroll-list.component';
+import { TrainingItemCardComponent } from './training/training-overview/training-item-card/training-item-card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PayrollListComponent } from './payroll/payroll-list/payroll-list.compon
     EditTrainingComponent,
     NewpayrollComponent,
     PayrollListComponent,
+    TrainingItemCardComponent,
   ],
   imports: [
     CommonModule,

@@ -12,9 +12,7 @@ export class TrainingOverviewComponent implements OnInit {
   public training: TrainingDto;
   public trainings: TrainingDto[];
 
-  constructor(
-    private trainingService: TrainingService,
-  ) {}
+  constructor(private trainingService: TrainingService) {}
 
   ngOnInit(): void {
     this.trainingService

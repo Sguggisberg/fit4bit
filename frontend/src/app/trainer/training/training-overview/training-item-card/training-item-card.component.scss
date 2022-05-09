@@ -1,0 +1,28 @@
+@import "colors.scss";
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  border-left: 10px $background-color-head-primary solid;
+  border-bottom: 1px $background-color-head-primary solid;
+  border-top: 1px $background-color-head-primary solid;
+  border-right: 1px $background-color-head-primary solid;
+  width: 500px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.card-footer {
+  border-top: 1px $background-color-head-primary solid;
+}
+
+.img-container {
+  height: 100px;
+}

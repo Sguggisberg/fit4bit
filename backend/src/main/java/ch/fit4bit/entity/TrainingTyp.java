@@ -32,7 +32,6 @@ public class TrainingTyp implements Serializable {
 	private byte[] image;
 	
 	private String imageType;
-	
 		
 	public TrainingTyp() {
 	}
