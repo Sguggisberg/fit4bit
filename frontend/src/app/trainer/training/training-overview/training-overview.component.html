@@ -4,10 +4,6 @@
     [title]="'Anzahl Kunden erfassen'"
     (resetOverlayEmitter)="resetOverlay()"
   >
-    <fit4bit-edit-training
-      [receivedTraining]="training"
-      *ngIf="training"
-    ></fit4bit-edit-training>
   </fit4bit-overlay>
   <div class="cards">
     <div *ngFor="let t of trainings">
