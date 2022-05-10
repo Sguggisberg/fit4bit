@@ -8,6 +8,7 @@
   border-top: 1px $background-color-head-primary solid;
   border-right: 1px $background-color-head-primary solid;
   width: 500px;
+  height: 120px;
   margin-left: 15px;
   margin-bottom: 15px;
 }
@@ -25,4 +26,11 @@
 
 .img-container {
   height: 100px;
+}
+
+form > button {
+  margin-left: 15px;
+}
+.card-title {
+  font-weight: bold
 }

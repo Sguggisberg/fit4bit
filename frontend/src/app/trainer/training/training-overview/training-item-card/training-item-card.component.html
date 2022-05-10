@@ -1,17 +1,38 @@
 <div class="card-container">
+
   <div class="img-container">
-    <img
-      src="https://images.squarespace-cdn.com/content/v1/58cceaa0f5e2314657e4ee36/8caf8801-4627-406b-9445-a91a9a95fc8b/jana.jpg?format=500w"
-      alt="Yoga Bild"
-      width="100"
-      height="100"
+    <img fxHide.lt-sm
+         src="https://images.squarespace-cdn.com/content/v1/58cceaa0f5e2314657e4ee36/8caf8801-4627-406b-9445-a91a9a95fc8b/jana.jpg?format=500w"
+         alt="Yoga Bild"
+         width="120"
+         height="120"
     />
   </div>
   <div class="card-details">
-    <div>{{ training?.trainingTyp?.name }}</div>
-    <div>{{ training?.runningDate }}</div>
-    <div>{{ training?.room?.name }}</div>
-    <div>{{ training?.amountOfCustomer }}</div>
+    <div class="card-title">{{ training?.trainingTyp?.name }}</div>
+    <div>Datum: {{ training?.runningDate | date: 'dd.MM.yyyy HH.mm' }}</div>
+    <div fxHide.lt-sm>Raum: {{ training?.room?.name }}</div>
+
   </div>
-  <div class="card-footer"></div>
+  <div class="card-footer">
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="save()"
+    >
+      <mat-form-field>
+        <mat-label for="amountOfCustomer">Anzahl Kunden</mat-label>
+        <input id="amountOfCustomer" matInput type="text" formControlName="amountOfCustomer"/>
+      </mat-form-field>
+      <button
+        mat-stroked-button
+        color="primary"
+        type="submit"
+        [disabled]="!profileForm.dirty"
+      >
+        Speichern
+      </button>
+    </form>
+
+  </div>
+
 </div>
