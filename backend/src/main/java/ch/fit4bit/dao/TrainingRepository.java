@@ -15,4 +15,6 @@ public interface TrainingRepository extends JpaRepository<Training, Long>{
 
     List<Training> findByUser(User user);
 
+    Training findByUserAndId(User user, Long id);
+
 }

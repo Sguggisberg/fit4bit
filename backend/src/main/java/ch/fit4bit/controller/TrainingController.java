@@ -3,12 +3,16 @@ package ch.fit4bit.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.fit4bit.entity.User;
+import ch.fit4bit.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,10 +34,14 @@ public class TrainingController {
 	private TrainingService trainingService;
 	private ModelMapper modelMapper;
 
+	private UserService userService;
+
 	@Autowired
-	public TrainingController(TrainingService trainingService, ModelMapper modelMapper) {
+	public TrainingController(TrainingService trainingService, ModelMapper modelMapper, UserService userService) {
 		this.trainingService = trainingService;
 		this.modelMapper = modelMapper;
+		this.userService = userService;
+
 	}
 
 	@PostMapping
@@ -77,11 +85,14 @@ public class TrainingController {
 	@PutMapping
 	@PreAuthorize("@trainerSecurity.isOwner()")
 	public ResponseEntity<?> patch(@RequestBody TrainingDTO trainingDto){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findByUserName(authentication.getName());
 		Training t = trainingService.findTrainingById(trainingDto.getId());
+		if (user.getId()!=t.getUser().getId()) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
 		t.setAmountOfCustomer(trainingDto.getAmountOfCustomer());
 		trainingService.patch(t);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-
 	}
-
 }
