@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TrainingDto } from '../../../../commons/dto/training-dto.model';
-import {FormControl, FormGroup} from "@angular/forms";
-import {TrainingService} from "../../../../commons/service/training.service";
-import {SnackbarService} from "../../../../commons/service/snackbar.service";
+import { FormControl, FormGroup } from '@angular/forms';
+import { TrainingService } from '../../../../commons/service/training.service';
+import { SnackbarService } from '../../../../commons/service/snackbar.service';
 
 @Component({
   selector: 'fit4bit-training-item-card',
@@ -15,33 +15,38 @@ export class TrainingItemCardComponent implements OnInit {
   @Input()
   public training: TrainingDto;
 
-  constructor(private trainingService:TrainingService, private snackbar: SnackbarService) {}
+  constructor(
+    private trainingService: TrainingService,
+    private snackbar: SnackbarService
+  ) {}
 
   ngOnInit(): void {
-    this.profileForm= new FormGroup({
+    this.profileForm = new FormGroup({
       amountOfCustomer: new FormControl(),
     });
     this.profileForm.setValue({
-      amountOfCustomer: this.training.amountOfCustomer
-    })
-
+      amountOfCustomer: this.training.amountOfCustomer,
+    });
   }
 
   public save(): void {
     this.training.amountOfCustomer = this.profileForm.value.amountOfCustomer;
-  this.trainingService.patch$(
-    this.training).subscribe(
+    this.trainingService.patch$(this.training).subscribe(
       () => {
-        this.snackbar.info({ text: 'Die Daten wurden gespeichert', typ: 'info' })
+        this.snackbar.info({
+          text: 'Die Daten wurden gespeichert',
+          typ: 'info',
+        });
         this.profileForm.setValue({
-          amountOfCustomer: this.training.amountOfCustomer
-        })
+          amountOfCustomer: this.training.amountOfCustomer,
+        });
       },
-      () => this.snackbar.info({ text: 'Hopla - Das hat nicht funktioniert!', typ: 'error' })
-
+      () =>
+        this.snackbar.info({
+          text: 'Hopla - Das hat nicht funktioniert!',
+          typ: 'error',
+        })
     );
     this.profileForm.reset();
-
   }
-
 }

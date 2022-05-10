@@ -15,11 +15,10 @@ public class TrainerSecurity {
 
     @Autowired
     public TrainerSecurity(TrainingService trainingService) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         this.trainingService = trainingService;
     }
     public boolean isOwner(){
-
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return true;
     }
 

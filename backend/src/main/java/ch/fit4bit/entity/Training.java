@@ -29,7 +29,6 @@ public class Training implements Serializable {
 		this.room = room;
 		this.duration = durationInMin;
 	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

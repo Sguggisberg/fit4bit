@@ -75,6 +75,7 @@ public class TrainingController {
 	}
 	
 	@PutMapping
+	@PreAuthorize("@trainerSecurity.isOwner()")
 	public ResponseEntity<?> patch(@RequestBody TrainingDTO trainingDto){
 		Training t = trainingService.findTrainingById(trainingDto.getId());
 		t.setAmountOfCustomer(trainingDto.getAmountOfCustomer());

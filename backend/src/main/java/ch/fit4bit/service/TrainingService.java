@@ -1,5 +1,6 @@
 package ch.fit4bit.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,11 +37,10 @@ public class TrainingService {
     public List<Training> getAllTrainingByUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Optional<User> userOpt = userRepository.findByUsername(authentication.getName());
-        System.out.println("userOpt.get " +  userOpt.get());
         if (userOpt.isPresent()) {
             return this.trainingRepository.findByUser(userOpt.get());
         }
-        return null;
+        return Collections.emptyList();
     }
 
     public Training findTrainingById(Long id) {
