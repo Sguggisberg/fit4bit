@@ -1,0 +1,33 @@
+@import "colors";
+@import "spaces.scss";
+
+.text {
+  margin-left: 5px;
+}
+
+.isNotActiveIcon {
+  visibility: hidden;
+}
+
+.container {
+  font-size: 12px;
+  font-weight: bold;
+  height: 30px; // Todo: Cross icon kleiner machen!
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+  width: fit-content;
+  border: solid $background-color-head-primary 1px;
+
+  &:hover {
+    background-color: $background-color-selected;
+    cursor: pointer;
+  }
+}
+
+.selected {
+  background-color: $background-color-selected;
+}

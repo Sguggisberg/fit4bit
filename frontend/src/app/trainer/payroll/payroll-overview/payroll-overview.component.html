@@ -1,4 +1,11 @@
 <fit4bit-main-content-container [title]="'Lohnabrechnungs Übersicht'">
+  <h2>Filter:</h2>
+  <div class="chips-container">
+    <fit4bit-chips [isActive]="true" [text]="'Offene'"></fit4bit-chips>
+    <fit4bit-chips [isActive]="false" [text]="'Ausbezahlte'"></fit4bit-chips>
+    <fit4bit-chips [isActive]="false" [text]="'Abgelehnte'"></fit4bit-chips>
+  </div>
+
   <fit4bit-overlay
     [show]="showOverlay"
     [title]="title"
@@ -16,29 +23,12 @@
   <fit4bit-newpayroll></fit4bit-newpayroll>
 </fit4bit-main-content-container>
 
-<div *ngFor="let payroll of payrollList">
-  <fit4bit-payroll-item-card [month]="payroll.month" [year]="payroll.year">
-  </fit4bit-payroll-item-card>
-</div>
-
-<table mat-table [dataSource]="payrollList" class="mat-elevation-z8">
-  <ng-container matColumnDef="month">
-    <th mat-header-cell *matHeaderCellDef>Monat</th>
-    <td
-      mat-cell
-      *matCellDef="let month"
-      (click)="loadItem(month)"
-      class="cursor"
+<div class="cards">
+  <div *ngFor="let payroll of payrollList">
+    <fit4bit-payroll-item-card
+      [payroll]="payroll"
+      (loadItemClicked)="loadItem(payroll)"
     >
-      {{ month.month }}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="year">
-    <th mat-header-cell *matHeaderCellDef>Jahr</th>
-    <td mat-cell *matCellDef="let month">{{ month.year }}</td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+    </fit4bit-payroll-item-card>
+  </div>
+</div>

@@ -1,3 +1,29 @@
 <fit4bit-base-item-card>
-  <div class="detail-head">{{ month }} {{ year }}</div>
+  <div class="detail">
+    <div class="detail-head">{{ payroll.month }} {{ payroll.year }}</div>
+    <div>Status {{ payroll.billState }}</div>
+    <div>
+      <div class="buttons">
+        <div>
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="loadOverview()"
+            [disabled]="payroll.billState !== 'OFFEN'"
+          >
+            Trainings hinzufügen
+          </button>
+        </div>
+        <div>
+          <button
+            mat-stroked-button
+            color="primary"
+            [disabled]="payroll.billState !== 'OFFEN'"
+          >
+            Lohnblatt senden
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </fit4bit-base-item-card>

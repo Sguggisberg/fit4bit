@@ -1,19 +1,21 @@
 @import "colors.scss";
 
-table {
-  width: 100%;
-}
-
-table {
-  background-color: $primary-color-table-background;
-}
-.mat-header-cell {
-  color: $primary-color-table-font;
-}
-.mat-cell {
-  color: $primary-color-table-font;
-}
-
 .cursor {
   cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.chips-container {
+  display: flex;
+  flex-direction: row;
+}
+
+fit4bit-chips {
+  margin-left: 20px;
 }

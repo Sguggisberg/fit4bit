@@ -103,12 +103,16 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		trainingService.create(t44);
 		
 		Payroll p11 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user1);
-		Payroll p12 = new Payroll(Month.April, 2022, BillState.OFFEN, user1);
+		Payroll p12 = new Payroll(Month.April, 2022, BillState.AUSBEZAHLT, user1);
+		Payroll p13 = new Payroll(Month.Februar, 2022, BillState.ABGELEHNT, user1);
+		Payroll p14 = new Payroll(Month.Januar, 2022, BillState.OFFEN, user1);
 		Payroll p21 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user4);
 		Payroll p22 = new Payroll(Month.April, 2022, BillState.OFFEN, user4);
 
 		payrollService.creat(p11);
 		payrollService.creat(p12);
+		payrollService.creat(p13);
+		payrollService.creat(p14);
 		payrollService.creat(p21);
 		payrollService.creat(p22);
 	}
