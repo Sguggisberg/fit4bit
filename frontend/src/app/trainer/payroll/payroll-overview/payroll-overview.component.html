@@ -1,9 +1,11 @@
 <fit4bit-main-content-container [title]="'Lohnabrechnungs Übersicht'">
   <h2>Filter:</h2>
   <div class="chips-container">
-    <fit4bit-chips [isActive]="true" [text]="'Offene'"></fit4bit-chips>
-    <fit4bit-chips [isActive]="false" [text]="'Ausbezahlte'"></fit4bit-chips>
-    <fit4bit-chips [isActive]="false" [text]="'Abgelehnte'"></fit4bit-chips>
+    <fit4bit-chips
+      [isActive]="filerOffeneTraining"
+      [text]="'Offene'"
+      (click)="stateFiler()"
+    ></fit4bit-chips>
   </div>
 
   <fit4bit-overlay
@@ -24,7 +26,7 @@
 </fit4bit-main-content-container>
 
 <div class="cards">
-  <div *ngFor="let payroll of payrollList">
+  <div *ngFor="let payroll of filteredList">
     <fit4bit-payroll-item-card
       [payroll]="payroll"
       (loadItemClicked)="loadItem(payroll)"

@@ -1,10 +1,8 @@
 import { PayrollDto } from '../../../commons/dto/payroll-dto.model';
 import { Component, OnInit } from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
-import { MatMonthView } from '@angular/material/datepicker';
 import { CardItemService } from 'src/app/commons/service/card-item.service';
 import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';
-import { SnackbarService } from 'src/app/commons/service/snackbar.service';
 
 @Component({
   selector: 'fit4bit-payroll-overview',
@@ -13,22 +11,29 @@ import { SnackbarService } from 'src/app/commons/service/snackbar.service';
 })
 export class PayrollOverviewComponent implements OnInit {
   public payrollList: PayrollDto[] = [];
+  public filteredList: PayrollDto[] = [];
+  public filerOffeneTraining = false;
   public payroll: PayrollDto;
   public showOverlay: boolean;
   public month: number;
   public year: number;
   public title: string;
-  public displayedColumns: string[] = ['month', 'year'];
+
   constructor(
     private payrollService: PayrollService,
     private cardItemService: CardItemService,
-    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
     this.payrollService
       .getAll$()
-      .subscribe((payrollList) => (this.payrollList = payrollList));
+      .subscribe(
+        (payrollList) => {
+           this.payrollList = payrollList;
+           this.filteredList = payrollList;
+        }
+      );
+    this.filteredList = this.payrollList;
   }
   public resetOverlay(): void {
     this.showOverlay = false;
@@ -54,5 +59,17 @@ export class PayrollOverviewComponent implements OnInit {
     };
     this.payrollService.addTrainings$(payrollToAddTrainings).subscribe();
     this.showOverlay = false;
+  }
+
+  public stateFiler(): void {
+    this.filerOffeneTraining = !this.filerOffeneTraining;
+    if (this.filerOffeneTraining) {
+      this.filteredList = [];
+      this.payrollList.forEach((value) => {
+        if (value.billState === 'OFFEN') {
+          this.filteredList.push(value);
+        }
+      });
+    } else this.filteredList = this.payrollList;
   }
 }
