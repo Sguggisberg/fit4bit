@@ -25,12 +25,12 @@ import java.util.List;
 @Component
 public class CommandLineAppStartupRunner implements CommandLineRunner {
 
-	private UserService userService;
-	private TrainingTypService trainingTypService;
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	private RoomService roomService;
-	private TrainingService trainingService;
-	private PayrollService payrollService;
+	private final UserService userService;
+	private final TrainingTypService trainingTypService;
+	private final BCryptPasswordEncoder bCryptPasswordEncoder;
+	private final RoomService roomService;
+	private final TrainingService trainingService;
+	private final PayrollService payrollService;
 
 	@Autowired
 	public CommandLineAppStartupRunner(UserService userService,TrainingTypService trainingTypService, RoomService roomService, BCryptPasswordEncoder bCryptPasswordEncoder, PayrollService payrollService
@@ -44,7 +44,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String...args) throws Exception {
+	public void run(String...args) {
 
 		// User anlegen
 		User user1 = new User("trainer1@bla.ch", "Stefan", "Mueller",bCryptPasswordEncoder.encode("123456"), List.of(Role.ROLE_TRAINER));
@@ -102,12 +102,15 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		Training t44 = new Training(tt2, LocalDateTime.of(2022, 6, 16, 14, 0), user3, r2, 55);	
 		trainingService.create(t44);
 		
-		Payroll p11 = new Payroll(Month.Juni, 2022, BillState.OFFEN);
-		Payroll p12 = new Payroll(Month.April, 2022, BillState.OFFEN);
-		
+		Payroll p11 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user1);
+		Payroll p12 = new Payroll(Month.April, 2022, BillState.OFFEN, user1);
+		Payroll p21 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user4);
+		Payroll p22 = new Payroll(Month.April, 2022, BillState.OFFEN, user4);
+
 		payrollService.creat(p11);
 		payrollService.creat(p12);
-		
+		payrollService.creat(p21);
+		payrollService.creat(p22);
 	}
 }
 

@@ -3,6 +3,7 @@ package ch.fit4bit.dto;
 import java.io.Serializable;
 import java.util.Set;
 
+import ch.fit4bit.entity.User;
 import ch.fit4bit.model.BillState;
 import ch.fit4bit.utils.Month;
 
@@ -20,7 +21,8 @@ public class PayrollDto implements Serializable {
 	}
 
 	private Long id;
-	
+
+	private User user;
 	private Set<TrainingDTO> trainings;
 
 	private Month month;
@@ -72,5 +74,13 @@ public class PayrollDto implements Serializable {
 
 	public void setBillState(BillState billState) {
 		this.billState = billState;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }
