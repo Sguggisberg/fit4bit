@@ -1,45 +1,38 @@
-<div class="card-container">
-  <div class="img-container">
-    <img
-      fxHide.lt-sm
-      src="https://images.squarespace-cdn.com/content/v1/58cceaa0f5e2314657e4ee36/8caf8801-4627-406b-9445-a91a9a95fc8b/jana.jpg?format=500w"
-      alt="Yoga Bild"
-      width="120"
-      height="120"
-    />
-  </div>
-  <div class="card-details">
-    <div class="card-title">{{ training?.trainingTyp?.name }}</div>
-    <div class="detail-line">
-      <div><mat-icon>calendar_today</mat-icon></div>
-      <div>{{ training?.runningDate | date: "dd.MM.yyyy" }}</div>
+<fit4bit-base-item-card>
+  <div class="detail-container">
+    <div class="card-details">
+      <div class="card-title">{{ training?.trainingTyp?.name }}</div>
+      <div class="detail-line">
+        <div><mat-icon>calendar_today</mat-icon></div>
+        <div>{{ training?.runningDate | date: "dd.MM.yyyy" }}</div>
+      </div>
+      <div class="detail-line">
+        <div><mat-icon>watch_later</mat-icon></div>
+        <div>{{ training?.runningDate | date: "HH.mm" }}</div>
+      </div>
+      <div fxHide.lt-sm>Raum: {{ training?.room?.name }}</div>
     </div>
-    <div class="detail-line">
-      <div><mat-icon>watch_later</mat-icon></div>
-      <div>{{ training?.runningDate | date: "HH.mm" }}</div>
-    </div>
-    <div fxHide.lt-sm>Raum: {{ training?.room?.name }}</div>
-  </div>
 
-  <form [formGroup]="profileForm" (ngSubmit)="save()">
-    <div class="input-field">
-      <mat-form-field>
-        <mat-label for="amountOfCustomer">Anzahl Kunden erfassen</mat-label>
-        <input
-          id="amountOfCustomer"
-          matInput
-          type="text"
-          formControlName="amountOfCustomer"
-        />
-      </mat-form-field>
-      <button
-        mat-stroked-button
-        color="primary"
-        type="submit"
-        [disabled]="!profileForm.dirty"
-      >
-        Speichern
-      </button>
-    </div>
-  </form>
-</div>
+    <form [formGroup]="profileForm" (ngSubmit)="save()">
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label for="amountOfCustomer">Anzahl Kunden erfassen</mat-label>
+          <input
+            id="amountOfCustomer"
+            matInput
+            type="text"
+            formControlName="amountOfCustomer"
+          />
+        </mat-form-field>
+        <button
+          mat-stroked-button
+          color="primary"
+          type="submit"
+          [disabled]="!profileForm.dirty"
+        >
+          Speichern
+        </button>
+      </div>
+    </form>
+  </div>
+</fit4bit-base-item-card>

@@ -4,7 +4,7 @@
     [title]="title"
     (resetOverlayEmitter)="resetOverlay()"
   >
-    <fit4bit-payroll-list [title]="title"> </fit4bit-payroll-list>
+    <fit4bit-payroll-list [title]="title"></fit4bit-payroll-list>
     <div action>
       <fit4bit-button
         (click)="addTrainingsToPayroll()"
@@ -15,6 +15,11 @@
 
   <fit4bit-newpayroll></fit4bit-newpayroll>
 </fit4bit-main-content-container>
+
+<div *ngFor="let payroll of payrollList">
+  <fit4bit-payroll-item-card [month]="payroll.month" [year]="payroll.year">
+  </fit4bit-payroll-item-card>
+</div>
 
 <table mat-table [dataSource]="payrollList" class="mat-elevation-z8">
   <ng-container matColumnDef="month">

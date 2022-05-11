@@ -9,6 +9,7 @@ import { PayrollOverviewComponent } from './payroll/payroll-overview/payroll-ove
 import { NewpayrollComponent } from './payroll/create-payroll/newpayroll.component';
 import { PayrollListComponent } from './payroll/payroll-list/payroll-list.component';
 import { TrainingItemCardComponent } from './training/training-overview/training-item-card/training-item-card.component';
+import { PayrollItemCardComponent } from './payroll/payroll-overview/payroll-item-card/payroll-item-card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TrainingItemCardComponent } from './training/training-overview/training
     NewpayrollComponent,
     PayrollListComponent,
     TrainingItemCardComponent,
+    PayrollItemCardComponent,
   ],
   imports: [
     CommonModule,

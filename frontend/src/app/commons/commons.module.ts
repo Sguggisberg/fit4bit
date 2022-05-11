@@ -14,6 +14,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { BaseItemCardComponent } from './components/base-item-card/base-item-card.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     LoginComponent,
     WelcomePageComponent,
     SnackBarComponent,
+    BaseItemCardComponent,
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule],
 
@@ -42,6 +44,7 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     MainContentContainerComponent,
     SnackBarComponent,
     Fit4bitCloseButtonComponent,
+    BaseItemCardComponent,
   ],
 })
 export class Fit4BitCommonsModule {}

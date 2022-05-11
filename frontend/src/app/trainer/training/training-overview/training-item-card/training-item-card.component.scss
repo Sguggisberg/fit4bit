@@ -1,26 +1,12 @@
-@import "colors.scss";
 @import "breakpoints";
 
-.card-container {
+.detail-container {
   display: flex;
   flex-direction: row;
-  border-left: 10px $background-color-head-primary solid;
-  border-bottom: 1px $background-color-head-primary solid;
-  border-top: 1px $background-color-head-primary solid;
-  border-right: 1px $background-color-head-primary solid;
-  width: 500px;
-  height: 120px;
-  margin-left: 15px;
-  margin-bottom: 15px;
   @include mobile {
     flex-direction: column;
-    height: 200px;
-    width: 250px;
-    padding-right: 5px;
-    padding-bottom: 5px;
   }
 }
-
 .card-details {
   display: flex;
   flex-direction: column;
@@ -38,10 +24,6 @@
   flex-direction: column;
   margin-top: 5px;
   margin-left: 5px;
-}
-
-.img-container {
-  height: 100px;
 }
 
 form > button {
