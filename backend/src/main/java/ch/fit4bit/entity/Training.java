@@ -2,11 +2,7 @@ package ch.fit4bit.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -41,6 +37,11 @@ public class Training implements Serializable {
 
 	@ManyToOne
 	private Room room;
+
+	@ManyToOne()
+	@JoinColumn(name="payroll_id")
+	private Payroll payroll;
+
 
 	@CreationTimestamp
 	private LocalDateTime dateCreated;
@@ -135,6 +136,12 @@ public class Training implements Serializable {
 	public void setRoom(Room room) {
 		this.room = room;
 	}
-	
 
+	public Payroll getPayroll() {
+		return payroll;
+	}
+
+	public void setPayroll(Payroll payroll) {
+		this.payroll = payroll;
+	}
 }

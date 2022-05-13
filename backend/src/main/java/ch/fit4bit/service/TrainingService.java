@@ -13,12 +13,14 @@ import org.springframework.stereotype.Service;
 
 import ch.fit4bit.dao.TrainingRepository;
 import ch.fit4bit.entity.Training;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class TrainingService {
 
-    private TrainingRepository trainingRepository;
-    private UserRepository userRepository;
+    private final TrainingRepository trainingRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public TrainingService(TrainingRepository trainingRepository, UserRepository userRepository) {

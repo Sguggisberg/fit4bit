@@ -1,5 +1,6 @@
 package ch.fit4bit.service;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -12,12 +13,14 @@ import ch.fit4bit.dao.TrainingRepository;
 import ch.fit4bit.dto.PayrollAddTrainingDto;
 import ch.fit4bit.entity.Payroll;
 import ch.fit4bit.entity.Training;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class PayrollService {
 
-	private PayrollRepository payrollRepository;
-	private TrainingRepository trainingRepository;
+	private final PayrollRepository payrollRepository;
+	private final TrainingRepository trainingRepository;
 
 	@Autowired
 	public PayrollService(PayrollRepository payrollRepository, TrainingRepository trainingRepository) {
@@ -35,14 +38,15 @@ public class PayrollService {
 
 	public Payroll addTrainings(PayrollAddTrainingDto payrollAddTrainingDto) {
 		Payroll storedPayroll = payrollRepository.getById(payrollAddTrainingDto.getId());
+		storedPayroll.setTrainings(Collections.emptySet());
 		Set<Training> trainingsToUpadet = new HashSet<>();
 
 		for (Long trainingId : payrollAddTrainingDto.getTrainingIds()) {
 			Training trainingToUpdate = trainingRepository.findById(trainingId).get();
-			trainingsToUpadet.add(trainingToUpdate);
+			trainingToUpdate.setPayroll(storedPayroll);
 		}
 
-		storedPayroll.getTrainings().addAll(trainingsToUpadet);
+		trainingRepository.saveAll(trainingsToUpadet);
 		return payrollRepository.save(storedPayroll);
 	}
 }

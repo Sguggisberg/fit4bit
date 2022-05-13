@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 
 import ch.fit4bit.dao.RoomRepository;
 import ch.fit4bit.entity.Room;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
+@Transactional
 public class RoomService {
 	private static final Logger LOG = LoggerFactory.getLogger(RoomService.class);
 

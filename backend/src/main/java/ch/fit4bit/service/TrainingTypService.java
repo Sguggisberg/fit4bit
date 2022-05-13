@@ -7,12 +7,14 @@ import org.springframework.stereotype.Service;
 
 import ch.fit4bit.dao.TrainingTypRepository;
 import ch.fit4bit.entity.TrainingTyp;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class TrainingTypService {
 	
 	
-	private TrainingTypRepository trainingTypRepository;
+	private final TrainingTypRepository trainingTypRepository;
 	
 	@Autowired
 	public TrainingTypService(TrainingTypRepository trainingTypRepository) {

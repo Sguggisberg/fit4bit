@@ -77,8 +77,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		r2 = roomService.create(r2);
 
 		Training t1 = new Training(tt1, LocalDateTime.of(2022, 6, 14, 20, 0), user1, r1, 55);
-		t1.setAmountOfCustomer(10);
-		trainingService.create(t1);
+
 		
 		Training t2 = new Training(tt1, LocalDateTime.of(2022, 6, 15, 20, 0), user1, r1, 55);	
 		t2.setAmountOfCustomer(5);
@@ -103,6 +102,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		trainingService.create(t44);
 		
 		Payroll p11 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user1);
+
 		Payroll p12 = new Payroll(Month.April, 2022, BillState.AUSBEZAHLT, user1);
 		Payroll p13 = new Payroll(Month.Februar, 2022, BillState.ABGELEHNT, user1);
 		Payroll p14 = new Payroll(Month.Januar, 2022, BillState.OFFEN, user1);
@@ -115,6 +115,12 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		payrollService.creat(p14);
 		payrollService.creat(p21);
 		payrollService.creat(p22);
+
+
+		t1.setAmountOfCustomer(10);
+		t1.setPayroll(p12);
+		trainingService.create(t1);
+
 	}
 }
 
