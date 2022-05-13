@@ -103,7 +103,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		
 		Payroll p11 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user1);
 
-		Payroll p12 = new Payroll(Month.April, 2022, BillState.AUSBEZAHLT, user1);
+		Payroll p12 = new Payroll(Month.April, 2022, BillState.OFFEN, user1);
 		Payroll p13 = new Payroll(Month.Februar, 2022, BillState.ABGELEHNT, user1);
 		Payroll p14 = new Payroll(Month.Januar, 2022, BillState.OFFEN, user1);
 		Payroll p21 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user4);

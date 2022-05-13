@@ -9,7 +9,6 @@ import { CardItemService } from 'src/app/commons/service/card-item.service';
   styleUrls: ['./payroll-list.component.scss'],
 })
 export class PayrollListComponent implements OnInit {
-  public ownTrainings: TrainingDto[];
 
   @Input()
   public month: number;
@@ -23,9 +22,12 @@ export class PayrollListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.trainingService.getAllOwnTraining$().subscribe((trainingTyp) => {
-      this.ownTrainings = trainingTyp;
-      this.cardItemService.trainings = trainingTyp;
+    this.trainingService.getAllOwnTraining$().subscribe((training) => {
+      this.cardItemService.trainings = training;
     });
+  }
+
+  public allOwnTrainings():TrainingDto[] {
+    return this.cardItemService.trainings;
   }
 }

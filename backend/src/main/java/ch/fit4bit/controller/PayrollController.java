@@ -41,9 +41,9 @@ public class PayrollController {
 	}
 	
 	@GetMapping
-	public List<PayrollDto> getAll() {
+	public List<PayrollDto> getAllOwnPayrolls() {
 		List<PayrollDto> payrollsDto = new ArrayList();
-		List<Payroll> payrolls = payrollService.findAll();
+		List<Payroll> payrolls = payrollService.findAllOwnPayrolls();
 
 		for(Payroll payroll: payrolls) {
 			payrollsDto.add(modelMapper.map(payroll, PayrollDto.class));

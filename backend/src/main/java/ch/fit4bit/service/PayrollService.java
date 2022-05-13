@@ -5,7 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import ch.fit4bit.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import ch.fit4bit.dao.PayrollRepository;
@@ -22,14 +25,19 @@ public class PayrollService {
 	private final PayrollRepository payrollRepository;
 	private final TrainingRepository trainingRepository;
 
+	private final UserService userService;
+
 	@Autowired
-	public PayrollService(PayrollRepository payrollRepository, TrainingRepository trainingRepository) {
+	public PayrollService(PayrollRepository payrollRepository, TrainingRepository trainingRepository, UserService userService) {
 		this.payrollRepository = payrollRepository;
 		this.trainingRepository = trainingRepository;
+		this.userService = userService;
 	}
 
-	public List<Payroll> findAll() {
-		return payrollRepository.findAll();
+	public List<Payroll> findAllOwnPayrolls() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findByUserName(authentication.getName());
+		return payrollRepository.findAllByUser(user);
 	}
 
 	public Payroll creat(Payroll payroll) {
