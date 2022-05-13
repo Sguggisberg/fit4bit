@@ -6,7 +6,8 @@ import java.util.Set;
 import ch.fit4bit.entity.User;
 import ch.fit4bit.model.BillState;
 import ch.fit4bit.utils.Month;
-
+import com.fasterxml.jackson.annotation.JsonInclude;
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PayrollDto implements Serializable {
 	private static final long serialVersionUID = -8431435193022299051L;
 

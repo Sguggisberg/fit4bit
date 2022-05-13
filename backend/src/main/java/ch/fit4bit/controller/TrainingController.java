@@ -3,6 +3,10 @@ package ch.fit4bit.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.fit4bit.dto.PayrollDto;
+import ch.fit4bit.dto.RoomDto;
+import ch.fit4bit.dto.TrainingTypDTO;
+import ch.fit4bit.entity.TrainingTyp;
 import ch.fit4bit.entity.User;
 import ch.fit4bit.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -31,68 +35,93 @@ import ch.fit4bit.service.TrainingService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TrainingController {
 
-	private TrainingService trainingService;
-	private ModelMapper modelMapper;
+    private TrainingService trainingService;
+    private ModelMapper modelMapper;
 
-	private UserService userService;
+    private UserService userService;
 
-	@Autowired
-	public TrainingController(TrainingService trainingService, ModelMapper modelMapper, UserService userService) {
-		this.trainingService = trainingService;
-		this.modelMapper = modelMapper;
-		this.userService = userService;
+    @Autowired
+    public TrainingController(TrainingService trainingService, ModelMapper modelMapper, UserService userService) {
+        this.trainingService = trainingService;
+        this.modelMapper = modelMapper;
+        this.userService = userService;
 
-	}
+    }
 
-	@PostMapping
-	public ResponseEntity<?> create(@RequestBody TrainingDTO trainingDto) {
-		trainingService.create(modelMapper.map(trainingDto, Training.class));
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}
+    @PostMapping
+    public ResponseEntity<?> create(@RequestBody TrainingDTO trainingDto) {
+        trainingService.create(modelMapper.map(trainingDto, Training.class));
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
 
-	@GetMapping
-	//@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
-	public List<TrainingDTO> getAll() {
-		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-		List<Training> allTrainings = trainingService.getAllTraining();
-		List<TrainingDTO> allTrainingsDto = new ArrayList<>();
-		for (Training training : allTrainings) {
-			allTrainingsDto.add(modelMapper.map(training, TrainingDTO.class));
-		}
-		return allTrainingsDto;
-	}
+    @GetMapping
+    //@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
+    public List<TrainingDTO> getAll() {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+        List<Training> allTrainings = trainingService.getAllTraining();
+        List<TrainingDTO> allTrainingsDto = new ArrayList<>();
+        for (Training training : allTrainings) {
+            allTrainingsDto.add(modelMapper.map(training, TrainingDTO.class));
+        }
+        return allTrainingsDto;
+    }
 
-	@GetMapping("/trainer")
-	public List<TrainingDTO> getAllByTrainer() {
-		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-		List<Training> allTrainings = trainingService.getAllTrainingByUser();
-		List<TrainingDTO> allTrainingsDto = new ArrayList<>();
-		for (Training training : allTrainings) {
-			allTrainingsDto.add(modelMapper.map(training, TrainingDTO.class));
-		}
-		return allTrainingsDto;
-	}
+    @GetMapping("/trainer")
+    public List<TrainingDTO> getAllByTrainer() {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+
+        List<Training> allTrainings = trainingService.getAllTrainingByUser();
+        List<TrainingDTO> allTrainingsDto = new ArrayList<>();
+        for (Training training : allTrainings) {
+
+            TrainingDTO trainingDTO = new TrainingDTO();
+            trainingDTO.setId(training.getId());
+            trainingDTO.setDuration(training.getDuration());
+            trainingDTO.setAmountOfCustomer(training.getAmountOfCustomer());
+            trainingDTO.setRunningDate(training.getRunningDate());
+            TrainingTypDTO trainingTypDTO = new TrainingTypDTO();
+            trainingTypDTO.setId(training.getTrainingTyp().getId());
+            trainingTypDTO.setName(training.getTrainingTyp().getName());
+
+            if (training.getRoom() != null) {
+                RoomDto roomDto = new RoomDto();
+                roomDto.setId(training.getRoom().getId());
+                roomDto.setName(training.getRoom().getName());
+                trainingDTO.setRoomDto(roomDto);
+            }
+
+            trainingDTO.setTrainingTypDTO(trainingTypDTO);
+
+            if (training.getPayroll() != null) {
+                PayrollDto payrollDto = new PayrollDto();
+                payrollDto.setId(training.getPayroll().getId());
+                trainingDTO.setPayrollDto(payrollDto);
+            }
+            allTrainingsDto.add(trainingDTO);
+        }
+        return allTrainingsDto;
+    }
 
 
-	@GetMapping("/{id}")
-	@PreAuthorize("@trainerSecurity.isOwner() || hasAnyAuthority('ROLE_SUPERIOR')")
-	public TrainingDTO findById(@PathVariable Long id) {
-		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-		Training t = trainingService.findTrainingById(id);
-		return modelMapper.map(t, TrainingDTO.class);
-	}
-	
-	@PutMapping
-	@PreAuthorize("@trainerSecurity.isOwner()")
-	public ResponseEntity<?> patch(@RequestBody TrainingDTO trainingDto){
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findByUserName(authentication.getName());
-		Training t = trainingService.findTrainingById(trainingDto.getId());
-		if (user.getId()!=t.getUser().getId()) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
-		t.setAmountOfCustomer(trainingDto.getAmountOfCustomer());
-		trainingService.patch(t);
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}
+    @GetMapping("/{id}")
+    @PreAuthorize("@trainerSecurity.isOwner() || hasAnyAuthority('ROLE_SUPERIOR')")
+    public TrainingDTO findById(@PathVariable Long id) {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+        Training t = trainingService.findTrainingById(id);
+        return modelMapper.map(t, TrainingDTO.class);
+    }
+
+    @PutMapping
+    @PreAuthorize("@trainerSecurity.isOwner()")
+    public ResponseEntity<?> patch(@RequestBody TrainingDTO trainingDto) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUserName(authentication.getName());
+        Training t = trainingService.findTrainingById(trainingDto.getId());
+        if (user.getId() != t.getUser().getId()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        t.setAmountOfCustomer(trainingDto.getAmountOfCustomer());
+        trainingService.patch(t);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
 }

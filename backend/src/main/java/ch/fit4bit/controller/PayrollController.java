@@ -25,36 +25,42 @@ import ch.fit4bit.service.PayrollService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class PayrollController {
 
-	private ModelMapper modelMapper;
-	private PayrollService payrollService;
+    private ModelMapper modelMapper;
+    private PayrollService payrollService;
 
-	@Autowired
-	public PayrollController(ModelMapper modelMapper, PayrollService payrollService) {
-		this.modelMapper = modelMapper;
-		this.payrollService = payrollService;
-	}
+    @Autowired
+    public PayrollController(ModelMapper modelMapper, PayrollService payrollService) {
+        this.modelMapper = modelMapper;
+        this.payrollService = payrollService;
+    }
 
-	@PostMapping
-	public ResponseEntity<?> create(@RequestBody PayrollDto payrollDto) {
-		payrollService.creat(modelMapper.map(payrollDto, Payroll.class));
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}
-	
-	@GetMapping
-	public List<PayrollDto> getAllOwnPayrolls() {
-		List<PayrollDto> payrollsDto = new ArrayList();
-		List<Payroll> payrolls = payrollService.findAllOwnPayrolls();
+    @PostMapping
+    public ResponseEntity<?> create(@RequestBody PayrollDto payrollDto) {
+        payrollService.creat(modelMapper.map(payrollDto, Payroll.class));
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
 
-		for(Payroll payroll: payrolls) {
-			payrollsDto.add(modelMapper.map(payroll, PayrollDto.class));
-		}
-		return payrollsDto;
-	}
-	
-	@PutMapping
-	public ResponseEntity<?> addTrainings(@RequestBody PayrollAddTrainingDto addTrainingDto) {
-		payrollService.addTrainings(addTrainingDto);
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}
+    @GetMapping
+    public List<PayrollDto> getAllOwnPayrolls() {
+        List<PayrollDto> payrollsDto = new ArrayList();
+        List<Payroll> payrolls = payrollService.findAllOwnPayrolls();
+
+        for (Payroll payroll : payrolls) {
+
+            PayrollDto payrollDto = new PayrollDto();
+            payrollDto.setId(payroll.getId());
+            payrollDto.setMonth(payroll.getMonth());
+            payrollDto.setYear(payroll.getYear());
+            payrollDto.setBillState(payroll.getBillState());
+            payrollsDto.add(payrollDto);
+        }
+        return payrollsDto;
+    }
+
+    @PutMapping
+    public ResponseEntity<?> addTrainings(@RequestBody PayrollAddTrainingDto addTrainingDto) {
+        payrollService.addTrainings(addTrainingDto);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
 
 }

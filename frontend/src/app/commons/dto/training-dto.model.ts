@@ -10,5 +10,4 @@ export interface TrainingDto {
   duration?: number;
   runningDate?: Date;
   amountOfCustomer?: number;
-  payrollDto?:PayrollDto;
 }

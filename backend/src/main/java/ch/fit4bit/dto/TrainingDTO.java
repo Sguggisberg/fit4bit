@@ -3,6 +3,7 @@ package ch.fit4bit.dto;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import ch.fit4bit.entity.Payroll;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
@@ -12,22 +13,19 @@ public class TrainingDTO implements Serializable {
 
     private Long id;
 
-    @JsonProperty("user")
-    private UserDto userDTO;
-
     @JsonProperty("trainingTyp")
     private TrainingTypDTO trainingTypDTO;
 
     @JsonProperty("room")
     private RoomDto roomDto;
 
+    @JsonProperty("payroll")
+    private PayrollDto payrollDto;
     private LocalDateTime runningDate;
 
     private int duration;
 
     private int amountOfCustomer;
-
-    private Boolean isDeleted;
 
 
     public Long getId() {
@@ -62,14 +60,6 @@ public class TrainingDTO implements Serializable {
         this.amountOfCustomer = amountOfCustomer;
     }
 
-    public Boolean getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
     public TrainingTypDTO getTrainingTypDTO() {
         return trainingTypDTO;
     }
@@ -78,13 +68,6 @@ public class TrainingDTO implements Serializable {
         this.trainingTypDTO = trainingTypDTO;
     }
 
-    public UserDto getUserDTO() {
-        return userDTO;
-    }
-
-    public void setUserDTO(UserDto userDTO) {
-        this.userDTO = userDTO;
-    }
 
     public RoomDto getRoomDto() {
         return roomDto;
@@ -94,5 +77,11 @@ public class TrainingDTO implements Serializable {
         this.roomDto = roomDto;
     }
 
+    public PayrollDto getPayrollDto() {
+        return payrollDto;
+    }
 
+    public void setPayrollDto(PayrollDto payrollDto) {
+        this.payrollDto = payrollDto;
+    }
 }
