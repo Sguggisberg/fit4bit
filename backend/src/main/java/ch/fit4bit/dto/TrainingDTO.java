@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import ch.fit4bit.entity.Payroll;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TrainingDTO implements Serializable {
 
     private static final long serialVersionUID = 5758383809044398398L;

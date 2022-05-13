@@ -6,8 +6,9 @@ import java.util.List;
 import ch.fit4bit.dto.PayrollDto;
 import ch.fit4bit.dto.RoomDto;
 import ch.fit4bit.dto.TrainingTypDTO;
-import ch.fit4bit.entity.TrainingTyp;
+import ch.fit4bit.entity.Payroll;
 import ch.fit4bit.entity.User;
+import ch.fit4bit.service.PayrollService;
 import ch.fit4bit.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -35,17 +36,20 @@ import ch.fit4bit.service.TrainingService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TrainingController {
 
-    private TrainingService trainingService;
-    private ModelMapper modelMapper;
+    private final TrainingService trainingService;
+    private final ModelMapper modelMapper;
 
-    private UserService userService;
+    private final UserService userService;
+
+    private final PayrollService payrollService;
+
 
     @Autowired
-    public TrainingController(TrainingService trainingService, ModelMapper modelMapper, UserService userService) {
+    public TrainingController(TrainingService trainingService, ModelMapper modelMapper, UserService userService, PayrollService payrollService) {
         this.trainingService = trainingService;
         this.modelMapper = modelMapper;
         this.userService = userService;
-
+        this.payrollService = payrollService;
     }
 
     @PostMapping
@@ -102,6 +106,29 @@ public class TrainingController {
         return allTrainingsDto;
     }
 
+    @GetMapping("/allpayroll/")
+    public List<TrainingDTO> getAllByTrainerAndOpenPayroll() {
+        List<Training> allTrainings = trainingService.findOpenPayrolls();
+        List<TrainingDTO> allTrainingsDto = new ArrayList<>();
+
+        for (Training training : allTrainings) {
+            allTrainingsDto.add(map(training));
+        }
+        return allTrainingsDto;
+    }
+
+    @GetMapping("/payroll/{id}")
+    public List<TrainingDTO> getAllByTrainerAndPayroll(@PathVariable String id) {
+        Payroll payroll = payrollService.findById(Long.parseLong(id));
+        List<Training> allTrainings = trainingService.findTrainingInPayroll(payroll);
+        List<TrainingDTO> allTrainingsDto = new ArrayList<>();
+
+        for (Training training : allTrainings) {
+            allTrainingsDto.add(map(training));
+        }
+        return allTrainingsDto;
+    }
+
 
     @GetMapping("/{id}")
     @PreAuthorize("@trainerSecurity.isOwner() || hasAnyAuthority('ROLE_SUPERIOR')")
@@ -123,5 +150,16 @@ public class TrainingController {
         t.setAmountOfCustomer(trainingDto.getAmountOfCustomer());
         trainingService.patch(t);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
+
+    private static TrainingDTO map(Training training) {
+        TrainingDTO trainingDTO = new TrainingDTO();
+        trainingDTO.setId(training.getId());
+
+        TrainingTypDTO trainingTypDTO = new TrainingTypDTO();
+        trainingTypDTO.setId(training.getTrainingTyp().getId());
+        trainingTypDTO.setName(training.getTrainingTyp().getName());
+        trainingDTO.setTrainingTypDTO(trainingTypDTO);
+        return trainingDTO;
     }
 }

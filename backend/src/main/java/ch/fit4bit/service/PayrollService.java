@@ -1,9 +1,6 @@
 package ch.fit4bit.service;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import ch.fit4bit.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,5 +53,11 @@ public class PayrollService {
 
 		trainingRepository.saveAll(trainingsToUpadet);
 		return payrollRepository.save(storedPayroll);
+	}
+
+	public Payroll findById(Long id){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findByUserName(authentication.getName());
+		return payrollRepository.findByIdAndUser(id, user);
 	}
 }

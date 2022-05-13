@@ -2,6 +2,7 @@ import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { TrainingService } from 'src/app/commons/service/training.service';
 import { CardItemService } from 'src/app/commons/service/card-item.service';
+import {PayrollDto} from "../../../commons/dto/payroll-dto.model";
 
 @Component({
   selector: 'fit4bit-payroll-list',
@@ -11,10 +12,7 @@ import { CardItemService } from 'src/app/commons/service/card-item.service';
 export class PayrollListComponent implements OnInit {
 
   @Input()
-  public month: number;
-
-  @Input()
-  public year: number;
+  public selectedPayroll:PayrollDto;
 
   constructor(
     private trainingService: TrainingService,

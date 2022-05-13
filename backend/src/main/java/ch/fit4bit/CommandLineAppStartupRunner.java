@@ -78,17 +78,16 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 
 		Training t1 = new Training(tt1, LocalDateTime.of(2022, 6, 14, 20, 0), user1, r1, 55);
 
-		
 		Training t2 = new Training(tt1, LocalDateTime.of(2022, 6, 15, 20, 0), user1, r1, 55);	
-		t2.setAmountOfCustomer(5);
-		trainingService.create(t2);
-		
+
 		Training t3 = new Training(tt1, LocalDateTime.of(2022, 6, 16, 20, 0), user1, r1, 55);	
 		trainingService.create(t3);
 		
 		Training t4 = new Training(tt2, LocalDateTime.of(2022, 6, 16, 19, 0), user1, r1, 55);	
 		trainingService.create(t4);
-		
+
+		Training t5 = new Training(tt5, LocalDateTime.of(2022, 3, 16, 19, 0), user1, r2, 55);
+
 		Training t11 = new Training(tt3, LocalDateTime.of(2022, 6, 14, 20, 0), user2, r2, 45);	
 		trainingService.create(t11);
 		
@@ -120,6 +119,14 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		t1.setAmountOfCustomer(10);
 		t1.setPayroll(p12);
 		trainingService.create(t1);
+
+		t2.setAmountOfCustomer(5);
+		t2.setPayroll(p12);
+		trainingService.create(t2);
+
+		t5.setAmountOfCustomer(12);
+		t5.setPayroll(p13);
+		trainingService.create(t5);
 
 	}
 }

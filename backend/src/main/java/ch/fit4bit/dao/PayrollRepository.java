@@ -16,4 +16,7 @@ public interface PayrollRepository extends JpaRepository<Payroll, Long>{
 
     List<Payroll> findAllByUser(User user);
 
+    Payroll findByIdAndUser(Long id, User user);
+
+
 }

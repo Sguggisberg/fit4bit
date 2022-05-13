@@ -13,11 +13,10 @@ export class PayrollOverviewComponent implements OnInit {
   public payrollList: PayrollDto[] = [];
   public filteredList: PayrollDto[] = [];
   public filerOffeneTraining = false;
-  public payroll: PayrollDto;
+  public selectedPayroll: PayrollDto;
   public showOverlay: boolean;
-  public month: number;
-  public year: number;
   public title: string;
+
 
   constructor(
     private payrollService: PayrollService,
@@ -40,11 +39,9 @@ export class PayrollOverviewComponent implements OnInit {
   }
 
   public loadItem(payroll: PayrollDto): void {
-    this.payroll = payroll;
-    this.month = payroll.month;
-    this.year = payroll.year;
+    this.selectedPayroll = payroll;
     this.showOverlay = true;
-    this.title = `${this.month}  ${this.year}`;
+    this.title = `${payroll.month}  ${payroll.year}`;
   }
 
   public addTrainingsToPayroll(): void {
@@ -54,7 +51,7 @@ export class PayrollOverviewComponent implements OnInit {
     );
 
     let payrollToAddTrainings: PayrollAddTrainingDto = {
-      id: this.payroll.id!,
+      id: this.selectedPayroll.id!,
       trainingIds: listOfId,
     };
     this.payrollService.addTrainings$(payrollToAddTrainings).subscribe();

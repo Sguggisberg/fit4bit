@@ -3,8 +3,10 @@ package ch.fit4bit.service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import ch.fit4bit.dao.UserRepository;
+import ch.fit4bit.entity.Payroll;
 import ch.fit4bit.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -52,6 +54,21 @@ public class TrainingService {
 
     public Training patch(Training training) {
         return trainingRepository.save(training);
+    }
+
+    public List<Training> findTrainingInPayroll(Payroll payroll){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Optional<User> userOpt = userRepository.findByUsername(authentication.getName());
+
+        if (userOpt.isPresent()) {
+            return trainingRepository.findByUserAndPayroll(userOpt.get(), payroll);
+        }
+        return Collections.emptyList();
+    }
+
+    public List<Training> findOpenPayrolls() {
+        List<Training> list = getAllTrainingByUser();
+        return list.stream().filter(training -> training.getPayroll()==null).collect(Collectors.toList());
     }
 
 }
