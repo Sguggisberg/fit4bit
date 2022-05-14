@@ -33,19 +33,14 @@ export class TrainingItemCardComponent implements OnInit {
     this.training.amountOfCustomer = this.profileForm.value.amountOfCustomer;
     this.trainingService.patch$(this.training).subscribe(
       () => {
-        this.snackbar.info({
-          text: 'Die Daten wurden gespeichert',
-          typ: 'info',
-        });
+        this.snackbar.sendDataSaveOk();
         this.profileForm.setValue({
           amountOfCustomer: this.training.amountOfCustomer,
         });
       },
-      () =>
-        this.snackbar.info({
-          text: 'Hopla - Das hat nicht funktioniert!',
-          typ: 'error',
-        })
+      () => {
+        this.snackbar.sendStandardNok();
+      }
     );
     this.profileForm.reset();
   }

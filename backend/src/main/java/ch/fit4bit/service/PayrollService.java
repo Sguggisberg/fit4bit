@@ -4,6 +4,7 @@ import java.util.*;
 
 import ch.fit4bit.entity.Training;
 import ch.fit4bit.entity.User;
+import ch.fit4bit.model.BillState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -43,9 +44,7 @@ public class PayrollService {
     }
 
     public void addTrainings(PayrollAddTrainingDto payrollAddTrainingDto) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findByUserName(authentication.getName());
-        Payroll payroll = payrollRepository.findByIdAndUser(payrollAddTrainingDto.getId(), user);
+        Payroll payroll = findById(payrollAddTrainingDto.getId());
         List<Training> listOfOldTrainings = new ArrayList<>();
         List<Training> listOfNewTrainings = new ArrayList<>();
 
@@ -72,5 +71,11 @@ public class PayrollService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUserName(authentication.getName());
         return payrollRepository.findByIdAndUser(id, user);
+    }
+
+    public void submit(Long id) {
+        Payroll payroll = findById(id);
+        payroll.setBillState(BillState.WARTE_BEI_SUPERIOR);
+        payrollRepository.save(payroll);
     }
 }

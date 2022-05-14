@@ -13,6 +13,20 @@ export class SnackbarService {
     this.delay();
   }
 
+  public sendDataSaveOk(): void {
+    this.info({
+      text: 'Die Daten wurden gespeichert',
+      typ: 'info',
+    });
+  }
+
+  public sendStandardNok(): void {
+    this.info({
+      text: 'Hopla - Das hat nicht funktioniert!',
+      typ: 'error',
+    });
+  }
+
   private delay(): void {
     setTimeout(() => {
       this.infoSubject.next(undefined);

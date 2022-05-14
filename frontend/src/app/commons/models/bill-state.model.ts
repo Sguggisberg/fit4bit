@@ -3,4 +3,5 @@ export type BillState =
   | 'AUSBEZAHLT'
   | 'FREIGABE_SUPERIOR'
   | 'FREIGABE_FINANCE'
-  | 'ABGELEHNT';
+  | 'ABGELEHNT'
+  | 'Warte auf Freigabe';

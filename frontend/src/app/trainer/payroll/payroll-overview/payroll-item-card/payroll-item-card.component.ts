@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PayrollDto } from '../../../../commons/dto/payroll-dto.model';
+import { PayrollService } from '../../../../commons/service/payroll.service';
 
 @Component({
   selector: 'fit4bit-payroll-item-card',
@@ -13,11 +14,18 @@ export class PayrollItemCardComponent implements OnInit {
   @Output()
   public loadItemClicked: EventEmitter<PayrollDto> = new EventEmitter<PayrollDto>();
 
+  @Output()
+  public submitPayroll: EventEmitter<PayrollDto> = new EventEmitter<PayrollDto>();
+
   constructor() {}
 
   ngOnInit(): void {}
 
   public loadOverview() {
     this.loadItemClicked.emit(this.payroll);
+  }
+
+  public sendPayroll() {
+    this.submitPayroll.emit(this.payroll);
   }
 }

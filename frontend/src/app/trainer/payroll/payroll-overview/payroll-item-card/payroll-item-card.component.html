@@ -16,6 +16,7 @@
         <button
           mat-stroked-button
           color="primary"
+          (click)="sendPayroll()"
           [disabled]="payroll.billState !== 'OFFEN'"
         >
           Lohnblatt senden

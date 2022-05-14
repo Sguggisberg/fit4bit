@@ -7,13 +7,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import ch.fit4bit.dto.PayrollAddTrainingDto;
 import ch.fit4bit.dto.PayrollDto;
@@ -60,6 +55,13 @@ public class PayrollController {
     @PutMapping
     public ResponseEntity<?> addTrainings(@RequestBody PayrollAddTrainingDto payrollAddTrainingDto) {
         payrollService.addTrainings(payrollAddTrainingDto);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/submit/{id}")
+    @PreAuthorize("hasAnyAuthority('ROLE_TRAINER')")
+    public ResponseEntity<?> submit(@PathVariable Long id) {
+        payrollService.submit(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 

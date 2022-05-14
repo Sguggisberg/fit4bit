@@ -25,11 +25,15 @@ export class PayrollOverviewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initData();
+    this.filteredList = this.payrollList;
+  }
+
+  private initData(): void {
     this.payrollService.getAll$().subscribe((payrollList) => {
       this.payrollList = payrollList;
       this.filteredList = payrollList;
     });
-    this.filteredList = this.payrollList;
   }
 
   public resetOverlay(): void {
@@ -54,19 +58,27 @@ export class PayrollOverviewComponent implements OnInit {
     };
     this.payrollService.addTrainings$(payrollToAddTrainings).subscribe(
       () => {
-        this.snackbarService.info({
-          text: 'Die Daten wurden gespeichert',
-          typ: 'info',
-        });
+        this.snackbarService.sendDataSaveOk();
       },
-      () =>
-        this.snackbarService.info({
-          text: 'Hopla - Das hat nicht funktioniert!',
-          typ: 'error',
-        })
+      () => {
+        this.snackbarService.sendStandardNok();
+      }
     );
+
     this.showOverlay = false;
     this.cardItemService.clear();
+  }
+
+  public submitPayroll(payroll: PayrollDto): void {
+    this.payrollService.submitPayroll$(payroll).subscribe(
+      () => {
+        this.snackbarService.sendDataSaveOk();
+      },
+      () => {
+        this.snackbarService.sendStandardNok();
+      }
+    );
+    this.initData();
   }
 
   public stateFiler(): void {
