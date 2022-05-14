@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Fit4BitCommonsModule } from '../commons/commons.module';
 import { PayrollOverviewComponent } from './payroll/payroll-overview/payroll-overview.component';
 import { NewpayrollComponent } from './payroll/create-payroll/newpayroll.component';
-import { PayrollListComponent } from './payroll/payroll-list/payroll-list.component';
+import { PayrollListComponent } from './payroll/payroll-overview/payroll-list/payroll-list.component';
 import { TrainingItemCardComponent } from './training/training-overview/training-item-card/training-item-card.component';
 import { PayrollItemCardComponent } from './payroll/payroll-overview/payroll-item-card/payroll-item-card.component';
 

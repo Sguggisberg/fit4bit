@@ -39,7 +39,6 @@ public class Training implements Serializable {
 	private Room room;
 
 	@ManyToOne()
-	@JoinColumn(name="payroll_id")
 	private Payroll payroll;
 
 

@@ -13,13 +13,13 @@
     [title]="title"
     (resetOverlayEmitter)="resetOverlay()"
   >
-    <fit4bit-payroll-list [selectedPayroll]="selectedPayroll"></fit4bit-payroll-list>
+    <fit4bit-payroll-list *ngIf="showOverlay" [selectedPayroll]="selectedPayroll"></fit4bit-payroll-list>
 
 
     <div action>
       <fit4bit-button
         (click)="addTrainingsToPayroll()"
-        [name]="'Hinzufügen'"
+        [name]="'Auswahl speichern'"
       ></fit4bit-button>
     </div>
   </fit4bit-overlay>

@@ -2,6 +2,7 @@ package ch.fit4bit.service;
 
 import java.util.*;
 
+import ch.fit4bit.entity.Training;
 import ch.fit4bit.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -9,55 +10,56 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import ch.fit4bit.dao.PayrollRepository;
-import ch.fit4bit.dao.TrainingRepository;
 import ch.fit4bit.dto.PayrollAddTrainingDto;
 import ch.fit4bit.entity.Payroll;
-import ch.fit4bit.entity.Training;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
 public class PayrollService {
 
-	private final PayrollRepository payrollRepository;
-	private final TrainingRepository trainingRepository;
+    private final PayrollRepository payrollRepository;
 
-	private final UserService userService;
+    private final TrainingService trainingService;
 
-	@Autowired
-	public PayrollService(PayrollRepository payrollRepository, TrainingRepository trainingRepository, UserService userService) {
-		this.payrollRepository = payrollRepository;
-		this.trainingRepository = trainingRepository;
-		this.userService = userService;
-	}
+    private final UserService userService;
 
-	public List<Payroll> findAllOwnPayrolls() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findByUserName(authentication.getName());
-		return payrollRepository.findAllByUser(user);
-	}
+    @Autowired
+    public PayrollService(PayrollRepository payrollRepository, TrainingService trainingService, UserService userService) {
+        this.payrollRepository = payrollRepository;
+        this.trainingService = trainingService;
 
-	public Payroll creat(Payroll payroll) {
-		return payrollRepository.save(payroll);
-	}
+        this.userService = userService;
+    }
 
-	public Payroll addTrainings(PayrollAddTrainingDto payrollAddTrainingDto) {
-		Payroll storedPayroll = payrollRepository.getById(payrollAddTrainingDto.getId());
-		storedPayroll.setTrainings(Collections.emptySet());
-		Set<Training> trainingsToUpadet = new HashSet<>();
+    public List<Payroll> findAllOwnPayrolls() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUserName(authentication.getName());
+        return payrollRepository.findAllByUser(user);
+    }
 
-		for (Long trainingId : payrollAddTrainingDto.getTrainingIds()) {
-			Training trainingToUpdate = trainingRepository.findById(trainingId).get();
-			trainingToUpdate.setPayroll(storedPayroll);
-		}
+    public Payroll creat(Payroll payroll) {
+        return payrollRepository.save(payroll);
+    }
 
-		trainingRepository.saveAll(trainingsToUpadet);
-		return payrollRepository.save(storedPayroll);
-	}
+    public Payroll addTrainings(PayrollAddTrainingDto payrollAddTrainingDto) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUserName(authentication.getName());
+        Payroll payroll = payrollRepository.findByIdAndUser(payrollAddTrainingDto.getId(), user);
+        List<Training> listOfTraining = new ArrayList<>();
 
-	public Payroll findById(Long id){
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findByUserName(authentication.getName());
-		return payrollRepository.findByIdAndUser(id, user);
-	}
+       for(Training training: payroll.getTrainings()) {
+              training.setPayroll(null);
+           listOfTraining.add(training);
+       }
+        trainingService.saveAll(listOfTraining);
+        return payrollRepository.save(payroll);
+
+    }
+
+    public Payroll findById(Long id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUserName(authentication.getName());
+        return payrollRepository.findByIdAndUser(id, user);
+    }
 }

@@ -1,7 +1,7 @@
 import { PayrollDto } from '../../../commons/dto/payroll-dto.model';
 import { Component, OnInit } from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
-import { CardItemService } from 'src/app/commons/service/card-item.service';
+import { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';
 import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';
 
 @Component({
@@ -56,6 +56,7 @@ export class PayrollOverviewComponent implements OnInit {
     };
     this.payrollService.addTrainings$(payrollToAddTrainings).subscribe();
     this.showOverlay = false;
+    this.cardItemService.clear();
   }
 
   public stateFiler(): void {

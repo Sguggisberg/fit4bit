@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TrainingDto } from '../dto/training-dto.model';
+import { TrainingDto } from '../../../commons/dto/training-dto.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,9 +14,14 @@ export class CardItemService {
 
   public removeItem(training: TrainingDto): void {
     this.clickedElements.forEach((element2remove, index) => {
-      if (element2remove.id === training.id) {
+      if (element2remove.id == training.id) {
         this.clickedElements.splice(index, 1);
       }
     });
+  }
+
+  public clear():void {
+    this.clickedElements=[];
+    this.trainings=[];
   }
 }

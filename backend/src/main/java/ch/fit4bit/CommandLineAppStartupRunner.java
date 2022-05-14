@@ -21,6 +21,7 @@ import ch.fit4bit.utils.Month;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class CommandLineAppStartupRunner implements CommandLineRunner {
@@ -97,21 +98,21 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		Training t33 = new Training(tt4, LocalDateTime.of(2022, 6, 14, 20, 0), user2, r1, 55);	
 		trainingService.create(t33);
 		
-		Training t44 = new Training(tt2, LocalDateTime.of(2022, 6, 16, 14, 0), user3, r2, 55);	
-		trainingService.create(t44);
+		Training t44 = new Training(tt2, LocalDateTime.of(2022, 6, 16, 14, 0), user1, r2, 55);
+		t44 = trainingService.create(t44);
 		
 		Payroll p11 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user1);
-
 		Payroll p12 = new Payroll(Month.April, 2022, BillState.OFFEN, user1);
-		Payroll p13 = new Payroll(Month.Februar, 2022, BillState.ABGELEHNT, user1);
+		Payroll p13 = new Payroll(Month.Februar, 2022, BillState.OFFEN, user1);
 		Payroll p14 = new Payroll(Month.Januar, 2022, BillState.OFFEN, user1);
-		Payroll p21 = new Payroll(Month.Juni, 2022, BillState.OFFEN, user4);
+		Payroll p21 = new Payroll(Month.Dezember, 2022, BillState.OFFEN, user1);
 		Payroll p22 = new Payroll(Month.April, 2022, BillState.OFFEN, user4);
 
 		payrollService.creat(p11);
 		payrollService.creat(p12);
 		payrollService.creat(p13);
 		payrollService.creat(p14);
+
 		payrollService.creat(p21);
 		payrollService.creat(p22);
 

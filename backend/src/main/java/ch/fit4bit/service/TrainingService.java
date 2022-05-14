@@ -3,6 +3,7 @@ package ch.fit4bit.service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import ch.fit4bit.dao.UserRepository;
@@ -69,6 +70,10 @@ public class TrainingService {
     public List<Training> findOpenPayrolls() {
         List<Training> list = getAllTrainingByUser();
         return list.stream().filter(training -> training.getPayroll()==null).collect(Collectors.toList());
+    }
+
+    public List<Training> saveAll(List<Training> trainings) {
+        return trainingRepository.saveAll(trainings);
     }
 
 }

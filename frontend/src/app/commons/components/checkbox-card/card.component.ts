@@ -1,6 +1,6 @@
 import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { Component, Input, OnInit } from '@angular/core';
-import { CardItemService } from '../../service/card-item.service';
+import { CardItemService } from '../../../trainer/payroll/payroll-overview/card-item.service';
 
 @Component({
   selector: 'fit4bit-checkbox-card',
@@ -9,6 +9,7 @@ import { CardItemService } from '../../service/card-item.service';
 })
 export class CheckboxCardComponent implements OnInit {
 
+  @Input()
   public active: boolean;
 
   @Input()
@@ -18,7 +19,11 @@ export class CheckboxCardComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.active){
+      this.cardItemService.addItem(this.trainingDto);
+    }
+  }
 
   public toggle(): void {
     this.active = !this.active;

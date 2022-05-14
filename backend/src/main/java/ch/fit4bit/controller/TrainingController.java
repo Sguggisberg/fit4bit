@@ -72,37 +72,13 @@ public class TrainingController {
 
     @GetMapping("/trainer")
     public List<TrainingDTO> getAllByTrainer() {
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-
         List<Training> allTrainings = trainingService.getAllTrainingByUser();
         List<TrainingDTO> allTrainingsDto = new ArrayList<>();
+
         for (Training training : allTrainings) {
-
-            TrainingDTO trainingDTO = new TrainingDTO();
-            trainingDTO.setId(training.getId());
-            trainingDTO.setDuration(training.getDuration());
-            trainingDTO.setAmountOfCustomer(training.getAmountOfCustomer());
-            trainingDTO.setRunningDate(training.getRunningDate());
-            TrainingTypDTO trainingTypDTO = new TrainingTypDTO();
-            trainingTypDTO.setId(training.getTrainingTyp().getId());
-            trainingTypDTO.setName(training.getTrainingTyp().getName());
-
-            if (training.getRoom() != null) {
-                RoomDto roomDto = new RoomDto();
-                roomDto.setId(training.getRoom().getId());
-                roomDto.setName(training.getRoom().getName());
-                trainingDTO.setRoomDto(roomDto);
-            }
-
-            trainingDTO.setTrainingTypDTO(trainingTypDTO);
-
-            if (training.getPayroll() != null) {
-                PayrollDto payrollDto = new PayrollDto();
-                payrollDto.setId(training.getPayroll().getId());
-                trainingDTO.setPayrollDto(payrollDto);
-            }
-            allTrainingsDto.add(trainingDTO);
+            allTrainingsDto.add(map(training));
         }
+
         return allTrainingsDto;
     }
 
@@ -133,7 +109,6 @@ public class TrainingController {
     @GetMapping("/{id}")
     @PreAuthorize("@trainerSecurity.isOwner() || hasAnyAuthority('ROLE_SUPERIOR')")
     public TrainingDTO findById(@PathVariable Long id) {
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         Training t = trainingService.findTrainingById(id);
         return modelMapper.map(t, TrainingDTO.class);
     }
@@ -156,10 +131,28 @@ public class TrainingController {
         TrainingDTO trainingDTO = new TrainingDTO();
         trainingDTO.setId(training.getId());
 
+        trainingDTO.setId(training.getId());
+        trainingDTO.setDuration(training.getDuration());
+        trainingDTO.setAmountOfCustomer(training.getAmountOfCustomer());
+        trainingDTO.setRunningDate(training.getRunningDate());
         TrainingTypDTO trainingTypDTO = new TrainingTypDTO();
         trainingTypDTO.setId(training.getTrainingTyp().getId());
         trainingTypDTO.setName(training.getTrainingTyp().getName());
+
+        if (training.getRoom() != null) {
+            RoomDto roomDto = new RoomDto();
+            roomDto.setId(training.getRoom().getId());
+            roomDto.setName(training.getRoom().getName());
+            trainingDTO.setRoomDto(roomDto);
+        }
+
         trainingDTO.setTrainingTypDTO(trainingTypDTO);
+
+        if (training.getPayroll() != null) {
+            PayrollDto payrollDto = new PayrollDto();
+            payrollDto.setId(training.getPayroll().getId());
+            trainingDTO.setPayrollDto(payrollDto);
+        }
         return trainingDTO;
     }
 }

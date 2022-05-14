@@ -29,7 +29,7 @@ public class Payroll implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy="payroll")
+    @OneToMany(mappedBy="payroll", cascade = CascadeType.ALL)
     private Set<Training> trainings;
 
     @ManyToOne

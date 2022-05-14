@@ -57,11 +57,9 @@ public class PayrollController {
         return payrollsDto;
     }
 
-    @GetMapping("/")
-
     @PutMapping
-    public ResponseEntity<?> addTrainings(@RequestBody PayrollAddTrainingDto addTrainingDto) {
-        payrollService.addTrainings(addTrainingDto);
+    public ResponseEntity<?> addTrainings(@RequestBody PayrollAddTrainingDto payrollAddTrainingDto) {
+        payrollService.addTrainings(payrollAddTrainingDto);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
