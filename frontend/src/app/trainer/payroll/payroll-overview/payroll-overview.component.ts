@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
 import { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';
 import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';
+import { SnackbarService } from '../../../commons/service/snackbar.service';
 
 @Component({
   selector: 'fit4bit-payroll-overview',
@@ -12,14 +13,15 @@ import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-
 export class PayrollOverviewComponent implements OnInit {
   public payrollList: PayrollDto[] = [];
   public filteredList: PayrollDto[] = [];
-  public filerOffeneTraining = false;
+  public filterOffeneTraining = false;
   public selectedPayroll: PayrollDto;
   public showOverlay: boolean;
   public title: string;
 
   constructor(
     private payrollService: PayrollService,
-    private cardItemService: CardItemService
+    private cardItemService: CardItemService,
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class PayrollOverviewComponent implements OnInit {
     });
     this.filteredList = this.payrollList;
   }
+
   public resetOverlay(): void {
     this.showOverlay = false;
   }
@@ -49,14 +52,26 @@ export class PayrollOverviewComponent implements OnInit {
       id: this.selectedPayroll.id!,
       trainingIds: listOfId,
     };
-    this.payrollService.addTrainings$(payrollToAddTrainings).subscribe();
+    this.payrollService.addTrainings$(payrollToAddTrainings).subscribe(
+      () => {
+        this.snackbarService.info({
+          text: 'Die Daten wurden gespeichert',
+          typ: 'info',
+        });
+      },
+      () =>
+        this.snackbarService.info({
+          text: 'Hopla - Das hat nicht funktioniert!',
+          typ: 'error',
+        })
+    );
     this.showOverlay = false;
     this.cardItemService.clear();
   }
 
   public stateFiler(): void {
-    this.filerOffeneTraining = !this.filerOffeneTraining;
-    if (this.filerOffeneTraining) {
+    this.filterOffeneTraining = !this.filterOffeneTraining;
+    if (this.filterOffeneTraining) {
       this.filteredList = [];
       this.payrollList.forEach((value) => {
         if (value.billState === 'OFFEN') {
