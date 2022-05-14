@@ -60,41 +60,40 @@ public class TrainingController {
 
     @GetMapping
     //@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
-    public List<TrainingDTO> getAll() {
+    public ResponseEntity<List<TrainingDTO>> getAll() {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         List<Training> allTrainings = trainingService.getAllTraining();
         List<TrainingDTO> allTrainingsDto = new ArrayList<>();
         for (Training training : allTrainings) {
             allTrainingsDto.add(modelMapper.map(training, TrainingDTO.class));
         }
-        return allTrainingsDto;
+        return new ResponseEntity<>(allTrainingsDto, HttpStatus.OK);
     }
 
     @GetMapping("/trainer")
-    public List<TrainingDTO> getAllByTrainer() {
+    public ResponseEntity<List<TrainingDTO>> getAllByTrainer() {
         List<Training> allTrainings = trainingService.getAllTrainingByUser();
         List<TrainingDTO> allTrainingsDto = new ArrayList<>();
 
         for (Training training : allTrainings) {
             allTrainingsDto.add(map(training));
         }
-
-        return allTrainingsDto;
+        return new ResponseEntity<>(allTrainingsDto, HttpStatus.OK);
     }
 
     @GetMapping("/allpayroll/")
-    public List<TrainingDTO> getAllByTrainerAndOpenPayroll() {
+    public ResponseEntity<List<TrainingDTO>> getAllByTrainerAndOpenPayroll() {
         List<Training> allTrainings = trainingService.findOpenPayrolls();
         List<TrainingDTO> allTrainingsDto = new ArrayList<>();
 
         for (Training training : allTrainings) {
             allTrainingsDto.add(map(training));
         }
-        return allTrainingsDto;
+        return new ResponseEntity<>(allTrainingsDto, HttpStatus.OK);
     }
 
     @GetMapping("/payroll/{id}")
-    public List<TrainingDTO> getAllByTrainerAndPayroll(@PathVariable String id) {
+    public ResponseEntity<List<TrainingDTO>> getAllByTrainerAndPayroll(@PathVariable String id) {
         Payroll payroll = payrollService.findById(Long.parseLong(id));
         List<Training> allTrainings = trainingService.findTrainingInPayroll(payroll);
         List<TrainingDTO> allTrainingsDto = new ArrayList<>();
@@ -102,15 +101,15 @@ public class TrainingController {
         for (Training training : allTrainings) {
             allTrainingsDto.add(map(training));
         }
-        return allTrainingsDto;
+        return new ResponseEntity<>(allTrainingsDto, HttpStatus.OK);
     }
 
 
     @GetMapping("/{id}")
     @PreAuthorize("@trainerSecurity.isOwner() || hasAnyAuthority('ROLE_SUPERIOR')")
-    public TrainingDTO findById(@PathVariable Long id) {
+    public ResponseEntity<TrainingDTO> findById(@PathVariable Long id) {
         Training t = trainingService.findTrainingById(id);
-        return modelMapper.map(t, TrainingDTO.class);
+        return new ResponseEntity<>(modelMapper.map(t, TrainingDTO.class), HttpStatus.OK);
     }
 
     @PutMapping
