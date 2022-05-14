@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fit4bit-base-item-card',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseItemCardComponent implements OnInit {
   constructor() {}
+
+  @Input()
+  public large = false;
 
   ngOnInit(): void {}
 }

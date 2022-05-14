@@ -5,6 +5,7 @@
     ></fit4bit-close-button>
   </div>
   <div class="text">
-    {{ text }}
+    <span *ngIf="length < 0">{{ text }}</span>
+    <span matBadge="{{ length }}" matBadgeOverlap="false"> {{ text }} </span>
   </div>
 </div>

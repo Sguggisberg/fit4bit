@@ -12,6 +12,9 @@ export class ChipsComponent implements OnInit {
   @Input()
   public isActive = false;
 
+  @Input()
+  public length: number;
+
   constructor() {}
 
   ngOnInit(): void {}
