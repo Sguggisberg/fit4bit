@@ -17,7 +17,7 @@ export class PayrollService extends BaseHttpService<PayrollDto> {
   }
 
   public addTrainings$(payroll: PayrollAddTrainingDto): Observable<any> {
-    console.log('info: ', payroll)
+    console.log('info: ', payroll);
     const body = JSON.stringify(payroll);
     const headers = new HttpHeaders(HEADER);
     return this.httpClient.put(this.createBackendEndpoint(), body, {

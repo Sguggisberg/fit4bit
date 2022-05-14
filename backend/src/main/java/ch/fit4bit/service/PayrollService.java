@@ -42,19 +42,30 @@ public class PayrollService {
         return payrollRepository.save(payroll);
     }
 
-    public Payroll addTrainings(PayrollAddTrainingDto payrollAddTrainingDto) {
+    public void addTrainings(PayrollAddTrainingDto payrollAddTrainingDto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUserName(authentication.getName());
         Payroll payroll = payrollRepository.findByIdAndUser(payrollAddTrainingDto.getId(), user);
-        List<Training> listOfTraining = new ArrayList<>();
+        List<Training> listOfOldTrainings = new ArrayList<>();
+        List<Training> listOfNewTrainings = new ArrayList<>();
 
-       for(Training training: payroll.getTrainings()) {
-              training.setPayroll(null);
-           listOfTraining.add(training);
-       }
-        trainingService.saveAll(listOfTraining);
-        return payrollRepository.save(payroll);
+        // Delete old records of training
+        if (listOfOldTrainings.size() > 0) {
+            for (Training training : payroll.getTrainings()) {
+                training.setPayroll(null);
+                listOfOldTrainings.add(training);
+            }
+        }
 
+        // Add new Training
+        for (Long id : payrollAddTrainingDto.getTrainingIds()) {
+            Training training = trainingService.findTrainingById(id);
+            training.setPayroll(payroll);
+            listOfNewTrainings.add(training);
+        }
+
+        trainingService.saveAll(listOfOldTrainings);
+        trainingService.saveAll(listOfNewTrainings);
     }
 
     public Payroll findById(Long id) {

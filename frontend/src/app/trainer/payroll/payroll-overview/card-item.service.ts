@@ -20,8 +20,8 @@ export class CardItemService {
     });
   }
 
-  public clear():void {
-    this.clickedElements=[];
-    this.trainings=[];
+  public clear(): void {
+    this.clickedElements = [];
+    this.trainings = [];
   }
 }

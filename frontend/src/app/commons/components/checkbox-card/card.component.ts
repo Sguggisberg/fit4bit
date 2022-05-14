@@ -8,19 +8,16 @@ import { CardItemService } from '../../../trainer/payroll/payroll-overview/card-
   styleUrls: ['./checkbox-card.component.scss'],
 })
 export class CheckboxCardComponent implements OnInit {
-
   @Input()
   public active: boolean;
 
   @Input()
   public trainingDto: TrainingDto;
 
-  constructor(private cardItemService: CardItemService) {
-
-  }
+  constructor(private cardItemService: CardItemService) {}
 
   ngOnInit(): void {
-    if (this.active){
+    if (this.active) {
       this.cardItemService.addItem(this.trainingDto);
     }
   }

@@ -1,11 +1,12 @@
-@import 'colors.scss';
+@import "colors.scss";
 
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* You can add global styles to this file, and also import other style files */
-html, body {
-  font-family: 'Roboto', sans-serif ;
+html,
+body {
+  font-family: "Roboto", sans-serif;
   height: 100%;
 }
 
@@ -17,71 +18,70 @@ body {
   padding-top: 30px;
 }
 
-
 $mat-myapp-primary: (
-    50 : #f4eded,
-    100 : #e4d2d2,
-    200 : #d3b4b4,
-    300 : #c19595,
-    400 : #b37f7f,
-    500 : #a66868,
-    600 : #9e6060,
-    700 : #955555,
-    800 : #8b4b4b,
-    900 : #7b3a3a,
-    A100 : #ffcccc,
-    A200 : #ff9999,
-    A400 : #ff6666,
-    A700 : #ff4d4d,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #f4eded,
+  100: #e4d2d2,
+  200: #d3b4b4,
+  300: #c19595,
+  400: #b37f7f,
+  500: #a66868,
+  600: #9e6060,
+  700: #955555,
+  800: #8b4b4b,
+  900: #7b3a3a,
+  A100: #ffcccc,
+  A200: #ff9999,
+  A400: #ff6666,
+  A700: #ff4d4d,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
 $mat-myapp-accent: (
-    50 : #fffaed,
-    100 : #fff4d1,
-    200 : #ffecb3,
-    300 : #ffe494,
-    400 : #ffdf7d,
-    500 : #ffd966,
-    600 : #ffd55e,
-    700 : #ffcf53,
-    800 : #ffca49,
-    900 : #ffc038,
-    A100 : #ffffff,
-    A200 : #ffffff,
-    A400 : #fff5e1,
-    A700 : #ffedc8,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #fffaed,
+  100: #fff4d1,
+  200: #ffecb3,
+  300: #ffe494,
+  400: #ffdf7d,
+  500: #ffd966,
+  600: #ffd55e,
+  700: #ffcf53,
+  800: #ffca49,
+  900: #ffc038,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #fff5e1,
+  A700: #ffedc8,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
 $primary: mat-palette($mat-myapp-primary);

@@ -1,9 +1,10 @@
 <div *ngFor="let training of selectedTrainings | async">
-  <fit4bit-checkbox-card [trainingDto]="training" [active]="true"
+  <fit4bit-checkbox-card
+    [trainingDto]="training"
+    [active]="true"
   ></fit4bit-checkbox-card>
 </div>
 
 <div *ngFor="let training of openTrainings | async">
-  <fit4bit-checkbox-card [trainingDto]="training"
-  ></fit4bit-checkbox-card>
+  <fit4bit-checkbox-card [trainingDto]="training"></fit4bit-checkbox-card>
 </div>

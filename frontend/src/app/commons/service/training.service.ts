@@ -30,11 +30,14 @@ export class TrainingService extends BaseHttpService<TrainingDto> {
   }
 
   public getAllOwnOpenTrainings$() {
-    return this.httpClient.get<any>(this.createBackendEndpoint() + '/allpayroll/');
+    return this.httpClient.get<any>(
+      this.createBackendEndpoint() + '/allpayroll/'
+    );
   }
 
-  public getAllTrainingInPayroll$(id: number):Observable<TrainingDto[]> {
-    return this.httpClient.get<any>(this.createBackendEndpoint() + '/payroll/' +id);
+  public getAllTrainingInPayroll$(id: number): Observable<TrainingDto[]> {
+    return this.httpClient.get<any>(
+      this.createBackendEndpoint() + '/payroll/' + id
+    );
   }
-
 }

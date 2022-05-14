@@ -17,21 +17,16 @@ export class PayrollOverviewComponent implements OnInit {
   public showOverlay: boolean;
   public title: string;
 
-
   constructor(
     private payrollService: PayrollService,
-    private cardItemService: CardItemService,
+    private cardItemService: CardItemService
   ) {}
 
   ngOnInit(): void {
-    this.payrollService
-      .getAll$()
-      .subscribe(
-        (payrollList) => {
-           this.payrollList = payrollList;
-           this.filteredList = payrollList;
-        }
-      );
+    this.payrollService.getAll$().subscribe((payrollList) => {
+      this.payrollList = payrollList;
+      this.filteredList = payrollList;
+    });
     this.filteredList = this.payrollList;
   }
   public resetOverlay(): void {

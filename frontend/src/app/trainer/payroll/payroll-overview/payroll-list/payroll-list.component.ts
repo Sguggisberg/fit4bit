@@ -2,8 +2,8 @@ import { TrainingDto } from 'src/app/commons/dto/training-dto.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { TrainingService } from 'src/app/commons/service/training.service';
 import { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';
-import {PayrollDto} from "../../../../commons/dto/payroll-dto.model";
-import {Observable} from "rxjs";
+import { PayrollDto } from '../../../../commons/dto/payroll-dto.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'fit4bit-payroll-list',
@@ -11,12 +11,11 @@ import {Observable} from "rxjs";
   styleUrls: ['./payroll-list.component.scss'],
 })
 export class PayrollListComponent implements OnInit {
-
   @Input()
-  public selectedPayroll:PayrollDto;
+  public selectedPayroll: PayrollDto;
 
-  public selectedTrainings: Observable<TrainingDto[]>
-  public openTrainings: Observable<TrainingDto[]>
+  public selectedTrainings: Observable<TrainingDto[]>;
+  public openTrainings: Observable<TrainingDto[]>;
 
   constructor(
     private trainingService: TrainingService,
@@ -24,12 +23,13 @@ export class PayrollListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   this.selectedTrainings = this.trainingService.getAllTrainingInPayroll$(this.selectedPayroll.id!);
-   this.openTrainings = this.trainingService.getAllOwnOpenTrainings$();
-   }
+    this.selectedTrainings = this.trainingService.getAllTrainingInPayroll$(
+      this.selectedPayroll.id!
+    );
+    this.openTrainings = this.trainingService.getAllOwnOpenTrainings$();
+  }
 
-
-  public allOwnTrainings():TrainingDto[] {
+  public allOwnTrainings(): TrainingDto[] {
     return this.cardItemService.trainings;
   }
 }
