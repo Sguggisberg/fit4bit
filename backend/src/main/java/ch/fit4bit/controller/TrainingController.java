@@ -2,6 +2,7 @@ package ch.fit4bit.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import ch.fit4bit.dto.PayrollDto;
 import ch.fit4bit.dto.RoomDto;
@@ -118,7 +119,7 @@ public class TrainingController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUserName(authentication.getName());
         Training t = trainingService.findTrainingById(trainingDto.getId());
-        if (user.getId() != t.getUser().getId()) {
+        if (!Objects.equals(user.getId(), t.getUser().getId())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         t.setAmountOfCustomer(trainingDto.getAmountOfCustomer());
