@@ -41,7 +41,6 @@ public class PayrollController {
         List<Payroll> payrolls = payrollService.findAllOwnPayrolls();
 
         for (Payroll payroll : payrolls) {
-
             PayrollDto payrollDto = new PayrollDto();
             payrollDto.setId(payroll.getId());
             payrollDto.setMonth(payroll.getMonth());

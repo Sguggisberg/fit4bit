@@ -21,6 +21,7 @@ export class PayrollOverviewComponent implements OnInit {
   public title: string;
   public lengthOfOpenPayrolls: number;
   public formInOverlayValid:boolean;
+  public showFilter=false;
 
   @ViewChild(NewpayrollComponent) newpayrollComponent:NewpayrollComponent;
 

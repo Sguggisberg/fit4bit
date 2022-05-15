@@ -29,7 +29,6 @@ public class PayrollService {
     public PayrollService(PayrollRepository payrollRepository, TrainingService trainingService, UserService userService) {
         this.payrollRepository = payrollRepository;
         this.trainingService = trainingService;
-
         this.userService = userService;
     }
 
@@ -43,6 +42,7 @@ public class PayrollService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUserName(authentication.getName());
         payroll.setUser(user);
+        payroll.setBillState(BillState.OFFEN);
         return payrollRepository.save(payroll);
     }
 

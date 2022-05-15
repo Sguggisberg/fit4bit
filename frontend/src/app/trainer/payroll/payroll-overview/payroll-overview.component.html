@@ -1,14 +1,16 @@
 <fit4bit-main-content-container [title]="'Lohnabrechnungs Übersicht'">
-  <h2>Filter:</h2>
-  <div class="chips-container">
-    <fit4bit-chips
-      [isActive]="filterOffeneTraining"
-      [text]="'Offene'"
-      [length]="lengthOfOpenPayrolls"
-      (click)="stateFiler()"
-    ></fit4bit-chips>
-  </div>
 
+  <div class="filter-container" *ngIf="showFilter">
+    <h2>Filter:</h2>
+    <div class="chips-container">
+      <fit4bit-chips
+        [isActive]="filterOffeneTraining"
+        [text]="'Offene'"
+        [length]="lengthOfOpenPayrolls"
+        (click)="stateFiler()"
+      ></fit4bit-chips>
+    </div>
+  </div>
   <fit4bit-overlay
     [show]="showPayrollList"
     [title]="title"
@@ -29,7 +31,6 @@
     </div>
 
   </fit4bit-overlay>
-
   <fit4bit-overlay
     [show]="showNewPayrollForm"
     [title]="title"
@@ -50,7 +51,7 @@
     <div add (click)="loadNewPayrollForm()">
       <mat-icon>add</mat-icon>
     </div>
-    <div filter>
+    <div filter (click)="showFilter=!showFilter">
       <mat-icon>filter_list</mat-icon>
     </div>
   </fit4bit-bubble>
