@@ -39,7 +39,10 @@ public class PayrollService {
         return payrollRepository.findAllByUser(user);
     }
 
-    public Payroll creat(Payroll payroll) {
+    public Payroll create(Payroll payroll) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUserName(authentication.getName());
+        payroll.setUser(user);
         return payrollRepository.save(payroll);
     }
 

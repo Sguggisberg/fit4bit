@@ -31,7 +31,7 @@ public class PayrollController {
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody PayrollDto payrollDto) {
-        payrollService.creat(modelMapper.map(payrollDto, Payroll.class));
+        payrollService.create(modelMapper.map(payrollDto, Payroll.class));
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 

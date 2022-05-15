@@ -35,11 +35,12 @@
     [title]="title"
     (resetOverlayEmitter)="resetOverlay()"
   >
-    <fit4bit-newpayroll></fit4bit-newpayroll>
-
+    <fit4bit-newpayroll (validEmitter)="checkValidation($event)"></fit4bit-newpayroll>
     <div action *ngIf="showNewPayrollForm">
       <fit4bit-button
         [name]="'Erstellen'"
+        [disabled]="!formInOverlayValid"
+        (click)="createPayroll()"
       ></fit4bit-button>
     </div>
 

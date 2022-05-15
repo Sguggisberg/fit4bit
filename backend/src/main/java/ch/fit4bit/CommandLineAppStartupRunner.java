@@ -1,5 +1,6 @@
 package ch.fit4bit;
 
+import ch.fit4bit.dao.PayrollRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,7 +22,6 @@ import ch.fit4bit.utils.Month;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @Component
 public class CommandLineAppStartupRunner implements CommandLineRunner {
@@ -33,15 +33,18 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 	private final TrainingService trainingService;
 	private final PayrollService payrollService;
 
+	private final PayrollRepository payrollRepository;
+
 	@Autowired
-	public CommandLineAppStartupRunner(UserService userService,TrainingTypService trainingTypService, RoomService roomService, BCryptPasswordEncoder bCryptPasswordEncoder, PayrollService payrollService
-, TrainingService trainingService) {
+	public CommandLineAppStartupRunner(UserService userService, TrainingTypService trainingTypService, RoomService roomService, BCryptPasswordEncoder bCryptPasswordEncoder, PayrollService payrollService
+, TrainingService trainingService, PayrollRepository payrollRepository) {
 		this.userService = userService;
 		this.trainingTypService = trainingTypService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 		this.roomService = roomService;
 		this.trainingService = trainingService;
 		this.payrollService = payrollService;
+		this.payrollRepository = payrollRepository;
 	}
 
 	@Override
@@ -108,13 +111,13 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		Payroll p21 = new Payroll(Month.Dezember, 2022, BillState.OFFEN, user1);
 		Payroll p22 = new Payroll(Month.April, 2022, BillState.OFFEN, user4);
 
-		payrollService.creat(p11);
-		payrollService.creat(p12);
-		payrollService.creat(p13);
-		payrollService.creat(p14);
+		payrollRepository.save(p11);
+		payrollRepository.save(p12);
+		payrollRepository.save(p13);
+		payrollRepository.save(p14);
 
-		payrollService.creat(p21);
-		payrollService.creat(p22);
+		payrollRepository.save(p21);
+		payrollRepository.save(p22);
 
 
 		t1.setAmountOfCustomer(10);

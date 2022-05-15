@@ -14,3 +14,12 @@ button {
     background-color: $background-color-hover-button;
   }
 }
+
+.disabled {
+  cursor: unset;
+  background-color: $disabled;
+  &:hover {
+    cursor: unset;
+    background-color: $disabled;
+  }
+}
