@@ -11,4 +11,17 @@ export const parameters = {
     },
   },
   docs: { inlineStories: true },
-}
+  backgrounds: {
+    default: "Overlay-header",
+    values: [
+      {
+        name: "Overlay-header",
+        value: "#908d86",
+      },
+      {
+        name: "Menu-header",
+        value: "#2f2740",
+      },
+    ],
+  },
+};
