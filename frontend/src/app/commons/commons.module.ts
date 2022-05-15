@@ -16,6 +16,7 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { BaseItemCardComponent } from './components/base-item-card/base-item-card.component';
 import { ChipsComponent } from './components/chips/chips.component';
+import { BubbleComponent } from './components/bubble/bubble.component';
 
 @NgModule({
   declarations: [
@@ -33,21 +34,23 @@ import { ChipsComponent } from './components/chips/chips.component';
     SnackBarComponent,
     BaseItemCardComponent,
     ChipsComponent,
+    BubbleComponent,
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule],
 
-  exports: [
-    BlankSlateInformationComponent,
-    LoaderComponent,
-    OverlayComponent,
-    BackdropComponent,
-    CheckboxCardComponent,
-    ButtonComponent,
-    MainContentContainerComponent,
-    SnackBarComponent,
-    Fit4bitCloseButtonComponent,
-    BaseItemCardComponent,
-    ChipsComponent,
-  ],
+    exports: [
+        BlankSlateInformationComponent,
+        LoaderComponent,
+        OverlayComponent,
+        BackdropComponent,
+        CheckboxCardComponent,
+        ButtonComponent,
+        MainContentContainerComponent,
+        SnackBarComponent,
+        Fit4bitCloseButtonComponent,
+        BaseItemCardComponent,
+        ChipsComponent,
+        BubbleComponent,
+    ],
 })
 export class Fit4BitCommonsModule {}

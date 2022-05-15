@@ -1,0 +1,36 @@
+@import "colors.scss";
+@import "breakpoints.scss";
+
+.inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+  background: $primary-color-bubble;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  &:hover {
+    background: $primary-color-hover-bubble;
+  }
+}
+
+.bubble-container {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 110px;
+  right: 20px;
+  top: 50px;
+  bottom: unset;
+  flex-direction: row;
+  @include mobile {
+    flex-direction: column;
+    right: 2px;
+    top: unset;
+    bottom: 20px;
+    width: unset;
+    height: 110px;
+  }
+}

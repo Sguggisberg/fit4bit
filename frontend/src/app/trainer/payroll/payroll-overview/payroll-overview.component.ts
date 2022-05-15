@@ -1,5 +1,5 @@
 import { PayrollDto } from '../../../commons/dto/payroll-dto.model';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
 import { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';
 import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';
@@ -18,6 +18,7 @@ export class PayrollOverviewComponent implements OnInit {
   public showOverlay: boolean;
   public title: string;
   public lengthOfOpenPayrolls: number;
+  public showNewPayrollForm: boolean;
 
   constructor(
     private payrollService: PayrollService,

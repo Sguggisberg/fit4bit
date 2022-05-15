@@ -27,7 +27,11 @@
     </div>
   </fit4bit-overlay>
 
-  <fit4bit-newpayroll></fit4bit-newpayroll>
+
+  <fit4bit-bubble >   <div add (click)="showNewPayrollForm=!showNewPayrollForm"> <mat-icon>add</mat-icon></div>
+    <div filter> <mat-icon>filter_list</mat-icon></div></fit4bit-bubble>
+
+  <fit4bit-newpayroll *ngIf="showNewPayrollForm" ></fit4bit-newpayroll>
 </fit4bit-main-content-container>
 
 <div class="cards">
