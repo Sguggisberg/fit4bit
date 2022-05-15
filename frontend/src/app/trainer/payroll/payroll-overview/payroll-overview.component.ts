@@ -15,10 +15,11 @@ export class PayrollOverviewComponent implements OnInit {
   public filteredList: PayrollDto[] = [];
   public filterOffeneTraining = false;
   public selectedPayroll: PayrollDto;
-  public showOverlay: boolean;
+  public showPayrollList: boolean;
+  public showNewPayrollForm: boolean;
   public title: string;
   public lengthOfOpenPayrolls: number;
-  public showNewPayrollForm: boolean;
+
 
   constructor(
     private payrollService: PayrollService,
@@ -42,13 +43,19 @@ export class PayrollOverviewComponent implements OnInit {
   }
 
   public resetOverlay(): void {
-    this.showOverlay = false;
+    this.showPayrollList = false;
+    this.showNewPayrollForm = false;
   }
 
   public loadItem(payroll: PayrollDto): void {
     this.selectedPayroll = payroll;
-    this.showOverlay = true;
+    this.showPayrollList = true;
     this.title = `${payroll.month}  ${payroll.year}`;
+  }
+
+  public loadNewPayrollForm(): void {
+    this.title = 'Neues Stundenblatt anlegen';
+    this.showNewPayrollForm = true;
   }
 
   public addTrainingsToPayroll(): void {
@@ -70,7 +77,7 @@ export class PayrollOverviewComponent implements OnInit {
       }
     );
 
-    this.showOverlay = false;
+    this.showPayrollList = false;
     this.cardItemService.clear();
   }
 

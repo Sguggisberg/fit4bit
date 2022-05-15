@@ -2,6 +2,7 @@
 <div id="overlay" *ngIf="show">
   <div class="head-overlay wrapper">
     <h1>{{ title }}</h1>
+
     <ng-content select="[action]"></ng-content>
   </div>
   <div class="wrapper">

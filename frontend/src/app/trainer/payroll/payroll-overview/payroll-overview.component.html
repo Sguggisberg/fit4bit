@@ -10,28 +10,49 @@
   </div>
 
   <fit4bit-overlay
-    [show]="showOverlay"
+    [show]="showPayrollList"
     [title]="title"
     (resetOverlayEmitter)="resetOverlay()"
+
   >
+
     <fit4bit-payroll-list
-      *ngIf="showOverlay"
+      *ngIf="showPayrollList"
       [selectedPayroll]="selectedPayroll"
     ></fit4bit-payroll-list>
 
-    <div action>
+    <div action *ngIf="showPayrollList">
       <fit4bit-button
         (click)="addTrainingsToPayroll()"
         [name]="'Auswahl speichern'"
       ></fit4bit-button>
     </div>
+
   </fit4bit-overlay>
 
+  <fit4bit-overlay
+    [show]="showNewPayrollForm"
+    [title]="title"
+    (resetOverlayEmitter)="resetOverlay()"
+  >
+    <fit4bit-newpayroll></fit4bit-newpayroll>
 
-  <fit4bit-bubble >   <div add (click)="showNewPayrollForm=!showNewPayrollForm"> <mat-icon>add</mat-icon></div>
-    <div filter> <mat-icon>filter_list</mat-icon></div></fit4bit-bubble>
+    <div action *ngIf="showNewPayrollForm">
+      <fit4bit-button
+        [name]="'Erstellen'"
+      ></fit4bit-button>
+    </div>
 
-  <fit4bit-newpayroll *ngIf="showNewPayrollForm" ></fit4bit-newpayroll>
+  </fit4bit-overlay>
+
+  <fit4bit-bubble>
+    <div add (click)="loadNewPayrollForm()">
+      <mat-icon>add</mat-icon>
+    </div>
+    <div filter>
+      <mat-icon>filter_list</mat-icon>
+    </div>
+  </fit4bit-bubble>
 </fit4bit-main-content-container>
 
 <div class="cards">
@@ -44,3 +65,5 @@
     </fit4bit-payroll-item-card>
   </div>
 </div>
+
+
