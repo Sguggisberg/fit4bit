@@ -1,10 +1,10 @@
 import { PayrollDto } from '../../../commons/dto/payroll-dto.model';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
 import { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';
 import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';
 import { SnackbarService } from '../../../commons/service/snackbar.service';
-import {NewpayrollComponent} from "../create-payroll/newpayroll.component";
+import { NewpayrollComponent } from '../create-payroll/newpayroll.component';
 
 @Component({
   selector: 'fit4bit-payroll-overview',
@@ -20,15 +20,15 @@ export class PayrollOverviewComponent implements OnInit {
   public showNewPayrollForm: boolean;
   public title: string;
   public lengthOfOpenPayrolls: number;
-  public formInOverlayValid:boolean;
-  public showFilter=false;
+  public formInOverlayValid: boolean;
+  public showFilter = false;
 
-  @ViewChild(NewpayrollComponent) newpayrollComponent:NewpayrollComponent;
+  @ViewChild(NewpayrollComponent) newpayrollComponent: NewpayrollComponent;
 
   constructor(
     private payrollService: PayrollService,
     private cardItemService: CardItemService,
-    private snackbarService: SnackbarService,
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -110,12 +110,11 @@ export class PayrollOverviewComponent implements OnInit {
   }
 
   public checkValidation($event: boolean) {
-    this.formInOverlayValid=$event.valueOf();
+    this.formInOverlayValid = $event.valueOf();
   }
 
-  public createPayroll():void {
+  public createPayroll(): void {
     this.newpayrollComponent.create();
     this.resetOverlay();
   }
-
 }

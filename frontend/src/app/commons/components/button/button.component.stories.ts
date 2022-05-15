@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
 import { ButtonComponent } from './button.component';
 

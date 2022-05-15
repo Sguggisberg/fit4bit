@@ -12,7 +12,7 @@ export const parameters = {
   },
   docs: { inlineStories: true },
   backgrounds: {
-    default: "Overlay-header",
+    default: "White",
     values: [
       {
         name: "Overlay-header",
@@ -21,6 +21,10 @@ export const parameters = {
       {
         name: "Menu-header",
         value: "#2f2740",
+      },
+      {
+        name: "White",
+        value: "#ffffff",
       },
     ],
   },

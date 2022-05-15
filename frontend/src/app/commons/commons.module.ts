@@ -38,19 +38,19 @@ import { BubbleComponent } from './components/bubble/bubble.component';
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule],
 
-    exports: [
-        BlankSlateInformationComponent,
-        LoaderComponent,
-        OverlayComponent,
-        BackdropComponent,
-        CheckboxCardComponent,
-        ButtonComponent,
-        MainContentContainerComponent,
-        SnackBarComponent,
-        Fit4bitCloseButtonComponent,
-        BaseItemCardComponent,
-        ChipsComponent,
-        BubbleComponent,
-    ],
+  exports: [
+    BlankSlateInformationComponent,
+    LoaderComponent,
+    OverlayComponent,
+    BackdropComponent,
+    CheckboxCardComponent,
+    ButtonComponent,
+    MainContentContainerComponent,
+    SnackBarComponent,
+    Fit4bitCloseButtonComponent,
+    BaseItemCardComponent,
+    ChipsComponent,
+    BubbleComponent,
+  ],
 })
 export class Fit4BitCommonsModule {}
