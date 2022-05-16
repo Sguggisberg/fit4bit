@@ -35,4 +35,10 @@ export class PayrollService extends BaseHttpService<PayrollDto> {
       }
     );
   }
+
+  public getOpenPayrolls$(): Observable<PayrollDto[]> {
+    return this.httpClient.get<any>(
+      this.createBackendEndpoint() + '/superior?filter=ZUR_FREIGABE_1'
+    );
+  }
 }

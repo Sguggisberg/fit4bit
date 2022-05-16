@@ -38,6 +38,10 @@ public class PayrollService {
         return payrollRepository.findAllByUser(user);
     }
 
+    public List<Payroll> findByState(BillState billState) {
+        return payrollRepository.findAllByBillState(billState);
+    }
+
     public Payroll create(Payroll payroll) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByUserName(authentication.getName());
@@ -78,7 +82,7 @@ public class PayrollService {
 
     public void submit(Long id) {
         Payroll payroll = findById(id);
-        payroll.setBillState(BillState.WARTE_BEI_SUPERIOR);
+        payroll.setBillState(BillState.ZUR_FREIGABE_1);
         payrollRepository.save(payroll);
     }
 }

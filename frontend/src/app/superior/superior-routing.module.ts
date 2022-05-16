@@ -5,6 +5,7 @@ import { NewUserComponent } from './pages/new-user/new-user.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardSuperior } from '../commons/guards/superior-guard';
+import { ReviewComponent } from './pages/review/review.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path: 'room',
     component: RoomComponent,
+    canActivate: [AuthGuardSuperior],
+  },
+  {
+    path: 'review',
+    component: ReviewComponent,
     canActivate: [AuthGuardSuperior],
   },
 ];

@@ -27,6 +27,6 @@ import { PayrollItemCardComponent } from './payroll/payroll-overview/payroll-ite
     ReactiveFormsModule,
     Fit4BitCommonsModule,
   ],
-  exports: [],
+  exports: [PayrollItemCardComponent],
 })
 export class TrainerModule {}

@@ -90,7 +90,20 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		Training t4 = new Training(tt2, LocalDateTime.of(2022, 6, 16, 19, 0), user1, r1, 55);	
 		trainingService.create(t4);
 
-		Training t5 = new Training(tt5, LocalDateTime.of(2022, 3, 16, 19, 0), user1, r2, 55);
+		Training t5 = new Training(tt5, LocalDateTime.of(2022, 3, 11, 19, 0), user1, r2, 55);
+		trainingService.create(t5);
+
+		Training t6 = new Training(tt5, LocalDateTime.of(2022, 3, 12, 19, 0), user1, r1, 55);
+		trainingService.create(t6);
+
+		Training t7 = new Training(tt5, LocalDateTime.of(2022, 3, 13, 19, 0), user1, r2, 55);
+		trainingService.create(t7);
+
+		Training t8 = new Training(tt5, LocalDateTime.of(2022, 3, 14, 19, 0), user1, r2, 55);
+		trainingService.create(t8);
+
+		Training t29 = new Training(tt5, LocalDateTime.of(2022, 3, 15, 19, 0), user2, r2, 55);
+		trainingService.create(t29);
 
 		Training t11 = new Training(tt3, LocalDateTime.of(2022, 6, 14, 20, 0), user2, r2, 45);	
 		trainingService.create(t11);
@@ -111,14 +124,26 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		Payroll p21 = new Payroll(Month.Dezember, 2022, BillState.ABGELEHNT, user1);
 		Payroll p22 = new Payroll(Month.April, 2022, BillState.OFFEN, user4);
 
+		Payroll p15 = new Payroll(Month.Juni, 2023, BillState.ZUR_FREIGABE_1, user1);
+		Payroll p16 = new Payroll(Month.April, 2023, BillState.ZUR_FREIGABE_1, user1);
+		Payroll p17 = new Payroll(Month.Februar, 2023, BillState.ZUR_FREIGABE_1, user1);
+		Payroll p18 = new Payroll(Month.Januar, 2023, BillState.ZUR_FREIGABE_1, user1);
+		Payroll p23 = new Payroll(Month.Dezember, 2023, BillState.ZUR_FREIGABE_1, user2);
+		Payroll p24 = new Payroll(Month.April, 2023, BillState.ZUR_FREIGABE_1, user4);
+
 		payrollRepository.save(p11);
 		payrollRepository.save(p12);
 		payrollRepository.save(p13);
 		payrollRepository.save(p14);
+		payrollRepository.save(p15);
+		payrollRepository.save(p16);
+		payrollRepository.save(p17);
+		payrollRepository.save(p18);
 
 		payrollRepository.save(p21);
 		payrollRepository.save(p22);
-
+		payrollRepository.save(p23);
+		payrollRepository.save(p24);
 
 		t1.setAmountOfCustomer(10);
 		t1.setPayroll(p12);
@@ -131,6 +156,22 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 		t5.setAmountOfCustomer(12);
 		t5.setPayroll(p13);
 		trainingService.create(t5);
+
+		t6.setAmountOfCustomer(10);
+		t6.setPayroll(p15);
+		trainingService.create(t6);;
+
+		t7.setAmountOfCustomer(3);
+		t7.setPayroll(p15);
+		trainingService.create(t7);
+
+		t8.setAmountOfCustomer(3);
+		t8.setPayroll(p15);
+		trainingService.create(t8);
+
+		t29.setAmountOfCustomer(3);
+		t8.setPayroll(p22);
+		trainingService.create(t29);
 
 	}
 }

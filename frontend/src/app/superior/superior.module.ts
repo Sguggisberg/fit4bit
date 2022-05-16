@@ -10,6 +10,7 @@ import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.
 import { RoomComponent } from './pages/room/room.component';
 import { Fit4BitCommonsModule } from '../commons/commons.module';
 import { AuthGuardSuperior } from '../commons/guards/superior-guard';
+import { ReviewComponent } from './pages/review/review.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AuthGuardSuperior } from '../commons/guards/superior-guard';
     TrainingComponent,
     NewTraininTypComponent,
     RoomComponent,
+    ReviewComponent,
   ],
   imports: [
     CommonModule,
