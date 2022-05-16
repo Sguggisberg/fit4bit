@@ -78,14 +78,23 @@ public class PayrollController {
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
-    public static PayrollDto mapToDto(Payroll payroll) {
+    @PutMapping("/release/")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
+    public ResponseEntity<?> release(@RequestBody PayrollDto payrollDto) {
+        Payroll payroll = new Payroll();
+        payroll.setId(payrollDto.getId());
+        payroll.setBillState(payrollDto.getBillState());
+        payrollService.updateState(payroll);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
+
+    private static PayrollDto mapToDto(Payroll payroll) {
         PayrollDto payrollDto = new PayrollDto();
         payrollDto.setId(payroll.getId());
         payrollDto.setMonth(payroll.getMonth());
         payrollDto.setYear(payroll.getYear());
         payrollDto.setBillState(payroll.getBillState());
         return payrollDto;
-
     }
 
 }

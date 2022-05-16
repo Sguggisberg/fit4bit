@@ -1,0 +1,16 @@
+<fit4bit-base-item-card [large]="false">
+  <div class="detail">
+    <div class="detail-head">{{ payroll.month }} {{ payroll.year }}</div>
+    <div>
+      <div class="buttons">
+        <button (click)="release(payroll)" mat-stroked-button color="primary">
+          Freigeben
+        </button>
+
+        <button (click)="reject(payroll)" mat-stroked-button color="primary">
+          Ablehnen
+        </button>
+      </div>
+    </div>
+  </div>
+</fit4bit-base-item-card>

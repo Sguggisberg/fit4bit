@@ -85,4 +85,10 @@ public class PayrollService {
         payroll.setBillState(BillState.ZUR_FREIGABE_1);
         payrollRepository.save(payroll);
     }
+
+    public void updateState(Payroll payrollNew) {
+        Payroll payrollToUpdate = payrollRepository.findById(payrollNew.getId()).get();
+        payrollToUpdate.setBillState(payrollNew.getBillState());
+        payrollRepository.save(payrollToUpdate);
+    }
 }

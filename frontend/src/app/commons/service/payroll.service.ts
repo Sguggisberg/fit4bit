@@ -41,4 +41,16 @@ export class PayrollService extends BaseHttpService<PayrollDto> {
       this.createBackendEndpoint() + '/superior?filter=ZUR_FREIGABE_1'
     );
   }
+
+  public updateState(payroll: PayrollDto): Observable<any> {
+    const body = JSON.stringify(payroll);
+    const headers = new HttpHeaders(HEADER);
+    return this.httpClient.put(
+      this.createBackendEndpoint() + '/release/',
+      body,
+      {
+        headers,
+      }
+    );
+  }
 }

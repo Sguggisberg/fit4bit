@@ -11,6 +11,7 @@ import { RoomComponent } from './pages/room/room.component';
 import { Fit4BitCommonsModule } from '../commons/commons.module';
 import { AuthGuardSuperior } from '../commons/guards/superior-guard';
 import { ReviewComponent } from './pages/review/review.component';
+import { PayrollReviewItemCardComponent } from './pages/review/payroll-review-item-card/payroll-review-item-card.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ReviewComponent } from './pages/review/review.component';
     NewTraininTypComponent,
     RoomComponent,
     ReviewComponent,
+    PayrollReviewItemCardComponent,
   ],
   imports: [
     CommonModule,
