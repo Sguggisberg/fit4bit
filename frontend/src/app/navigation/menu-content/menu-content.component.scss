@@ -4,9 +4,6 @@
 a {
   text-decoration: none;
   color: white;
-  @include mobile {
-    color: $background-color-head-primary;
-  }
 }
 
 a:hover,
@@ -42,4 +39,7 @@ a:active {
 
 .items-container > div {
   padding-right: 15px;
+  @include mobile {
+    padding: 5px;
+  }
 }
