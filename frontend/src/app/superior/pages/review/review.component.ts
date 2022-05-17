@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PayrollDto } from '../../../commons/dto/payroll-dto.model';
 import { PayrollService } from '../../../commons/service/payroll.service';
 
@@ -10,11 +10,19 @@ import { PayrollService } from '../../../commons/service/payroll.service';
 export class ReviewComponent implements OnInit {
   public filteredList: PayrollDto[];
 
-  constructor(private payrollService: PayrollService) {}
+  constructor(
+    private payrollService: PayrollService,
+    private ref: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.payrollService
-      .getOpenPayrolls$()
-      .subscribe((list) => (this.filteredList = list));
+    this.initData();
+  }
+
+  public initData(): void {
+    this.payrollService.getOpenPayrolls$().subscribe((list) => {
+      this.filteredList = list;
+      this.ref.detectChanges();
+    });
   }
 }

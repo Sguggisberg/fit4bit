@@ -1,7 +1,10 @@
 <fit4bit-main-content-container [title]="'Freigaben von Lohnblättern'">
   <div class="cards">
     <div *ngFor="let payroll of filteredList">
-      <fit4bit-payroll-review-item-card [payroll]="payroll">
+      <fit4bit-payroll-review-item-card
+        [payroll]="payroll"
+        (childChanged)="initData()"
+      >
         {{ payroll.id }}
       </fit4bit-payroll-review-item-card>
     </div>

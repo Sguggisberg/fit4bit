@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { PayrollDto } from '../../../../commons/dto/payroll-dto.model';
 import { PayrollService } from '../../../../commons/service/payroll.service';
 import { SnackbarService } from '../../../../commons/service/snackbar.service';
@@ -11,6 +17,9 @@ import { SnackbarService } from '../../../../commons/service/snackbar.service';
 export class PayrollReviewItemCardComponent implements OnInit {
   @Input()
   public payroll: PayrollDto;
+
+  @Output()
+  public childChanged: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     private payrollService: PayrollService,
@@ -25,7 +34,10 @@ export class PayrollReviewItemCardComponent implements OnInit {
       billState: 'FREIGABE_SUPERIOR',
     };
     this.payrollService.updateState(toUpdate).subscribe(
-      () => this.snackbarService.sendDataSaveOk(),
+      () => {
+        this.snackbarService.sendDataSaveOk();
+        this.childChanged.emit();
+      },
       () => this.snackbarService.sendStandardNok()
     );
   }
@@ -36,7 +48,10 @@ export class PayrollReviewItemCardComponent implements OnInit {
       billState: 'ABGELEHNT',
     };
     this.payrollService.updateState(toUpdate).subscribe(
-      () => this.snackbarService.sendDataSaveOk(),
+      () => {
+        this.snackbarService.sendDataSaveOk();
+        this.childChanged.emit();
+      },
       () => this.snackbarService.sendStandardNok()
     );
   }

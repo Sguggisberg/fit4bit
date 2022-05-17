@@ -1,5 +1,10 @@
 import { PayrollDto } from '../../../commons/dto/payroll-dto.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
 import { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';
 import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';
@@ -28,7 +33,8 @@ export class PayrollOverviewComponent implements OnInit {
   constructor(
     private payrollService: PayrollService,
     private cardItemService: CardItemService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +49,7 @@ export class PayrollOverviewComponent implements OnInit {
       this.lengthOfOpenPayrolls = payrollList.filter(
         (value) => value.billState === 'OFFEN'
       ).length;
+      this.changeDetectorRef.detectChanges();
     });
   }
 
@@ -89,12 +96,12 @@ export class PayrollOverviewComponent implements OnInit {
     this.payrollService.submitPayroll$(payroll).subscribe(
       () => {
         this.snackbarService.sendDataSaveOk();
+        this.initData();
       },
       () => {
         this.snackbarService.sendStandardNok();
       }
     );
-    this.initData();
   }
 
   public stateFiler(): void {
