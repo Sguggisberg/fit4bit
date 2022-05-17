@@ -1,7 +1,6 @@
-import { UserDto } from 'src/app/commons/dto/user-dto.model';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { JwtToken, DecodedJwtTokenData } from '../models/jwt-token.model';
 import { User } from '../models/user.model';
 import { Roles } from '../models/role.model';
@@ -10,7 +9,7 @@ import { Roles } from '../models/role.model';
   providedIn: 'root',
 })
 export class LocalStoreService {
-  public user$ = new Subject<UserDto>();
+  public user$ = new BehaviorSubject<User | undefined>(undefined);
 
   public storeJwt(jwt: JwtToken): void {
     localStorage.setItem('token', jwt.token);
@@ -47,14 +46,9 @@ export class LocalStoreService {
       return false;
     }
 
-    if (
-      roles?.authority.some((x) =>
-        this.getUser()!.roles!.pop()!.authority!.includes(x)
-      )
-    ) {
-      return true;
-    }
-    return false;
+    return !!roles?.authority.some((x) =>
+      this.getUser()!.roles!.pop()!.authority!.includes(x)
+    );
   }
 
   public getUser(): User {

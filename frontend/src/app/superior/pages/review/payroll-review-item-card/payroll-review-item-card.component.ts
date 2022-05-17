@@ -1,10 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PayrollDto } from '../../../../commons/dto/payroll-dto.model';
 import { PayrollService } from '../../../../commons/service/payroll.service';
 import { SnackbarService } from '../../../../commons/service/snackbar.service';

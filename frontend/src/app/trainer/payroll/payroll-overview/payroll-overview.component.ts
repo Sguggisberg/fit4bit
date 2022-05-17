@@ -1,10 +1,5 @@
 import { PayrollDto } from '../../../commons/dto/payroll-dto.model';
-import {
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { PayrollService } from 'src/app/commons/service/payroll.service';
 import { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';
 import { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';

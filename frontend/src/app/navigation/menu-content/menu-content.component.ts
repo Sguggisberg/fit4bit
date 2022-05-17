@@ -10,7 +10,7 @@ import { User } from '../../commons/models/user.model';
   styleUrls: ['./menu-content.component.scss'],
 })
 export class MenuContentComponent implements OnInit {
-  public user$: Observable<User>;
+  public user$: Observable<User | undefined>;
   public sideBarIsOpen = false;
 
   constructor(
