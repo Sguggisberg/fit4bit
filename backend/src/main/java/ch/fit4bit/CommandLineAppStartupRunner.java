@@ -1,6 +1,7 @@
 package ch.fit4bit;
 
 import ch.fit4bit.dao.PayrollRepository;
+import ch.fit4bit.exception.ElementAlreadyExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -48,7 +49,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String...args) {
+	public void run(String...args) throws ElementAlreadyExistException {
 
 		// User anlegen
 		User user1 = new User("trainer1@bla.ch", "Stefan", "Mueller",bCryptPasswordEncoder.encode("123456"), List.of(Role.ROLE_TRAINER));

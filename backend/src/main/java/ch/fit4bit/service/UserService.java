@@ -3,6 +3,7 @@ package ch.fit4bit.service;
 import java.util.List;
 import java.util.Optional;
 
+import ch.fit4bit.exception.ElementAlreadyExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,8 +21,12 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User create(User user) {
-        //User user1 = userRepository.findByUsername(user.getUsername());
+    public User create(User user) throws ElementAlreadyExistException {
+        Optional<User> existingUserOpt = userRepository.findByUsername(user.getUsername());
+        if (existingUserOpt.isPresent()) {
+            throw new ElementAlreadyExistException("User already exist");
+        }
+
         return userRepository.save(user);
     }
 

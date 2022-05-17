@@ -3,8 +3,10 @@ package ch.fit4bit.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.fit4bit.exception.ElementAlreadyExistException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -36,19 +38,24 @@ public class UserController {
 	@PostMapping
 	@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
 	public ResponseEntity<?> create(@RequestBody UserDto userDTO) {
-		userService.create(modelMapper.map(userDTO, User.class));
+		try {
+			userService.create(modelMapper.map(userDTO, User.class));
+		} catch (ElementAlreadyExistException e) {
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+
+		}
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 	
 	@GetMapping
 	@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
-	public List<UserDto> getAllUsers(){
+	public ResponseEntity<List<UserDto>> getAllUsers(){
 		List<User> allUser = userService.getAllUsers();
 		List<UserDto>  allUsersDto = new ArrayList<>();
 		for (User user: allUser) {
 			allUsersDto.add(modelMapper.map(user, UserDto.class));
 		}
-		return allUsersDto;
+		return new ResponseEntity<>( allUsersDto, HttpStatus.OK) ;
 	
 	}
 	
