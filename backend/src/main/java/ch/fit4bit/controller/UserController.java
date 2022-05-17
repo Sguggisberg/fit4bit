@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,12 +34,14 @@ public class UserController {
 	}
 
 	@PostMapping
+	@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
 	public ResponseEntity<?> create(@RequestBody UserDto userDTO) {
 		userService.create(modelMapper.map(userDTO, User.class));
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 	
 	@GetMapping
+	@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
 	public List<UserDto> getAllUsers(){
 		List<User> allUser = userService.getAllUsers();
 		List<UserDto>  allUsersDto = new ArrayList<>();

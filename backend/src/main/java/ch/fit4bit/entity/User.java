@@ -20,7 +20,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 public class User implements UserDetails {
-
 	private static final long serialVersionUID = 6925823811738245033L;
 
 	public User() {
@@ -41,7 +40,6 @@ public class User implements UserDetails {
 
 	private String lastName;
 	private String firstName;
-	private String email;
 	private String passwort;
 	private String username;
 
@@ -77,14 +75,6 @@ public class User implements UserDetails {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getPasswort() {

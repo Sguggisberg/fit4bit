@@ -4,7 +4,6 @@
     fxLayoutAlign="center center"
     [formGroup]="formGroup"
     (ngSubmit)="create()"
-    fxLayoutAlign="center center"
   >
     <mat-form-field appearance="fill">
       <mat-label>Raum</mat-label>
@@ -31,7 +30,7 @@
       <mat-label>Trainer</mat-label>
       <mat-select formControlName="userId">
         <mat-option *ngFor="let user of userList" [value]="user.id">
-          {{ user.firstName }} {{ user.email }}
+          {{ user.firstName }} {{ user.username }}
         </mat-option>
       </mat-select>
     </mat-form-field>

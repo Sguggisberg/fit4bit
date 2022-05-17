@@ -54,7 +54,7 @@ export class LocalStoreService {
   public getUser(): User {
     let decodedToken: DecodedJwtTokenData = jwt_decode(this.getJwt().token);
     return {
-      email: decodedToken.sub,
+      username: decodedToken.sub,
       roles: decodedToken.Roles,
     };
   }

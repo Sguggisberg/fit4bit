@@ -15,11 +15,10 @@ public class UserDto  {
 		this.firstName = vorname;
 	}
 
-
 	private Long id;
 	private String lastName;
 	private String firstName;
-	private String email;
+
 	private String passwort;
 	private String username;
 
@@ -47,14 +46,6 @@ public class UserDto  {
 		this.firstName = firstName;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getPasswort() {
 		return passwort;
 	}
@@ -71,6 +62,5 @@ public class UserDto  {
 		this.username = username;
 	}
 
-	
-	
+
 }
