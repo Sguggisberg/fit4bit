@@ -6,7 +6,7 @@ import { Message } from '../models/messagebox.model';
   providedIn: 'root',
 })
 export class SnackbarService {
-  infoSubject = new BehaviorSubject<Message | undefined>(undefined);
+  public infoSubject = new BehaviorSubject<Message | undefined>(undefined);
 
   public info(msg: Message): void {
     this.infoSubject.next(msg);

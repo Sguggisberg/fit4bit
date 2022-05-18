@@ -7,7 +7,7 @@
       (ngSubmit)="create2()"
     >
       <mat-form-field>
-        <mat-label for="name">Name des Trainingstyps</mat-label>
+        <mat-label>Name des Trainingstyps</mat-label>
         <input id="name" matInput type="text" formControlName="name" />
       </mat-form-field>
 
@@ -43,6 +43,6 @@
   />
 
   <div *ngIf="retrievedImage">
-    <img [src]="retrievedImage" />
+    <img [src]="retrievedImage" alt="Trainingsbild" />
   </div>
 </fit4bit-main-content-container>

@@ -1,13 +1,14 @@
 import { UserDto } from 'src/app/commons/dto/user-dto.model';
-import { TrainingTypDto } from './../../dto/training-typ-dto.model';
-import { TrainingTypService } from './../../../superior/service/training-typ.service';
-import { TrainingDto } from './../../dto/training-dto.model';
-import { TrainingService } from './../../service/training.service';
-import { RoomDto } from './../../dto/room-dto.model';
-import { RoomService } from './../../service/room.service';
+import { TrainingTypDto } from '../../../commons/dto/training-typ-dto.model';
+import { TrainingTypService } from '../../service/training-typ.service';
+import { TrainingDto } from '../../../commons/dto/training-dto.model';
+import { TrainingService } from '../../../commons/service/training.service';
+import { RoomDto } from '../../../commons/dto/room-dto.model';
+import { RoomService } from '../../../commons/service/room.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { UserService } from '../../service/user.service';
+import { UserService } from '../../../commons/service/user.service';
+import { SnackbarService } from '../../../commons/service/snackbar.service';
 
 @Component({
   selector: 'fit4bit-training',
@@ -25,7 +26,8 @@ export class TrainingComponent implements OnInit {
     private formBuilder: FormBuilder,
     private trainingService: TrainingService,
     private trainingTypService: TrainingTypService,
-    private userService: UserService
+    private userService: UserService,
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -66,7 +68,10 @@ export class TrainingComponent implements OnInit {
       duration: this.formGroup.value.duration,
       runningDate: this.dateTimeConverter(),
     };
-    this.trainingService.create$(newTraining).subscribe();
+    this.trainingService.create$(newTraining).subscribe(
+      () => this.snackbarService.sendDataSaveOk(),
+      () => this.snackbarService.sendStandardNok()
+    );
   }
 
   private dateTimeConverter(): Date {

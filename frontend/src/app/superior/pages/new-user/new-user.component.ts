@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserService} from 'src/app/commons/service/user.service';
-import {SnackbarService} from "../../../commons/service/snackbar.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/commons/service/user.service';
+import { SnackbarService } from '../../../commons/service/snackbar.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'fit4bit-new-user',
@@ -12,8 +12,10 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class NewUserComponent implements OnInit {
   public profileForm: FormGroup;
 
-  constructor(private userServiceService: UserService, private snackbarService: SnackbarService) {
-  }
+  constructor(
+    private userServiceService: UserService,
+    private snackbarService: SnackbarService
+  ) {}
 
   ngOnInit(): void {
     this.profileForm = new FormGroup({
@@ -25,7 +27,8 @@ export class NewUserComponent implements OnInit {
 
   create(): void {
     const newUser = this.profileForm.value;
-    this.userServiceService.create$(newUser).subscribe(() => {
+    this.userServiceService.create$(newUser).subscribe(
+      () => {
         this.snackbarService.sendDataSaveOk();
       },
       (error: HttpErrorResponse) => {
@@ -39,6 +42,7 @@ export class NewUserComponent implements OnInit {
           default:
             this.snackbarService.sendStandardNok();
         }
-      });
+      }
+    );
   }
 }

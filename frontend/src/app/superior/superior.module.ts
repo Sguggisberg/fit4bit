@@ -5,7 +5,7 @@ import { SuperiorRoutingModule } from './superior-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TrainingComponent } from '../commons/pages/training/training.component';
+import { TrainingComponent } from './pages/training/training.component';
 import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';
 import { RoomComponent } from './pages/room/room.component';
 import { Fit4BitCommonsModule } from '../commons/commons.module';
