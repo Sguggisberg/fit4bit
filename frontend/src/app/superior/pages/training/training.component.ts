@@ -6,7 +6,7 @@ import { TrainingService } from '../../../commons/service/training.service';
 import { RoomDto } from '../../../commons/dto/room-dto.model';
 import { RoomService } from '../../../commons/service/room.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { UserService } from '../../../commons/service/user.service';
 import { SnackbarService } from '../../../commons/service/snackbar.service';
 
@@ -36,8 +36,9 @@ export class TrainingComponent implements OnInit {
       trainingTypId: new FormControl(''),
       userId: new FormControl(''),
       duration: new FormControl(''),
-      startTime: new FormControl(''),
       startDate: new FormControl(''),
+      startHour: new FormControl('', [Validators.required, Validators.min(0), Validators.max(24)]),
+
     });
 
     this.roomService.getAll$().subscribe((data) => (this.roomsDtoList = data));
@@ -76,9 +77,8 @@ export class TrainingComponent implements OnInit {
 
   private dateTimeConverter(): Date {
     let date: Date = this.formGroup.value.startDate;
-    let time: String = this.formGroup.value.startTime;
-    date.setHours(parseInt(time.split(':')[0]));
-    date.setMinutes(parseInt(time.split(':')[1]));
+    date.setUTCHours(parseInt(this.formGroup.value.startHour));
+    date.setMinutes(parseInt('0'));
     return date;
   }
 }

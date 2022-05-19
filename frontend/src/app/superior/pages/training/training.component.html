@@ -37,31 +37,29 @@
       </mat-form-field>
 
       <mat-form-field appearance="fill">
-        <mat-label>Dauer [min]</mat-label>
-        <input
-          matInput
-          placeholder="Minuten"
-          type="number"
-          formControlName="duration"
-        />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
         <mat-label>Datum</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="startDate" />
+        <input matInput [matDatepicker]="picker" formControlName="startDate"/>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Startzeit</mat-label>
-        <input
-          matInput
-          placeholder="Start Zeit"
-          type="string"
-          formControlName="startTime"
-        />
-      </mat-form-field>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Dauer [min]</mat-label>
+          <input
+            matInput
+            placeholder="Stunde"
+            type="number"
+            formControlName="startHour"
+          />
+        </mat-form-field>
+
+      </div>
+
+
+      <fit4bit-timepicker></fit4bit-timepicker>
+
+
 
       <button
         mat-raised-button

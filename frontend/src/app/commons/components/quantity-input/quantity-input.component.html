@@ -1,0 +1,9 @@
+<div class="container">
+  <mat-icon (click)="onAdd()" [class.disabled]="quantity == max"
+    >keyboard_arrow_up</mat-icon
+  >
+  <input [(ngModel)]="quantity" maxlength="2" (change)="previewCheck()" />
+  <mat-icon (click)="onRemove()" [class.disabled]="quantity == min"
+    >keyboard_arrow_down</mat-icon
+  >
+</div>

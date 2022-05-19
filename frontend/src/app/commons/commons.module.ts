@@ -11,12 +11,14 @@ import { ButtonComponent } from './components/button/button.component';
 import { ImageUploaderComponent } from './pages/image-uploader/image-uploader.component';
 import { MainContentContainerComponent } from './shared/main-content-container/main-content-container.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { BaseItemCardComponent } from './components/base-item-card/base-item-card.component';
 import { ChipsComponent } from './components/chips/chips.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
+import { QuantityInputComponent } from './components/quantity-input/quantity-input.component';
+import { TimepickerComponent } from './components/timepicker/timepicker.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +37,10 @@ import { BubbleComponent } from './components/bubble/bubble.component';
     BaseItemCardComponent,
     ChipsComponent,
     BubbleComponent,
+    QuantityInputComponent,
+    TimepickerComponent,
   ],
-  imports: [CommonModule, MaterialModule, ReactiveFormsModule],
+  imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule],
 
   exports: [
     BlankSlateInformationComponent,
@@ -51,6 +55,8 @@ import { BubbleComponent } from './components/bubble/bubble.component';
     BaseItemCardComponent,
     ChipsComponent,
     BubbleComponent,
+    QuantityInputComponent,
+    TimepickerComponent,
   ],
 })
 export class Fit4BitCommonsModule {}

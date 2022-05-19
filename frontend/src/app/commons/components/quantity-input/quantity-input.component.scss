@@ -1,0 +1,23 @@
+@import "colors";
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+}
+
+input {
+  border: none;
+  text-align: center;
+  width: 30px;
+}
+
+.disabled {
+  color: $disabled;
+  cursor: unset;
+}
+
+mat-icon,
+input {
+  cursor: pointer;
+}
