@@ -24,6 +24,9 @@ public class TrainingDTO implements Serializable {
     private PayrollDto payrollDto;
     private LocalDateTime runningDate;
 
+    @JsonProperty("user")
+    private UserDto userDto;
+
     private int duration;
 
     private int amountOfCustomer;
@@ -84,5 +87,13 @@ public class TrainingDTO implements Serializable {
 
     public void setPayrollDto(PayrollDto payrollDto) {
         this.payrollDto = payrollDto;
+    }
+
+    public UserDto getUserDto() {
+        return userDto;
+    }
+
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
     }
 }

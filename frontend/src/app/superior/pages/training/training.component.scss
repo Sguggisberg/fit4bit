@@ -1,7 +1,36 @@
+@import "colors";
+
 .form-content {
   width: 300px;
 }
 
 mat-form-field {
   width: 100%;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 4px 4px 0 0;
+}
+
+.flash {
+  animation: color 1s infinite;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+@keyframes color {
+  0% {
+    color: $background-color-head-primary;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: $background-color-head-primary;
+  }
 }

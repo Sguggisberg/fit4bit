@@ -18,7 +18,6 @@ import { BaseItemCardComponent } from './components/base-item-card/base-item-car
 import { ChipsComponent } from './components/chips/chips.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
 import { QuantityInputComponent } from './components/quantity-input/quantity-input.component';
-import { TimepickerComponent } from './components/timepicker/timepicker.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { TimepickerComponent } from './components/timepicker/timepicker.componen
     ChipsComponent,
     BubbleComponent,
     QuantityInputComponent,
-    TimepickerComponent,
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule],
 
@@ -56,7 +54,6 @@ import { TimepickerComponent } from './components/timepicker/timepicker.componen
     ChipsComponent,
     BubbleComponent,
     QuantityInputComponent,
-    TimepickerComponent,
   ],
 })
 export class Fit4BitCommonsModule {}

@@ -6,7 +6,12 @@ import { TrainingService } from '../../../commons/service/training.service';
 import { RoomDto } from '../../../commons/dto/room-dto.model';
 import { RoomService } from '../../../commons/service/room.service';
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+
+} from '@angular/forms';
 import { UserService } from '../../../commons/service/user.service';
 import { SnackbarService } from '../../../commons/service/snackbar.service';
 
@@ -35,11 +40,19 @@ export class TrainingComponent implements OnInit {
       roomId: new FormControl(''),
       trainingTypId: new FormControl(''),
       userId: new FormControl(''),
-      duration: new FormControl(''),
       startDate: new FormControl(''),
-      startHour: new FormControl('', [Validators.required, Validators.min(0), Validators.max(24)]),
-
+      duration: new FormControl(''),
+      startHour: new FormControl(''),
+      startMinutes: new FormControl(''),
     });
+
+    let init = {
+      startHour: 0,
+      startMinutes: 0,
+      duration: 0,
+    };
+
+    this.formGroup.patchValue(init);
 
     this.roomService.getAll$().subscribe((data) => (this.roomsDtoList = data));
 
@@ -78,7 +91,7 @@ export class TrainingComponent implements OnInit {
   private dateTimeConverter(): Date {
     let date: Date = this.formGroup.value.startDate;
     date.setUTCHours(parseInt(this.formGroup.value.startHour));
-    date.setMinutes(parseInt('0'));
+    date.setMinutes(parseInt(this.formGroup.value.startMinutes));
     return date;
   }
 }
