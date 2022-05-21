@@ -51,6 +51,10 @@ mat-form-field {
   align-items: center;
 }
 
+.on-hover {
+  cursor: pointer;
+}
+
 @keyframes color {
   0% {
     color: $background-color-head-primary;

@@ -36,7 +36,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="on-hover">
         <mat-label>Datum</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="startDate" />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -44,20 +44,24 @@
       </mat-form-field>
 
       <div class="duration-container">
-        <span>Dauer des Kurses in [min]</span>
+        <span (click)="duration.setFocus()" class="on-hover"
+          >Dauer des Kurses in [min]</span
+        >
         <fit4bit-quantity-input
+          #duration
           formControlName="duration"
           [min]="0"
-          [max]="24"
+          [max]="180"
           [increment]="1"
         ></fit4bit-quantity-input>
       </div>
       <div class="divider"></div>
 
       <div class="watch-container">
-        <span>Startzeit </span>
+        <span (click)="watch.setFocus()" class="on-hover">Startzeit </span>
         <div class="watch-content">
           <fit4bit-quantity-input
+            #watch
             [increment]="1"
             [min]="0"
             [max]="24"

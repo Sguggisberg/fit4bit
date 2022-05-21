@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -33,7 +33,7 @@ export class QuantityInputComponent implements ControlValueAccessor {
 
   public onTouched = () => {};
 
-  constructor() {}
+  constructor(private elRef: ElementRef) {}
 
   public onAdd(): void {
     if (this.quantity < this.max) {
@@ -58,6 +58,11 @@ export class QuantityInputComponent implements ControlValueAccessor {
       this.onTouched();
       this.touched = true;
     }
+  }
+
+  public setFocus(): void {
+    this.elRef.nativeElement.querySelector('input').focus();
+    this.elRef.nativeElement.querySelector('input').select();
   }
 
   public registerOnChange(onChange: any): void {
