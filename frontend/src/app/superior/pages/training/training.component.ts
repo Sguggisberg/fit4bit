@@ -6,12 +6,7 @@ import { TrainingService } from '../../../commons/service/training.service';
 import { RoomDto } from '../../../commons/dto/room-dto.model';
 import { RoomService } from '../../../commons/service/room.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-
-} from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../../commons/service/user.service';
 import { SnackbarService } from '../../../commons/service/snackbar.service';
 

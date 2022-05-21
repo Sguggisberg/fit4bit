@@ -6,7 +6,7 @@
       [formGroup]="formGroup"
       (ngSubmit)="create()"
     >
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Raum</mat-label>
         <mat-select formControlName="roomId">
           <mat-option *ngFor="let room of roomsDtoList" [value]="room.id">
@@ -15,7 +15,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Typ</mat-label>
         <mat-select formControlName="trainingTypId">
           <mat-option
@@ -27,7 +27,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Trainer</mat-label>
         <mat-select formControlName="userId">
           <mat-option *ngFor="let user of userList" [value]="user.id">
@@ -36,36 +36,43 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Datum</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="startDate" />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <fit4bit-quantity-input
-        formControlName="duration"
-        [min]="0"
-        [max]="24"
-        [increment]="1"
-      ></fit4bit-quantity-input>
-
-      <div class="container">
+      <div class="duration-container">
+        <span>Dauer des Kurses in [min]</span>
         <fit4bit-quantity-input
-          [increment]="1"
+          formControlName="duration"
           [min]="0"
           [max]="24"
-          formControlName="startHour"
-        ></fit4bit-quantity-input>
-        <div class="flash">:</div>
-        <fit4bit-quantity-input
           [increment]="1"
-          [min]="0"
-          [max]="59"
-          formControlName="startMinutes"
         ></fit4bit-quantity-input>
       </div>
+      <div class="divider"></div>
 
+      <div class="watch-container">
+        <span>Startzeit </span>
+        <div class="watch-content">
+          <fit4bit-quantity-input
+            [increment]="1"
+            [min]="0"
+            [max]="24"
+            formControlName="startHour"
+          ></fit4bit-quantity-input>
+          <div class="flash">:</div>
+          <fit4bit-quantity-input
+            [increment]="1"
+            [min]="0"
+            [max]="59"
+            formControlName="startMinutes"
+          ></fit4bit-quantity-input>
+        </div>
+      </div>
+      <div class="divider"></div>
       <button
         mat-raised-button
         color="primary"

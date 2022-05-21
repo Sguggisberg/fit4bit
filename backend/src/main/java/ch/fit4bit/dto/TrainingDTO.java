@@ -31,7 +31,6 @@ public class TrainingDTO implements Serializable {
 
     private int amountOfCustomer;
 
-
     public Long getId() {
         return id;
     }

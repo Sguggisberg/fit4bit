@@ -8,12 +8,10 @@ mat-form-field {
   width: 100%;
 }
 
-
-.container {
+.watch-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.04);
   border-radius: 4px 4px 0 0;
 }
 
@@ -21,6 +19,36 @@ mat-form-field {
   animation: color 1s infinite;
   font-weight: bold;
   font-size: 30px;
+}
+
+.duration-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  opacity: 0.6;
+  padding-bottom: 5px;
+}
+
+.watch-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  opacity: 0.6;
+  padding-bottom: 5px;
+}
+
+.divider {
+  padding-top: 3px;
+  border-bottom: 0.75px rgba(0, 0, 0, 0.3) solid;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.watch-content {
+  display: flex;
+  align-items: center;
 }
 
 @keyframes color {
