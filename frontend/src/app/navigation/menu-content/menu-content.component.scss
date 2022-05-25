@@ -43,3 +43,22 @@ a:active {
     padding: 5px;
   }
 }
+
+a > mat-icon {
+  vertical-align: text-bottom;
+}
+
+.menu-main-item {
+  background-color: red;
+}
+
+.menu-sub-item {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  background-color: blue;
+}
+
+.clicked-item {
+  visibility: unset;
+}

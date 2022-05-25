@@ -12,6 +12,8 @@ import { User } from '../../commons/models/user.model';
 export class MenuContentComponent implements OnInit {
   public user$: Observable<User | undefined>;
   public sideBarIsOpen = false;
+  public myMenu = false;
+  public backdropOpen = false;
 
   constructor(
     private localStoreService: LocalStoreService,
@@ -25,5 +27,15 @@ export class MenuContentComponent implements OnInit {
   public logout(): void {
     this.localStoreService.clear();
     this.snackbar.info({ text: 'Du bist ausgeloggt', typ: 'info' });
+  }
+
+  public closeAll(): void {
+    this.backdropOpen = false;
+    this.myMenu = false;
+  }
+
+  public openMyMenu(): void {
+    this.backdropOpen = true;
+    this.myMenu = true;
   }
 }

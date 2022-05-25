@@ -14,6 +14,7 @@ import { JwtIntercepterService } from './commons/intercepters/jwt-intercepter.se
 import { HasRoleDirective } from './utils/has-role.directive';
 import { SideNavigationComponent } from './navigation/side-navigation/side-navigation.component';
 import { MenuContentComponent } from './navigation/menu-content/menu-content.component';
+import { SubmenuComponent } from './navigation/submenu/submenu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { MenuContentComponent } from './navigation/menu-content/menu-content.com
     HasRoleDirective,
     SideNavigationComponent,
     MenuContentComponent,
+    SubmenuComponent,
   ],
   imports: [
     HttpClientModule,
