@@ -13,7 +13,7 @@ export class ChipsComponent implements OnInit {
   public isActive = false;
 
   @Input()
-  public length: number;
+  public length: number = 0;
 
   constructor() {}
 

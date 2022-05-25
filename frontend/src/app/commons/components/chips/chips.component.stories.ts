@@ -1,9 +1,18 @@
 import { Meta, Story } from '@storybook/angular/types-6-0';
 import { ChipsComponent } from './chips.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { moduleMetadata } from '@storybook/angular';
+import { CloseButtonComponent } from '../close-button/close-button.component';
 
 export default {
   title: 'Chips',
   component: ChipsComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [],
+      imports: [MatBadgeModule, CloseButtonComponent],
+    }),
+  ],
   argTypes: {
     backgroundColor: { control: 'color' },
   },

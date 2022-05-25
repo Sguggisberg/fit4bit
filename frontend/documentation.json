@@ -508,22 +508,13 @@
         },
         {
             "name": "User",
-            "id": "interface-User-d06e0d3c981b93f9ccc7e63d266e8982843a8530c34d7e2abfa9a496c8c0717c47f7a64597c62ed10a00a1040fa751424dd4dcf75af3d139e18d4acb990e063a-1",
+            "id": "interface-User-8570bca72ad3f60ee06b0f53187e4c3758d051f7d124ce3bfeb37f7f070b7f01115d885d75f2f96c3c0ef69193e5b36ca43ec6061631b1c25d9993574ef83971-1",
             "file": "src/app/commons/models/user.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Roles } from './role.model';\n\nexport interface User {\n  id?: number;\n  lastName?: string;\n  firstName?: string;\n  email?: string;\n  username?: string;\n  roles?: Roles[];\n}\n",
+            "sourceCode": "import { Roles } from './role.model';\n\nexport interface User {\n  id?: number;\n  lastName?: string;\n  firstName?: string;\n  username?: string;\n  roles?: Roles[];\n}\n",
             "properties": [
-                {
-                    "name": "email",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": true,
-                    "description": "",
-                    "line": 7
-                },
                 {
                     "name": "firstName",
                     "deprecated": false,
@@ -558,7 +549,7 @@
                     "type": "Roles[]",
                     "optional": true,
                     "description": "",
-                    "line": 9
+                    "line": 8
                 },
                 {
                     "name": "username",
@@ -567,7 +558,7 @@
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 8
+                    "line": 7
                 }
             ],
             "indexSignatures": [],
@@ -579,22 +570,13 @@
         },
         {
             "name": "UserDto",
-            "id": "interface-UserDto-52599f5e77f8e4af7c927fb8e7f2e6fd7952e5336adb338c56a414f2550d13a4187b376936b6568c3c0d390306e8fb58f65a67b5b07dad702514be5d369e7a8a",
+            "id": "interface-UserDto-22ac7516cb383d5dd5f19d9eaa729f055d653a9ac4502823eafa2606a18bd25fd88e5bd33af4b4aa1394496aecc42b9bbc98c7cf46f580fdc9f27e1531be0941",
             "file": "src/app/commons/dto/user-dto.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Roles } from './role-dto.model';\n\nexport interface UserDto {\n  id?: number;\n  lastName?: string;\n  firstName?: string;\n  email?: string;\n  username?: string;\n  roles?: Roles[];\n}\n",
+            "sourceCode": "import { Roles } from './role-dto.model';\n\nexport interface UserDto {\n  id?: number;\n  lastName?: string;\n  firstName?: string;\n  username?: string;\n  roles?: Roles[];\n}\n",
             "properties": [
-                {
-                    "name": "email",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": true,
-                    "description": "",
-                    "line": 7
-                },
                 {
                     "name": "firstName",
                     "deprecated": false,
@@ -629,7 +611,7 @@
                     "type": "Roles[]",
                     "optional": true,
                     "description": "",
-                    "line": 9
+                    "line": 8
                 },
                 {
                     "name": "username",
@@ -638,7 +620,7 @@
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 8
+                    "line": 7
                 }
             ],
             "indexSignatures": [],
@@ -1313,18 +1295,18 @@
         },
         {
             "name": "LocalStoreService",
-            "id": "injectable-LocalStoreService-35e8a9c3828debb8686756ad2cebe19ddd7b50348409988477e63145fb69c097c19bc05fff30d98acc55d1ad8ee4ae7c0d15ddcfa8b10a8ff001b00e7a9d388a",
+            "id": "injectable-LocalStoreService-51e09117c7fa418b031334401f05db860256a9ebb2d8756e618f9df766686f9b7704b5445d64b55f90b2e9f79f24e8b1b0ad16b671a4fc09889953fb6ca5a31f",
             "file": "src/app/commons/service/jwt.service.ts",
             "properties": [
                 {
                     "name": "user$",
-                    "defaultValue": "new Subject<UserDto>()",
+                    "defaultValue": "new BehaviorSubject<User | undefined>(undefined)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 12,
                     "modifierKind": [
                         123
                     ]
@@ -1337,7 +1319,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1350,7 +1332,7 @@
                     "optional": false,
                     "returnType": "JwtToken",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1363,7 +1345,7 @@
                     "optional": false,
                     "returnType": "User",
                     "typeParameters": [],
-                    "line": 60,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1383,7 +1365,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1414,7 +1396,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 15,
+                    "line": 14,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1437,7 +1419,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { UserDto } from 'src/app/commons/dto/user-dto.model';\nimport { Injectable } from '@angular/core';\nimport jwt_decode from 'jwt-decode';\nimport { Subject } from 'rxjs';\nimport { JwtToken, DecodedJwtTokenData } from '../models/jwt-token.model';\nimport { User } from '../models/user.model';\nimport { Roles } from '../models/role.model';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class LocalStoreService {\n  public user$ = new Subject<UserDto>();\n\n  public storeJwt(jwt: JwtToken): void {\n    localStorage.setItem('token', jwt.token);\n    this.user$.next(this.getUser());\n  }\n\n  public getJwt(): JwtToken {\n    let jwtToken: JwtToken;\n    let obj = localStorage!.getItem('token');\n    if (obj == null) {\n      this.user$.next(undefined);\n      return {\n        token: '',\n      };\n    }\n\n    jwtToken = {\n      token: obj,\n    };\n\n    return jwtToken;\n  }\n\n  public clear(): void {\n    localStorage.clear();\n    this.user$.next(undefined);\n  }\n\n  public hasAtLeastOneRole(roles: Roles): boolean {\n    if (roles === undefined) {\n      return false;\n    }\n    if (this.getUser()?.roles === undefined) {\n      return false;\n    }\n\n    if (\n      roles?.authority.some((x) =>\n        this.getUser()!.roles!.pop()!.authority!.includes(x)\n      )\n    ) {\n      return true;\n    }\n    return false;\n  }\n\n  public getUser(): User {\n    let decodedToken: DecodedJwtTokenData = jwt_decode(this.getJwt().token);\n    return {\n      email: decodedToken.sub,\n      roles: decodedToken.Roles,\n    };\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport jwt_decode from 'jwt-decode';\nimport { BehaviorSubject } from 'rxjs';\nimport { JwtToken, DecodedJwtTokenData } from '../models/jwt-token.model';\nimport { User } from '../models/user.model';\nimport { Roles } from '../models/role.model';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class LocalStoreService {\n  public user$ = new BehaviorSubject<User | undefined>(undefined);\n\n  public storeJwt(jwt: JwtToken): void {\n    localStorage.setItem('token', jwt.token);\n    this.user$.next(this.getUser());\n  }\n\n  public getJwt(): JwtToken {\n    let jwtToken: JwtToken;\n    let obj = localStorage!.getItem('token');\n    if (obj == null) {\n      this.user$.next(undefined);\n      return {\n        token: '',\n      };\n    }\n\n    jwtToken = {\n      token: obj,\n    };\n\n    return jwtToken;\n  }\n\n  public clear(): void {\n    localStorage.clear();\n    this.user$.next(undefined);\n  }\n\n  public hasAtLeastOneRole(roles: Roles): boolean {\n    if (roles === undefined) {\n      return false;\n    }\n    if (this.getUser()?.roles === undefined) {\n      return false;\n    }\n\n    return !!roles?.authority.some((x) =>\n      this.getUser()!.roles!.pop()!.authority!.includes(x)\n    );\n  }\n\n  public getUser(): User {\n    let decodedToken: DecodedJwtTokenData = jwt_decode(this.getJwt().token);\n    return {\n      username: decodedToken.sub,\n      roles: decodedToken.Roles,\n    };\n  }\n}\n",
             "type": "injectable"
         },
         {
@@ -1956,7 +1938,7 @@
         },
         {
             "name": "SnackbarService",
-            "id": "injectable-SnackbarService-c0ac37e60fde553b3498e01e5a3b221454b9a764f97bab32421a14f6ed1844926ed59db8b761a87dcf0a46b603bfd2f08550635eb2c06f22ee051ec8057039e1",
+            "id": "injectable-SnackbarService-c3f1f0386c25a5fd216f7f645e86e6a3b5f96a714b173f6e877f5a72e176b299f864b84cf430c8fe595477ca9ec7fe21a5ea6dca29a878b76db344f275f75ab2",
             "file": "src/app/commons/service/snackbar.service.ts",
             "properties": [
                 {
@@ -1967,7 +1949,10 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 9
+                    "line": 9,
+                    "modifierKind": [
+                        123
+                    ]
                 }
             ],
             "methods": [
@@ -2046,7 +2031,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { BehaviorSubject } from 'rxjs';\nimport { Injectable } from '@angular/core';\nimport { Message } from '../models/messagebox.model';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class SnackbarService {\n  infoSubject = new BehaviorSubject<Message | undefined>(undefined);\n\n  public info(msg: Message): void {\n    this.infoSubject.next(msg);\n    this.delay();\n  }\n\n  public sendDataSaveOk(): void {\n    this.info({\n      text: 'Die Daten wurden gespeichert',\n      typ: 'info',\n    });\n  }\n\n  public sendStandardNok(): void {\n    this.info({\n      text: 'Hopla - Das hat nicht funktioniert!',\n      typ: 'error',\n    });\n  }\n\n  private delay(): void {\n    setTimeout(() => {\n      this.infoSubject.next(undefined);\n    }, 3000);\n  }\n}\n",
+            "sourceCode": "import { BehaviorSubject } from 'rxjs';\nimport { Injectable } from '@angular/core';\nimport { Message } from '../models/messagebox.model';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class SnackbarService {\n  public infoSubject = new BehaviorSubject<Message | undefined>(undefined);\n\n  public info(msg: Message): void {\n    this.infoSubject.next(msg);\n    this.delay();\n  }\n\n  public sendDataSaveOk(): void {\n    this.info({\n      text: 'Die Daten wurden gespeichert',\n      typ: 'info',\n    });\n  }\n\n  public sendStandardNok(): void {\n    this.info({\n      text: 'Hopla - Das hat nicht funktioniert!',\n      typ: 'error',\n    });\n  }\n\n  private delay(): void {\n    setTimeout(() => {\n      this.infoSubject.next(undefined);\n    }, 3000);\n  }\n}\n",
             "type": "injectable"
         },
         {
@@ -3261,78 +3246,6 @@
             "templateData": "<div class=\"card-container\" [class.large]=\"large\">\n  <div class=\"img-container\">\n    <img\n      fxHide.lt-sm\n      src=\"https://images.squarespace-cdn.com/content/v1/58cceaa0f5e2314657e4ee36/8caf8801-4627-406b-9445-a91a9a95fc8b/jana.jpg?format=500w\"\n      alt=\"Yoga Bild\"\n      width=\"{{ large ? 200 : 120 }}\"\n      height=\"{{ large ? 200 : 120 }}\"\n    />\n  </div>\n  <div class=\"card-details\">\n    <ng-content></ng-content>\n  </div>\n</div>\n"
         },
         {
-            "name": "BlankSlateInformationComponent",
-            "id": "component-BlankSlateInformationComponent-35c4281a230d75849136c3c0c3e91cda696fc3965f446b6c44c0cfca8a09950d3bc7eae77b6132589031667e32713d794748f3a8d42d92273285d75b386f8935",
-            "file": "src/app/commons/blank-slate-information/blank-slate-information.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "fit4bit-blank-slate-information",
-            "styleUrls": [
-                "./blank-slate-information.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./blank-slate-information.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "dontshowanymore",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 13,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 11,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'fit4bit-blank-slate-information',\n  templateUrl: './blank-slate-information.component.html',\n  styleUrls: ['./blank-slate-information.component.scss'],\n})\nexport class BlankSlateInformationComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  dontshowanymore() {}\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".container {\n  width: 100%;\n  border: solid 1px black;\n}\n\n.close {\n  float: right;\n  position: sticky;\n  right: 0px;\n  top: 0px;\n}\n",
-                    "styleUrl": "./blank-slate-information.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<div class=\"container\">\n  <mat-icon>close</mat-icon>\n  <fit4bit-close-button class=\"close\"></fit4bit-close-button>\n  <section class=\"information\">\n    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy\n    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam\n    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet\n    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit\n    amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed\n    diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet\n    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit\n    amet.\n  </section>\n  <section class=\"disappear\">\n    <mat-checkbox class=\"example-margin\" (ngModel)=\"dontshowanymore()\"\n      >Indeterminate</mat-checkbox\n    >\n  </section>\n</div>\n"
-        },
-        {
             "name": "BubbleComponent",
             "id": "component-BubbleComponent-9cc3c1a30a567f672b46e7ff0910eade6806884fbe255b9b66a8aad9675d1028ff4ee2d2ddb73d7cfe7ab4b5dc60a6d87641c7dc46bd12599bde21f3dc824e72",
             "file": "src/app/commons/components/bubble/bubble.component.ts",
@@ -3713,7 +3626,7 @@
         },
         {
             "name": "ChipsComponent",
-            "id": "component-ChipsComponent-67b3e0fd7c9263db14f2a2452350a22903f4d3c91ee703e24d9ffe2c9fd3ae394a67307e2c1837cde7f5b02810103bffd6ff2d0cd06e1ff2d240887b28b00dae",
+            "id": "component-ChipsComponent-0be7922ec7123626dc257a8adb059952c560a439c6c92b1c251a794435e7ab176fa53a7d08be105e631d83583d99edb0b8da55639a644c84881845cfb9007503",
             "file": "src/app/commons/components/chips/chips.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3741,6 +3654,7 @@
                 },
                 {
                     "name": "length",
+                    "defaultValue": "0",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 16,
@@ -3777,7 +3691,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'fit4bit-chips',\n  templateUrl: './chips.component.html',\n  styleUrls: ['./chips.component.scss'],\n})\nexport class ChipsComponent implements OnInit {\n  @Input()\n  public text: string;\n\n  @Input()\n  public isActive = false;\n\n  @Input()\n  public length: number;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'fit4bit-chips',\n  templateUrl: './chips.component.html',\n  styleUrls: ['./chips.component.scss'],\n})\nexport class ChipsComponent implements OnInit {\n  @Input()\n  public text: string;\n\n  @Input()\n  public isActive = false;\n\n  @Input()\n  public length: number = 0;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3800,9 +3714,9 @@
             "templateData": "<div class=\"container\" [class.selected]=\"isActive\">\n  <div>\n    <fit4bit-close-button\n      [class.isNotActiveIcon]=\"!isActive\"\n    ></fit4bit-close-button>\n  </div>\n  <div class=\"text\">\n    <span *ngIf=\"length < 0\">{{ text }}</span>\n    <span matBadge=\"{{ length }}\" matBadgeOverlap=\"false\"> {{ text }} </span>\n  </div>\n</div>\n"
         },
         {
-            "name": "Fit4bitCloseButtonComponent",
-            "id": "component-Fit4bitCloseButtonComponent-f78e36a7ce78c80ab835cec9ad4d1bba8b9c9db17c6556974c0f2a7fd17d6ae2a14c99a35e2a0f42e35ae4b2d64c9568f8dd782dabb87a8a5a1946671f60e02e",
-            "file": "src/app/commons/components/fit4bit-close-button/fit4bit-close-button.component.ts",
+            "name": "CloseButtonComponent",
+            "id": "component-CloseButtonComponent-fe15fcbff454be74f3e4d53aada220c0eaa68da1036be1b9b0ae8d37e54b9b91439a170f585e02866f8a96a4b6c7a0f738e300ced34818c08e8d33d6179ae847",
+            "file": "src/app/commons/components/close-button/close-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -3810,11 +3724,11 @@
             "providers": [],
             "selector": "fit4bit-close-button",
             "styleUrls": [
-                "./fit4bit-close-button.component.scss"
+                "./close-button.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./fit4bit-close-button.component.html"
+                "./close-button.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [],
@@ -3839,12 +3753,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'fit4bit-close-button',\n  templateUrl: './fit4bit-close-button.component.html',\n  styleUrls: ['./fit4bit-close-button.component.scss'],\n})\nexport class Fit4bitCloseButtonComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'fit4bit-close-button',\n  templateUrl: './close-button.component.html',\n  styleUrls: ['./close-button.component.scss'],\n})\nexport class CloseButtonComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "button {\n  border-radius: 50%;\n  padding: 5px;\n  text-align: center;\n  text-decoration: none;\n  display: flex;\n  border: none;\n  background-color: rgb(239, 239, 239);\n  margin: 4px;\n}\n\nbutton:hover {\n  background-color: rgb(200, 200, 200);\n  cursor: pointer;\n}\n",
-                    "styleUrl": "./fit4bit-close-button.component.scss"
+                    "styleUrl": "./close-button.component.scss"
                 }
             ],
             "stylesData": "",
@@ -4191,7 +4105,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<fit4bit-main-content-container [title]=\"'Hier kannst du einloggen'\">\n  <fit4bit-base-item-card [large]=\"true\">\n    <form\n      fxLayout=\"column\"\n      fxLayoutAlign=\"center center\"\n      [formGroup]=\"profileForm\"\n      (ngSubmit)=\"login()\"\n    >\n      <mat-form-field>\n        <mat-label for=\"username\">Email</mat-label>\n        <input id=\"username\" matInput type=\"text\" formControlName=\"username\" />\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label for=\"password\">Passwort</mat-label>\n        <input id=\"password\" matInput type=\"text\" formControlName=\"password\" />\n      </mat-form-field>\n\n      <button\n        mat-raised-button\n        color=\"primary\"\n        type=\"submit\"\n        [disabled]=\"!profileForm.valid\"\n      >\n        Speichern\n      </button>\n    </form>\n  </fit4bit-base-item-card>\n</fit4bit-main-content-container>\n"
+            "templateData": "<fit4bit-main-content-container [title]=\"'Hier kannst du einloggen'\">\n  <fit4bit-base-item-card [large]=\"true\">\n    <form\n      fxLayout=\"column\"\n      fxLayoutAlign=\"center center\"\n      [formGroup]=\"profileForm\"\n      (ngSubmit)=\"login()\"\n    >\n      <mat-form-field>\n        <mat-label>Email</mat-label>\n        <input id=\"username\" matInput type=\"text\" formControlName=\"username\" />\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label>Passwort</mat-label>\n        <input id=\"password\" matInput type=\"text\" formControlName=\"password\" />\n      </mat-form-field>\n\n      <button\n        mat-raised-button\n        color=\"primary\"\n        type=\"submit\"\n        [disabled]=\"!profileForm.valid\"\n      >\n        Speichern\n      </button>\n    </form>\n  </fit4bit-base-item-card>\n</fit4bit-main-content-container>\n"
         },
         {
             "name": "MainContentContainerComponent",
@@ -4246,7 +4160,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".main-container {\n  padding: 20px 20px;\n}\n",
+                    "data": ".main-container {\n  padding: 20px 20px;\n}\n\n.center {\n  display: flex;\n  justify-content: center;\n}\n",
                     "styleUrl": "./main-content-container.component.scss"
                 }
             ],
@@ -4262,11 +4176,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"main-container\">\n  <h1>\n    {{ title }}\n  </h1>\n</div>\n\n<div>\n  <ng-content></ng-content>\n</div>\n"
+            "templateData": "<div class=\"main-container\">\n  <h1>\n    {{ title }}\n  </h1>\n</div>\n\n<div class=\"center\">\n  <ng-content></ng-content>\n</div>\n"
         },
         {
             "name": "MenuContentComponent",
-            "id": "component-MenuContentComponent-38298cb2732ef50a9d389a56ffd36c470538e7dc80326749900ce2fc2cadafe1f781657a7485cfc1aeed8cd1cfdb117485af82d80a9193df20945b07cddace6a",
+            "id": "component-MenuContentComponent-0b46ba75e75469843b746c4e15ba3a7c2c376469fe6936cb1dd2b4b14eaf26a307cedd01ba20b5bf352609ba4835ad584c051927e6cf16921bd1ce5a46514968",
             "file": "src/app/navigation/menu-content/menu-content.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4302,7 +4216,7 @@
                     "name": "user$",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Observable<User>",
+                    "type": "Observable<User | undefined>",
                     "optional": false,
                     "description": "",
                     "line": 13,
@@ -4343,11 +4257,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { LocalStoreService } from '../../commons/service/jwt.service';\nimport { SnackbarService } from '../../commons/service/snackbar.service';\nimport { User } from '../../commons/models/user.model';\n\n@Component({\n  selector: 'fit4bit-menu-content',\n  templateUrl: './menu-content.component.html',\n  styleUrls: ['./menu-content.component.scss'],\n})\nexport class MenuContentComponent implements OnInit {\n  public user$: Observable<User>;\n  public sideBarIsOpen = false;\n\n  constructor(\n    private localStoreService: LocalStoreService,\n    private snackbar: SnackbarService\n  ) {}\n\n  ngOnInit(): void {\n    this.user$ = this.localStoreService.user$.pipe();\n  }\n\n  public logout(): void {\n    this.localStoreService.clear();\n    this.snackbar.info({ text: 'Du bist ausgeloggt', typ: 'info' });\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { LocalStoreService } from '../../commons/service/jwt.service';\nimport { SnackbarService } from '../../commons/service/snackbar.service';\nimport { User } from '../../commons/models/user.model';\n\n@Component({\n  selector: 'fit4bit-menu-content',\n  templateUrl: './menu-content.component.html',\n  styleUrls: ['./menu-content.component.scss'],\n})\nexport class MenuContentComponent implements OnInit {\n  public user$: Observable<User | undefined>;\n  public sideBarIsOpen = false;\n\n  constructor(\n    private localStoreService: LocalStoreService,\n    private snackbar: SnackbarService\n  ) {}\n\n  ngOnInit(): void {\n    this.user$ = this.localStoreService.user$.pipe();\n  }\n\n  public logout(): void {\n    this.localStoreService.clear();\n    this.snackbar.info({ text: 'Du bist ausgeloggt', typ: 'info' });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"colors.scss\";\n@import \"breakpoints\";\n\na {\n  text-decoration: none;\n  color: white;\n  @include mobile {\n    color: $background-color-head-primary;\n  }\n}\n\na:hover,\na:active {\n  color: lightgrey;\n}\n\n.navigation-items {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\n.head {\n  background-color: $background-color-head-primary;\n}\n\n.head p,\n.head h1 {\n  color: $text-head-color;\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.items-container {\n  display: flex;\n  flex-direction: row;\n  padding-right: 5px;\n  @include mobile {\n    flex-direction: column;\n  }\n}\n\n.items-container > div {\n  padding-right: 15px;\n}\n",
+                    "data": "@import \"colors.scss\";\n@import \"breakpoints\";\n\na {\n  text-decoration: none;\n  color: white;\n}\n\na:hover,\na:active {\n  color: lightgrey;\n}\n\n.navigation-items {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\n.head {\n  background-color: $background-color-head-primary;\n}\n\n.head p,\n.head h1 {\n  color: $text-head-color;\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.items-container {\n  display: flex;\n  flex-direction: row;\n  padding-right: 5px;\n  @include mobile {\n    flex-direction: column;\n  }\n}\n\n.items-container > div {\n  padding-right: 15px;\n  @include mobile {\n    padding: 5px;\n  }\n}\n",
                     "styleUrl": "./menu-content.component.scss"
                 }
             ],
@@ -4396,7 +4310,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div *ngIf=\"user$ | async as user; else toLogin\" class=\"items-container\">\n  <div>\n    <a routerLink=\"superior/newuser\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\"\n      >Person erstellen</a\n    >\n  </div>\n\n  <div>\n    <a routerLink=\"superior/room\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\">Raum</a>\n  </div>\n  <div>\n    <a routerLink=\"superior/review\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\"\n      >Review</a\n    >\n  </div>\n  <div>\n    <a routerLink=\"superior/newtrainingtyp\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\">\n      Neuer Trainings Typ\n    </a>\n  </div>\n  <div>\n    <a routerLink=\"superior/newtraining\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\">\n      Neues Training\n    </a>\n  </div>\n  <div>\n    <a routerLink=\"trainer/overview\" *fit4bitHasRole=\"['ROLE_TRAINER']\">\n      Deine Trainings</a\n    >\n  </div>\n  <div>\n    <a routerLink=\"trainer/payroll\" *fit4bitHasRole=\"['ROLE_TRAINER']\">\n      Monatsabrechnung</a\n    >\n  </div>\n  <div>\n    <a routerLink=\"/\">\n      {{ user.email }}\n    </a>\n  </div>\n  <div><a routerLink=\"/\" (click)=\"logout()\">Ausloggen</a></div>\n</div>\n\n<ng-template #toLogin><a routerLink=\"login\">Einloggen</a></ng-template>\n"
+            "templateData": "<div *ngIf=\"user$ | async as user; else toLogin\" class=\"items-container\">\n  <div>\n    <a routerLink=\"superior/newuser\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\"\n      >Person erstellen</a\n    >\n  </div>\n\n  <div>\n    <a routerLink=\"superior/room\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\">Raum</a>\n  </div>\n  <div>\n    <a routerLink=\"superior/review\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\"\n      >Review</a\n    >\n  </div>\n  <div>\n    <a routerLink=\"superior/newtrainingtyp\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\">\n      Neuer Trainings Typ\n    </a>\n  </div>\n  <div>\n    <a routerLink=\"superior/newtraining\" *fit4bitHasRole=\"['ROLE_SUPERIOR']\">\n      Neues Training\n    </a>\n  </div>\n  <div>\n    <a routerLink=\"trainer/overview\" *fit4bitHasRole=\"['ROLE_TRAINER']\">\n      Deine Trainings</a\n    >\n  </div>\n  <div>\n    <a routerLink=\"trainer/payroll\" *fit4bitHasRole=\"['ROLE_TRAINER']\">\n      Monatsabrechnung</a\n    >\n  </div>\n  <div>\n    <a routerLink=\"/\">\n      {{ user.username }}\n    </a>\n  </div>\n  <div><a routerLink=\"/\" (click)=\"logout()\">Ausloggen</a></div>\n</div>\n\n<ng-template #toLogin><a routerLink=\"login\">Einloggen</a></ng-template>\n"
         },
         {
             "name": "NewpayrollComponent",
@@ -4694,11 +4608,11 @@
                     }
                 ]
             },
-            "templateData": "<fit4bit-main-content-container [title]=\"'Neuer Trainings Typ'\">\n  <section>\n    <form\n      fxLayout=\"column\"\n      fxLayoutAlign=\"center center\"\n      [formGroup]=\"profileForm\"\n      (ngSubmit)=\"create2()\"\n    >\n      <mat-form-field>\n        <mat-label for=\"name\">Name des Trainingstyps</mat-label>\n        <input id=\"name\" matInput type=\"text\" formControlName=\"name\" />\n      </mat-form-field>\n\n      <div class=\"hint\">\n        <button\n          mat-mini-fab\n          color=\"primary\"\n          class=\"upload-btn\"\n          (click)=\"fileUpload.click()\"\n        >\n          <mat-icon>image</mat-icon>\n        </button>\n        <p>Hier kannst du noch ein Bild hochladen.</p>\n      </div>\n\n      <button\n        mat-raised-button\n        color=\"primary\"\n        type=\"submit\"\n        [disabled]=\"!profileForm.valid\"\n        class=\"submit-btn\"\n      >\n        Speichern\n      </button>\n    </form>\n  </section>\n\n  <input\n    type=\"file\"\n    class=\"file-input\"\n    (change)=\"onUpload($event)\"\n    #fileUpload\n  />\n\n  <div *ngIf=\"retrievedImage\">\n    <img [src]=\"retrievedImage\" />\n  </div>\n</fit4bit-main-content-container>\n"
+            "templateData": "<fit4bit-main-content-container [title]=\"'Neuer Trainings Typ'\">\n  <section>\n    <form\n      fxLayout=\"column\"\n      fxLayoutAlign=\"center center\"\n      [formGroup]=\"profileForm\"\n      (ngSubmit)=\"create2()\"\n    >\n      <mat-form-field>\n        <mat-label>Name des Trainingstyps</mat-label>\n        <input id=\"name\" matInput type=\"text\" formControlName=\"name\" />\n      </mat-form-field>\n\n      <div class=\"hint\">\n        <button\n          mat-mini-fab\n          color=\"primary\"\n          class=\"upload-btn\"\n          (click)=\"fileUpload.click()\"\n        >\n          <mat-icon>image</mat-icon>\n        </button>\n        <p>Hier kannst du noch ein Bild hochladen.</p>\n      </div>\n\n      <button\n        mat-raised-button\n        color=\"primary\"\n        type=\"submit\"\n        [disabled]=\"!profileForm.valid\"\n        class=\"submit-btn\"\n      >\n        Speichern\n      </button>\n    </form>\n  </section>\n\n  <input\n    type=\"file\"\n    class=\"file-input\"\n    (change)=\"onUpload($event)\"\n    #fileUpload\n  />\n\n  <div *ngIf=\"retrievedImage\">\n    <img [src]=\"retrievedImage\" alt=\"Trainingsbild\" />\n  </div>\n</fit4bit-main-content-container>\n"
         },
         {
             "name": "NewUserComponent",
-            "id": "component-NewUserComponent-eb778ee12162466ccd233b6dcecbb948f1a831dbe3475061f3876612d5607e1ca2cab798be5bb7348578d16b17b9436aacbbec1f4280471a858e5757031b25bd",
+            "id": "component-NewUserComponent-cd5dd1f3c5ffc77107585d7e39eb9013fdc360711aae9db2666e924ca9c2fd60f896d885b2e8e7b2a771fe55e555e11fcd16e0890553880d2b6bd7921c637c6b",
             "file": "src/app/superior/pages/new-user/new-user.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4724,7 +4638,7 @@
                     "type": "FormGroup",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 13,
                     "modifierKind": [
                         123
                     ]
@@ -4737,7 +4651,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23,
+                    "line": 28,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4747,7 +4661,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 15,
+                    "line": 20,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -4759,7 +4673,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\nimport { UserService } from 'src/app/commons/service/user.service';\n\n@Component({\n  selector: 'fit4bit-new-user',\n  templateUrl: './new-user.component.html',\n  styleUrls: ['./new-user.component.scss'],\n})\nexport class NewUserComponent implements OnInit {\n  public profileForm: FormGroup;\n\n  constructor(private userServiceService: UserService) {}\n\n  ngOnInit(): void {\n    this.profileForm = new FormGroup({\n      firstName: new FormControl('', [Validators.required]),\n      lastName: new FormControl('', [Validators.required]),\n      email: new FormControl('', [Validators.required, Validators.email]),\n    });\n  }\n\n  create(): void {\n    const newUser = this.profileForm.value;\n    this.userServiceService.create$(newUser).subscribe();\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { FormControl, FormGroup, Validators } from '@angular/forms';\nimport { UserService } from 'src/app/commons/service/user.service';\nimport { SnackbarService } from '../../../commons/service/snackbar.service';\nimport { HttpErrorResponse } from '@angular/common/http';\n\n@Component({\n  selector: 'fit4bit-new-user',\n  templateUrl: './new-user.component.html',\n  styleUrls: ['./new-user.component.scss'],\n})\nexport class NewUserComponent implements OnInit {\n  public profileForm: FormGroup;\n\n  constructor(\n    private userServiceService: UserService,\n    private snackbarService: SnackbarService\n  ) {}\n\n  ngOnInit(): void {\n    this.profileForm = new FormGroup({\n      firstName: new FormControl('', [Validators.required]),\n      lastName: new FormControl('', [Validators.required]),\n      username: new FormControl('', [Validators.required, Validators.email]),\n    });\n  }\n\n  create(): void {\n    const newUser = this.profileForm.value;\n    this.userServiceService.create$(newUser).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n      },\n      (error: HttpErrorResponse) => {\n        switch (error.status) {\n          case 409:\n            this.snackbarService.info({\n              text: 'Email bereits vorhanden!',\n              typ: 'error',\n            });\n            break;\n          default:\n            this.snackbarService.sendStandardNok();\n        }\n      }\n    );\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4779,13 +4693,28 @@
                         "type": "UserService",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "snackbarService",
+                        "type": "SnackbarService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 11,
+                "line": 13,
                 "jsdoctags": [
                     {
                         "name": "userServiceService",
                         "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "snackbarService",
+                        "type": "SnackbarService",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -4797,7 +4726,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<fit4bit-main-content-container [title]=\"'Neue Person erstellen'\">\n  <section>\n    <form\n      fxLayout=\"column\"\n      fxLayoutAlign=\"center center\"\n      [formGroup]=\"profileForm\"\n      (ngSubmit)=\"create()\"\n    >\n      <mat-form-field>\n        <mat-label for=\"firstName\">Vorname</mat-label>\n        <input\n          id=\"firstName\"\n          matInput\n          type=\"text\"\n          formControlName=\"firstName\"\n        />\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label for=\"lastName\">Nachname</mat-label>\n        <input id=\"lastName\" matInput type=\"text\" formControlName=\"lastName\" />\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label for=\"email\">Email</mat-label>\n        <input id=\"email\" matInput type=\"text\" formControlName=\"email\" />\n      </mat-form-field>\n\n      <button\n        mat-raised-button\n        color=\"primary\"\n        type=\"submit\"\n        [disabled]=\"!profileForm.valid\"\n      >\n        Speichern\n      </button>\n    </form>\n  </section>\n</fit4bit-main-content-container>\n"
+            "templateData": "<fit4bit-main-content-container [title]=\"'Neue Person erstellen'\">\n  <section>\n    <form\n      fxLayout=\"column\"\n      fxLayoutAlign=\"center center\"\n      [formGroup]=\"profileForm\"\n      (ngSubmit)=\"create()\"\n    >\n      <mat-form-field>\n        <mat-label for=\"firstName\">Vorname</mat-label>\n        <input\n          id=\"firstName\"\n          matInput\n          type=\"text\"\n          formControlName=\"firstName\"\n        />\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label for=\"lastName\">Nachname</mat-label>\n        <input id=\"lastName\" matInput type=\"text\" formControlName=\"lastName\" />\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label for=\"username\">Email</mat-label>\n        <input id=\"username\" matInput type=\"text\" formControlName=\"username\" />\n      </mat-form-field>\n\n      <button\n        mat-raised-button\n        color=\"primary\"\n        type=\"submit\"\n        [disabled]=\"!profileForm.valid\"\n      >\n        Speichern\n      </button>\n    </form>\n  </section>\n</fit4bit-main-content-container>\n"
         },
         {
             "name": "OverlayComponent",
@@ -5233,7 +5162,7 @@
         },
         {
             "name": "PayrollOverviewComponent",
-            "id": "component-PayrollOverviewComponent-7a309b998a83a44e9fb8035484bbeeae73db8ab00685da4d20cfa6ff476cc4f1ef29a5c6e5c27c16be1f4070998c503e42c9b749e2fcd189116d0ab2baf6965e",
+            "id": "component-PayrollOverviewComponent-7433fbe5091f7b244e3df1ad762e8161cf4082341f3f85b4b3a34544eb7d29fb1fae380d9e0338a3ea5a56b1498e72911554b4dc7deb48b209f86c0860444ec5",
             "file": "src/app/trainer/payroll/payroll-overview/payroll-overview.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5260,7 +5189,7 @@
                     "type": "PayrollDto[]",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 16,
                     "modifierKind": [
                         123
                     ]
@@ -5273,7 +5202,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 17,
                     "modifierKind": [
                         123
                     ]
@@ -5285,7 +5214,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 23,
                     "modifierKind": [
                         123
                     ]
@@ -5297,7 +5226,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 27,
+                    "line": 22,
                     "modifierKind": [
                         123
                     ]
@@ -5309,7 +5238,7 @@
                     "type": "NewpayrollComponent",
                     "optional": false,
                     "description": "",
-                    "line": 31,
+                    "line": 26,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -5325,7 +5254,7 @@
                     "type": "PayrollDto[]",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 15,
                     "modifierKind": [
                         123
                     ]
@@ -5337,7 +5266,7 @@
                     "type": "PayrollDto",
                     "optional": false,
                     "description": "",
-                    "line": 23,
+                    "line": 18,
                     "modifierKind": [
                         123
                     ]
@@ -5350,7 +5279,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 24,
                     "modifierKind": [
                         123
                     ]
@@ -5362,7 +5291,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 20,
                     "modifierKind": [
                         123
                     ]
@@ -5374,7 +5303,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 19,
                     "modifierKind": [
                         123
                     ]
@@ -5386,7 +5315,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 21,
                     "modifierKind": [
                         123
                     ]
@@ -5399,7 +5328,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 72,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5419,7 +5348,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 119,
+                    "line": 114,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5443,7 +5372,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 123,
+                    "line": 118,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5456,7 +5385,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5476,7 +5405,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 56,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5500,7 +5429,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67,
+                    "line": 62,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5513,7 +5442,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 35,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -5523,7 +5452,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5536,7 +5465,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 107,
+                    "line": 102,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5556,7 +5485,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 95,
+                    "line": 90,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5582,7 +5511,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { PayrollDto } from '../../../commons/dto/payroll-dto.model';\nimport {\n  ChangeDetectorRef,\n  Component,\n  OnInit,\n  ViewChild,\n} from '@angular/core';\nimport { PayrollService } from 'src/app/commons/service/payroll.service';\nimport { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';\nimport { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';\nimport { SnackbarService } from '../../../commons/service/snackbar.service';\nimport { NewpayrollComponent } from '../create-payroll/newpayroll.component';\n\n@Component({\n  selector: 'fit4bit-payroll-overview',\n  templateUrl: './payroll-overview.component.html',\n  styleUrls: ['./payroll-overview.component.scss'],\n})\nexport class PayrollOverviewComponent implements OnInit {\n  public payrollList: PayrollDto[] = [];\n  public filteredList: PayrollDto[] = [];\n  public filterOffeneTraining = false;\n  public selectedPayroll: PayrollDto;\n  public showPayrollList: boolean;\n  public showNewPayrollForm: boolean;\n  public title: string;\n  public lengthOfOpenPayrolls: number;\n  public formInOverlayValid: boolean;\n  public showFilter = false;\n\n  @ViewChild(NewpayrollComponent) newpayrollComponent: NewpayrollComponent;\n\n  constructor(\n    private payrollService: PayrollService,\n    private cardItemService: CardItemService,\n    private snackbarService: SnackbarService,\n    private changeDetectorRef: ChangeDetectorRef\n  ) {}\n\n  ngOnInit(): void {\n    this.initData();\n    this.filteredList = this.payrollList;\n  }\n\n  private initData(): void {\n    this.payrollService.getAll$().subscribe((payrollList) => {\n      this.payrollList = payrollList;\n      this.filteredList = payrollList;\n      this.lengthOfOpenPayrolls = payrollList.filter(\n        (value) => value.billState === 'OFFEN'\n      ).length;\n      this.changeDetectorRef.detectChanges();\n    });\n  }\n\n  public resetOverlay(): void {\n    this.showPayrollList = false;\n    this.showNewPayrollForm = false;\n  }\n\n  public loadItem(payroll: PayrollDto): void {\n    this.selectedPayroll = payroll;\n    this.showPayrollList = true;\n    this.title = `${payroll.month}  ${payroll.year}`;\n  }\n\n  public loadNewPayrollForm(): void {\n    this.title = 'Neues Stundenblatt anlegen';\n    this.showNewPayrollForm = true;\n  }\n\n  public addTrainingsToPayroll(): void {\n    let listOfId: number[] = [];\n    this.cardItemService.clickedElements.forEach((training) =>\n      listOfId.push(training.id!)\n    );\n\n    let payrollToAddTrainings: PayrollAddTrainingDto = {\n      id: this.selectedPayroll.id!,\n      trainingIds: listOfId,\n    };\n    this.payrollService.addTrainings$(payrollToAddTrainings).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n      },\n      () => {\n        this.snackbarService.sendStandardNok();\n      }\n    );\n\n    this.showPayrollList = false;\n    this.cardItemService.clear();\n  }\n\n  public submitPayroll(payroll: PayrollDto): void {\n    this.payrollService.submitPayroll$(payroll).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n        this.initData();\n      },\n      () => {\n        this.snackbarService.sendStandardNok();\n      }\n    );\n  }\n\n  public stateFiler(): void {\n    this.filterOffeneTraining = !this.filterOffeneTraining;\n    if (this.filterOffeneTraining) {\n      this.filteredList = [];\n      this.payrollList.forEach((value) => {\n        if (value.billState === 'OFFEN') {\n          this.filteredList.push(value);\n        }\n      });\n    } else this.filteredList = this.payrollList;\n  }\n\n  public checkValidation($event: boolean) {\n    this.formInOverlayValid = $event.valueOf();\n  }\n\n  public createPayroll(): void {\n    this.newpayrollComponent.create();\n    this.resetOverlay();\n  }\n}\n",
+            "sourceCode": "import { PayrollDto } from '../../../commons/dto/payroll-dto.model';\nimport { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';\nimport { PayrollService } from 'src/app/commons/service/payroll.service';\nimport { CardItemService } from 'src/app/trainer/payroll/payroll-overview/card-item.service';\nimport { PayrollAddTrainingDto } from 'src/app/commons/dto/payroll-add-training-dto';\nimport { SnackbarService } from '../../../commons/service/snackbar.service';\nimport { NewpayrollComponent } from '../create-payroll/newpayroll.component';\n\n@Component({\n  selector: 'fit4bit-payroll-overview',\n  templateUrl: './payroll-overview.component.html',\n  styleUrls: ['./payroll-overview.component.scss'],\n})\nexport class PayrollOverviewComponent implements OnInit {\n  public payrollList: PayrollDto[] = [];\n  public filteredList: PayrollDto[] = [];\n  public filterOffeneTraining = false;\n  public selectedPayroll: PayrollDto;\n  public showPayrollList: boolean;\n  public showNewPayrollForm: boolean;\n  public title: string;\n  public lengthOfOpenPayrolls: number;\n  public formInOverlayValid: boolean;\n  public showFilter = false;\n\n  @ViewChild(NewpayrollComponent) newpayrollComponent: NewpayrollComponent;\n\n  constructor(\n    private payrollService: PayrollService,\n    private cardItemService: CardItemService,\n    private snackbarService: SnackbarService,\n    private changeDetectorRef: ChangeDetectorRef\n  ) {}\n\n  ngOnInit(): void {\n    this.initData();\n    this.filteredList = this.payrollList;\n  }\n\n  private initData(): void {\n    this.payrollService.getAll$().subscribe((payrollList) => {\n      this.payrollList = payrollList;\n      this.filteredList = payrollList;\n      this.lengthOfOpenPayrolls = payrollList.filter(\n        (value) => value.billState === 'OFFEN'\n      ).length;\n      this.changeDetectorRef.detectChanges();\n    });\n  }\n\n  public resetOverlay(): void {\n    this.showPayrollList = false;\n    this.showNewPayrollForm = false;\n  }\n\n  public loadItem(payroll: PayrollDto): void {\n    this.selectedPayroll = payroll;\n    this.showPayrollList = true;\n    this.title = `${payroll.month}  ${payroll.year}`;\n  }\n\n  public loadNewPayrollForm(): void {\n    this.title = 'Neues Stundenblatt anlegen';\n    this.showNewPayrollForm = true;\n  }\n\n  public addTrainingsToPayroll(): void {\n    let listOfId: number[] = [];\n    this.cardItemService.clickedElements.forEach((training) =>\n      listOfId.push(training.id!)\n    );\n\n    let payrollToAddTrainings: PayrollAddTrainingDto = {\n      id: this.selectedPayroll.id!,\n      trainingIds: listOfId,\n    };\n    this.payrollService.addTrainings$(payrollToAddTrainings).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n      },\n      () => {\n        this.snackbarService.sendStandardNok();\n      }\n    );\n\n    this.showPayrollList = false;\n    this.cardItemService.clear();\n  }\n\n  public submitPayroll(payroll: PayrollDto): void {\n    this.payrollService.submitPayroll$(payroll).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n        this.initData();\n      },\n      () => {\n        this.snackbarService.sendStandardNok();\n      }\n    );\n  }\n\n  public stateFiler(): void {\n    this.filterOffeneTraining = !this.filterOffeneTraining;\n    if (this.filterOffeneTraining) {\n      this.filteredList = [];\n      this.payrollList.forEach((value) => {\n        if (value.billState === 'OFFEN') {\n          this.filteredList.push(value);\n        }\n      });\n    } else this.filteredList = this.payrollList;\n  }\n\n  public checkValidation($event: boolean) {\n    this.formInOverlayValid = $event.valueOf();\n  }\n\n  public createPayroll(): void {\n    this.newpayrollComponent.create();\n    this.resetOverlay();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5622,7 +5551,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 31,
+                "line": 26,
                 "jsdoctags": [
                     {
                         "name": "payrollService",
@@ -5669,7 +5598,7 @@
         },
         {
             "name": "PayrollReviewItemCardComponent",
-            "id": "component-PayrollReviewItemCardComponent-372d6c4143fa2324c9047df289c5e89bd95c7c0fd0ebf8717814470a26fca0443d156ddd53d8636171629b09f4605e1b87aecbfa91e8d248208ecb6182eee303",
+            "id": "component-PayrollReviewItemCardComponent-ef365201c9f7b02ace9465bbe516037660b74183f21942d0a584bd87a4857f721a4176f1224c35149b7c5124dc274bef2f9fc9ce60dfe9a614bff52ba7e95e76",
             "file": "src/app/superior/pages/review/payroll-review-item-card/payroll-review-item-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5690,7 +5619,7 @@
                     "name": "payroll",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 13,
                     "type": "PayrollDto",
                     "decorators": []
                 }
@@ -5701,7 +5630,7 @@
                     "defaultValue": "new EventEmitter<void>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 16,
                     "type": "EventEmitter<void>"
                 }
             ],
@@ -5713,7 +5642,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -5730,7 +5659,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5761,7 +5690,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -5787,7 +5716,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n} from '@angular/core';\nimport { PayrollDto } from '../../../../commons/dto/payroll-dto.model';\nimport { PayrollService } from '../../../../commons/service/payroll.service';\nimport { SnackbarService } from '../../../../commons/service/snackbar.service';\n\n@Component({\n  selector: 'fit4bit-payroll-review-item-card',\n  templateUrl: './payroll-review-item-card.component.html',\n  styleUrls: ['./payroll-review-item-card.component.scss'],\n})\nexport class PayrollReviewItemCardComponent implements OnInit {\n  @Input()\n  public payroll: PayrollDto;\n\n  @Output()\n  public childChanged: EventEmitter<void> = new EventEmitter<void>();\n\n  constructor(\n    private payrollService: PayrollService,\n    private snackbarService: SnackbarService\n  ) {}\n\n  ngOnInit(): void {}\n\n  public release(payroll: PayrollDto): void {\n    const toUpdate: PayrollDto = {\n      id: payroll.id,\n      billState: 'FREIGABE_SUPERIOR',\n    };\n    this.payrollService.updateState(toUpdate).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n        this.childChanged.emit();\n      },\n      () => this.snackbarService.sendStandardNok()\n    );\n  }\n\n  public reject(payroll: PayrollDto): void {\n    const toUpdate: PayrollDto = {\n      id: payroll.id,\n      billState: 'ABGELEHNT',\n    };\n    this.payrollService.updateState(toUpdate).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n        this.childChanged.emit();\n      },\n      () => this.snackbarService.sendStandardNok()\n    );\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\nimport { PayrollDto } from '../../../../commons/dto/payroll-dto.model';\nimport { PayrollService } from '../../../../commons/service/payroll.service';\nimport { SnackbarService } from '../../../../commons/service/snackbar.service';\n\n@Component({\n  selector: 'fit4bit-payroll-review-item-card',\n  templateUrl: './payroll-review-item-card.component.html',\n  styleUrls: ['./payroll-review-item-card.component.scss'],\n})\nexport class PayrollReviewItemCardComponent implements OnInit {\n  @Input()\n  public payroll: PayrollDto;\n\n  @Output()\n  public childChanged: EventEmitter<void> = new EventEmitter<void>();\n\n  constructor(\n    private payrollService: PayrollService,\n    private snackbarService: SnackbarService\n  ) {}\n\n  ngOnInit(): void {}\n\n  public release(payroll: PayrollDto): void {\n    const toUpdate: PayrollDto = {\n      id: payroll.id,\n      billState: 'FREIGABE_SUPERIOR',\n    };\n    this.payrollService.updateState(toUpdate).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n        this.childChanged.emit();\n      },\n      () => this.snackbarService.sendStandardNok()\n    );\n  }\n\n  public reject(payroll: PayrollDto): void {\n    const toUpdate: PayrollDto = {\n      id: payroll.id,\n      billState: 'ABGELEHNT',\n    };\n    this.payrollService.updateState(toUpdate).subscribe(\n      () => {\n        this.snackbarService.sendDataSaveOk();\n        this.childChanged.emit();\n      },\n      () => this.snackbarService.sendStandardNok()\n    );\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5815,7 +5744,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 22,
+                "line": 16,
                 "jsdoctags": [
                     {
                         "name": "payrollService",
@@ -5841,6 +5770,361 @@
                 "OnInit"
             ],
             "templateData": "<fit4bit-base-item-card [large]=\"false\">\n  <div class=\"detail\">\n    <div class=\"detail-head\">{{ payroll.month }} {{ payroll.year }}</div>\n    <div>\n      <div class=\"buttons\">\n        <button (click)=\"release(payroll)\" mat-stroked-button color=\"primary\">\n          Freigeben\n        </button>\n\n        <button (click)=\"reject(payroll)\" mat-stroked-button color=\"primary\">\n          Ablehnen\n        </button>\n      </div>\n    </div>\n  </div>\n</fit4bit-base-item-card>\n"
+        },
+        {
+            "name": "QuantityInputComponent",
+            "id": "component-QuantityInputComponent-3d9b0ba3e8c851f4ce719b4a4bbec550bcf50df405b4743f2e9d537c93d1f417c7c74dc18a3904bf5b6aa0366e2c1d967da38cf199481303fdcda4b9df02f586",
+            "file": "src/app/commons/components/quantity-input/quantity-input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: QuantityInputComponent,\n}",
+                    "type": "component"
+                }
+            ],
+            "selector": "fit4bit-quantity-input",
+            "styleUrls": [
+                "./quantity-input.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./quantity-input.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "increment",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "max",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "min",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "onTouched",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 34,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "quantity",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "touched",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 28,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "markAsTouched",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "onAdd",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "onRemove",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "previewCheck",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 84,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "onChange",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 68,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "onChange",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "onTouched",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 72,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "onTouched",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "disabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 76,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "disabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setFocus",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 63,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "quantity",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 80,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "quantity",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, ElementRef, Input } from '@angular/core';\nimport { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';\n\n@Component({\n  selector: 'fit4bit-quantity-input',\n  templateUrl: './quantity-input.component.html',\n  styleUrls: ['./quantity-input.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      multi: true,\n      useExisting: QuantityInputComponent,\n    },\n  ],\n})\nexport class QuantityInputComponent implements ControlValueAccessor {\n  @Input()\n  public increment: number;\n\n  @Input()\n  public min: number;\n\n  @Input()\n  public max: number;\n\n  public quantity = 0;\n\n  public touched = false;\n\n  public disabled = false;\n\n  public onChange = (quantity: number) => {};\n\n  public onTouched = () => {};\n\n  constructor(private elRef: ElementRef) {}\n\n  public onAdd(): void {\n    if (this.quantity < this.max) {\n      this.markAsTouched();\n      this.quantity += this.increment;\n      this.onChange(this.quantity);\n    }\n    this.previewCheck();\n  }\n\n  public onRemove(): void {\n    if (this.quantity > this.min) {\n      this.markAsTouched();\n      this.quantity -= this.increment;\n      this.onChange(this.quantity);\n    }\n    this.previewCheck();\n  }\n\n  public markAsTouched(): void {\n    if (!this.touched) {\n      this.onTouched();\n      this.touched = true;\n    }\n  }\n\n  public setFocus(): void {\n    this.elRef.nativeElement.querySelector('input').focus();\n    this.elRef.nativeElement.querySelector('input').select();\n  }\n\n  public registerOnChange(onChange: any): void {\n    this.onChange = onChange;\n  }\n\n  public registerOnTouched(onTouched: any): void {\n    this.onTouched = onTouched;\n  }\n\n  public setDisabledState(disabled: boolean): void {\n    this.disabled = disabled;\n  }\n\n  public writeValue(quantity: number): void {\n    this.quantity = quantity;\n  }\n\n  public previewCheck(): void {\n    if (this.quantity < this.min || this.quantity > this.max) {\n      this.quantity = 0;\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"colors\";\n.container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 40px;\n}\n\ninput {\n  border: none;\n  text-align: center;\n  width: 30px;\n}\n\n.disabled {\n  color: $disabled;\n  cursor: unset;\n}\n\nmat-icon,\ninput {\n  cursor: pointer;\n}\n",
+                    "styleUrl": "./quantity-input.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "elRef",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 34,
+                "jsdoctags": [
+                    {
+                        "name": "elRef",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "templateData": "<div class=\"container\">\n  <mat-icon (click)=\"onAdd()\" [class.disabled]=\"quantity == max\"\n    >keyboard_arrow_up</mat-icon\n  >\n  <input [(ngModel)]=\"quantity\" maxlength=\"2\" (change)=\"previewCheck()\" />\n  <mat-icon (click)=\"onRemove()\" [class.disabled]=\"quantity == min\"\n    >keyboard_arrow_down</mat-icon\n  >\n</div>\n"
         },
         {
             "name": "ReviewComponent",
@@ -6165,12 +6449,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"breakpoints\";\n@import \"spaces.scss\";\n@import \"colors.scss\";\n\n.overlay {\n  position: absolute;\n  top: 0;\n  width: 200px;\n  max-width: 100%;\n  height: 100%;\n  z-index: 4;\n  background-color: white;\n  display: flex;\n  flex-direction: column;\n  transition: left 3s ease;\n  left: -100%;\n}\n\n.left-overlay {\n  margin-bottom: $space_10;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.head-overlay {\n  display: flex;\n  justify-content: end;\n}\n\n.open {\n  left: 0;\n}\n",
+                    "data": "@import \"breakpoints\";\n@import \"spaces.scss\";\n@import \"colors.scss\";\n\n.overlay {\n  position: absolute;\n  top: 0;\n  width: 200px;\n  max-width: 100%;\n  height: 100%;\n  z-index: 4;\n  display: flex;\n  flex-direction: column;\n  transition: left 3s ease;\n  left: -100%;\n  background-color: $background-color-head-primary;\n}\n\n.left-overlay {\n  margin-bottom: $space_10;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.head-overlay {\n  display: flex;\n  justify-content: end;\n}\n\n.open {\n  left: 0;\n}\n",
                     "styleUrl": "./side-navigation.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<fit4bit-backdrop (closeEmitter)=\"closeMe()\"></fit4bit-backdrop>\n\n<div class=\"overlay\" [class.open]=\"show\">\n  <div class=\"head-overlay\">\n    <fit4bit-close-button (click)=\"closeMe()\"></fit4bit-close-button>\n  </div>\n\n  <div class=\"left-overlay\">\n    <fit4bit-menu-content></fit4bit-menu-content>\n  </div>\n</div>\n"
+            "templateData": "<fit4bit-backdrop (closeEmitter)=\"closeMe()\"></fit4bit-backdrop>\n\n<div class=\"overlay\" [class.open]=\"show\" (click)=\"resetOverlayEmitter.emit()\">\n  <div class=\"head-overlay\">\n    <fit4bit-close-button (click)=\"closeMe()\"></fit4bit-close-button>\n  </div>\n\n  <div class=\"left-overlay\">\n    <fit4bit-menu-content></fit4bit-menu-content>\n  </div>\n</div>\n"
         },
         {
             "name": "SnackBarComponent",
@@ -6317,12 +6601,12 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<fit4bit-side-navigation\n  *ngIf=\"sideBarIsOpen\"\n  [show]=\"sideBarIsOpen\"\n  (resetOverlayEmitter)=\"sideBarIsOpen = false\"\n></fit4bit-side-navigation>\n<mat-toolbar class=\"head\">\n  <div fxHide.gt-xs>\n    <button mat-icon-button>\n      <mat-icon (click)=\"sideBarIsOpen = true\">menu</mat-icon>\n    </button>\n  </div>\n  <div><a routerLink=\"/\">Go4Fit</a></div>\n  <div fxFlex fxLayout fxLayoutAlign=\"flex-end\" fxHide.xs>\n    <fit4bit-menu-content></fit4bit-menu-content>\n  </div>\n</mat-toolbar>\n"
+            "templateData": "<fit4bit-side-navigation\n  fxHide.gt-xs\n  *ngIf=\"sideBarIsOpen\"\n  [show]=\"sideBarIsOpen\"\n  (resetOverlayEmitter)=\"sideBarIsOpen = false\"\n></fit4bit-side-navigation>\n<mat-toolbar class=\"head\">\n  <div fxHide.gt-xs>\n    <button mat-icon-button>\n      <mat-icon (click)=\"sideBarIsOpen = true\">menu</mat-icon>\n    </button>\n  </div>\n  <div><a routerLink=\"/\">Go4Fit</a></div>\n  <div fxFlex fxLayout fxLayoutAlign=\"flex-end\" fxHide.xs>\n    <fit4bit-menu-content></fit4bit-menu-content>\n  </div>\n</mat-toolbar>\n"
         },
         {
             "name": "TrainingComponent",
-            "id": "component-TrainingComponent-950d1b2ddb581e9a4b7b774c3a7c971e0320288438fb1d508557314553a38ee8cd811cce88d9b82e878058d4f2331754ccc15b647f912c42188c926449abe858",
-            "file": "src/app/commons/pages/training/training.component.ts",
+            "id": "component-TrainingComponent-a827c5555c8319c0a4df7bddb26d683cdfa301a25ae9f3907e2732f1c367ff9f998e84091aaadf2be2c9afa043e8c0f36dda81a711de49b4bd83e9249f4086b2",
+            "file": "src/app/superior/pages/training/training.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -6347,7 +6631,7 @@
                     "type": "FormGroup",
                     "optional": false,
                     "description": "",
-                    "line": 21
+                    "line": 22
                 },
                 {
                     "name": "roomsDtoList",
@@ -6357,7 +6641,7 @@
                     "type": "RoomDto[]",
                     "optional": false,
                     "description": "",
-                    "line": 18
+                    "line": 19
                 },
                 {
                     "name": "trainingTypList",
@@ -6367,7 +6651,7 @@
                     "type": "TrainingTypDto[]",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 20
                 },
                 {
                     "name": "userList",
@@ -6377,7 +6661,7 @@
                     "type": "UserDto[]",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 21
                 }
             ],
             "methodsClass": [
@@ -6387,7 +6671,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 50,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -6397,7 +6681,7 @@
                     "optional": false,
                     "returnType": "Date",
                     "typeParameters": [],
-                    "line": 72,
+                    "line": 86,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -6410,7 +6694,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 33,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -6422,11 +6706,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { UserDto } from 'src/app/commons/dto/user-dto.model';\nimport { TrainingTypDto } from './../../dto/training-typ-dto.model';\nimport { TrainingTypService } from './../../../superior/service/training-typ.service';\nimport { TrainingDto } from './../../dto/training-dto.model';\nimport { TrainingService } from './../../service/training.service';\nimport { RoomDto } from './../../dto/room-dto.model';\nimport { RoomService } from './../../service/room.service';\nimport { Component, OnInit } from '@angular/core';\nimport { FormBuilder, FormGroup, FormControl } from '@angular/forms';\nimport { UserService } from '../../service/user.service';\n\n@Component({\n  selector: 'fit4bit-training',\n  templateUrl: './training.component.html',\n  styleUrls: ['./training.component.scss'],\n})\nexport class TrainingComponent implements OnInit {\n  roomsDtoList: RoomDto[] = [];\n  trainingTypList: TrainingTypDto[] = [];\n  userList: UserDto[] = [];\n  formGroup: FormGroup;\n\n  constructor(\n    private roomService: RoomService,\n    private formBuilder: FormBuilder,\n    private trainingService: TrainingService,\n    private trainingTypService: TrainingTypService,\n    private userService: UserService\n  ) {}\n\n  ngOnInit(): void {\n    this.formGroup = this.formBuilder.group({\n      roomId: new FormControl(''),\n      trainingTypId: new FormControl(''),\n      userId: new FormControl(''),\n      duration: new FormControl(''),\n      startTime: new FormControl(''),\n      startDate: new FormControl(''),\n    });\n\n    this.roomService.getAll$().subscribe((data) => (this.roomsDtoList = data));\n\n    this.trainingTypService\n      .getAll$()\n      .subscribe((data) => (this.trainingTypList = data));\n\n    this.userService.getAll$().subscribe((users) => (this.userList = users));\n  }\n\n  create(): void {\n    const roomDto: RoomDto = {\n      id: this.formGroup.value.roomId,\n    };\n\n    const trainingTypDto: TrainingTypDto = {\n      id: this.formGroup.value.trainingTypId,\n    };\n\n    const userDto: UserDto = {\n      id: this.formGroup.value.userId,\n    };\n    const newTraining: TrainingDto = {\n      room: roomDto,\n      trainingTyp: trainingTypDto,\n      user: userDto,\n      duration: this.formGroup.value.duration,\n      runningDate: this.dateTimeConverter(),\n    };\n    this.trainingService.create$(newTraining).subscribe();\n  }\n\n  private dateTimeConverter(): Date {\n    let date: Date = this.formGroup.value.startDate;\n    let time: String = this.formGroup.value.startTime;\n    date.setHours(parseInt(time.split(':')[0]));\n    date.setMinutes(parseInt(time.split(':')[1]));\n    return date;\n  }\n}\n",
+            "sourceCode": "import { UserDto } from 'src/app/commons/dto/user-dto.model';\nimport { TrainingTypDto } from '../../../commons/dto/training-typ-dto.model';\nimport { TrainingTypService } from '../../service/training-typ.service';\nimport { TrainingDto } from '../../../commons/dto/training-dto.model';\nimport { TrainingService } from '../../../commons/service/training.service';\nimport { RoomDto } from '../../../commons/dto/room-dto.model';\nimport { RoomService } from '../../../commons/service/room.service';\nimport { Component, OnInit } from '@angular/core';\nimport { FormBuilder, FormGroup, FormControl } from '@angular/forms';\nimport { UserService } from '../../../commons/service/user.service';\nimport { SnackbarService } from '../../../commons/service/snackbar.service';\n\n@Component({\n  selector: 'fit4bit-training',\n  templateUrl: './training.component.html',\n  styleUrls: ['./training.component.scss'],\n})\nexport class TrainingComponent implements OnInit {\n  roomsDtoList: RoomDto[] = [];\n  trainingTypList: TrainingTypDto[] = [];\n  userList: UserDto[] = [];\n  formGroup: FormGroup;\n\n  constructor(\n    private roomService: RoomService,\n    private formBuilder: FormBuilder,\n    private trainingService: TrainingService,\n    private trainingTypService: TrainingTypService,\n    private userService: UserService,\n    private snackbarService: SnackbarService\n  ) {}\n\n  ngOnInit(): void {\n    this.formGroup = this.formBuilder.group({\n      roomId: new FormControl(''),\n      trainingTypId: new FormControl(''),\n      userId: new FormControl(''),\n      startDate: new FormControl(''),\n      duration: new FormControl(''),\n      startHour: new FormControl(''),\n      startMinutes: new FormControl(''),\n    });\n\n    let init = {\n      startHour: 0,\n      startMinutes: 0,\n      duration: 0,\n    };\n\n    this.formGroup.patchValue(init);\n\n    this.roomService.getAll$().subscribe((data) => (this.roomsDtoList = data));\n\n    this.trainingTypService\n      .getAll$()\n      .subscribe((data) => (this.trainingTypList = data));\n\n    this.userService.getAll$().subscribe((users) => (this.userList = users));\n  }\n\n  create(): void {\n    const roomDto: RoomDto = {\n      id: this.formGroup.value.roomId,\n    };\n\n    const trainingTypDto: TrainingTypDto = {\n      id: this.formGroup.value.trainingTypId,\n    };\n\n    const userDto: UserDto = {\n      id: this.formGroup.value.userId,\n    };\n    const newTraining: TrainingDto = {\n      room: roomDto,\n      trainingTyp: trainingTypDto,\n      user: userDto,\n      duration: this.formGroup.value.duration,\n      runningDate: this.dateTimeConverter(),\n    };\n    this.trainingService.create$(newTraining).subscribe(\n      () => this.snackbarService.sendDataSaveOk(),\n      () => this.snackbarService.sendStandardNok()\n    );\n  }\n\n  private dateTimeConverter(): Date {\n    let date: Date = this.formGroup.value.startDate;\n    date.setUTCHours(parseInt(this.formGroup.value.startHour));\n    date.setMinutes(parseInt(this.formGroup.value.startMinutes));\n    return date;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@import \"colors\";\n\n.form-content {\n  width: 300px;\n}\n\nmat-form-field {\n  width: 100%;\n}\n\n.watch-container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  border-radius: 4px 4px 0 0;\n}\n\n.flash {\n  animation: color 1s infinite;\n  font-weight: bold;\n  font-size: 30px;\n}\n\n.duration-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  width: 100%;\n  opacity: 0.6;\n  padding-bottom: 5px;\n}\n\n.watch-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  width: 100%;\n  opacity: 0.6;\n  padding-bottom: 5px;\n}\n\n.divider {\n  padding-top: 3px;\n  border-bottom: 0.75px rgba(0, 0, 0, 0.3) solid;\n  margin-bottom: 20px;\n  width: 100%;\n}\n\n.watch-content {\n  display: flex;\n  align-items: center;\n}\n\n.on-hover {\n  cursor: pointer;\n}\n\n@keyframes color {\n  0% {\n    color: $background-color-head-primary;\n  }\n  50% {\n    color: white;\n  }\n  100% {\n    color: $background-color-head-primary;\n  }\n}\n",
                     "styleUrl": "./training.component.scss"
                 }
             ],
@@ -6466,9 +6750,15 @@
                         "type": "UserService",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "snackbarService",
+                        "type": "SnackbarService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 21,
+                "line": 22,
                 "jsdoctags": [
                     {
                         "name": "roomService",
@@ -6514,13 +6804,22 @@
                         "tagName": {
                             "text": "param"
                         }
+                    },
+                    {
+                        "name": "snackbarService",
+                        "type": "SnackbarService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
                     }
                 ]
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<fit4bit-main-content-container [title]=\"'Neues Training erfassen'\">\n  <form\n    fxLayout=\"column\"\n    fxLayoutAlign=\"center center\"\n    [formGroup]=\"formGroup\"\n    (ngSubmit)=\"create()\"\n    fxLayoutAlign=\"center center\"\n  >\n    <mat-form-field appearance=\"fill\">\n      <mat-label>Raum</mat-label>\n      <mat-select formControlName=\"roomId\">\n        <mat-option *ngFor=\"let room of roomsDtoList\" [value]=\"room.id\">\n          {{ room.name }}\n        </mat-option>\n      </mat-select>\n    </mat-form-field>\n\n    <mat-form-field appearance=\"fill\">\n      <mat-label>Typ</mat-label>\n      <mat-select formControlName=\"trainingTypId\">\n        <mat-option\n          *ngFor=\"let trainingTyp of trainingTypList\"\n          [value]=\"trainingTyp.id\"\n        >\n          {{ trainingTyp.name }}\n        </mat-option>\n      </mat-select>\n    </mat-form-field>\n\n    <mat-form-field appearance=\"fill\">\n      <mat-label>Trainer</mat-label>\n      <mat-select formControlName=\"userId\">\n        <mat-option *ngFor=\"let user of userList\" [value]=\"user.id\">\n          {{ user.firstName }} {{ user.email }}\n        </mat-option>\n      </mat-select>\n    </mat-form-field>\n\n    <mat-form-field appearance=\"fill\">\n      <mat-label>Dauer [min]</mat-label>\n      <input\n        matInput\n        placeholder=\"Minuten\"\n        type=\"number\"\n        formControlName=\"duration\"\n      />\n    </mat-form-field>\n\n    <mat-form-field appearance=\"fill\">\n      <mat-label>Datum</mat-label>\n      <input matInput [matDatepicker]=\"picker\" formControlName=\"startDate\" />\n      <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n      <mat-datepicker #picker></mat-datepicker>\n    </mat-form-field>\n\n    <mat-form-field appearance=\"fill\">\n      <mat-label>Startzeit</mat-label>\n      <input\n        matInput\n        placeholder=\"Start Zeit\"\n        type=\"string\"\n        formControlName=\"startTime\"\n      />\n    </mat-form-field>\n\n    <button\n      mat-raised-button\n      color=\"primary\"\n      type=\"submit\"\n      [disabled]=\"!formGroup.valid\"\n    >\n      Speichern\n    </button>\n  </form>\n</fit4bit-main-content-container>\n"
+            "templateData": "<fit4bit-main-content-container [title]=\"'Neues Training erfassen'\">\n  <div class=\"form-content\">\n    <form\n      fxLayout=\"column\"\n      fxLayoutAlign=\"center center\"\n      [formGroup]=\"formGroup\"\n      (ngSubmit)=\"create()\"\n    >\n      <mat-form-field>\n        <mat-label>Raum</mat-label>\n        <mat-select formControlName=\"roomId\">\n          <mat-option *ngFor=\"let room of roomsDtoList\" [value]=\"room.id\">\n            {{ room.name }}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label>Typ</mat-label>\n        <mat-select formControlName=\"trainingTypId\">\n          <mat-option\n            *ngFor=\"let trainingTyp of trainingTypList\"\n            [value]=\"trainingTyp.id\"\n          >\n            {{ trainingTyp.name }}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label>Trainer</mat-label>\n        <mat-select formControlName=\"userId\">\n          <mat-option *ngFor=\"let user of userList\" [value]=\"user.id\">\n            {{ user.firstName }} {{ user.username }}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n\n      <mat-form-field class=\"on-hover\">\n        <mat-label>Datum</mat-label>\n        <input matInput [matDatepicker]=\"picker\" formControlName=\"startDate\" />\n        <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n        <mat-datepicker #picker></mat-datepicker>\n      </mat-form-field>\n\n      <div class=\"duration-container\">\n        <span (click)=\"duration.setFocus()\" class=\"on-hover\"\n          >Dauer des Kurses in [min]</span\n        >\n        <fit4bit-quantity-input\n          #duration\n          formControlName=\"duration\"\n          [min]=\"0\"\n          [max]=\"180\"\n          [increment]=\"1\"\n        ></fit4bit-quantity-input>\n      </div>\n      <div class=\"divider\"></div>\n\n      <div class=\"watch-container\">\n        <span (click)=\"watch.setFocus()\" class=\"on-hover\">Startzeit </span>\n        <div class=\"watch-content\">\n          <fit4bit-quantity-input\n            #watch\n            [increment]=\"1\"\n            [min]=\"0\"\n            [max]=\"24\"\n            formControlName=\"startHour\"\n          ></fit4bit-quantity-input>\n          <div class=\"flash\">:</div>\n          <fit4bit-quantity-input\n            [increment]=\"1\"\n            [min]=\"0\"\n            [max]=\"59\"\n            formControlName=\"startMinutes\"\n          ></fit4bit-quantity-input>\n        </div>\n      </div>\n      <div class=\"divider\"></div>\n      <button\n        mat-raised-button\n        color=\"primary\"\n        type=\"submit\"\n        [disabled]=\"!formGroup.valid\"\n      >\n        Speichern\n      </button>\n    </form>\n  </div>\n</fit4bit-main-content-container>\n"
         },
         {
             "name": "TrainingItemCardComponent",
@@ -7028,13 +7327,13 @@
         },
         {
             "name": "Fit4BitCommonsModule",
-            "id": "module-Fit4BitCommonsModule-dd069af55a09def124d4884ace0c0fd58593f8bed9fc76b935fe4a39205830382b372a9ea0b387b03c6c8fb5f68b1a7a181591dcafaf337c7162c993408090ae",
+            "id": "module-Fit4BitCommonsModule-06d4ed1f733c25b56994353ab48f96ed0be9efc7d6a93c18071b5a12e33ef9a2888fab4395c7c7d505769450f50798c2cbf50ea9dbf98cdcd76d2c72cac3f7b2",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/commons/commons.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BlankSlateInformationComponent } from './blank-slate-information/blank-slate-information.component';\nimport { MaterialModule } from '../material/material.module';\nimport { Fit4bitCloseButtonComponent } from './components/fit4bit-close-button/fit4bit-close-button.component';\nimport { LoaderComponent } from './loader/loader.component';\nimport { OverlayComponent } from './components/overlay/overlay.component';\nimport { BackdropComponent } from './components/backdrop/backdrop.component';\nimport { CheckboxCardComponent } from './components/checkbox-card/card.component';\nimport { ButtonComponent } from './components/button/button.component';\nimport { ImageUploaderComponent } from './pages/image-uploader/image-uploader.component';\nimport { MainContentContainerComponent } from './shared/main-content-container/main-content-container.component';\nimport { LoginComponent } from './pages/login/login.component';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';\nimport { SnackBarComponent } from './components/snack-bar/snack-bar.component';\nimport { BaseItemCardComponent } from './components/base-item-card/base-item-card.component';\nimport { ChipsComponent } from './components/chips/chips.component';\nimport { BubbleComponent } from './components/bubble/bubble.component';\n\n@NgModule({\n  declarations: [\n    BlankSlateInformationComponent,\n    Fit4bitCloseButtonComponent,\n    LoaderComponent,\n    OverlayComponent,\n    BackdropComponent,\n    CheckboxCardComponent,\n    ButtonComponent,\n    ImageUploaderComponent,\n    MainContentContainerComponent,\n    LoginComponent,\n    WelcomePageComponent,\n    SnackBarComponent,\n    BaseItemCardComponent,\n    ChipsComponent,\n    BubbleComponent,\n  ],\n  imports: [CommonModule, MaterialModule, ReactiveFormsModule],\n\n  exports: [\n    BlankSlateInformationComponent,\n    LoaderComponent,\n    OverlayComponent,\n    BackdropComponent,\n    CheckboxCardComponent,\n    ButtonComponent,\n    MainContentContainerComponent,\n    SnackBarComponent,\n    Fit4bitCloseButtonComponent,\n    BaseItemCardComponent,\n    ChipsComponent,\n    BubbleComponent,\n  ],\n})\nexport class Fit4BitCommonsModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MaterialModule } from '../material/material.module';\nimport { CloseButtonComponent } from './components/close-button/close-button.component';\nimport { LoaderComponent } from './loader/loader.component';\nimport { OverlayComponent } from './components/overlay/overlay.component';\nimport { BackdropComponent } from './components/backdrop/backdrop.component';\nimport { CheckboxCardComponent } from './components/checkbox-card/card.component';\nimport { ButtonComponent } from './components/button/button.component';\nimport { ImageUploaderComponent } from './pages/image-uploader/image-uploader.component';\nimport { MainContentContainerComponent } from './shared/main-content-container/main-content-container.component';\nimport { LoginComponent } from './pages/login/login.component';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';\nimport { SnackBarComponent } from './components/snack-bar/snack-bar.component';\nimport { BaseItemCardComponent } from './components/base-item-card/base-item-card.component';\nimport { ChipsComponent } from './components/chips/chips.component';\nimport { BubbleComponent } from './components/bubble/bubble.component';\nimport { QuantityInputComponent } from './components/quantity-input/quantity-input.component';\n\n@NgModule({\n  declarations: [\n    CloseButtonComponent,\n    LoaderComponent,\n    OverlayComponent,\n    BackdropComponent,\n    CheckboxCardComponent,\n    ButtonComponent,\n    ImageUploaderComponent,\n    MainContentContainerComponent,\n    LoginComponent,\n    WelcomePageComponent,\n    SnackBarComponent,\n    BaseItemCardComponent,\n    ChipsComponent,\n    BubbleComponent,\n    QuantityInputComponent,\n  ],\n  imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule],\n\n  exports: [\n    LoaderComponent,\n    OverlayComponent,\n    BackdropComponent,\n    CheckboxCardComponent,\n    ButtonComponent,\n    MainContentContainerComponent,\n    SnackBarComponent,\n    CloseButtonComponent,\n    BaseItemCardComponent,\n    ChipsComponent,\n    BubbleComponent,\n    QuantityInputComponent,\n  ],\n})\nexport class Fit4BitCommonsModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -7050,9 +7349,6 @@
                             "name": "BaseItemCardComponent"
                         },
                         {
-                            "name": "BlankSlateInformationComponent"
-                        },
-                        {
                             "name": "BubbleComponent"
                         },
                         {
@@ -7065,7 +7361,7 @@
                             "name": "ChipsComponent"
                         },
                         {
-                            "name": "Fit4bitCloseButtonComponent"
+                            "name": "CloseButtonComponent"
                         },
                         {
                             "name": "ImageUploaderComponent"
@@ -7081,6 +7377,9 @@
                         },
                         {
                             "name": "OverlayComponent"
+                        },
+                        {
+                            "name": "QuantityInputComponent"
                         },
                         {
                             "name": "SnackBarComponent"
@@ -7108,9 +7407,6 @@
                             "name": "BaseItemCardComponent"
                         },
                         {
-                            "name": "BlankSlateInformationComponent"
-                        },
-                        {
                             "name": "BubbleComponent"
                         },
                         {
@@ -7120,7 +7416,7 @@
                             "name": "ChipsComponent"
                         },
                         {
-                            "name": "Fit4bitCloseButtonComponent"
+                            "name": "CloseButtonComponent"
                         },
                         {
                             "name": "LoaderComponent"
@@ -7130,6 +7426,9 @@
                         },
                         {
                             "name": "OverlayComponent"
+                        },
+                        {
+                            "name": "QuantityInputComponent"
                         },
                         {
                             "name": "SnackBarComponent"
@@ -7148,13 +7447,13 @@
         },
         {
             "name": "MaterialModule",
-            "id": "module-MaterialModule-1794643d8a698323883bd3b2fddcde4c1af3cdab1205186222ff77054499b1d7bc99061870d95299d93026204aba788d267982c2323eca9c605e5b35e58fc763",
+            "id": "module-MaterialModule-0b51636a1f5c03599a0645df9b984babf47496cee5df03a81b8e9806373f90c3c3572605de8ffd5ba8e57b1e8e2619da2547d4317450725018150eb48508b1bd",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/material/material.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatCheckboxModule } from '@angular/material/checkbox';\nimport { MatIconModule } from '@angular/material/icon';\nimport { MatSidenavModule } from '@angular/material/sidenav';\nimport { MatToolbarModule } from '@angular/material/toolbar';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\nimport { MatSelectModule } from '@angular/material/select';\nimport { MatDatepickerModule } from '@angular/material/datepicker';\nimport { MatNativeDateModule } from '@angular/material/core';\nimport { MatTableModule } from '@angular/material/table';\nimport { MatBadgeModule } from '@angular/material/badge';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    MatFormFieldModule,\n    MatInputModule,\n    MatButtonModule,\n    MatCheckboxModule,\n    MatIconModule,\n    MatSidenavModule,\n    MatToolbarModule,\n    FlexLayoutModule,\n    MatProgressSpinnerModule,\n    MatSelectModule,\n    MatDatepickerModule,\n    MatNativeDateModule,\n    MatTableModule,\n  ],\n  exports: [\n    MatFormFieldModule,\n    MatInputModule,\n    MatButtonModule,\n    MatCheckboxModule,\n    MatIconModule,\n    MatSidenavModule,\n    MatToolbarModule,\n    FlexLayoutModule,\n    MatProgressSpinnerModule,\n    MatSelectModule,\n    MatDatepickerModule,\n    MatNativeDateModule,\n    MatTableModule,\n    MatBadgeModule,\n  ],\n})\nexport class MaterialModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatCheckboxModule } from '@angular/material/checkbox';\nimport { MatIconModule } from '@angular/material/icon';\nimport { MatSidenavModule } from '@angular/material/sidenav';\nimport { MatToolbarModule } from '@angular/material/toolbar';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\nimport { MatSelectModule } from '@angular/material/select';\nimport { MatDatepickerModule } from '@angular/material/datepicker';\nimport { MatNativeDateModule } from '@angular/material/core';\nimport { MatTableModule } from '@angular/material/table';\nimport { MatBadgeModule } from '@angular/material/badge';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    MatFormFieldModule,\n    MatInputModule,\n    MatButtonModule,\n    MatCheckboxModule,\n    MatIconModule,\n    MatSidenavModule,\n    MatToolbarModule,\n    FlexLayoutModule,\n    MatProgressSpinnerModule,\n    MatSelectModule,\n    MatDatepickerModule,\n    MatNativeDateModule,\n    MatTableModule,\n    MatBadgeModule\n  ],\n  exports: [\n    MatFormFieldModule,\n    MatInputModule,\n    MatButtonModule,\n    MatCheckboxModule,\n    MatIconModule,\n    MatSidenavModule,\n    MatToolbarModule,\n    FlexLayoutModule,\n    MatProgressSpinnerModule,\n    MatSelectModule,\n    MatDatepickerModule,\n    MatNativeDateModule,\n    MatTableModule,\n    MatBadgeModule,\n  ],\n})\nexport class MaterialModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -7184,13 +7483,13 @@
         },
         {
             "name": "SuperiorModule",
-            "id": "module-SuperiorModule-a0feed84b93138f0d2e0adb6c59150b3784c09816ec8220592b17c10d3ee9fc8c2abf18e50882dcd501c4441e457e6e4f7db0ab461afa6d7150825786c11d1e0",
+            "id": "module-SuperiorModule-40f4dcb1ad901f066a9fcc7fc48531ea462f165668e7885ed66675b51fafa64de99b65463d47a04f7e154ed62fe6152d27abf1c7a012ca771e3109112790020c",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/superior/superior.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { NewUserComponent } from './pages/new-user/new-user.component';\nimport { SuperiorRoutingModule } from './superior-routing.module';\nimport { MaterialModule } from '../material/material.module';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport { HttpClientModule } from '@angular/common/http';\nimport { TrainingComponent } from '../commons/pages/training/training.component';\nimport { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';\nimport { RoomComponent } from './pages/room/room.component';\nimport { Fit4BitCommonsModule } from '../commons/commons.module';\nimport { AuthGuardSuperior } from '../commons/guards/superior-guard';\nimport { ReviewComponent } from './pages/review/review.component';\nimport { PayrollReviewItemCardComponent } from './pages/review/payroll-review-item-card/payroll-review-item-card.component';\n\n@NgModule({\n  declarations: [\n    NewUserComponent,\n    TrainingComponent,\n    NewTraininTypComponent,\n    RoomComponent,\n    ReviewComponent,\n    PayrollReviewItemCardComponent,\n  ],\n  imports: [\n    CommonModule,\n    SuperiorRoutingModule,\n    MaterialModule,\n    ReactiveFormsModule,\n    HttpClientModule,\n    Fit4BitCommonsModule,\n  ],\n  exports: [NewUserComponent, TrainingComponent, NewTraininTypComponent],\n  providers: [AuthGuardSuperior],\n})\nexport class SuperiorModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { NewUserComponent } from './pages/new-user/new-user.component';\nimport { SuperiorRoutingModule } from './superior-routing.module';\nimport { MaterialModule } from '../material/material.module';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport { HttpClientModule } from '@angular/common/http';\nimport { TrainingComponent } from './pages/training/training.component';\nimport { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';\nimport { RoomComponent } from './pages/room/room.component';\nimport { Fit4BitCommonsModule } from '../commons/commons.module';\nimport { AuthGuardSuperior } from '../commons/guards/superior-guard';\nimport { ReviewComponent } from './pages/review/review.component';\nimport { PayrollReviewItemCardComponent } from './pages/review/payroll-review-item-card/payroll-review-item-card.component';\n\n@NgModule({\n  declarations: [\n    NewUserComponent,\n    TrainingComponent,\n    NewTraininTypComponent,\n    RoomComponent,\n    ReviewComponent,\n    PayrollReviewItemCardComponent,\n  ],\n  imports: [\n    CommonModule,\n    SuperiorRoutingModule,\n    MaterialModule,\n    ReactiveFormsModule,\n    HttpClientModule,\n    Fit4BitCommonsModule,\n  ],\n  exports: [NewUserComponent, TrainingComponent, NewTraininTypComponent],\n  providers: [AuthGuardSuperior],\n})\nexport class SuperiorModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -7259,13 +7558,13 @@
         },
         {
             "name": "SuperiorRoutingModule",
-            "id": "module-SuperiorRoutingModule-883d70352db2ab672c243a5f1b056bc9c435b64f84a694b01450bc928c15f492eb8bbccf42c9be6a8f73ea2ca188fff630a1e3bbaae3d34cd435bf20c508f978",
+            "id": "module-SuperiorRoutingModule-1d1c7eda4b56024384e7cfc82cb024d3cfed4869b6736efacca5bc0cd283a121f8452248933d5a213ea7bb3d24601d8eefe16516d82d40464b1354e004cde30e",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/superior/superior-routing.module.ts",
             "methods": [],
-            "sourceCode": "import { RoomComponent } from './pages/room/room.component';\nimport { TrainingComponent } from '../commons/pages/training/training.component';\nimport { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';\nimport { NewUserComponent } from './pages/new-user/new-user.component';\nimport { NgModule } from '@angular/core';\nimport { Routes, RouterModule } from '@angular/router';\nimport { AuthGuardSuperior } from '../commons/guards/superior-guard';\nimport { ReviewComponent } from './pages/review/review.component';\n\nconst routes: Routes = [\n  {\n    path: 'newuser',\n    component: NewUserComponent,\n  },\n  {\n    path: 'newtrainingtyp',\n    component: NewTraininTypComponent,\n  },\n  {\n    path: 'newtraining',\n    component: TrainingComponent,\n  },\n  {\n    path: 'room',\n    component: RoomComponent,\n    canActivate: [AuthGuardSuperior],\n  },\n  {\n    path: 'review',\n    component: ReviewComponent,\n    canActivate: [AuthGuardSuperior],\n  },\n];\n\n@NgModule({\n  imports: [RouterModule.forChild(routes)],\n  exports: [RouterModule],\n})\nexport class SuperiorRoutingModule {}\n",
+            "sourceCode": "import { RoomComponent } from './pages/room/room.component';\nimport { TrainingComponent } from './pages/training/training.component';\nimport { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';\nimport { NewUserComponent } from './pages/new-user/new-user.component';\nimport { NgModule } from '@angular/core';\nimport { Routes, RouterModule } from '@angular/router';\nimport { AuthGuardSuperior } from '../commons/guards/superior-guard';\nimport { ReviewComponent } from './pages/review/review.component';\n\nconst routes: Routes = [\n  {\n    path: 'newuser',\n    component: NewUserComponent,\n    canActivate: [AuthGuardSuperior],\n  },\n  {\n    path: 'newtrainingtyp',\n    component: NewTraininTypComponent,\n    canActivate: [AuthGuardSuperior],\n  },\n  {\n    path: 'newtraining',\n    component: TrainingComponent,\n    canActivate: [AuthGuardSuperior],\n  },\n  {\n    path: 'room',\n    component: RoomComponent,\n    canActivate: [AuthGuardSuperior],\n  },\n  {\n    path: 'review',\n    component: ReviewComponent,\n    canActivate: [AuthGuardSuperior],\n  },\n];\n\n@NgModule({\n  imports: [RouterModule.forChild(routes)],\n  exports: [RouterModule],\n})\nexport class SuperiorRoutingModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -8103,15 +8402,24 @@
                                         "children": [
                                             {
                                                 "path": "newuser",
-                                                "component": "NewUserComponent"
+                                                "component": "NewUserComponent",
+                                                "canActivate": [
+                                                    "AuthGuardSuperior"
+                                                ]
                                             },
                                             {
                                                 "path": "newtrainingtyp",
-                                                "component": "NewTraininTypComponent"
+                                                "component": "NewTraininTypComponent",
+                                                "canActivate": [
+                                                    "AuthGuardSuperior"
+                                                ]
                                             },
                                             {
                                                 "path": "newtraining",
-                                                "component": "TrainingComponent"
+                                                "component": "TrainingComponent",
+                                                "canActivate": [
+                                                    "AuthGuardSuperior"
+                                                ]
                                             },
                                             {
                                                 "path": "room",
@@ -8159,15 +8467,6 @@
                 "name": "AppComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/commons/blank-slate-information/blank-slate-information.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "BlankSlateInformationComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -8315,10 +8614,10 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/commons/components/fit4bit-close-button/fit4bit-close-button.component.ts",
+                "filePath": "src/app/commons/components/close-button/close-button.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "Fit4bitCloseButtonComponent",
+                "name": "CloseButtonComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"
@@ -8330,6 +8629,15 @@
                 "name": "OverlayComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/commons/components/quantity-input/quantity-input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "QuantityInputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/19",
                 "status": "low"
             },
             {
@@ -8410,7 +8718,7 @@
                 "linktype": "interface",
                 "name": "UserDto",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -8500,7 +8808,7 @@
                 "linktype": "interface",
                 "name": "User",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -8519,15 +8827,6 @@
                 "name": "LoginComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/commons/pages/training/training.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "TrainingComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -8709,6 +9008,15 @@
                 "name": "RoomComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/superior/pages/training/training.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TrainingComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {

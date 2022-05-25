@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
-import { Fit4bitCloseButtonComponent } from './components/fit4bit-close-button/fit4bit-close-button.component';
+import { CloseButtonComponent } from './components/close-button/close-button.component';
 import { LoaderComponent } from './loader/loader.component';
 import { OverlayComponent } from './components/overlay/overlay.component';
 import { BackdropComponent } from './components/backdrop/backdrop.component';
@@ -20,7 +20,7 @@ import { QuantityInputComponent } from './components/quantity-input/quantity-inp
 
 @NgModule({
   declarations: [
-    Fit4bitCloseButtonComponent,
+    CloseButtonComponent,
     LoaderComponent,
     OverlayComponent,
     BackdropComponent,
@@ -46,7 +46,7 @@ import { QuantityInputComponent } from './components/quantity-input/quantity-inp
     ButtonComponent,
     MainContentContainerComponent,
     SnackBarComponent,
-    Fit4bitCloseButtonComponent,
+    CloseButtonComponent,
     BaseItemCardComponent,
     ChipsComponent,
     BubbleComponent,
