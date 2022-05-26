@@ -34,22 +34,26 @@
     >
   </div>
   <div>
-    <div class="menu-main-item" (click)="openMyMenu()">
-      <a routerLink="/">
+    <div class="menu-main-item" (click)="openMyMenu($event)">
         {{ user.username }}
-        <mat-icon>arrow_drop_down</mat-icon>
-      </a>
+        <mat-icon *ngIf="!myMenu">arrow_drop_down</mat-icon>
+      <mat-icon *ngIf="myMenu">arrow_drop_up</mat-icon>
+
     </div>
-    <div class="menu-sub-item" [class.clicked-item]="myMenu">
-      <fit4bit-submenu></fit4bit-submenu>
+    <div class="sub-items-container" [class.clicked-item]="myMenu">
+    <div class="menu-sub-item" >
+      <a routerLink="/" (click)="logout()">Ausloggen</a>
+    </div>
+      <div class="menu-sub-item" [class.clicked-item]="myMenu">
+        <a routerLink="/" (click)="logout()">Ausloggen</a>
+      </div>
     </div>
   </div>
-  <div><a routerLink="/" (click)="logout()">Ausloggen</a></div>
+
 </div>
 
 <ng-template #toLogin
-  ><a routerLink="login">Einloggen {{ myMenu }}</a></ng-template
+  ><a routerLink="login">Einloggen</a></ng-template
 >
 
-<fit4bit-backdrop *ngIf="backdropOpen" (closeEmitter)="closeAll()">
-</fit4bit-backdrop>
+

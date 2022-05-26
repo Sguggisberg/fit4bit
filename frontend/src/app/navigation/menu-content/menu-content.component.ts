@@ -34,8 +34,9 @@ export class MenuContentComponent implements OnInit {
     this.myMenu = false;
   }
 
-  public openMyMenu(): void {
+  public openMyMenu($event:Event): void {
+    $event.stopPropagation();
     this.backdropOpen = true;
-    this.myMenu = true;
+    this.myMenu = !this.myMenu;
   }
 }

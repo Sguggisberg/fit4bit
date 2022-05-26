@@ -1,6 +1,6 @@
 <fit4bit-backdrop (closeEmitter)="closeMe()"></fit4bit-backdrop>
 
-<div class="overlay" [class.open]="show" (click)="resetOverlayEmitter.emit()">
+<div class="overlay" [class.open]="show" (click)="closeIf($event)">
   <div class="head-overlay">
     <fit4bit-close-button (click)="closeMe()"></fit4bit-close-button>
   </div>
