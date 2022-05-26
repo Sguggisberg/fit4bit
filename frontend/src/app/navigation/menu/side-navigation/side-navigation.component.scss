@@ -1,6 +1,6 @@
-@import "breakpoints";
-@import "spaces.scss";
-@import "colors.scss";
+@import "src/app/styles/breakpoints";
+@import "src/app/styles/spaces";
+@import "src/app/styles/colors";
 
 .overlay {
   position: absolute;

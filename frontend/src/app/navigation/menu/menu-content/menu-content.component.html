@@ -39,6 +39,7 @@
       <mat-icon *ngIf="!myMenu">arrow_drop_down</mat-icon>
       <mat-icon *ngIf="myMenu">arrow_drop_up</mat-icon>
     </div>
+
     <div class="sub-items-container" [class.clicked-item]="myMenu">
       <div class="menu-sub-item">
         <a routerLink="/" (click)="logout()">Ausloggen</a>

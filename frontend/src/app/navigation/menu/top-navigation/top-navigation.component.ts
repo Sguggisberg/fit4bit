@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class TopNavigationComponent {
   public sideBarIsOpen = false;
+
+  public closeAll(): void {
+    this.sideBarIsOpen = false;
+  }
 }

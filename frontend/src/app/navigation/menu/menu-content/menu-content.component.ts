@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LocalStoreService } from '../../commons/service/jwt.service';
-import { SnackbarService } from '../../commons/service/snackbar.service';
-import { User } from '../../commons/models/user.model';
+import { LocalStoreService } from '../../../commons/service/jwt.service';
+import { SnackbarService } from '../../../commons/service/snackbar.service';
+import { User } from '../../../commons/models/user.model';
 
 @Component({
   selector: 'fit4bit-menu-content',
@@ -10,10 +10,11 @@ import { User } from '../../commons/models/user.model';
   styleUrls: ['./menu-content.component.scss'],
 })
 export class MenuContentComponent implements OnInit {
+  @Input()
+  public sideBarIsOpen: boolean;
+
   public user$: Observable<User | undefined>;
-  public sideBarIsOpen = false;
   public myMenu = false;
-  public backdropOpen = false;
 
   constructor(
     private localStoreService: LocalStoreService,
@@ -30,13 +31,11 @@ export class MenuContentComponent implements OnInit {
   }
 
   public closeAll(): void {
-    this.backdropOpen = false;
     this.myMenu = false;
   }
 
   public openMyMenu($event: Event): void {
     $event.stopPropagation();
-    this.backdropOpen = true;
     this.myMenu = !this.myMenu;
   }
 }
