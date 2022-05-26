@@ -55,7 +55,6 @@ div > mat-icon {
 }
 
 .menu-sub-item {
-
   color: white;
   cursor: pointer;
   background-color: black;
@@ -63,23 +62,20 @@ div > mat-icon {
   border-bottom: 1px white solid;
 
   @include mobile {
-    background-color:unset;
+    background-color: unset;
     padding-bottom: 5px;
   }
 }
 .sub-items-container {
   border-left: 5px $background-color-button solid;
-display: flex;
+  display: flex;
   flex-direction: column;
   border-radius: 0 0 8px 8px;
   width: 250px;
   visibility: hidden;
   position: absolute;
   z-index: 1;
-
 }
 .clicked-item {
   visibility: unset;
-
 }
-

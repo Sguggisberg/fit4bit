@@ -35,25 +35,19 @@
   </div>
   <div>
     <div class="menu-main-item" (click)="openMyMenu($event)">
-        {{ user.username }}
-        <mat-icon *ngIf="!myMenu">arrow_drop_down</mat-icon>
+      {{ user.username }}
+      <mat-icon *ngIf="!myMenu">arrow_drop_down</mat-icon>
       <mat-icon *ngIf="myMenu">arrow_drop_up</mat-icon>
-
     </div>
     <div class="sub-items-container" [class.clicked-item]="myMenu">
-    <div class="menu-sub-item" >
-      <a routerLink="/" (click)="logout()">Ausloggen</a>
-    </div>
+      <div class="menu-sub-item">
+        <a routerLink="/" (click)="logout()">Ausloggen</a>
+      </div>
       <div class="menu-sub-item" [class.clicked-item]="myMenu">
         <a routerLink="/" (click)="logout()">Ausloggen</a>
       </div>
     </div>
   </div>
-
 </div>
 
-<ng-template #toLogin
-  ><a routerLink="login">Einloggen</a></ng-template
->
-
-
+<ng-template #toLogin><a routerLink="login">Einloggen</a></ng-template>
