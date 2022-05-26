@@ -34,17 +34,17 @@
     >
   </div>
   <div>
-    <div class="menu-main-item" (click)="openMyMenu($event)">
+    <div class="menu-main-item" (click)="personalMenuOpen($event)">
       {{ user.username }}
-      <mat-icon *ngIf="!myMenu">arrow_drop_down</mat-icon>
-      <mat-icon *ngIf="myMenu">arrow_drop_up</mat-icon>
+      <mat-icon *ngIf="!personalMenuIsOpen">arrow_drop_down</mat-icon>
+      <mat-icon *ngIf="personalMenuIsOpen">arrow_drop_up</mat-icon>
     </div>
 
-    <div class="sub-items-container" [class.clicked-item]="myMenu">
+    <div class="sub-items-container" [class.clicked-item]="personalMenuIsOpen">
       <div class="menu-sub-item">
         <a routerLink="/" (click)="logout()">Ausloggen</a>
       </div>
-      <div class="menu-sub-item" [class.clicked-item]="myMenu">
+      <div class="menu-sub-item" [class.clicked-item]="personalMenuIsOpen">
         <a routerLink="/" (click)="logout()">Ausloggen</a>
       </div>
     </div>

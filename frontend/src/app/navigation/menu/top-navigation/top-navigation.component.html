@@ -8,6 +8,8 @@
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
     <fit4bit-menu-content
       [sideBarIsOpen]="sideBarIsOpen"
+      [personalMenuIsOpen]="personalMenuIsOpen"
+      (personalMenuEmitter)="personalMenuData($event)"
     ></fit4bit-menu-content>
   </div>
 </mat-toolbar>
@@ -16,7 +18,8 @@
   [showOverlay]="sideBarIsOpen"
   (resetOverlayEmitter)="closeAll()"
 ></fit4bit-side-navigation>
+
 <fit4bit-backdrop
-  *ngIf="sideBarIsOpen"
+  *ngIf="sideBarIsOpen || (!sideBarIsOpen && personalMenuIsOpen)"
   (closeEmitter)="closeAll()"
 ></fit4bit-backdrop>

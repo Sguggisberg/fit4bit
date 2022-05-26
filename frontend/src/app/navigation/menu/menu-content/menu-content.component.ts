@@ -1,4 +1,4 @@
-import { Component,  Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LocalStoreService } from '../../../commons/service/jwt.service';
 import { SnackbarService } from '../../../commons/service/snackbar.service';
@@ -13,8 +13,13 @@ export class MenuContentComponent implements OnInit {
   @Input()
   public sideBarIsOpen: boolean;
 
+  @Input()
+  public personalMenuIsOpen = false;
+
+  @Output() public personalMenuEmitter: EventEmitter<boolean> =
+    new EventEmitter();
+
   public user$: Observable<User | undefined>;
-  public myMenu = false;
 
   constructor(
     private localStoreService: LocalStoreService,
@@ -28,14 +33,17 @@ export class MenuContentComponent implements OnInit {
   public logout(): void {
     this.localStoreService.clear();
     this.snackbar.info({ text: 'Du bist ausgeloggt', typ: 'info' });
+    this.closeAll();
   }
 
-  public closeAll(): void {
-    this.myMenu = false;
-  }
-
-  public openMyMenu($event: Event): void {
+  public personalMenuOpen($event: Event): void {
     $event.stopPropagation();
-    this.myMenu = !this.myMenu;
+    this.personalMenuIsOpen = !this.personalMenuIsOpen;
+    this.personalMenuEmitter.emit(this.personalMenuIsOpen);
+  }
+
+  private closeAll(): void {
+    this.personalMenuIsOpen = false;
+    this.personalMenuEmitter.emit(this.personalMenuIsOpen);
   }
 }
