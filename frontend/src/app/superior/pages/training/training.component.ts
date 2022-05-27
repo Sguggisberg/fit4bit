@@ -6,7 +6,7 @@ import { TrainingService } from '../../../commons/service/training.service';
 import { RoomDto } from '../../../commons/dto/room-dto.model';
 import { RoomService } from '../../../commons/service/room.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { UserService } from '../../../commons/service/user.service';
 import { SnackbarService } from '../../../commons/service/snackbar.service';
 
@@ -32,13 +32,13 @@ export class TrainingComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      roomId: new FormControl(''),
-      trainingTypId: new FormControl(''),
-      userId: new FormControl(''),
-      startDate: new FormControl(''),
-      duration: new FormControl(''),
-      startHour: new FormControl(''),
-      startMinutes: new FormControl(''),
+      roomId: new FormControl('',[Validators.required]),
+      trainingTypId: new FormControl('', Validators.required),
+      userId: new FormControl('', Validators.required),
+      startDate: new FormControl('', Validators.required),
+      duration: new FormControl('', Validators.required),
+      startHour: new FormControl('', Validators.required),
+      startMinutes: new FormControl('', Validators.required),
     });
 
     let init = {

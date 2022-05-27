@@ -25,7 +25,7 @@ export class NewTraininTypComponent {
     this.image();
   }
 
-  create2() {
+  create():void {
     const newTrainingTyp: TrainingTypDto = this.profileForm.value;
     console.log('formData: ', this.profileForm);
     let formData = new FormData();
