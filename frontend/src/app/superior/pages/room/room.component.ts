@@ -1,7 +1,7 @@
-import { RoomDto } from '../../../commons/dto/room-dto.model';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RoomService } from 'src/app/commons/service/room.service';
+import {RoomDto} from '../../../commons/dto/room-dto.model';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {RoomService} from 'src/app/commons/service/room.service';
 import {SnackbarService} from "../../../commons/service/snackbar.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
@@ -14,7 +14,8 @@ export class RoomComponent implements OnInit {
   formGroup: FormGroup;
   file: File;
 
- public constructor(private roomService: RoomService, private snackbarService: SnackbarService) {}
+  public constructor(private roomService: RoomService, private snackbarService: SnackbarService) {
+  }
 
   public ngOnInit(): void {
     this.formGroup = new FormGroup({
@@ -22,15 +23,15 @@ export class RoomComponent implements OnInit {
     });
   }
 
-  public onFileSelected(event: any):void {
+  public onFileSelected(event: any): void {
     this.file = event.target.files[0];
   }
 
- public create(): void {
+  public create(): void {
     const newRoom: RoomDto = this.formGroup.value;
     this.roomService.create$(newRoom).subscribe(() => {
-      this.snackbarService.sendDataSaveOk();
-    },
+        this.snackbarService.sendDataSaveOk();
+      },
       (error: HttpErrorResponse) => {
         switch (error.status) {
           case 400:
@@ -39,10 +40,16 @@ export class RoomComponent implements OnInit {
               typ: 'error',
             });
             break;
+          case 409:
+            this.snackbarService.info({
+              text: 'Name bereits vorhanden!',
+              typ: 'error',
+            });
+            break;
           default:
             this.snackbarService.sendStandardNok();
         }
       }
-      );
+    );
   }
 }

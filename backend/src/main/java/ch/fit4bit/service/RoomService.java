@@ -1,6 +1,7 @@
 package ch.fit4bit.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class RoomService {
 	private static final Logger LOG = LoggerFactory.getLogger(RoomService.class);
 
-	private RoomRepository roomRepository;
+	private final RoomRepository roomRepository;
 
 	@Autowired
 	public RoomService(RoomRepository roomRepository) {
@@ -30,6 +31,12 @@ public class RoomService {
 
 	public List<Room> getAllRooms() {
 		return roomRepository.findAll();
+	}
+
+	public Room findByNameIgnoreCase(String name) {
+		Optional<Room> opt = roomRepository.findByNameIgnoreCase(name);
+		if (opt.isEmpty()) return null;
+		return opt.get();
 	}
 	
 }

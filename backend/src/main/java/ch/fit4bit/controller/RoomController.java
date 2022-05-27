@@ -2,6 +2,7 @@ package ch.fit4bit.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ch.fit4bit.dto.RoomDto;
 import ch.fit4bit.entity.Room;
 import ch.fit4bit.service.RoomService;
@@ -56,4 +52,17 @@ public class RoomController {
         }
         return allRoomsDto;
     }
+
+    @GetMapping("/{name}")
+    public ResponseEntity<RoomDto> findById(@PathVariable String name) {
+        Room room = roomService.findByNameIgnoreCase(name);
+        if (Objects.equals(room, null)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        RoomDto roomDto = new RoomDto();
+        roomDto.setName(room.getName());
+        roomDto.setId(room.getId());
+        return new ResponseEntity<>(roomDto, HttpStatus.OK);
+    }
+
 }

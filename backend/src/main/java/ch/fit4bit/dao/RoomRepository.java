@@ -14,4 +14,5 @@ import ch.fit4bit.entity.Room;
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
 	Optional<Room> findByNameIgnoreCase(String name);
+
 }
