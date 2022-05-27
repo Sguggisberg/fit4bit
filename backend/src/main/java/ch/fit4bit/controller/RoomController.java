@@ -57,7 +57,7 @@ public class RoomController {
     public ResponseEntity<RoomDto> findById(@PathVariable String name) {
         Room room = roomService.findByNameIgnoreCase(name);
         if (Objects.equals(room, null)) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(null,HttpStatus.OK);
         }
         RoomDto roomDto = new RoomDto();
         roomDto.setName(room.getName());

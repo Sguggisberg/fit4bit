@@ -21,7 +21,6 @@ import { MenuContentComponent } from './navigation/menu/menu-content/menu-conten
     HasRoleDirective,
     SideNavigationComponent,
     MenuContentComponent,
-
   ],
   imports: [
     HttpClientModule,

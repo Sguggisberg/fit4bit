@@ -17,7 +17,7 @@ export class NewUserComponent implements OnInit {
     private snackbarService: SnackbarService
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.profileForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
@@ -25,7 +25,7 @@ export class NewUserComponent implements OnInit {
     });
   }
 
-  create(): void {
+  public create(): void {
     const newUser = this.profileForm.value;
     this.userServiceService.create$(newUser).subscribe(
       () => {

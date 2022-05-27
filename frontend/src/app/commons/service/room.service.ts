@@ -1,7 +1,8 @@
 import { RoomDto } from 'src/app/commons/dto/room-dto.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseHttpService } from './base-http.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,5 +12,9 @@ export class RoomService extends BaseHttpService<RoomDto> {
 
   constructor(httpClient: HttpClient) {
     super(httpClient);
+  }
+
+  public findByNameIgnroreCase$(name: string): Observable<RoomDto> {
+    return this.httpClient.get(this.createBackendEndpoint() + '/' + name);
   }
 }

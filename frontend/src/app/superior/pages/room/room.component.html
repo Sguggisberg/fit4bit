@@ -7,12 +7,27 @@
       (ngSubmit)="create()"
     >
       <mat-form-field>
-        <mat-label for="name">Raumname</mat-label>
+        <mat-label >Raumname</mat-label>
         <input id="name" matInput type="text" formControlName="name" />
+        <mat-error *ngIf="formGroup.controls.name.hasError('roomExists')"
+          >Der Name ist bereits vergeben</mat-error
+        >
+        <mat-error *ngIf="formGroup.controls.name.hasError('required')"
+          >Du musst einen Name eingeben</mat-error
+        >
+        <mat-error *ngIf="formGroup.controls.name.hasError('pattern')"
+          >Erlaubt: Buchstabe, Zahlen, Leerzeichen.
+        </mat-error>
+        <mat-error *ngIf="formGroup.controls.name.hasError('minlength')"
+          >Das ist zu kurz</mat-error
+        >
+        <mat-error *ngIf="formGroup.controls.name.hasError('maxlength')"
+          >Das ist zu lang</mat-error
+        >
       </mat-form-field>
 
       <button
-        mat-raised-button
+        mat-stroked-button
         color="primary"
         type="submit"
         [disabled]="!formGroup.valid"
