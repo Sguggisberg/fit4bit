@@ -5,15 +5,15 @@ import java.io.Serializable;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
-import ch.fit4bit.utils.ValidatorHelper;
+import ch.fit4bit.security.DataValidatorHelper;
 
 
 public class RoomDto  implements Serializable {
 
 	private static final long serialVersionUID = 4508907237294878829L;
 	
-	@NotEmpty(message = ValidatorHelper.NAME_ERROR_MESSAGE)
-	@Pattern(regexp=ValidatorHelper.NAME_REGEX, message = ValidatorHelper.NAME_ERROR_MESSAGE)
+	@NotEmpty()
+	@Pattern(regexp = DataValidatorHelper.NAME_REGEX)
 	private String name;
 	
 	private Long id;

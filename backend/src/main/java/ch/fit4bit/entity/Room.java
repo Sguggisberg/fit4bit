@@ -1,5 +1,7 @@
 package ch.fit4bit.entity;
 
+import ch.fit4bit.security.DataValidatorHelper;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -7,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Room  implements Serializable  {
@@ -17,6 +20,8 @@ public class Room  implements Serializable  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Pattern(regexp = DataValidatorHelper.NAME_REGEX)
+	@Column(unique=true)
 	private String name;
 	
 	private String imageName;
