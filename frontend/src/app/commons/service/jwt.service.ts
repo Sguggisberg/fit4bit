@@ -4,12 +4,15 @@ import { BehaviorSubject } from 'rxjs';
 import { JwtToken, DecodedJwtTokenData } from '../models/jwt-token.model';
 import { User } from '../models/user.model';
 import { Roles } from '../models/role.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStoreService {
   public user$ = new BehaviorSubject<User | undefined>(undefined);
+
+  constructor(private router: Router) {}
 
   public storeJwt(jwt: JwtToken): void {
     localStorage.setItem('token', jwt.token);
@@ -29,6 +32,11 @@ export class LocalStoreService {
     jwtToken = {
       token: obj,
     };
+
+    if (LocalStoreService.tokenExpired(jwtToken.token)) {
+      this.clear();
+      this.router.navigateByUrl('/login');
+    }
 
     return jwtToken;
   }
@@ -57,5 +65,10 @@ export class LocalStoreService {
       username: decodedToken.sub,
       roles: decodedToken.Roles,
     };
+  }
+
+  private static tokenExpired(token: string): boolean {
+    const expiry = JSON.parse(atob(token.split('.')[1])).exp;
+    return Math.floor(new Date().getTime() / 1000) >= expiry;
   }
 }
