@@ -7,7 +7,7 @@
       (ngSubmit)="create()"
     >
       <mat-form-field>
-        <mat-label >Raumname</mat-label>
+        <mat-label>Raumname</mat-label>
         <input id="name" matInput type="text" formControlName="name" />
         <mat-error *ngIf="formGroup.controls.name.hasError('roomExists')"
           >Der Name ist bereits vergeben</mat-error

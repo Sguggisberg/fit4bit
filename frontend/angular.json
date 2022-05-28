@@ -91,9 +91,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "./src/app/styles"
-              ]
+              "includePaths": ["./src/app/styles"]
             },
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",

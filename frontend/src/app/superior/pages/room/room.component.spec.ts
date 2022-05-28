@@ -2,9 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RoomComponent } from './room.component';
 import { RoomService } from '../../../commons/service/room.service';
-import {
-  HttpClientTestingModule,
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RoomComponent', () => {
   let component: RoomComponent;
