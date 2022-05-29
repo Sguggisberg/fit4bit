@@ -46,6 +46,7 @@ export class RoomComponent implements OnInit {
   public onFileSelected(event: any): void {
     this.file = event.target.files[0];
   }
+// https://angular.de/artikel/angular-testing/
 
   public create(): void {
     const newRoom: RoomDto = this.formGroup.value;
