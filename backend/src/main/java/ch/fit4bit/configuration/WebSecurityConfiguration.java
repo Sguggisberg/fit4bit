@@ -37,9 +37,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        // configure AuthenticationManager so that it knows from where to load
-        // user for matching credentials
-        // Use BCryptPasswordEncoder
         auth.userDetailsService(jwtUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
@@ -48,8 +45,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
-
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -64,7 +59,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 // dont authenticate this particular request
                 .authorizeRequests().antMatchers("/api/authenticate").permitAll()
 
-                .and().authorizeRequests().antMatchers("/**").permitAll().
+                .and().authorizeRequests().antMatchers("/").permitAll().
 // all other requests need to be authenticated
         anyRequest().authenticated().and().
 // make sure we use stateless session; session won't be used to
