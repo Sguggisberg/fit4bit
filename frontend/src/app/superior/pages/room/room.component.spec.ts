@@ -1,81 +1,113 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RoomComponent } from './room.component';
-import {RoomService} from "../../../commons/service/room.service";
-import {HttpClient} from "@angular/common/http";
-import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
-import {SnackbarService} from "../../../commons/service/snackbar.service";
+import { RoomService } from '../../../commons/service/room.service';
+import { SnackbarService } from '../../../commons/service/snackbar.service';
+import { anything, instance, mock, when } from 'ts-mockito';
+import { of } from 'rxjs';
 
 describe('RoomComponent', () => {
-  let httpClient: HttpClient;
-  let httpTestingController: HttpTestingController;
   let component: RoomComponent;
-  let fixture: ComponentFixture<RoomComponent>;
   let roomService: RoomService;
   let snackbarService: SnackbarService;
 
-  beforeEach( () => {
-     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      providers: [
-        RoomService,SnackbarService
-
-      ]
-    });
-
-    // https://testing-angular.com/testing-complex-forms/
-    // https://simpleweblearning.com/form-testing-in-angular/
-    // https://chariotsolutions.com/blog/post/testing-angular-2-0-x-services-http-jasmine-karma/
-     httpClient = TestBed.inject(HttpClient);
-    httpTestingController = TestBed.inject(HttpTestingController);
-    roomService = TestBed.inject(RoomService);
-    snackbarService = TestBed.inject(SnackbarService);
-    fixture = TestBed.createComponent(RoomComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    snackbarService = mock(SnackbarService);
+    roomService = mock(RoomService);
+    component = new RoomComponent(
+      instance(roomService),
+      instance(snackbarService)
+    );
     component.ngOnInit();
   });
 
   it('form invalid when empty', () => {
+    // arrange
+    when(roomService.findByNameIgnroreCase$(anything())).thenReturn(of(null));
+
+    // act
     component.formGroup.controls.name.setValue('');
+
+    //assert
     expect(component.formGroup.valid).toBeFalsy();
   });
 
   it('form invalid when input to short', () => {
+    // arrange
+    when(roomService.findByNameIgnroreCase$(anything())).thenReturn(of(null));
+
+    //act
     component.formGroup.controls.name.setValue('aa');
+
+    //assert
     expect(component.formGroup.valid).toBeFalsy();
   });
 
   it('form invalid when input to long', () => {
-    component.formGroup.controls.name.setValue('012345678901234567890123456789X');
+    // arrange
+    when(roomService.findByNameIgnroreCase$(anything())).thenReturn(of(null));
+
+    // act
+    component.formGroup.controls.name.setValue(
+      '012345678901234567890123456789X'
+    );
+
+    // assert
     expect(component.formGroup.valid).toBeFalsy();
   });
 
   it('form valid when input ok', () => {
+    // arrange
+    when(roomService.findByNameIgnroreCase$(anything())).thenReturn(of(null));
+
+    // act
     component.formGroup.controls.name.setValue('abc');
+
+    //assert
     expect(component.formGroup.valid).toBeTruthy();
   });
 
   it('form invalid when input regex nok', () => {
+    // arrange
+    when(roomService.findByNameIgnroreCase$(anything())).thenReturn(of(null));
+
+    // act
     component.formGroup.controls.name.setValue('abc&&');
+
+    // assert
     expect(component.formGroup.valid).toBeFalsy();
   });
 
   it('form invalid when input regex nok', () => {
+    // arrange
+    when(roomService.findByNameIgnroreCase$(anything())).thenReturn(of(null));
+
+    // act
     component.formGroup.controls.name.setValue('** 1=1');
+
+    // assert
     expect(component.formGroup.valid).toBeFalsy();
   });
 
-  it('should test form validity', () => {
-    const form = component.formGroup;
-    //expect(service.findByNameIgnroreCase$('abc').subscribe()).toBe(true);
+  it('form invalid when Room already exist', () => {
+    // arrange
+    when(roomService.findByNameIgnroreCase$(anything())).thenReturn(
+      of({ name: 'red', id: 2 })
+    );
 
-    expect(form.valid).toBeFalsy();
+    // act
+    component.formGroup.controls.name.setValue('red');
 
-    const nameInput = form.controls.name;
-    nameInput.setValue('abc');
+    //assert
+    expect(component.formGroup.valid).toBeFalsy();
+  });
 
-    expect(form.valid).toBeTruthy();
-  })
+  it('form valid when Room not already exist', () => {
+    // arrange
+    when(roomService.findByNameIgnroreCase$(anything())).thenReturn(of(null));
 
+    // act
+    component.formGroup.controls.name.setValue('red');
+
+    //assert
+    expect(component.formGroup.valid).toBeTrue();
+  });
 });

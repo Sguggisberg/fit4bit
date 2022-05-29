@@ -14,7 +14,7 @@ export class RoomService extends BaseHttpService<RoomDto> {
     super(httpClient);
   }
 
-  public findByNameIgnroreCase$(name: string): Observable<RoomDto> {
+  public findByNameIgnroreCase$(name: string): Observable<RoomDto | null> {
     return this.httpClient.get(this.createBackendEndpoint() + '/' + name);
   }
 }
