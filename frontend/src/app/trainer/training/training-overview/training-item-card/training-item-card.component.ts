@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TrainingDto } from '../../../../commons/dto/training-dto.model';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TrainingService } from '../../../../commons/service/training.service';
 import { SnackbarService } from '../../../../commons/service/snackbar.service';
 
@@ -10,7 +10,7 @@ import { SnackbarService } from '../../../../commons/service/snackbar.service';
   styleUrls: ['./training-item-card.component.scss'],
 })
 export class TrainingItemCardComponent implements OnInit {
-  public profileForm: FormGroup;
+  public formGroup: FormGroup;
 
   @Input()
   public training: TrainingDto;
@@ -21,20 +21,21 @@ export class TrainingItemCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.profileForm = new FormGroup({
-      amountOfCustomer: new FormControl(),
-    });
-    this.profileForm.setValue({
-      amountOfCustomer: this.training.amountOfCustomer,
+    this.formGroup = new FormGroup({
+      amountOfCustomer: new FormControl(this.training.amountOfCustomer, [
+        Validators.required,
+        Validators.min(0),
+        Validators.max(99),
+      ]),
     });
   }
 
   public save(): void {
-    this.training.amountOfCustomer = this.profileForm.value.amountOfCustomer;
+    this.training.amountOfCustomer = this.formGroup.value.amountOfCustomer;
     this.trainingService.patch$(this.training).subscribe(
       () => {
         this.snackbar.sendDataSaveOk();
-        this.profileForm.setValue({
+        this.formGroup.setValue({
           amountOfCustomer: this.training.amountOfCustomer,
         });
       },
@@ -42,6 +43,6 @@ export class TrainingItemCardComponent implements OnInit {
         this.snackbar.sendStandardNok();
       }
     );
-    this.profileForm.reset();
+    this.formGroup.reset();
   }
 }

@@ -60,7 +60,6 @@ public class TrainingController {
     }
 
     @GetMapping
-    //@PreAuthorize("hasAnyAuthority('ROLE_SUPERIOR')")
     public ResponseEntity<List<TrainingDTO>> getAll() {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
         List<Training> allTrainings = trainingService.getAllTraining();

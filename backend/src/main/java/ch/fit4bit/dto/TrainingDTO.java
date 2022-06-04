@@ -7,6 +7,9 @@ import ch.fit4bit.entity.Payroll;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TrainingDTO implements Serializable {
 
@@ -29,6 +32,8 @@ public class TrainingDTO implements Serializable {
 
     private int duration;
 
+    @Max(99)
+    @Min(1)
     private int amountOfCustomer;
 
     public Long getId() {

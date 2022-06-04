@@ -3,6 +3,8 @@ package ch.fit4bit.entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -50,6 +52,8 @@ public class Training implements Serializable {
 
 	private LocalDateTime runningDate;
 
+	@Max(99)
+	@Min(0)
 	private int amountOfCustomer;
 
 	private int duration;

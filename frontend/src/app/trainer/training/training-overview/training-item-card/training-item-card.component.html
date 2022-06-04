@@ -13,22 +13,34 @@
       <div fxHide.lt-sm>Raum: {{ training?.room?.name }}</div>
     </div>
 
-    <form [formGroup]="profileForm" (ngSubmit)="save()">
+    <form [formGroup]="formGroup" (ngSubmit)="save()">
       <div class="input-field">
         <mat-form-field>
           <mat-label for="amountOfCustomer">Anzahl Kunden erfassen</mat-label>
           <input
             id="amountOfCustomer"
             matInput
-            type="text"
+            type="number"
             formControlName="amountOfCustomer"
           />
+          <mat-error
+            *ngIf="formGroup.controls.amountOfCustomer.hasError('required')"
+            >Der Wert darf nicht leer sein</mat-error
+          >
+          <mat-error *ngIf="formGroup.controls.amountOfCustomer.hasError('min')"
+            >Mindest Wert 0</mat-error
+          >
+          <mat-error *ngIf="formGroup.controls.amountOfCustomer.hasError('max')"
+            >Max Wert 99</mat-error
+          >
+          <mat-hint>Wert zwischen 0-99</mat-hint>
         </mat-form-field>
         <button
+          class="cy-button-save"
           mat-stroked-button
           color="primary"
           type="submit"
-          [disabled]="!profileForm.dirty"
+          [disabled]="!(formGroup.dirty && formGroup.valid)"
         >
           Speichern
         </button>
