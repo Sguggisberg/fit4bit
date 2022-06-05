@@ -1,31 +1,50 @@
 <div *ngIf="user$ | async as user; else toLogin" class="items-container">
   <div>
-    <a routerLink="superior/newuser" *fit4bitHasRole="['ROLE_SUPERIOR']"
+    <a
+      routerLink="superior/newuser"
+      id="cy-navigation-item-new-user-link"
+      *fit4bitHasRole="['ROLE_SUPERIOR']"
       >Person erstellen</a
     >
   </div>
 
   <div>
-    <a routerLink="superior/room" *fit4bitHasRole="['ROLE_SUPERIOR']">Raum</a>
+    <a
+      routerLink="superior/room"
+      id="cy-navigation-item-new-room-link"
+      *fit4bitHasRole="['ROLE_SUPERIOR']"
+      >Raum</a
+    >
   </div>
   <div>
-    <a routerLink="superior/review" *fit4bitHasRole="['ROLE_SUPERIOR']"
+    <a
+      routerLink="superior/review"
+      id="cy-navigation-item-review-link"
+      *fit4bitHasRole="['ROLE_SUPERIOR']"
       >Review</a
     >
   </div>
   <div>
-    <a routerLink="superior/newtrainingtyp" *fit4bitHasRole="['ROLE_SUPERIOR']">
+    <a
+      routerLink="superior/newtrainingtyp"
+      id="cy-navigation-item-new-training-typ-link"
+      *fit4bitHasRole="['ROLE_SUPERIOR']"
+    >
       Neuer Trainings Typ
     </a>
   </div>
   <div>
-    <a routerLink="superior/newtraining" *fit4bitHasRole="['ROLE_SUPERIOR']">
+    <a
+      routerLink="superior/newtraining"
+      id="cy-navigation-item-new-training-link"
+      *fit4bitHasRole="['ROLE_SUPERIOR']"
+    >
       Neues Training
     </a>
   </div>
   <div>
     <a
-      id="cy-link-your-training"
+      id="cy-navigation-item-your-training-link"
       routerLink="trainer/overview"
       *fit4bitHasRole="['ROLE_TRAINER']"
     >
@@ -33,28 +52,40 @@
     >
   </div>
   <div>
-    <a routerLink="trainer/payroll" *fit4bitHasRole="['ROLE_TRAINER']">
+    <a
+      routerLink="trainer/payroll"
+      id="cy-navigation-item-payroll-link"
+      *fit4bitHasRole="['ROLE_TRAINER']"
+    >
       Monatsabrechnung</a
     >
   </div>
   <div>
-    <div class="menu-main-item" (click)="personalMenuOpen($event)">
+    <div
+      class="menu-main-item"
+      id="cy-navigation-item-personal-menu-link"
+      (click)="personalMenuOpen($event)"
+    >
       {{ user.username }}
       <mat-icon *ngIf="!personalMenuIsOpen">arrow_drop_down</mat-icon>
       <mat-icon *ngIf="personalMenuIsOpen">arrow_drop_up</mat-icon>
     </div>
 
     <div class="sub-items-container" [class.clicked-item]="personalMenuIsOpen">
-      <div class="menu-sub-item">
-        <a routerLink="/" (click)="logout()">Ausloggen</a>
-      </div>
       <div class="menu-sub-item" [class.clicked-item]="personalMenuIsOpen">
-        <a routerLink="/" (click)="logout()">Ausloggen</a>
+        <a
+          routerLink="/"
+          id="cy-navigation-item-personal-logout-link"
+          (click)="logout()"
+          >Ausloggen</a
+        >
       </div>
     </div>
   </div>
 </div>
 
 <ng-template #toLogin
-  ><a id="cy-login-button" routerLink="login">Einloggen</a></ng-template
+  ><a id="cy-navigation-item-login-link" routerLink="login"
+    >Einloggen</a
+  ></ng-template
 >
