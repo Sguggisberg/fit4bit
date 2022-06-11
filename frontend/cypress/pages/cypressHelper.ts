@@ -34,12 +34,13 @@ export const Navigation = {
     Navigation.goToLoginPage();
     Navigation.enterLoginDataTrainer();
     CypressHelper.clickLogin();
+    cy.wait(1000);
   },
   logout() {
     cy.wait(1000);
     cy.get('#cy-navigation-item-personal-menu-link').click();
     cy.get('#cy-navigation-item-personal-logout-link').click();
-    cy.wait(5000);
+    cy.wait(1000);
   },
   verifyTrainingNavigationNotExist() {
     cy.get('#cy-navigation-item-payroll-link').should('not.exist');
