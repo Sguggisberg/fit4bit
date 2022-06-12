@@ -6,19 +6,24 @@ export const CypressHelper = {
 
 export const Navigation = {
   verifyLoginItemExist() {
+    cy.wait(1000);
     cy.get('#cy-navigation-item-login-link').should('exist');
   },
   verifyLoginItemNotExist() {
+    cy.wait(1000);
     cy.get('#cy-navigation-item-login-link').should('not.exist');
   },
   goToOverviewTrainingPage() {
+    cy.wait(1000);
     cy.get('#cy-navigation-item-your-training-link').click();
   },
   verifyRouteTrainingOverview() {
+    cy.wait(1000);
     cy.url().should('include', '/trainer/overview');
   },
 
   goToLoginPage() {
+    cy.wait(1000);
     cy.visit('http://localhost:4200/');
     cy.get('#cy-navigation-item-login-link').click();
   },
@@ -31,6 +36,7 @@ export const Navigation = {
     cy.get('#password').type('123456');
   },
   loginAsTrainer() {
+    cy.wait(1000);
     Navigation.goToLoginPage();
     Navigation.enterLoginDataTrainer();
     CypressHelper.clickLogin();

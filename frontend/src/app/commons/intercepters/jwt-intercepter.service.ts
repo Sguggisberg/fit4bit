@@ -9,9 +9,7 @@ import { Observable } from 'rxjs';
 import { JwtToken } from '../models/jwt-token.model';
 import { LocalStoreService } from '../service/jwt.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class JwtIntercepterService implements HttpInterceptor {
   constructor(private localStoreService: LocalStoreService) {}
 
