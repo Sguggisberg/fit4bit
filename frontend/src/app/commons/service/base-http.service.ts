@@ -23,10 +23,6 @@ export abstract class BaseHttpService<T> {
     });
   }
 
-  public createFromFormData$(formData: FormData): Observable<any> {
-    return this.httpClient.post(this.createBackendEndpoint(), formData);
-  }
-
   public getAll$(): Observable<T[]> {
     return this.httpClient.get<any>(this.createBackendEndpoint());
   }
@@ -35,13 +31,4 @@ export abstract class BaseHttpService<T> {
     return `${environment.BACKEND_URL}${this.path}`;
   }
 
-  uploadImage$(file: File): Observable<any> {
-    const formData = new FormData();
-    formData.append('file', file, file.name);
-    formData.append('id', '1');
-    return this.httpClient.post(
-      this.createBackendEndpoint() + '/image',
-      formData
-    );
-  }
 }

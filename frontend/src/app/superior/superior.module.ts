@@ -6,7 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TrainingComponent } from './pages/training/training.component';
-import { NewTraininTypComponent } from './pages/new-trainin-typ/new-trainin-typ.component';
+import { NewTrainingTypComponent } from './pages/new-training-typ/new-training-typ.component';
 import { RoomComponent } from './pages/room/room.component';
 import { Fit4BitCommonsModule } from '../commons/commons.module';
 import { AuthGuardSuperior } from '../commons/guards/superior-guard';
@@ -17,7 +17,7 @@ import { PayrollReviewItemCardComponent } from './pages/review/payroll-review-it
   declarations: [
     NewUserComponent,
     TrainingComponent,
-    NewTraininTypComponent,
+    NewTrainingTypComponent,
     RoomComponent,
     ReviewComponent,
     PayrollReviewItemCardComponent,
@@ -30,7 +30,7 @@ import { PayrollReviewItemCardComponent } from './pages/review/payroll-review-it
     HttpClientModule,
     Fit4BitCommonsModule,
   ],
-  exports: [NewUserComponent, TrainingComponent, NewTraininTypComponent],
+  exports: [NewUserComponent, TrainingComponent, NewTrainingTypComponent],
   providers: [AuthGuardSuperior],
 })
 export class SuperiorModule {}

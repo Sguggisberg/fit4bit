@@ -21,7 +21,6 @@ import { map } from 'rxjs/operators';
 })
 export class RoomComponent implements OnInit {
   public formGroup: FormGroup;
-  public file: File;
   public regex: string | RegExp = '[\\w\\d]*';
   public constructor(
     private roomService: RoomService,
@@ -41,10 +40,6 @@ export class RoomComponent implements OnInit {
         this.usernameValidator()
       ),
     });
-  }
-
-  public onFileSelected(event: any): void {
-    this.file = event.target.files[0];
   }
 
   public create(): void {

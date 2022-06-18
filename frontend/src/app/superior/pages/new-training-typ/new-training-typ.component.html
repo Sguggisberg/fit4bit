@@ -11,18 +11,6 @@
         <input id="name" matInput type="text" formControlName="name" />
       </mat-form-field>
 
-      <div class="hint">
-        <button
-          mat-mini-fab
-          color="primary"
-          class="upload-btn"
-          (click)="fileUpload.click()"
-        >
-          <mat-icon>image</mat-icon>
-        </button>
-        <p>Hier kannst du noch ein Bild hochladen.</p>
-      </div>
-
       <button
         mat-raised-button
         color="primary"
@@ -35,14 +23,4 @@
     </form>
   </section>
 
-  <input
-    type="file"
-    class="file-input"
-    (change)="onUpload($event)"
-    #fileUpload
-  />
-
-  <div *ngIf="retrievedImage">
-    <img [src]="retrievedImage" alt="Trainingsbild" />
-  </div>
 </fit4bit-main-content-container>
