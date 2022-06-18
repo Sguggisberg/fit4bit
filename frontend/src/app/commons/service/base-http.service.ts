@@ -30,5 +30,4 @@ export abstract class BaseHttpService<T> {
   protected createBackendEndpoint(): string {
     return `${environment.BACKEND_URL}${this.path}`;
   }
-
 }

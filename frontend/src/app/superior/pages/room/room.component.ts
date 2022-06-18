@@ -13,6 +13,7 @@ import { SnackbarService } from '../../../commons/service/snackbar.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { standardFormRegex } from '../constants';
 
 @Component({
   selector: 'fit4bit-room',
@@ -21,7 +22,6 @@ import { map } from 'rxjs/operators';
 })
 export class RoomComponent implements OnInit {
   public formGroup: FormGroup;
-  public regex: string | RegExp = '[\\w\\d]*';
   public constructor(
     private roomService: RoomService,
     private snackbarService: SnackbarService
@@ -35,7 +35,7 @@ export class RoomComponent implements OnInit {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(30),
-          Validators.pattern(this.regex),
+          Validators.pattern(standardFormRegex),
         ],
         this.usernameValidator()
       ),

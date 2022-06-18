@@ -3,6 +3,7 @@ package ch.fit4bit.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import ch.fit4bit.dto.TrainingTypDTO;
-import ch.fit4bit.dto.TrainingTypImageDto;
 import ch.fit4bit.entity.TrainingTyp;
 import ch.fit4bit.service.TrainingTypService;
 
@@ -27,8 +27,8 @@ import ch.fit4bit.service.TrainingTypService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TrainingTypController {
 
-	private TrainingTypService trainingTypService;
-	private ModelMapper modelMapper;
+	private final TrainingTypService trainingTypService;
+	private final ModelMapper modelMapper;
 
 	@Autowired
 	public TrainingTypController(TrainingTypService trainingTypService, ModelMapper modelMapper) {
@@ -61,14 +61,16 @@ public class TrainingTypController {
 		return allRoomsDto;
 	}
 
-	@GetMapping("/image/{id}")
-	public TrainingTypImageDto loadImage(@PathVariable Long id) {
-		TrainingTyp t = trainingTypService.getTrainingTypById(id);
-		TrainingTypImageDto trainingTypImageDto = new TrainingTypImageDto();
-		trainingTypImageDto.setId(t.getId());
-		trainingTypImageDto.setImage(t.getImage());
-		return trainingTypImageDto;
-
+	@GetMapping("/{name}")
+	public ResponseEntity<TrainingTypDTO> findById(@PathVariable String name) {
+		TrainingTyp trainingTyp = trainingTypService.findByNameIgnoreCase(name);
+		if (Objects.equals(trainingTyp, null)) {
+			return new ResponseEntity<>(null,HttpStatus.OK);
+		}
+		TrainingTypDTO trainingTypDTO = new TrainingTypDTO();
+		trainingTypDTO.setName(trainingTyp.getName());
+		trainingTypDTO.setId(trainingTyp.getId());
+		return new ResponseEntity<>(trainingTypDTO, HttpStatus.OK);
 	}
 
 }
