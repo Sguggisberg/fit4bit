@@ -14,11 +14,35 @@
           type="text"
           formControlName="firstName"
         />
+        <mat-error *ngIf="profileForm.controls.firstName.hasError('required')"
+          >Du musst einen Name eingeben</mat-error
+        >
+        <mat-error *ngIf="profileForm.controls.firstName.hasError('pattern')"
+          >Erlaubt: Buchstabe, Zahlen, Leerzeichen.
+        </mat-error>
+        <mat-error *ngIf="profileForm.controls.firstName.hasError('minlength')"
+          >Das ist zu kurz</mat-error
+        >
+        <mat-error *ngIf="profileForm.controls.firstName.hasError('maxlength')"
+          >Das ist zu lang</mat-error
+        >
       </mat-form-field>
 
       <mat-form-field>
         <mat-label for="lastName">Nachname</mat-label>
         <input id="lastName" matInput type="text" formControlName="lastName" />
+        <mat-error *ngIf="profileForm.controls.lastName.hasError('required')"
+          >Du musst einen Name eingeben</mat-error
+        >
+        <mat-error *ngIf="profileForm.controls.lastName.hasError('pattern')"
+          >Erlaubt: Buchstabe, Zahlen, Leerzeichen.
+        </mat-error>
+        <mat-error *ngIf="profileForm.controls.lastName.hasError('minlength')"
+          >Das ist zu kurz</mat-error
+        >
+        <mat-error *ngIf="profileForm.controls.lastName.hasError('maxlength')"
+          >Das ist zu lang</mat-error
+        >
       </mat-form-field>
 
       <mat-form-field>

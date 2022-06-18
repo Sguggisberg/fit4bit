@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { NewTrainingTypComponent } from './new-training-typ.component';
 import { TrainingTypService } from '../../service/training-typ.service';
 
-describe('RoomComponent', () => {
+describe('NewTrainingTypComponent', () => {
   let component: NewTrainingTypComponent;
   let trainingTypService: TrainingTypService;
   let snackbarService: SnackbarService;

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/commons/service/user.service';
 import { SnackbarService } from '../../../commons/service/snackbar.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { standardFormRegex } from '../constants';
 
 @Component({
   selector: 'fit4bit-new-user',
@@ -19,8 +20,18 @@ export class NewUserComponent implements OnInit {
 
   public ngOnInit(): void {
     this.profileForm = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
+      firstName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30),
+        Validators.pattern(standardFormRegex),
+      ]),
+      lastName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30),
+        Validators.pattern(standardFormRegex),
+      ]),
       username: new FormControl('', [Validators.required, Validators.email]),
     });
   }
