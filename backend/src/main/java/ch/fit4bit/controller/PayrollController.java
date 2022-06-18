@@ -21,8 +21,8 @@ import ch.fit4bit.service.PayrollService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class PayrollController {
 
-    private ModelMapper modelMapper;
-    private PayrollService payrollService;
+    private final ModelMapper modelMapper;
+    private final PayrollService payrollService;
 
     @Autowired
     public PayrollController(ModelMapper modelMapper, PayrollService payrollService) {
@@ -58,11 +58,11 @@ public class PayrollController {
                 payrollsDto.add(mapToDto(payroll));
             }
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(payrollsDto, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(payrollsDto, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            return new ResponseEntity<>(payrollsDto, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(payrollsDto, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(payrollsDto, HttpStatus.OK);
+        return new ResponseEntity(payrollsDto, HttpStatus.OK);
     }
 
     @PutMapping
@@ -74,8 +74,16 @@ public class PayrollController {
     @PutMapping("/submit/{id}")
     @PreAuthorize("hasAnyAuthority('ROLE_TRAINER')")
     public ResponseEntity<?> submit(@PathVariable Long id) {
-        payrollService.submit(id);
-        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+       try {
+            payrollService.submit(id);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity(HttpStatus.OK);
+
+
     }
 
     @PutMapping("/release/")

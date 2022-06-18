@@ -15,8 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import ch.fit4bit.filter.JwtRequestFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -48,27 +46,20 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests().antMatchers("/").permitAll()
-                .and().authorizeRequests().antMatchers( "/h2-console/**").permitAll();
+        httpSecurity
+                .authorizeRequests().antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/api/restart/**").permitAll().and()
+                .authorizeRequests().antMatchers("/h2-console/**").permitAll();
         httpSecurity.csrf().disable();
         httpSecurity.cors();
         httpSecurity.headers().frameOptions().disable();
 
-
         httpSecurity
-// dont authenticate this particular request
                 .authorizeRequests().antMatchers("/api/authenticate").permitAll()
-
                 .and().authorizeRequests().antMatchers("/").permitAll().
-// all other requests need to be authenticated
-        anyRequest().authenticated().and().
-// make sure we use stateless session; session won't be used to
-// store user's state.
-        exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+                anyRequest().authenticated().and().
+                exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-            httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-
-
-
+        httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }

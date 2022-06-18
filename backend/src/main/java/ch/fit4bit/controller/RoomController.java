@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import ch.fit4bit.dto.RoomDto;
 import ch.fit4bit.entity.Room;
 import ch.fit4bit.service.RoomService;
-
 import javax.validation.Valid;
 
 @RestController
@@ -41,7 +40,6 @@ public class RoomController {
         }
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
-
 
     @GetMapping
     public List<RoomDto> getAllRooms() {

@@ -25,11 +25,9 @@ export class PayrollService extends BaseHttpService<PayrollDto> {
   }
 
   public submitPayroll$(payroll: PayrollDto): Observable<any> {
-    const body = JSON.stringify(payroll);
     const headers = new HttpHeaders(HEADER);
     return this.httpClient.put(
       this.createBackendEndpoint() + '/submit/' + payroll.id,
-      body,
       {
         headers,
       }

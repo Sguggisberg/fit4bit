@@ -39,11 +39,8 @@ public class TrainingController {
 
     private final TrainingService trainingService;
     private final ModelMapper modelMapper;
-
     private final UserService userService;
-
     private final PayrollService payrollService;
-
 
     @Autowired
     public TrainingController(TrainingService trainingService, ModelMapper modelMapper, UserService userService, PayrollService payrollService) {
