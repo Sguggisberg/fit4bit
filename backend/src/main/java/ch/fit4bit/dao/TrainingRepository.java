@@ -15,7 +15,7 @@ import java.util.List;
 public interface TrainingRepository extends JpaRepository<Training, Long>{
 
     List<Training> findByUser(User user);
-    Training findByUserAndId(User user, Long id);
+
     List<Training> findByUserAndPayroll(User user, Payroll payroll);
 
 

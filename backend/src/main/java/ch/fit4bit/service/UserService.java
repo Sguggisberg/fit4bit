@@ -14,7 +14,7 @@ import ch.fit4bit.entity.User;
 @Service
 @Transactional
 public class UserService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     UserService(UserRepository userRepository) {

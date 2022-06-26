@@ -1,6 +1,5 @@
 package ch.fit4bit.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,11 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import ch.fit4bit.dto.TrainingTypDTO;
 import ch.fit4bit.entity.TrainingTyp;
@@ -34,21 +30,6 @@ public class TrainingTypController {
 	public TrainingTypController(TrainingTypService trainingTypService, ModelMapper modelMapper) {
 		this.trainingTypService = trainingTypService;
 		this.modelMapper = modelMapper;
-	}
-
-	@PostMapping
-	public ResponseEntity<?> create(@RequestParam(required = false, name = "file") MultipartFile file,
-			@RequestParam(name = "name") String name) {
-		TrainingTyp trainingTyp = new TrainingTyp();
-		trainingTyp.setName(name);
-		try {
-			if (file != null)
-				trainingTyp.setImage(file.getBytes());
-		} catch (IOException e) {
-			new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		trainingTypService.create(trainingTyp);
-		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
 	@GetMapping
